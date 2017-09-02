@@ -1,0 +1,11 @@
+*.user
+*.aeproperties
+.vs/
+*.tmp
+*.Generated.cs
+*.cachefile
+*.csvSettings
+*.sln.metaproj
+GBC2017/GBC2017/bin/
+GBC2017/GBC2017/obj/
+GBC2017/GBC2017Content/obj/
