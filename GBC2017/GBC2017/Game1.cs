@@ -56,7 +56,7 @@ namespace GBC2017
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-            //ScreenManager.Start(typeof(SomeScreen).FullName);
+			FlatRedBall.Screens.ScreenManager.Start(typeof(GBC2017.Screens.GameScreen));
 
             base.Initialize();
         }
