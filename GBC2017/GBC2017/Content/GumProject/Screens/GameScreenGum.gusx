@@ -8,4 +8,12 @@
     <Name>HorizonBoxInstance</Name>
     <BaseType>HorizonBox</BaseType>
   </Instance>
+  <Instance>
+    <Name>InfoBarInstance</Name>
+    <BaseType>InfoBar</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ButtonBarInstance</Name>
+    <BaseType>ButtonBar</BaseType>
+  </Instance>
 </ScreenSave>

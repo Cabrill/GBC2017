@@ -17,9 +17,37 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
+    <Name>Button</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>ButtonBar</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>HorizonBox</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
+  <ComponentReference>
+    <Name>InfoBar</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>infodisplays/CarbonDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>infodisplays/ConditionsDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>infodisplays/EnergyDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <StandardElementReference>
+    <Name>Circle</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
   <StandardElementReference>
     <Name>ColoredRectangle</Name>
     <ElementType>Standard</ElementType>
@@ -37,19 +65,15 @@
     <ElementType>Standard</ElementType>
   </StandardElementReference>
   <StandardElementReference>
+    <Name>Rectangle</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
     <Name>Sprite</Name>
     <ElementType>Standard</ElementType>
   </StandardElementReference>
   <StandardElementReference>
     <Name>Text</Name>
-    <ElementType>Standard</ElementType>
-  </StandardElementReference>
-  <StandardElementReference>
-    <Name>Circle</Name>
-    <ElementType>Standard</ElementType>
-  </StandardElementReference>
-  <StandardElementReference>
-    <Name>Rectangle</Name>
     <ElementType>Standard</ElementType>
   </StandardElementReference>
 </GumProjectSave>

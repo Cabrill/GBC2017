@@ -138,12 +138,18 @@
     <Compile Include="GumCore\VariableListSave.cs" />
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
+    <Compile Include="GumRuntimes\ButtonBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\InfoBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
@@ -236,9 +242,33 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\gumproject\components\button.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Button</Name>
+    </None>
+    <None Include="content\gumproject\components\buttonbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ButtonBar</Name>
+    </None>
     <None Include="content\gumproject\components\horizonbox.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>HorizonBox</Name>
+    </None>
+    <None Include="content\gumproject\components\infobar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>InfoBar</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\carbondisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CarbonDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\conditionsdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ConditionsDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\energydisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>EnergyDisplay</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -248,9 +278,33 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
+    <None Include="content\gumproject\gumcontent\battery.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>battery</Name>
+    </None>
+    <None Include="content\gumproject\gumcontent\cloudy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cloudy</Name>
+    </None>
     <None Include="content\gumproject\gumcontent\horizons\treeline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>treeline</Name>
+    </None>
+    <None Include="content\gumproject\gumcontent\images.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>images</Name>
+    </None>
+    <None Include="content\gumproject\gumcontent\temperature.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>temperature</Name>
+    </None>
+    <None Include="content\gumproject\gumcontent\water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>water</Name>
+    </None>
+    <None Include="content\gumproject\gumcontent\windsock.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>windsock</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
