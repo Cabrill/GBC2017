@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GumProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CustomProperties />
+  <Version>1</Version>
+  <DefaultCanvasWidth>800</DefaultCanvasWidth>
+  <DefaultCanvasHeight>600</DefaultCanvasHeight>
+  <ShowOutlines>true</ShowOutlines>
+  <RestrictToUnitValues>true</RestrictToUnitValues>
+  <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
+  <Guides />
+  <ScreenReference>
+    <Name>GameScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
+    <Name>MainMenuGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ComponentReference>
+    <Name>HorizonBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <StandardElementReference>
+    <Name>ColoredRectangle</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Component</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Container</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>NineSlice</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Sprite</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Text</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Circle</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+  <StandardElementReference>
+    <Name>Rectangle</Name>
+    <ElementType>Standard</ElementType>
+  </StandardElementReference>
+</GumProjectSave>
