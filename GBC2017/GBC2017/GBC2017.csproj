@@ -40,14 +40,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
-    <Compile Include="Entities\Enemy.cs" />
-    <Compile Include="Entities\Enemy.Generated.cs">
-      <DependentUpon>Enemy.cs</DependentUpon>
+    <Compile Include="Entities\Enemies\BasicAlien.cs" />
+    <Compile Include="Entities\Enemies\BasicAlien.Generated.cs">
+      <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Structure.cs" />
-    <Compile Include="Entities\Structure.Generated.cs">
-      <DependentUpon>Structure.cs</DependentUpon>
+    <Compile Include="Entities\Structures\Battery.cs" />
+    <Compile Include="Entities\Structures\Battery.Generated.cs">
+      <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\Home.cs" />
+    <Compile Include="Entities\Structures\Home.Generated.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Structures\LaserTurret.cs" />
+    <Compile Include="Entities\Structures\LaserTurret.Generated.cs">
+      <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Structures\SolarPanels.cs" />
+    <Compile Include="Entities\Structures\SolarPanels.Generated.cs">
+      <DependentUpon>SolarPanels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\BatteryFactory.Generated.cs" />
+    <Compile Include="Factories\HomeFactory.Generated.cs" />
+    <Compile Include="Factories\LaserTurretFactory.Generated.cs" />
+    <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
@@ -138,7 +154,7 @@
     <Compile Include="GumCore\VariableListSave.cs" />
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
-    <Compile Include="GumRuntimes\ButtonBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
@@ -150,10 +166,12 @@
     <Compile Include="GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
@@ -162,6 +180,10 @@
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\GameScreen.Generated.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\LevelSelectScreen.cs" />
+    <Compile Include="Screens\LevelSelectScreen.Generated.cs">
+      <DependentUpon>LevelSelectScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\LoadingScreen.Generated.cs">
@@ -242,13 +264,37 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\entities\enemies\basicalien\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\enemies\basicalien\greenalien.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>greenalien</Name>
+    </None>
+    <None Include="content\entities\structures\battery\battery_sprite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>battery_sprite</Name>
+    </None>
+    <None Include="content\entities\structures\laserturret\laser_turret_sprite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>laser_turret_sprite</Name>
+    </None>
+    <None Include="content\entities\structures\solarpanels\solar_sprite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>solar_sprite</Name>
+    </None>
+    <None Include="content\globalcontent\greenalien.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>greenalien</Name>
+    </None>
+    <None Include="content\gumproject\components\buildbar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildBar</Name>
+    </None>
     <None Include="content\gumproject\components\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Button</Name>
-    </None>
-    <None Include="content\gumproject\components\buttonbar.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>ButtonBar</Name>
     </None>
     <None Include="content\gumproject\components\horizonbox.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -269,6 +315,10 @@
     <None Include="content\gumproject\components\infodisplays\energydisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnergyDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\technologytree.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TechnologyTree</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -313,6 +363,10 @@
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\levelselectscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LevelSelectScreenGum</Name>
     </None>
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -13,15 +13,19 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>LevelSelectScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>MainMenuGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
-    <Name>Button</Name>
+    <Name>BuildBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>ButtonBar</Name>
+    <Name>Button</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -42,6 +46,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>infodisplays/EnergyDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>TechnologyTree</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

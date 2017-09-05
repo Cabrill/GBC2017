@@ -9,9 +9,9 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 
-namespace GBC2017.Entities
+namespace GBC2017.Entities.Structures
 {
-	public partial class Enemy
+	public partial class Battery
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).

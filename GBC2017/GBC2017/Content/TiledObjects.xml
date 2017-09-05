@@ -1,2 +1,7 @@
 <?xml version="1.0"?>
-<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="Battery" />
+  <objecttype name="Home" />
+  <objecttype name="LaserTurret" />
+  <objecttype name="SolarPanels" />
+</objecttypes>

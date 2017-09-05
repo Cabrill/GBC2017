@@ -13,7 +13,7 @@
     <BaseType>InfoBar</BaseType>
   </Instance>
   <Instance>
-    <Name>ButtonBarInstance</Name>
-    <BaseType>ButtonBar</BaseType>
+    <Name>BuildBarInstance</Name>
+    <BaseType>BuildBar</BaseType>
   </Instance>
 </ScreenSave>
