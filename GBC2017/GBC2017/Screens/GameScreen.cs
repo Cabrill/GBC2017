@@ -22,7 +22,8 @@ namespace GBC2017.Screens
 {
 	public partial class GameScreen
 	{
-	    private enum GameMode
+        #region Properties and Fields
+        private enum GameMode
 	    {
 	        Paused,
 	        Normal,
@@ -31,37 +32,22 @@ namespace GBC2017.Screens
 	    };
 
 	    private GameMode CurrentGameMode = GameMode.Normal;
+        #endregion
 
-	    private PositionedObjectList<SolarPanels> allSolarPanels;
-
-		void CustomInitialize()
+        #region Initialization
+        void CustomInitialize()
 		{
 		    FlatRedBallServices.IsWindowsCursorVisible = true;
 		    FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
             SetupCamera();
             PositionTiledMap();
-		    InitializeFactories();
 		    SetBuildButtonControls();
 		}
 
 	    private void SetBuildButtonControls()
 	    {
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
-	    }
-
-	    private void BuildBarInstanceOnSolarButtonClick(IWindow window)
-	    {
-	        CurrentGameMode = GameMode.Building;
-            var newPanel = SolarPanelsFactory.CreateNew();
-            newPanel.MoveToLayer(EntityLayer);
-	    }
-
-	    private void InitializeFactories()
-	    {
-	        allSolarPanels = new PositionedObjectList<SolarPanels>();
-
-            SolarPanelsFactory.Initialize(allSolarPanels, ContentManagerName);
 	    }
 
 	    private void SetupCamera()
@@ -77,9 +63,25 @@ namespace GBC2017.Screens
 
             //This positions the map between the info bar and build button bar
 	        justgrass.Position.Y = justgrass.Height / 1.85f;
-	    }
 
-		void CustomActivity(bool firstTimeCalled)
+            //Set the play area to match the tilemap size/position
+	        PlayAreaRectangle.Y = justgrass.Position.Y - justgrass.Height/2;
+	        PlayAreaRectangle.Height = justgrass.Height;
+	        PlayAreaRectangle.Width = justgrass.Width;
+	    }
+        #endregion
+
+        #region Button Click Events
+	    private void BuildBarInstanceOnSolarButtonClick(IWindow window)
+	    {
+	        CurrentGameMode = GameMode.Building;
+	        var newPanel = SolarPanelsFactory.CreateNew();
+	        newPanel.MoveToLayer(EntityLayer);
+	    }
+        #endregion
+
+        #region Activity
+        void CustomActivity(bool firstTimeCalled)
 		{
 		    HandleTouchActivity();
 
@@ -88,7 +90,7 @@ namespace GBC2017.Screens
 	    private void HandleTouchActivity()
 	    {
             //User just clicked/touched somewhere, and nothing is currently selected
-	        if (GuiManager.Cursor.PrimaryClick && GuiManager.Cursor.ObjectGrabbed == null)
+	        if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) && GuiManager.Cursor.ObjectGrabbed == null)
 	        {
 	            foreach (var panel in allSolarPanels)
 	            {
@@ -102,15 +104,22 @@ namespace GBC2017.Screens
 	        }
             else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
-	            GuiManager.Cursor.UpdateObjectGrabbedPosition();
-            }
+	            if (PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, EntityLayer))
+	            {
+	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
+	            }
+	        }
         }
 
-	    void CustomDestroy()
+        #endregion
+
+        #region Destroy
+        void CustomDestroy()
 		{
 
 
 		}
+        #endregion
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
