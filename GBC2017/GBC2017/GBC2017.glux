@@ -229,34 +229,9 @@
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\Enemies\BasicAlien</Name>
+      <Name>Entities\BaseEntities\BaseEnemy</Name>
       <NamedObjects>
         <NamedObjectSave>
-          <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>greenalien</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RightTexturePixel</Member>
-            <ValueAsFloat>193</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TopTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>512</ValueAsFloat>
-          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
@@ -265,6 +240,8 @@
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -279,8 +256,230 @@
           <SourceClassType>Circle</SourceClassType>
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <SetByDerived>true</SetByDerived>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BaseEntities\BaseStructure</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>-64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Entities\GraphicalElements\Checkmark</SourceClassType>
+          <InstanceName>CheckmarkInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>Entity</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Entities\GraphicalElements\XCancel</SourceClassType>
+          <InstanceName>XCancelInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Enemies\BasicAlien</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -346,18 +545,38 @@
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\Structures\Battery</Name>
+      <Name>Entities\GraphicalElements\Checkmark</Name>
       <NamedObjects>
         <NamedObjectSave>
-          <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>battery_sprite</ValueAsString>
-          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>0.25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>checkmark_x</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>256</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>256</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -370,12 +589,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>36</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>50</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -383,6 +602,230 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/GraphicalElements/Checkmark/checkmark_x.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\GraphicalElements\XCancel</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>checkmark_x</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>256</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>512</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>256</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/GraphicalElements/XCancel/checkmark_x.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Structures\Battery</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -439,7 +882,21 @@
           <Name>Z</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -454,20 +911,22 @@
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>32</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>32</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -475,6 +934,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -523,7 +983,21 @@
           <Name>Z</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -531,32 +1005,29 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>laser_turret_sprite</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>44</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>44</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -564,6 +1035,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -620,7 +1092,20 @@
           <Name>Z</Name>
           <Type>float</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -628,14 +1113,14 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>solar_sprite</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>0.1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>solar_sprite</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -643,6 +1128,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -654,7 +1140,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>60</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -662,6 +1148,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>

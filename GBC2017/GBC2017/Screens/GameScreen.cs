@@ -13,6 +13,7 @@ using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using FlatRedBall.Math;
+using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
 using Microsoft.Xna.Framework.Graphics;
@@ -104,10 +105,18 @@ namespace GBC2017.Screens
 	        }
             else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
-	            if (PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, EntityLayer))
+	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
+	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced &&
+	                                  PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, EntityLayer);
+
+                if (shouldAllowDrag)
 	            {
 	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
 	            }
+	        }
+            else if (!GuiManager.Cursor.PrimaryDown)
+	        {
+	            GuiManager.Cursor.ObjectGrabbed = null;
 	        }
         }
 

@@ -40,9 +40,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BaseEntities\BaseEnemy.cs" />
+    <Compile Include="Entities\BaseEntities\BaseEnemy.Generated.cs">
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BaseEntities\BaseStructure.cs" />
+    <Compile Include="Entities\BaseEntities\BaseStructure.Generated.cs">
+      <DependentUpon>BaseStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemies\BasicAlien.cs" />
     <Compile Include="Entities\Enemies\BasicAlien.Generated.cs">
       <DependentUpon>BasicAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
+    <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
+      <DependentUpon>Checkmark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GraphicalElements\XCancel.cs" />
+    <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
+      <DependentUpon>XCancel.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Structures\Battery.cs" />
     <Compile Include="Entities\Structures\Battery.Generated.cs">
@@ -271,6 +287,14 @@
     <None Include="content\entities\enemies\basicalien\greenalien.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>greenalien</Name>
+    </None>
+    <None Include="content\entities\graphicalelements\checkmark\checkmark_x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>checkmark_x</Name>
+    </None>
+    <None Include="content\entities\graphicalelements\xcancel\checkmark_x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>checkmark_x</Name>
     </None>
     <None Include="content\entities\structures\battery\battery_sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
