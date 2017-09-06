@@ -8,6 +8,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.Factories;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -26,11 +27,27 @@ namespace GBC2017.Entities.BaseEntities
 
 		private void CustomActivity()
 		{
-
-
+		    if (IsBeingPlaced == false)
+		    {
+		        PerformFiringActivity();
+		    }
 		}
 
-		private void CustomDestroy()
+	    private void PerformFiringActivity()
+	    {
+	        if (TimeManager.SecondsSince(LastFiredTime) > SecondsBetweenFiring)
+            {
+	            LastFiredTime = TimeManager.CurrentTime;
+	            FireWeapon();
+	        }
+        }
+
+	    public virtual void FireWeapon()
+	    {
+	        
+	    }
+
+	    private void CustomDestroy()
 		{
 
 

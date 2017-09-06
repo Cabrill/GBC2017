@@ -55,7 +55,6 @@ namespace GBC2017.Screens
 
 	    private void SetBaseEntityValues()
 	    {
-
 	        BaseEnemy.LeftSideSpawnX = justgrass.X;
 	        BaseEnemy.RightSideSpawnX = Camera.Main.OrthogonalWidth/2;
 	    }
@@ -103,10 +102,26 @@ namespace GBC2017.Screens
             #endif
 
             HandleTouchActivity();
-		    UpdateBuildingStatus();
+		    BuildingStatusActivity();
+		    ProjectileActivity();
 		}
 
-	    private void UpdateBuildingStatus()
+	    private void ProjectileActivity()
+	    {
+	        BasePlayerProjectile projectile;
+	        for (var i = PlayerProjectileList.Count; i > 0; i--)
+	        {
+	            projectile = PlayerProjectileList[i-1];
+
+	            //if (!PlayAreaRectangle.IsPointInside(ref PlayerProjectileList[i-1].AxisAlignedRectangleInstance.Position))
+                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            {
+	                PlayerProjectileList[i-1].Destroy();
+	            }
+	        }
+	    }
+
+	    private void BuildingStatusActivity()
 	    {
 	        if (CurrentGameMode == GameMode.Building)
 	        {

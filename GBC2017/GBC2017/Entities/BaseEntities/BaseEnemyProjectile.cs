@@ -8,11 +8,10 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
-using GBC2017.Factories;
 
-namespace GBC2017.Entities.Structures
+namespace GBC2017.Entities.BaseEntities
 {
-	public partial class LaserTurret
+	public partial class BaseEnemyProjectile
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -29,16 +28,9 @@ namespace GBC2017.Entities.Structures
 		{
 
 
-	    }
-        
-        public override void FireWeapon()
-	    {
-	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
+		}
 
-	        newProjectile.XVelocity = -200f;
-	    }
-
-    private void CustomDestroy()
+		private void CustomDestroy()
 		{
 
 

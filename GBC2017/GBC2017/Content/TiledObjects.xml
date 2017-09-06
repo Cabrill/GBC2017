@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <objecttype name="BasicAlien" />
+  <objecttype name="BasicAlien">
+    <property name="HealthRemaining" type="float" />
+    <property name="MaximumHealth" type="float" />
+  </objecttype>
+  <objecttype name="LaserTurretProjectile">
+    <property name="DamageInflicted" type="float" />
+  </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
