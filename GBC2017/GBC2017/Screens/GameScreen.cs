@@ -93,11 +93,11 @@ namespace GBC2017.Screens
             //User just clicked/touched somewhere, and nothing is currently selected
 	        if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) && GuiManager.Cursor.ObjectGrabbed == null)
 	        {
-	            foreach (var panel in allSolarPanels)
+	            foreach (var structure in AllStructuresList)
 	            {
-	                if (GuiManager.Cursor.IsOn3D(panel.SpriteInstance))
+	                if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
 	                {
-	                    GuiManager.Cursor.ObjectGrabbed = panel;
+	                    GuiManager.Cursor.ObjectGrabbed = structure;
 	                    break;
 	                }
 
@@ -112,7 +112,17 @@ namespace GBC2017.Screens
                 if (shouldAllowDrag)
 	            {
 	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
-	            }
+	                var newLocationIsValid = true;
+                    foreach (var structure in AllStructuresList)
+	                {
+	                    if (structure.IsBeingPlaced == false && structure.AxisAlignedRectangleInstance.CollideAgainst(objectAsStructure.AxisAlignedRectangleInstance))
+	                    {
+	                        newLocationIsValid = false;
+	                        break;
+	                    }
+	                }
+	                objectAsStructure.IsInValidLocation = newLocationIsValid;
+                }
 	        }
             else if (!GuiManager.Cursor.PrimaryDown)
 	        {

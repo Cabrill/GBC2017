@@ -9,6 +9,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
+using GBC2017.Entities.GraphicalElements;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -22,8 +23,23 @@ namespace GBC2017.Entities.BaseEntities
 		private void CustomInitialize()
 		{
             AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
-            
+            AfterIsInValidLocationSet += OnAfterIsInValidLocationSet;
 		}
+
+	    private void OnAfterIsInValidLocationSet(object sender, EventArgs eventArgs)
+	    {
+	        if (IsInValidLocation)
+	        {
+	            CurrentState = VariableState.ValidLocation;
+                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+	        }
+	        else
+	        {
+	            CurrentState = VariableState.InvalidLocation;
+                CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
+	        }
+
+	    }
 
 	    private void OnAfterIsBeingPlacedSet(object sender, EventArgs eventArgs)
 	    {
@@ -33,9 +49,11 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomActivity()
 		{
-		    if (CheckmarkInstance.WasClickedThisFrame(GuiManager.Cursor))
+		    if (CheckmarkInstance.CurrentState == Checkmark.VariableState.Enabled && 
+                CheckmarkInstance.WasClickedThisFrame(GuiManager.Cursor))
 		    {
 		        IsBeingPlaced = false;
+                CurrentState = VariableState.Built;
 		    }
 		    if (XCancelInstance.WasClickedThisFrame(GuiManager.Cursor))
 		    {

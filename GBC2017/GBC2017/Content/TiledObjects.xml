@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <objecttype name="Battery" />
-  <objecttype name="Home" />
-  <objecttype name="LaserTurret" />
-  <objecttype name="SolarPanels" />
+  <objecttype name="Battery">
+    <property name="IsBeingPlaced" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="Home">
+    <property name="IsBeingPlaced" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="LaserTurret">
+    <property name="IsBeingPlaced" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="SolarPanels">
+    <property name="IsBeingPlaced" type="bool" />
+  </objecttype>
 </objecttypes>
