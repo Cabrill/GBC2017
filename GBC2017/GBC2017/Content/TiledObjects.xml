@@ -6,6 +6,7 @@
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" />
+    <property name="Speed" type="float" default="100" />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" />

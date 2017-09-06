@@ -113,7 +113,6 @@ namespace GBC2017.Screens
 	        {
 	            projectile = PlayerProjectileList[i-1];
 
-	            //if (!PlayAreaRectangle.IsPointInside(ref PlayerProjectileList[i-1].AxisAlignedRectangleInstance.Position))
                 if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	            {
 	                PlayerProjectileList[i-1].Destroy();
