@@ -6,15 +6,15 @@
   <AnimationChain>
     <Name>Walk</Name>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
+      <RightCoordinate>524288</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
+      <BottomCoordinate>1054720</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -22,7 +22,7 @@
       <BottomCoordinate>515</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
@@ -30,7 +30,7 @@
       <BottomCoordinate>515</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -38,7 +38,7 @@
       <BottomCoordinate>515</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1280</RightCoordinate>
@@ -46,7 +46,7 @@
       <BottomCoordinate>515</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1280</LeftCoordinate>
       <RightCoordinate>1536</RightCoordinate>
@@ -57,7 +57,7 @@
   <AnimationChain>
     <Name>Run</Name>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -65,7 +65,7 @@
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -73,7 +73,7 @@
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
@@ -81,7 +81,7 @@
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -89,7 +89,7 @@
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1280</RightCoordinate>
@@ -97,7 +97,7 @@
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1280</LeftCoordinate>
       <RightCoordinate>1536</RightCoordinate>
@@ -108,7 +108,7 @@
   <AnimationChain>
     <Name>Hurt</Name>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -116,7 +116,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -124,7 +124,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
@@ -132,7 +132,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -140,7 +140,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -148,7 +148,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -159,7 +159,7 @@
   <AnimationChain>
     <Name>Death</Name>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -167,7 +167,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -175,7 +175,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
@@ -183,7 +183,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -191,7 +191,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1536</RightCoordinate>
@@ -199,7 +199,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1536</LeftCoordinate>
       <RightCoordinate>2048</RightCoordinate>
@@ -207,7 +207,7 @@
       <BottomCoordinate>1539</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -215,7 +215,7 @@
       <BottomCoordinate>2051</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -223,7 +223,7 @@
       <BottomCoordinate>2051</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
+      <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1536</RightCoordinate>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <objecttype name="BasicAlien" />
   <objecttype name="Battery">
     <property name="IsBeingPlaced" type="bool" default="true" />
   </objecttype>

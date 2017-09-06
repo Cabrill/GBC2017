@@ -38,7 +38,7 @@ namespace GBC2017.Entities.BaseEntities
             }
 
 
-                AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
+            AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
             AfterIsInValidLocationSet += OnAfterIsInValidLocationSet;
 		}
 

@@ -24,6 +24,8 @@ namespace GBC2017.Screens
             var newPanel = SolarPanelsFactory.CreateNew();
             newPanel.MoveToLayer(EntityLayer);
             FindValidLocationFor(newPanel);
+
+            //TODO:  message for player if no valid location found
         }
         #endregion
 
@@ -67,13 +69,16 @@ namespace GBC2017.Screens
                 structure.AxisAlignedRectangleInstance.Position.X = effectiveX;
                 structure.AxisAlignedRectangleInstance.Position.Y = effectiveY;
 
-                //If no structures block this location, then it's valid
+                //If no structures block this location, and no enemies block it, then it's valid
                 if (!baseStructures.Any(
                     os => os.AxisAlignedRectangleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
                 {
-                    structure.Position = structure.AxisAlignedRectangleInstance.Position;
-                    structure.IsInValidLocation = true;
-                    return true;
+                    if (AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
+                    {
+                        structure.Position = structure.AxisAlignedRectangleInstance.Position;
+                        structure.IsInValidLocation = true;
+                        return true;
+                    }
                 }
 
                 //Try the next highest X value

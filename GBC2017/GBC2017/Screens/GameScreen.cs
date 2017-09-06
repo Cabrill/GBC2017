@@ -18,6 +18,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 
 namespace GBC2017.Screens
@@ -39,26 +40,34 @@ namespace GBC2017.Screens
         #region Initialization
         void CustomInitialize()
 		{
-#if DESKTOP_GL
+            #if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
-#endif
+            #endif
+
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
 		    SetCollisionVisibility();
             SetupCamera();
             PositionTiledMap();
 		    SetBuildButtonControls();
+		    SetBaseEntityValues();
 		}
+
+	    private void SetBaseEntityValues()
+	    {
+	        BaseEnemy.LeftSideSpawnX = justgrass.X;
+	        BaseEnemy.RightSideSpawnX = Camera.Main.OrthogonalWidth/2;
+	    }
 
 	    private void SetCollisionVisibility()
 	    {
-#if DEBUG
+            #if DEBUG
 	        if (DebugVariables.ShowDebugShapes)
 	        {
 	            PlayAreaRectangle.Visible = true;
 	        }
 	        else
-#endif
+            #endif
 	        {
 	            PlayAreaRectangle.Visible = false;
 	        }
@@ -88,10 +97,66 @@ namespace GBC2017.Screens
 #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
-		    HandleTouchActivity();
+            #if DEBUG
+		    HandleDebugInput();
+            #endif
+
+            HandleTouchActivity();
+		    UpdateBuildingStatus();
 		}
 
-	    private void HandleTouchActivity()
+	    private void UpdateBuildingStatus()
+	    {
+	        if (CurrentGameMode == GameMode.Building)
+	        {
+	            var newStructure = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
+
+	            var newLocationIsValid = true;
+	            foreach (var otherStructure in AllStructuresList)
+	            {
+	                if (otherStructure.IsBeingPlaced == false &&
+	                    otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure
+                            .AxisAlignedRectangleInstance))
+	                {
+	                    newLocationIsValid = false;
+	                    break;
+	                }
+	            }
+	            if (newLocationIsValid)
+	            {
+	                foreach (var enemy in AllEnemiesList)
+	                {
+	                    if (enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance))
+	                    {
+	                        newLocationIsValid = false;
+	                        break;
+	                    }
+	                }
+	            }
+	            newStructure.IsInValidLocation = newLocationIsValid;
+	        }
+	    }
+
+#if DEBUG
+        private void HandleDebugInput()
+	    {
+	        if (InputManager.Keyboard.KeyPushed(Keys.X))
+	        {
+	            var newAlien = BasicAlienFactory.CreateNew();
+                newAlien.MoveToLayer(EntityLayer);
+                newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
+	        {
+	            var newAlien = BasicAlienFactory.CreateNew();
+	            newAlien.MoveToLayer(EntityLayer);
+                newAlien.PlaceOnLeftSide();
+	        }
+
+        }
+        #endif
+        private void HandleTouchActivity()
 	    {
             //User just clicked/touched somewhere, and nothing is currently selected
 	        if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) && GuiManager.Cursor.ObjectGrabbed == null)
@@ -115,16 +180,6 @@ namespace GBC2017.Screens
                 if (shouldAllowDrag)
 	            {
 	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
-	                var newLocationIsValid = true;
-                    foreach (var structure in AllStructuresList)
-	                {
-	                    if (structure.IsBeingPlaced == false && structure.AxisAlignedRectangleInstance.CollideAgainst(objectAsStructure.AxisAlignedRectangleInstance))
-	                    {
-	                        newLocationIsValid = false;
-	                        break;
-	                    }
-	                }
-	                objectAsStructure.IsInValidLocation = newLocationIsValid;
                 }
 	        }
             else if (!GuiManager.Cursor.PrimaryDown)
