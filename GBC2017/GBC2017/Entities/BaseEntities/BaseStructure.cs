@@ -22,7 +22,23 @@ namespace GBC2017.Entities.BaseEntities
         /// </summary>
 		private void CustomInitialize()
 		{
-            AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
+#if DEBUG
+		    if (DebugVariables.ShowDebugShapes)
+		    {
+		        AxisAlignedRectangleInstance.Visible = true;
+		        CheckmarkInstance.AxisAlignedRectangleInstance.Visible = true;
+		        XCancelInstance.AxisAlignedRectangleInstance.Visible = true;
+		    }
+		    else
+#endif
+            {
+                AxisAlignedRectangleInstance.Visible = false;
+                CheckmarkInstance.AxisAlignedRectangleInstance.Visible = false;
+		        XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
+            }
+
+
+                AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
             AfterIsInValidLocationSet += OnAfterIsInValidLocationSet;
 		}
 

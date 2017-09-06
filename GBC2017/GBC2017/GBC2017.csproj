@@ -48,6 +48,10 @@
     <Compile Include="Entities\BaseEntities\BaseStructure.Generated.cs">
       <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DebugVariables.cs" />
+    <Compile Include="Entities\DebugVariables.Generated.cs">
+      <DependentUpon>debugvariables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemies\BasicAlien.cs" />
     <Compile Include="Entities\Enemies\BasicAlien.Generated.cs">
       <DependentUpon>BasicAlien.cs</DependentUpon>

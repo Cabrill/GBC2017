@@ -13,6 +13,7 @@ using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using FlatRedBall.Math;
+using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
@@ -38,13 +39,30 @@ namespace GBC2017.Screens
         #region Initialization
         void CustomInitialize()
 		{
-		    FlatRedBallServices.IsWindowsCursorVisible = true;
-		    FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+#if DESKTOP_GL
+            FlatRedBallServices.IsWindowsCursorVisible = true;
+#endif
+            FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
+		    SetCollisionVisibility();
             SetupCamera();
             PositionTiledMap();
 		    SetBuildButtonControls();
 		}
+
+	    private void SetCollisionVisibility()
+	    {
+#if DEBUG
+	        if (DebugVariables.ShowDebugShapes)
+	        {
+	            PlayAreaRectangle.Visible = true;
+	        }
+	        else
+#endif
+	        {
+	            PlayAreaRectangle.Visible = false;
+	        }
+        }
 
 	    private void SetupCamera()
 	    {
@@ -65,9 +83,9 @@ namespace GBC2017.Screens
 	        PlayAreaRectangle.Height = justgrass.Height;
 	        PlayAreaRectangle.Width = justgrass.Width;
 	    }
-        #endregion
+#endregion
 
-        #region Activity
+#region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
 		    HandleTouchActivity();
@@ -115,15 +133,15 @@ namespace GBC2017.Screens
 	        }
         }
 
-        #endregion
+#endregion
 
-        #region Destroy
+#region Destroy
         void CustomDestroy()
 		{
 
 
 		}
-        #endregion
+#endregion
 
         static void CustomLoadStaticContent(string contentManagerName)
         {

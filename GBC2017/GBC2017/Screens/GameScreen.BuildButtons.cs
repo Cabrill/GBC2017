@@ -32,7 +32,8 @@ namespace GBC2017.Screens
         /// <summary>
         /// Starts in the center, and circles outward looking for a valid location for the building
         /// </summary>
-        /// <param name="structure"></param>
+        /// <param name="structure">The structure to be placed</param>
+        /// <returns>Whether a valid location was found</returns>
         private bool FindValidLocationFor(BaseStructure structure)
         {
             var otherStructures = AllStructuresList.Where(s => s.IsBeingPlaced == false);
@@ -124,7 +125,7 @@ namespace GBC2017.Screens
                     var proposedNegativeY = -(maxYCounter+1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedY) == false ||
+                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedY) == false &&
                         PlayAreaRectangle.IsPointOnOrInside(0, proposedNegativeY) == false)
                     {
                         maxYCounter++;
