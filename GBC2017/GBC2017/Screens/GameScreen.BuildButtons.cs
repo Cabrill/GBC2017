@@ -25,6 +25,7 @@ namespace GBC2017.Screens
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
             
             //Combat build buttons
+            BuildBarInstance.LaserTurretButtonClick += BuildBarInstanceOnLaserTurretButtonClick;
 
             //Utility build buttons
         }
@@ -48,14 +49,13 @@ namespace GBC2017.Screens
 
         #endregion
 
-        #region Build structure buttons
+        #region Energy structure buttons
         private void BuildBarInstanceOnSolarButtonClick(IWindow window)
         {
             CurrentGameMode = GameMode.Building;
 
-            if (!AllStructuresList.Any(structure => structure.IsBeingPlaced && structure is SolarPanels))
+            if (ShouldCreateNewBuildRequest<SolarPanels>())
             {
-
                 var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newPanel);
 
@@ -64,7 +64,49 @@ namespace GBC2017.Screens
         }
         #endregion
 
+        #region Combat structure buttons
+
+        private void BuildBarInstanceOnLaserTurretButtonClick(IWindow window)
+        {
+            CurrentGameMode = GameMode.Building;
+
+            if (ShouldCreateNewBuildRequest<LaserTurret>())
+            {
+                var newTurret = LaserTurretFactory.CreateNew(EntityLayer);
+                FindValidLocationFor(newTurret);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        #endregion
+
         #region Helper Methods
+
+        /// <summary>
+        /// Checks to see if the user is already building something, and if it's a different type than what is being requested
+        /// we cancel that request.  If it's the same type as being requested, we keep the existing build request.
+        /// </summary>
+        /// <typeparam name="TStructure">Structure type of new request</typeparam>
+        /// <returns>If the caller should create a new build command</returns>
+        private bool ShouldCreateNewBuildRequest<TStructure>()
+        {
+            var existingBuildCommand = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
+
+            if (existingBuildCommand == null)
+            {
+                return true;
+            }
+            else if (existingBuildCommand is TStructure)
+            {
+                return false;
+            }
+            else
+            {
+                existingBuildCommand.Destroy();
+                return true;
+            }
+        }
 
         /// <summary>
         /// Starts in the center, and circles outward looking for a valid location for the building

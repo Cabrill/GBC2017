@@ -249,6 +249,28 @@
           <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenFiring</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyCostToFire</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -1655,6 +1677,7 @@
           </Properties>
           <Name>AttackRange</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -1666,6 +1689,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -1677,6 +1701,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -1688,6 +1713,31 @@
           </Properties>
           <Name>CarbonBuildCost</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">300</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenFiring</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyCostToFire</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -1701,7 +1751,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>laser_turret_sprite</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>

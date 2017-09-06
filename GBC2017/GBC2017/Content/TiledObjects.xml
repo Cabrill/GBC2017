@@ -10,10 +10,12 @@
     <property name="CarbonBuildCost" type="int" />
   </objecttype>
   <objecttype name="LaserTurret">
-    <property name="AttackRange" type="float" />
-    <property name="AttackDamage" type="float" />
-    <property name="EnergyBuildCost" type="int" />
-    <property name="CarbonBuildCost" type="int" />
+    <property name="AttackRange" type="float" default="100" />
+    <property name="AttackDamage" type="float" default="3" />
+    <property name="EnergyBuildCost" type="int" default="100" />
+    <property name="CarbonBuildCost" type="int" default="300" />
+    <property name="SecondsBetweenFiring" type="float" default="0.5" />
+    <property name="EnergyCostToFire" type="float" default="10" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" />
