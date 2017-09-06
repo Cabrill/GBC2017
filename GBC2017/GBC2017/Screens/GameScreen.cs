@@ -46,11 +46,6 @@ namespace GBC2017.Screens
 		    SetBuildButtonControls();
 		}
 
-	    private void SetBuildButtonControls()
-	    {
-            BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
-	    }
-
 	    private void SetupCamera()
 	    {
             Camera.Main.OrthogonalWidth = 2560;
@@ -72,20 +67,10 @@ namespace GBC2017.Screens
 	    }
         #endregion
 
-        #region Button Click Events
-	    private void BuildBarInstanceOnSolarButtonClick(IWindow window)
-	    {
-	        CurrentGameMode = GameMode.Building;
-	        var newPanel = SolarPanelsFactory.CreateNew();
-	        newPanel.MoveToLayer(EntityLayer);
-	    }
-        #endregion
-
         #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
 		    HandleTouchActivity();
-
 		}
 
 	    private void HandleTouchActivity()

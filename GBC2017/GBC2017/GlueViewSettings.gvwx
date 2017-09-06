@@ -113,6 +113,34 @@
       </CameraSave>
       <ElementName>Entities\BaseEntities\BaseStructure</ElementName>
     </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Enemies\BasicAlien</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\BaseEntities\BaseEnemy</ElementName>
+    </ElementCameraSave>
   </ElementCameraSaves>
   <CollapsedPlugins />
 </GlueViewSettings>

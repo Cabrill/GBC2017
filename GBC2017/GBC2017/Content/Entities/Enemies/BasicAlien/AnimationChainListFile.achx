@@ -104,14 +104,6 @@
       <TopCoordinate>512</TopCoordinate>
       <BottomCoordinate>1027</BottomCoordinate>
     </Frame>
-    <Frame>
-      <TextureName>../../../../Entities/Enemies/greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
-    </Frame>
   </AnimationChain>
   <AnimationChain>
     <Name>Hurt</Name>
