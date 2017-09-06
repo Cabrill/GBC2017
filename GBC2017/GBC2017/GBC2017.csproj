@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BaseEntities\BaseCombatStructure.cs" />
+    <Compile Include="Entities\BaseEntities\BaseCombatStructure.Generated.cs">
+      <DependentUpon>BaseCombatStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemy.cs" />
     <Compile Include="Entities\BaseEntities\BaseEnemy.Event.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
@@ -49,6 +53,10 @@
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BaseEntities\BaseEnergyGenerator.cs" />
+    <Compile Include="Entities\BaseEntities\BaseEnergyGenerator.Generated.cs">
+      <DependentUpon>BaseEnergyGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseStructure.cs" />
     <Compile Include="Entities\BaseEntities\BaseStructure.Event.cs">

@@ -137,7 +137,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SpriteInstance.Texture Height Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -161,7 +161,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SpriteInstance.Texture Width Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

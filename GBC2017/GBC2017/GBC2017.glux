@@ -172,6 +172,140 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AttackRange</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AttackDamage</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BaseEntities\BaseCombatStructure</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
       <StateCategoryList>
         <StateSaveCategory>
           <States>
@@ -381,6 +515,129 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyPerSecond</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BaseEntities\BaseEnergyGenerator</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
       <States>
         <StateSave>
           <InstructionSaves>
@@ -481,19 +738,6 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsBeingPlaced</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
-          <SetByDerived>true</SetByDerived>
-          <CreatesEvent>true</CreatesEvent>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
           <Name>IsValidLocation</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
@@ -537,6 +781,44 @@
           <DefaultValue xsi:type="xsd:int">4</DefaultValue>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>ColorOperation</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>CreatesProperties</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>IsBeingPlaced</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -622,14 +904,13 @@
       </NamedObjects>
       <Events>
         <EventResponseSave>
-          <EventName>AfterIsBeingPlacedSet</EventName>
-          <SourceVariable>IsBeingPlaced</SourceVariable>
-          <BeforeOrAfter>After</BeforeOrAfter>
-          <DelegateType />
-        </EventResponseSave>
-        <EventResponseSave>
           <EventName>AfterIsValidLocationSet</EventName>
           <SourceVariable>IsValidLocation</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+        <EventResponseSave>
+          <EventName>AfterIsBeingPlacedSet</EventName>
+          <SourceVariable>IsBeingPlaced</SourceVariable>
           <BeforeOrAfter>After</BeforeOrAfter>
         </EventResponseSave>
       </Events>
@@ -758,14 +1039,14 @@
             <ValueAsFloat>0.15</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>string</Type>
-            <Member>CurrentChainName</Member>
-            <ValueAsString>Run</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>AnimationChainList</Type>
             <Member>AnimationChains</Member>
             <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Run</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -1141,14 +1422,23 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
+              <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsBeingPlaced</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
           <DefinedByBase>true</DefinedByBase>
-          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
@@ -1250,14 +1540,23 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
+              <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsBeingPlaced</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
           <DefinedByBase>true</DefinedByBase>
-          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
@@ -1351,17 +1650,48 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
+              <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsBeingPlaced</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <Name>AttackRange</Name>
+          <Type>float</Type>
           <DefinedByBase>true</DefinedByBase>
-          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AttackDamage</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
-      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
+      <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1460,16 +1790,37 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
+              <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsBeingPlaced</Name>
-          <Type>bool</Type>
+          <Name>EnergyBuildCost</Name>
+          <Type>int</Type>
           <DefinedByBase>true</DefinedByBase>
-          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CarbonBuildCost</Name>
+          <Type>int</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyPerSecond</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
-      <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
+      <BaseEntity>Entities\BaseEntities\BaseEnergyGenerator</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

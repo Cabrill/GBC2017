@@ -2,15 +2,22 @@
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="BasicAlien" />
   <objecttype name="Battery">
-    <property name="IsBeingPlaced" type="bool" default="true" />
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
   </objecttype>
   <objecttype name="Home">
-    <property name="IsBeingPlaced" type="bool" default="true" />
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
   </objecttype>
   <objecttype name="LaserTurret">
-    <property name="IsBeingPlaced" type="bool" default="true" />
+    <property name="AttackRange" type="float" />
+    <property name="AttackDamage" type="float" />
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
   </objecttype>
   <objecttype name="SolarPanels">
-    <property name="IsBeingPlaced" type="bool" />
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
+    <property name="EnergyPerSecond" type="float" />
   </objecttype>
 </objecttypes>

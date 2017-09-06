@@ -8,6 +8,7 @@ using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
+using GBC2017.GumRuntimes;
 
 namespace GBC2017.Screens
 {
@@ -15,10 +16,39 @@ namespace GBC2017.Screens
     {
         private void SetBuildButtonControls()
         {
+            //Build category buttons
+            BuildBarInstance.EnergyStructureButtonClick += BuildBarInstanceOnEnergyStructureButtonClick;
+            BuildBarInstance.CombatStructureButtonClick += BuildBarInstanceOnCombatStructureButtonClick;
+            BuildBarInstance.UtilityStructureButtonClick += BuildBarInstanceOnUtilityStructureButtonClick;
+
+            //Energy build buttons
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
+            
+            //Combat build buttons
+
+            //Utility build buttons
         }
 
-        #region Button Click Events
+        #region Build category buttons
+
+        private void BuildBarInstanceOnEnergyStructureButtonClick(IWindow window)
+        {
+            BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildEnergy ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildEnergy;
+        }
+
+        private void BuildBarInstanceOnCombatStructureButtonClick(IWindow window)
+        {
+            BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildCombat ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildCombat;
+        }
+
+        private void BuildBarInstanceOnUtilityStructureButtonClick(IWindow window)
+        {
+            BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildUtility ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildUtility;
+        }
+
+        #endregion
+
+        #region Build structure buttons
         private void BuildBarInstanceOnSolarButtonClick(IWindow window)
         {
             CurrentGameMode = GameMode.Building;
