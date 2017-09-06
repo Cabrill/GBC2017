@@ -37,31 +37,7 @@ namespace GBC2017.Entities.BaseEntities
 		        XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
             }
 
-
-            AfterIsBeingPlacedSet += OnAfterIsBeingPlacedSet;
-            AfterIsInValidLocationSet += OnAfterIsInValidLocationSet;
 		}
-
-	    private void OnAfterIsInValidLocationSet(object sender, EventArgs eventArgs)
-	    {
-	        if (IsInValidLocation)
-	        {
-	            CurrentState = VariableState.ValidLocation;
-                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
-	        }
-	        else
-	        {
-	            CurrentState = VariableState.InvalidLocation;
-                CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
-	        }
-
-	    }
-
-	    private void OnAfterIsBeingPlacedSet(object sender, EventArgs eventArgs)
-	    {
-	        CheckmarkInstance.Visible = IsBeingPlaced;
-	        XCancelInstance.Visible = IsBeingPlaced;
-	    }
 
 	    private void CustomActivity()
 		{

@@ -494,7 +494,7 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsInValidLocation</Name>
+          <Name>IsValidLocation</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <CreatesEvent>true</CreatesEvent>
@@ -620,6 +620,19 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <Events>
+        <EventResponseSave>
+          <EventName>AfterIsBeingPlacedSet</EventName>
+          <SourceVariable>IsBeingPlaced</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+        <EventResponseSave>
+          <EventName>AfterIsValidLocationSet</EventName>
+          <SourceVariable>IsValidLocation</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+        </EventResponseSave>
+      </Events>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>

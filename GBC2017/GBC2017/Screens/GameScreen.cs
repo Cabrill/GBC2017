@@ -55,6 +55,7 @@ namespace GBC2017.Screens
 
 	    private void SetBaseEntityValues()
 	    {
+
 	        BaseEnemy.LeftSideSpawnX = justgrass.X;
 	        BaseEnemy.RightSideSpawnX = Camera.Main.OrthogonalWidth/2;
 	    }
@@ -111,33 +112,28 @@ namespace GBC2017.Screens
 	        {
 	            var newStructure = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
 
-	            var newLocationIsValid = true;
-	            foreach (var otherStructure in AllStructuresList)
+	            if (newStructure == null)
 	            {
-	                if (otherStructure.IsBeingPlaced == false &&
-	                    otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure
-                            .AxisAlignedRectangleInstance))
-	                {
-	                    newLocationIsValid = false;
-	                    break;
-	                }
+	                CurrentGameMode = GameMode.Normal;
 	            }
-	            if (newLocationIsValid)
-	            {
-	                foreach (var enemy in AllEnemiesList)
+	            else
+                {
+	                var newLocationIsValid = AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
+                    !otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance));
+
+	                if (newLocationIsValid)
 	                {
-	                    if (enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance))
+	                    if (AllEnemiesList.Any(enemy => enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance)))
 	                    {
 	                        newLocationIsValid = false;
-	                        break;
 	                    }
 	                }
+	                newStructure.IsValidLocation = newLocationIsValid;
 	            }
-	            newStructure.IsInValidLocation = newLocationIsValid;
-	        }
+            }
 	    }
 
-#if DEBUG
+        #if DEBUG
         private void HandleDebugInput()
 	    {
 	        if (InputManager.Keyboard.KeyPushed(Keys.X))

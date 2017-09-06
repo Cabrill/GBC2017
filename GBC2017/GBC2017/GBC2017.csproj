@@ -51,7 +51,13 @@
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseStructure.cs" />
+    <Compile Include="Entities\BaseEntities\BaseStructure.Event.cs">
+      <DependentUpon>BaseStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BaseStructure.Generated.cs">
+      <DependentUpon>BaseStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BaseEntities\BaseStructure.Generated.Event.cs">
       <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\DebugVariables.cs" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FlatRedBall;
 using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Structures;
 using GBC2017.Factories;
 
 namespace GBC2017.Screens
@@ -21,11 +22,16 @@ namespace GBC2017.Screens
         private void BuildBarInstanceOnSolarButtonClick(IWindow window)
         {
             CurrentGameMode = GameMode.Building;
-            var newPanel = SolarPanelsFactory.CreateNew();
-            newPanel.MoveToLayer(EntityLayer);
-            FindValidLocationFor(newPanel);
 
-            //TODO:  message for player if no valid location found
+            if (!AllStructuresList.Any(structure => structure.IsBeingPlaced && structure is SolarPanels))
+            {
+
+                var newPanel = SolarPanelsFactory.CreateNew();
+                newPanel.MoveToLayer(EntityLayer);
+                FindValidLocationFor(newPanel);
+
+                //TODO:  message for player if no valid location found
+            }
         }
         #endregion
 
@@ -44,7 +50,7 @@ namespace GBC2017.Screens
             //Can't conflict if there are no other buildings
             if (baseStructures.Any() == false)
             {
-                structure.IsInValidLocation = true;
+                structure.IsValidLocation = true;
                 return true;
             }
 
@@ -73,10 +79,10 @@ namespace GBC2017.Screens
                 if (!baseStructures.Any(
                     os => os.AxisAlignedRectangleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
                 {
-                    if (AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
+                    if (!AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
                     {
                         structure.Position = structure.AxisAlignedRectangleInstance.Position;
-                        structure.IsInValidLocation = true;
+                        structure.IsValidLocation = true;
                         return true;
                     }
                 }

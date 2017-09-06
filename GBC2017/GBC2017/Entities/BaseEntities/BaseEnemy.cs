@@ -23,9 +23,18 @@ namespace GBC2017.Entities.BaseEntities
         /// </summary>
 		private void CustomInitialize()
 		{
+#if DEBUG
+		    if (DebugVariables.ShowDebugShapes)
+		    {
+		        CircleInstance.Visible = true;
+		    }
+		    else
+#endif
+		    {
+		        CircleInstance.Visible = false;
+		    }
 
-
-		}
+        }
 
 		private void CustomActivity()
 		{
