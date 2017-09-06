@@ -26,8 +26,7 @@ namespace GBC2017.Screens
             if (!AllStructuresList.Any(structure => structure.IsBeingPlaced && structure is SolarPanels))
             {
 
-                var newPanel = SolarPanelsFactory.CreateNew();
-                newPanel.MoveToLayer(EntityLayer);
+                var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newPanel);
 
                 //TODO:  message for player if no valid location found
@@ -136,8 +135,8 @@ namespace GBC2017.Screens
                     var proposedNegativeY = -(maxYCounter+1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedY) == false &&
-                        PlayAreaRectangle.IsPointOnOrInside(0, proposedNegativeY) == false)
+                    if (!(PlayAreaRectangle.IsPointOnOrInside(0, proposedY) == false ||
+                        PlayAreaRectangle.IsPointOnOrInside(0, proposedNegativeY) == false))
                     {
                         maxYCounter++;
                     }

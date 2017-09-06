@@ -138,15 +138,13 @@ namespace GBC2017.Screens
 	    {
 	        if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew();
-                newAlien.MoveToLayer(EntityLayer);
+	            var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew();
-	            newAlien.MoveToLayer(EntityLayer);
+	            var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                 newAlien.PlaceOnLeftSide();
 	        }
 
