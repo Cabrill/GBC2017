@@ -64,8 +64,11 @@ namespace GBC2017.Entities.BaseEntities
 	        else
 	        {
 	            CurrentActionState = Action.Hurt;
-	            storedVelocity = Velocity;
-                Velocity = Vector3.Zero;
+	            if (Velocity != Vector3.Zero)
+	            {
+	                storedVelocity = Velocity;
+	                Velocity = Vector3.Zero;
+	            }
 	        }
 	    }
 
