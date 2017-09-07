@@ -3,10 +3,10 @@
   <objecttype name="BasicAlien">
     <property name="HealthRemaining" type="float" />
     <property name="MaximumHealth" type="float" />
+    <property name="Speed" type="float" default="125" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
-    <property name="DamageInflicted" type="float" />
-    <property name="Speed" type="float" default="100" />
+    <property name="DamageInflicted" type="float" default="5" />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" />
@@ -17,12 +17,13 @@
     <property name="CarbonBuildCost" type="int" />
   </objecttype>
   <objecttype name="LaserTurret">
-    <property name="AttackRange" type="float" default="100" />
     <property name="AttackDamage" type="float" default="3" />
     <property name="EnergyBuildCost" type="int" default="100" />
     <property name="CarbonBuildCost" type="int" default="300" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
     <property name="EnergyCostToFire" type="float" default="10" />
+    <property name="RangeRadius" type="float" default="400" />
+    <property name="ProjectileSpeed" type="float" default="300" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" />

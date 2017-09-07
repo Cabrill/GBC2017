@@ -232,17 +232,6 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>AttackRange</Name>
-          <Type>float</Type>
-          <SetByDerived>true</SetByDerived>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
           <SetByDerived>true</SetByDerived>
@@ -304,6 +293,31 @@
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">0</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangeRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <SetByDerived>true</SetByDerived>
+          <SourceObject>RangeCircleInstance</SourceObject>
+          <SourceObjectProperty>Radius</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -346,6 +360,32 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>200</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>RangeCircleInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn />
         </NamedObjectSave>
       </NamedObjects>
       <Is2D>true</Is2D>
@@ -524,6 +564,17 @@
           <Type>float</Type>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -573,14 +624,14 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>shadow</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -671,7 +722,6 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
-          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity />
@@ -681,14 +731,14 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>&lt;NONE&gt;</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -728,7 +778,6 @@
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -750,14 +799,14 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>shadow</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -992,7 +1041,6 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
-          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity />
@@ -1033,40 +1081,6 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>32</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>32</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <SetByDerived>true</SetByDerived>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <VariablesToReset>
-            <string>X</string>
-            <string>Y</string>
-            <string>Z</string>
-            <string>XVelocity</string>
-            <string>YVelocity</string>
-            <string>ZVelocity</string>
-            <string>RotationX</string>
-            <string>RotationY</string>
-            <string>RotationZ</string>
-            <string>RotationXVelocity</string>
-            <string>RotationYVelocity</string>
-            <string>RotationZVelocity</string>
-          </VariablesToReset>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
@@ -1094,6 +1108,34 @@
             <string>Alpha</string>
             <string>AlphaRate</string>
           </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>LimeGreen</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -1495,6 +1537,18 @@
           <Type>float</Type>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">125</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -1597,13 +1651,33 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <Member>X</Member>
+            <ValueAsFloat>-5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>shadow</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>35</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -1614,26 +1688,6 @@
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.3</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>-35</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>35</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>-5</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -1981,18 +2035,7 @@
           </Properties>
           <Name>DamageInflicted</Name>
           <Type>float</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Speed</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2002,6 +2045,11 @@
       <Name>Entities\Projectiles\LaserTurretProjectile</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Y</Member>
@@ -2021,11 +2069,6 @@
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>true</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -2053,6 +2096,21 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>shadow</ValueAsString>
@@ -2073,29 +2131,39 @@
             <ValueAsFloat>15</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>7</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>255</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>0.4</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>-25</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>0.3</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -2126,13 +2194,18 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>5</ValueAsFloat>
+            <Member>Radius</Member>
+            <ValueAsFloat>8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>20</ValueAsFloat>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>LimeGreen</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -2142,26 +2215,12 @@
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <DefinedByBase>true</DefinedByBase>
-          <VariablesToReset>
-            <string>X</string>
-            <string>Y</string>
-            <string>Z</string>
-            <string>XVelocity</string>
-            <string>YVelocity</string>
-            <string>ZVelocity</string>
-            <string>RotationX</string>
-            <string>RotationY</string>
-            <string>RotationZ</string>
-            <string>RotationXVelocity</string>
-            <string>RotationYVelocity</string>
-            <string>RotationZVelocity</string>
-          </VariablesToReset>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2455,18 +2514,6 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>AttackRange</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">3</DefaultValue>
@@ -2520,6 +2567,30 @@
           <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangeRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -2529,14 +2600,14 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>0.35</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>laser_turret_sprite</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>

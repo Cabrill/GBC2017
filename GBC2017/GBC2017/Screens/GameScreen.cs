@@ -55,6 +55,8 @@ namespace GBC2017.Screens
 
 	    private void SetBaseEntityValues()
 	    {
+	        BaseCombatStructure.PotentialTargetList = AllEnemiesList;
+
 	        BaseEnemy.LeftSideSpawnX = justgrass.X;
 	        BaseEnemy.RightSideSpawnX = Camera.Main.OrthogonalWidth/2;
 	    }
@@ -115,8 +117,18 @@ namespace GBC2017.Screens
 
                 if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	            {
-	                PlayerProjectileList[i-1].Destroy();
+	                projectile.Destroy();
 	            }
+                else
+                {
+                    for (var e = AllEnemiesList.Count; e > 0; e--)
+                    {
+                        if (!projectile.CircleInstance.CollideAgainst(AllEnemiesList[e - 1].CircleInstance)) continue;
+
+                        AllEnemiesList[e-1].GetHitBy(projectile);
+                        projectile.Destroy();
+                    }
+                }
 	        }
 	    }
 

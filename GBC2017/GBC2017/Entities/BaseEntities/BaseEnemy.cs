@@ -42,7 +42,38 @@ namespace GBC2017.Entities.BaseEntities
 
 		}
 
-		private void CustomDestroy()
+	    public void GetHitBy(BasePlayerProjectile projectile)
+	    {
+	        HealthRemaining -= projectile.DamageInflicted;
+
+	        if (HealthRemaining <= 0)
+	        {
+	            PerformDeath();
+	        }
+	    }
+
+	    private void PerformDeath()
+	    {
+	        
+	    }
+
+	    public void PlaceOnLeftSide()
+	    {
+	        CurrentDirectionState = Direction.MovingRight;
+	        CurrentActionState = Action.Running;
+	        XVelocity = this.Speed;
+	        X = LeftSideSpawnX;
+	    }
+
+	    public void PlaceOnRightSide()
+	    {
+	        CurrentDirectionState = Direction.MovingLeft;
+	        CurrentActionState = Action.Running;
+	        XVelocity = -this.Speed;
+	        X = RightSideSpawnX;
+	    }
+
+        private void CustomDestroy()
 		{
 
 
@@ -54,20 +85,6 @@ namespace GBC2017.Entities.BaseEntities
 
         }
 
-	    public void PlaceOnLeftSide()
-	    {
-	        CurrentDirectionState = Direction.MovingRight;
-	        CurrentActionState = Action.Running;
-	        XVelocity = 50f;
-	        X = LeftSideSpawnX;
-	    }
 
-	    public void PlaceOnRightSide()
-	    {
-	        CurrentDirectionState = Direction.MovingLeft;
-            CurrentActionState = Action.Running;
-	        XVelocity = -50f;
-	        X = RightSideSpawnX;
-	    }
 	}
 }
