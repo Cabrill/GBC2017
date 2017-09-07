@@ -2,7 +2,7 @@
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="BasicAlien">
     <property name="HealthRemaining" type="float" />
-    <property name="MaximumHealth" type="float" />
+    <property name="MaximumHealth" type="float" default="30" />
     <property name="Speed" type="float" default="125" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
@@ -11,10 +11,14 @@
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
   </objecttype>
   <objecttype name="Home">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
   </objecttype>
   <objecttype name="LaserTurret">
     <property name="AttackDamage" type="float" default="3" />
@@ -24,10 +28,14 @@
     <property name="EnergyCostToFire" type="float" default="10" />
     <property name="RangeRadius" type="float" default="400" />
     <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
     <property name="EnergyPerSecond" type="float" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
   </objecttype>
 </objecttypes>

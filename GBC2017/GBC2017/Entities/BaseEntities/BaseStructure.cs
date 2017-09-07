@@ -37,7 +37,8 @@ namespace GBC2017.Entities.BaseEntities
 		        XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
             }
 
-		}
+		    HealthRemaining = MaximumHealth;
+        }
 
 	    private void CustomActivity()
 		{

@@ -39,7 +39,7 @@ namespace GBC2017.Entities.BaseEntities
 		{
 		    if (IsBeingPlaced == false)
 		    {
-		        if (targetEnemy != null && !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance))
+		        if (targetEnemy != null &&  (targetEnemy.HealthRemaining <= 0 || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
 		        }

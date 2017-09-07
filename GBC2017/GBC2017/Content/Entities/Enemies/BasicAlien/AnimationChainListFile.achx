@@ -157,7 +157,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Death</Name>
+    <Name>Dying</Name>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
