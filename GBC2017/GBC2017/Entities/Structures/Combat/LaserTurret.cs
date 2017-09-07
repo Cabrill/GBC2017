@@ -13,7 +13,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Factories;
 using Microsoft.Xna.Framework;
 
-namespace GBC2017.Entities.Structures
+namespace GBC2017.Entities.Structures.Combat
 {
 	public partial class LaserTurret
 	{

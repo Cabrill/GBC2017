@@ -7,6 +7,8 @@ using FlatRedBall;
 using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.Combat;
+using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Factories;
 using GBC2017.GumRuntimes;
 

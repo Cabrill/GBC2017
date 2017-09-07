@@ -96,21 +96,21 @@
     <Compile Include="Entities\Projectiles\LaserTurretProjectile.Generated.cs">
       <DependentUpon>LaserTurretProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Structures\Battery.cs" />
-    <Compile Include="Entities\Structures\Battery.Generated.cs">
-      <DependentUpon>Battery.cs</DependentUpon>
+    <Compile Include="Entities\Structures\Combat\LaserTurret.cs" />
+    <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
+      <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Structures\EnergyProducers\SolarPanels.cs" />
+    <Compile Include="Entities\Structures\EnergyProducers\SolarPanels.Generated.cs">
+      <DependentUpon>SolarPanels.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Structures\Home.cs" />
     <Compile Include="Entities\Structures\Home.Generated.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Structures\LaserTurret.cs" />
-    <Compile Include="Entities\Structures\LaserTurret.Generated.cs">
-      <DependentUpon>LaserTurret.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Structures\SolarPanels.cs" />
-    <Compile Include="Entities\Structures\SolarPanels.Generated.cs">
-      <DependentUpon>SolarPanels.cs</DependentUpon>
+    <Compile Include="Entities\Structures\Utility\Battery.cs" />
+    <Compile Include="Entities\Structures\Utility\Battery.Generated.cs">
+      <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />

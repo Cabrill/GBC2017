@@ -2220,7 +2220,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -2395,7 +2395,7 @@
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\Structures\Battery</Name>
+      <Name>Entities\Structures\Utility\Battery</Name>
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
@@ -2729,7 +2729,7 @@
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\Structures\LaserTurret</Name>
+      <Name>Entities\Structures\Combat\LaserTurret</Name>
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
@@ -2885,7 +2885,7 @@
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
-      <Name>Entities\Structures\SolarPanels</Name>
+      <Name>Entities\Structures\EnergyProducers\SolarPanels</Name>
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
