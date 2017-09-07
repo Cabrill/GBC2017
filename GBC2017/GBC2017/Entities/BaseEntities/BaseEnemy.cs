@@ -18,6 +18,10 @@ namespace GBC2017.Entities.BaseEntities
         public static float RightSideSpawnX { get; set; }
 
 	    private Vector3 storedVelocity;
+	    private Type preferredStructureToAttack;
+        private BaseStructure targetStructure;
+	    private double LastRangeAttackTime;
+	    private double LastMeleeAttackTime;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -37,7 +41,8 @@ namespace GBC2017.Entities.BaseEntities
 		        CircleInstance.Visible = false;
 		    }
 
-		    HealthRemaining = MaximumHealth;
+		    preferredStructureToAttack = Type.GetType(PreferredStructureType);
+            HealthRemaining = MaximumHealth;
 		}
 
 		private void CustomActivity()
@@ -51,7 +56,44 @@ namespace GBC2017.Entities.BaseEntities
 		        CurrentActionState = Action.Running;
 		        Velocity = storedVelocity;
 		    }
+            else if (CurrentActionState == Action.StartRangedAttack && SpriteInstance.JustCycled)
+		    {
+		        var newProjectile = CreateProjectile();
+		        newProjectile.Position = Position;
+		        newProjectile.Position.Y -= CircleInstance.Radius * 0.75f;
+		        newProjectile.XVelocity = (CurrentDirectionState == Direction.MovingLeft ? -ProjectileSpeed : ProjectileSpeed);
+                CurrentActionState = Action.FinishRangedAttack;
+		    }
+            else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
+		    {
+		        Velocity = storedVelocity;
+                CurrentActionState = Action.Running;
+            }
+            else if (CurrentActionState != Action.StartRangedAttack && 
+                CurrentActionState != Action.FinishRangedAttack && 
+                TimeManager.SecondsSince(LastRangeAttackTime) > SecondsBetweenRangedAttack)
+		    {
+		        if (targetStructure == null)
+		        {
+		            ChooseStructureTarget();
+		            PerformRangedAttackOnTarget();
+		        }
+		    }
         }
+
+	    private void PerformRangedAttackOnTarget()
+	    {
+	        CurrentActionState = Action.StartRangedAttack;
+	        storedVelocity = Velocity;
+            Velocity = Vector3.Zero;
+
+	        LastRangeAttackTime = TimeManager.CurrentTime;
+	    }
+
+	    private void ChooseStructureTarget()
+	    {
+	        
+	    }
 
 	    public void GetHitBy(BasePlayerProjectile projectile)
 	    {
@@ -100,6 +142,15 @@ namespace GBC2017.Entities.BaseEntities
 	        CurrentActionState = Action.Running;
 	        XVelocity = -this.Speed;
 	        X = RightSideSpawnX;
+	    }
+
+	    /// <summary>
+	    /// Allows the child combat structure to generate a projectile of its own type
+	    /// </summary>
+	    /// <returns>The projectile to be fired by the </returns>
+	    protected virtual BaseEnemyProjectile CreateProjectile()
+	    {
+	        return new BaseEnemyProjectile();
 	    }
 
         private void CustomDestroy()

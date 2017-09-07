@@ -4,21 +4,19 @@
     <property name="HealthRemaining" type="float" />
     <property name="MaximumHealth" type="float" default="30" />
     <property name="Speed" type="float" default="125" />
+    <property name="IsRangedAttacker" type="bool" />
+    <property name="MeleeAttackDamage" type="float" default="15" />
+    <property name="RangedAttackDamage" type="float" default="10" />
+    <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="PreferredStructureType" type="string" default="GBC2017.Entities.BaseEntities.BaseCombatStructure" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="5" />
+    <property name="SecondsBetweenMeleeAttack" type="float" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" default="5" />
   </objecttype>
-  <objecttype name="Battery">
-    <property name="EnergyBuildCost" type="int" />
-    <property name="CarbonBuildCost" type="int" />
-    <property name="MaximumHealth" type="float" />
-    <property name="HealthRemaining" type="float" />
-  </objecttype>
-  <objecttype name="Home">
-    <property name="EnergyBuildCost" type="int" />
-    <property name="CarbonBuildCost" type="int" />
-    <property name="MaximumHealth" type="float" />
-    <property name="HealthRemaining" type="float" />
+  <objecttype name="RangedEnemyProjectile">
+    <property name="DamageInflicted" type="float" />
   </objecttype>
   <objecttype name="LaserTurret">
     <property name="AttackDamage" type="float" default="3" />
@@ -35,6 +33,18 @@
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
     <property name="EnergyPerSecond" type="float" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
+  </objecttype>
+  <objecttype name="Home">
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
+    <property name="MaximumHealth" type="float" />
+    <property name="HealthRemaining" type="float" />
+  </objecttype>
+  <objecttype name="Battery">
+    <property name="EnergyBuildCost" type="int" />
+    <property name="CarbonBuildCost" type="int" />
     <property name="MaximumHealth" type="float" />
     <property name="HealthRemaining" type="float" />
   </objecttype>

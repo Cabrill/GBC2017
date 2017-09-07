@@ -96,6 +96,10 @@
     <Compile Include="Entities\Projectiles\LaserTurretProjectile.Generated.cs">
       <DependentUpon>LaserTurretProjectile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Projectiles\RangedEnemyProjectile.cs" />
+    <Compile Include="Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
+      <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Structures\Combat\LaserTurret.cs" />
     <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
       <DependentUpon>LaserTurret.cs</DependentUpon>
@@ -117,6 +121,7 @@
     <Compile Include="Factories\HomeFactory.Generated.cs" />
     <Compile Include="Factories\LaserTurretFactory.Generated.cs" />
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
+    <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -333,9 +338,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>checkmark_x</Name>
     </None>
+    <None Include="content\entities\projectiles\alien_fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>alien_fire</Name>
+    </None>
     <None Include="content\entities\projectiles\laser_bullet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>laser_bullet</Name>
+    </None>
+    <None Include="content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\shadow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
