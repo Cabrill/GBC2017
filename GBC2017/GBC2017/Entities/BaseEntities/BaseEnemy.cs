@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
@@ -7,21 +8,26 @@ using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
+using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Utilities;
 using Microsoft.Xna.Framework;
 
 namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseEnemy
 	{
-        public static float LeftSideSpawnX { get; set; }
-        public static float RightSideSpawnX { get; set; }
+	    private static AxisAlignedRectangle _playArea;
+	    private static PositionedObjectList<BaseStructure> _potentialTargetList;
+
+        public bool IsDead => _healthRemaining <= 0;
+        
 
 	    private Vector3 storedVelocity;
-	    private Type preferredStructureToAttack;
         private BaseStructure targetStructure;
 	    private double LastRangeAttackTime;
 	    private double LastMeleeAttackTime;
+	    private float _healthRemaining;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -40,100 +46,165 @@ namespace GBC2017.Entities.BaseEntities
 		    {
 		        CircleInstance.Visible = false;
 		    }
+            
+		    _healthRemaining = MaximumHealth;
 
-		    preferredStructureToAttack = Type.GetType(PreferredStructureType);
-            HealthRemaining = MaximumHealth;
 		    MeleeRadius = CircleInstance.Radius * 1.1f;
+
 		    LastRangeAttackTime = TimeManager.CurrentTime;
 		    LastMeleeAttackTime = TimeManager.CurrentTime;
-
         }
+
+	    public static void Initialize(AxisAlignedRectangle playArea, PositionedObjectList<BaseStructure> potentialTargetList)
+	    {
+	        _playArea = playArea;
+	        _potentialTargetList = potentialTargetList;
+	    }
 
 		private void CustomActivity()
 		{
-		    if (HealthRemaining <= 0)
+		    if (IsDead)
 		    {
 		        PerformDeath();
 		    }
             else if (CurrentActionState == Action.Hurt && SpriteInstance.JustCycled)
 		    {
-		        CurrentActionState = Action.Running;
-		        Velocity = storedVelocity;
-		    }
+                ResumeMovement();
+            }
             else if (CurrentActionState == Action.StartRangedAttack && SpriteInstance.JustCycled)
 		    {
-		        var newProjectile = CreateProjectile();
-		        newProjectile.Position = Position;
-		        newProjectile.Position.Y -= CircleInstance.Radius * 0.75f;
-		        newProjectile.XVelocity = (CurrentDirectionState == Direction.MovingLeft ? -ProjectileSpeed : ProjectileSpeed);
-		        newProjectile.DamageInflicted = RangedAttackDamage;
-		        newProjectile.Speed = ProjectileSpeed;
-		        newProjectile.MaxRange = RangedRadius * 1.5f;
-
-                CurrentActionState = Action.FinishRangedAttack;
+                FireProjectile();
 		    }
             else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
 		    {
-		        Velocity = storedVelocity;
-                CurrentActionState = Action.Running;
-            }
-            else if (CurrentActionState != Action.StartRangedAttack && 
-                CurrentActionState != Action.FinishRangedAttack && 
-                TimeManager.SecondsSince(LastRangeAttackTime) > SecondsBetweenRangedAttack)
-		    {
-		        if (targetStructure == null)
+		        if (targetStructure == null || targetStructure.IsDestroyed)
 		        {
-		            ChooseStructureTarget();
-		            PerformRangedAttackOnTarget();
+		            ResumeMovement();
+		        }
+		        else
+		        {
+		            CurrentActionState = Action.RangedAim;
 		        }
 		    }
+            else if (CurrentActionState == Action.RangedAim && (targetStructure == null || targetStructure.IsDestroyed))
+		    {
+		        ResumeMovement();
+		    }
+            else if (CurrentActionState != Action.StartRangedAttack && 
+                CurrentActionState != Action.FinishRangedAttack && 
+                CurrentActionState != Action.Hurt &&
+                TimeManager.SecondsSince(LastRangeAttackTime) > SecondsBetweenRangedAttack)
+		    {
+		        PerformRangedAttackOnTarget();
+            }
         }
 
-	    private void PerformRangedAttackOnTarget()
+	    private void StopMovement()
 	    {
-	        CurrentActionState = Action.StartRangedAttack;
-	        storedVelocity = Velocity;
-            Velocity = Vector3.Zero;
+	        if (Velocity != Vector3.Zero)
+	        {
+	            storedVelocity = Velocity;
+	        }
+	        Velocity = Vector3.Zero;
+        }
 
-	        LastRangeAttackTime = TimeManager.CurrentTime;
+	    private void ResumeMovement()
+	    {
+	        Velocity = storedVelocity;
+	        CurrentActionState = Action.Running;
+	        CurrentDirectionState =
+	            (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
+	        SpriteInstance.IgnoreAnimationChainTextureFlip = true;
+	    }
+
+	    private void FireProjectile()
+	    {
+	        var newProjectile = CreateProjectile();
+	        newProjectile.Position = Position;
+	        newProjectile.Position.Y -= CircleInstance.Radius * 0.75f;
+	        newProjectile.DamageInflicted = RangedAttackDamage;
+	        newProjectile.Speed = ProjectileSpeed;
+	        newProjectile.MaxRange = RangedRadius * 1.5f;
+
+	        var angle = (float)Math.Atan2(newProjectile.Position.Y - targetStructure.Position.Y, newProjectile.Position.X - targetStructure.Position.X);
+	        var direction = new Vector3(
+	            (float)-Math.Cos(angle),
+	            (float)-Math.Sin(angle), 0);
+	        direction.Normalize();
+
+            newProjectile.Velocity = direction * newProjectile.Speed;
+	        newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity)-MathHelper.ToRadians(90);
+
+            LastRangeAttackTime = TimeManager.CurrentTime;
+
+            CurrentActionState = Action.FinishRangedAttack;
+        }
+
+        private void PerformRangedAttackOnTarget()
+	    {
+	        if (targetStructure != null && (targetStructure.IsDestroyed || Vector3.Distance(Position, targetStructure.Position) > RangedRadius))
+	        {
+	            targetStructure = null;
+	        }
+
+	        if (targetStructure == null)
+	        {
+	            ChooseStructureTarget();
+	        }
+
+	        if (targetStructure != null)
+	        {
+	            StopMovement();
+
+	            CurrentDirectionState =(Position.X < targetStructure.Position.X ? 
+                    Direction.MovingRight : 
+                    Direction.MovingLeft);
+
+	            CurrentActionState = Action.StartRangedAttack;
+            }
 	    }
 
 	    private void ChooseStructureTarget()
 	    {
-	        
+	        if (_potentialTargetList != null && _potentialTargetList.Count > 0)
+	        {
+	            targetStructure =
+	                _potentialTargetList.Where(pt => 
+                        pt.CurrentState == BaseStructure.VariableState.Built && 
+                        pt.IsDestroyed == false && 
+                        Vector3.Distance(Position, pt.Position) <= RangedRadius)
+                    .OrderBy(pt => Vector3.Distance(Position, pt.Position)
+                    ).FirstOrDefault();
+	        }
 	    }
 
 	    public void GetHitBy(BasePlayerProjectile projectile)
 	    {
-	        HealthRemaining -= projectile.DamageInflicted;
+	        _healthRemaining -= projectile.DamageInflicted;
 
-	        if (HealthRemaining <= 0)
+	        if (_healthRemaining <= 0)
 	        {
 	            PerformDeath();
 	        }
 	        else
 	        {
-	            CurrentActionState = Action.Hurt;
-	            if (Velocity != Vector3.Zero)
-	            {
-	                storedVelocity = Velocity;
-	                Velocity = Vector3.Zero;
-	            }
+	            StopMovement();
+                CurrentActionState = Action.Hurt;
 	        }
 	    }
 
 	    private void PerformDeath()
 	    {
-            Velocity = Vector3.Zero;
+	        StopMovement();
 
-	        if (CurrentActionState != Action.Dying)
+            if (CurrentActionState != Action.Dying)
 	        {
 	            CurrentActionState = Action.Dying;
 	        }
 	        else if (SpriteInstance.JustCycled)
-	        {
-	            Destroy();
-	        }
+            {
+                Destroy();
+            }
 	    }
 
 	    public void PlaceOnLeftSide()
@@ -141,15 +212,17 @@ namespace GBC2017.Entities.BaseEntities
 	        CurrentDirectionState = Direction.MovingRight;
 	        CurrentActionState = Action.Running;
 	        XVelocity = this.Speed;
-	        X = LeftSideSpawnX;
-	    }
+	        X = _playArea.Left;
+	        Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
+        }
 
 	    public void PlaceOnRightSide()
 	    {
 	        CurrentDirectionState = Direction.MovingLeft;
 	        CurrentActionState = Action.Running;
 	        XVelocity = -this.Speed;
-	        X = RightSideSpawnX;
+	        X = _playArea.Right;
+	        Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
 	    }
 
 	    /// <summary>

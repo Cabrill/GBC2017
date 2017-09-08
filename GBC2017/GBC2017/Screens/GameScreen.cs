@@ -28,7 +28,6 @@ namespace GBC2017.Screens
         #region Properties and Fields
         private enum GameMode
 	    {
-	        Paused,
 	        Normal,
 	        Building,
 	        Inspecting
@@ -50,15 +49,13 @@ namespace GBC2017.Screens
             SetupCamera();
             PositionTiledMap();
 		    SetBuildButtonControls();
-		    SetBaseEntityValues();
+		    InitializeBaseEntities();
 		}
 
-	    private void SetBaseEntityValues()
+	    private void InitializeBaseEntities()
 	    {
-	        BaseCombatStructure.PotentialTargetList = AllEnemiesList;
-
-	        BaseEnemy.LeftSideSpawnX = justgrass.X;
-	        BaseEnemy.RightSideSpawnX = Camera.Main.OrthogonalWidth/2;
+	        BaseCombatStructure.Initialize(AllEnemiesList);
+	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
 	    }
 
 	    private void SetCollisionVisibility()
@@ -105,19 +102,32 @@ namespace GBC2017.Screens
 
             HandleTouchActivity();
 		    BuildingStatusActivity();
+		    EnemyStatusActivity();
 		    PlayerProjectileActivity();
 		    EnemyProjectileActivity();
 		}
 
+	    private void EnemyStatusActivity()
+	    {
+	        BaseEnemy enemy;
+
+	        for (var i = AllEnemiesList.Count; i > 0; i--)
+	        {
+	            enemy = AllEnemiesList[i-1];
+	            if (!PlayAreaRectangle.CollideAgainst(enemy.CircleInstance))
+	            {
+	                enemy.Destroy();
+	            }
+	        }
+	    }
+
 	    private void EnemyProjectileActivity()
 	    {
-	        BaseEnemyProjectile projectile;
-	        BaseStructure structure;
 	        for (var i = EnemyProjectileList.Count; i > 0; i--)
 	        {
-	            projectile = EnemyProjectileList[i - 1];
+	            var projectile = EnemyProjectileList[i - 1];
 
-	            if (projectile.ShouldBeDestroyed || !PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	            {
 	                projectile.Destroy();
 	            }
@@ -125,11 +135,11 @@ namespace GBC2017.Screens
 	            {
 	                for (var e = AllStructuresList.Count; e > 0; e--)
 	                {
-	                    structure = AllStructuresList[e - 1];
+	                    var structure = AllStructuresList[e - 1];
 
-                        if (!projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)) continue;
+                        if (structure.CurrentState != BaseStructure.VariableState.Built || !projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)) continue;
 
-	                    //structure.GetHitBy(projectile);
+	                    structure.GetHitBy(projectile);
 	                    projectile.Destroy();
 	                }
 	            }
@@ -138,13 +148,11 @@ namespace GBC2017.Screens
 
 	    private void PlayerProjectileActivity()
 	    {
-	        BasePlayerProjectile projectile;
-	        BaseEnemy enemy;
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
-	            projectile = PlayerProjectileList[i-1];
+	            var projectile = PlayerProjectileList[i-1];
 
-                if (projectile.ShouldBeDestroyed || !PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	            {
 	                projectile.Destroy();
 	            }
@@ -152,7 +160,7 @@ namespace GBC2017.Screens
                 {
                     for (var e = AllEnemiesList.Count; e > 0; e--)
                     {
-                        enemy = AllEnemiesList[e - 1];
+                        var enemy = AllEnemiesList[e - 1];
                         if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
                         enemy.GetHitBy(projectile);
@@ -164,29 +172,28 @@ namespace GBC2017.Screens
 
 	    private void BuildingStatusActivity()
 	    {
-	        if (CurrentGameMode == GameMode.Building)
+	        if (CurrentGameMode != GameMode.Building) return;
+
+	        var newStructure = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
+
+	        if (newStructure == null)
 	        {
-	            var newStructure = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
+	            CurrentGameMode = GameMode.Normal;
+	        }
+	        else
+	        {
+	            var newLocationIsValid = AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
+	                                                                             !otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance));
 
-	            if (newStructure == null)
+	            if (newLocationIsValid)
 	            {
-	                CurrentGameMode = GameMode.Normal;
-	            }
-	            else
-                {
-	                var newLocationIsValid = AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
-                    !otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance));
-
-	                if (newLocationIsValid)
+	                if (AllEnemiesList.Any(enemy => enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance)))
 	                {
-	                    if (AllEnemiesList.Any(enemy => enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance)))
-	                    {
-	                        newLocationIsValid = false;
-	                    }
+	                    newLocationIsValid = false;
 	                }
-	                newStructure.IsValidLocation = newLocationIsValid;
 	            }
-            }
+	            newStructure.IsValidLocation = newLocationIsValid;
+	        }
 	    }
 
         #if DEBUG

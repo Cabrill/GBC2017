@@ -15,6 +15,9 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseStructure
 	{
+	    public bool IsDestroyed => _healthRemaining <= 0;
+	    private float _healthRemaining;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -37,7 +40,7 @@ namespace GBC2017.Entities.BaseEntities
 		        XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
             }
 
-		    HealthRemaining = MaximumHealth;
+		    _healthRemaining = MaximumHealth;
         }
 
 	    private void CustomActivity()
@@ -54,7 +57,22 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 		}
 
-		private void CustomDestroy()
+	    public void GetHitBy(BaseEnemyProjectile projectile)
+	    {
+	        _healthRemaining -= projectile.DamageInflicted;
+
+	        if (IsDestroyed)
+	        {
+	            PerformDestruction();
+	        }
+	    }
+
+	    private void PerformDestruction()
+	    {
+	        Destroy();
+	    }
+
+        private void CustomDestroy()
 		{
 
 

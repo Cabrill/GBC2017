@@ -18,8 +18,7 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseCombatStructure
 	{
-	    public static PositionedObjectList<BaseEnemy> PotentialTargetList { private get; set; }
-        private static Random random;
+	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    private BaseEnemy targetEnemy;
         
 
@@ -30,23 +29,27 @@ namespace GBC2017.Entities.BaseEntities
         /// </summary>
 		private void CustomInitialize()
 		{
-		    random = new Random((int)TimeManager.SystemCurrentTime);
 		    RangeCircleInstance.Visible = true;
 		    LastFiredTime = TimeManager.CurrentTime;
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
 		}
 
+	    public static void Initialize(PositionedObjectList<BaseEnemy> potentialTargets)
+	    {
+	        _potentialTargetList = potentialTargets;
+	    }
+
 		private void CustomActivity()
 		{
 		    if (IsBeingPlaced == false)
 		    {
-		        if (targetEnemy != null &&  (targetEnemy.HealthRemaining <= 0 || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
+		        if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
 		        }
 
-		        if (targetEnemy == null && PotentialTargetList.Count > 0)
+		        if (targetEnemy == null && _potentialTargetList.Count > 0)
 		        {
 		            ChooseTarget();
 		        }
@@ -67,10 +70,10 @@ namespace GBC2017.Entities.BaseEntities
             //Gather information about the target
 	        var targetPosition = targetEnemy.Position;
 	        var targetVector = targetEnemy.Velocity;
-	        var targetDistance = Position - targetPosition;
+	        var targetDistance = Vector3.Distance(Position, targetPosition);
 
             //Calculate how long the bullet would take to reach them
-	        var timeToTravel = targetDistance.Length() / ProjectileSpeed;
+            var timeToTravel = targetDistance / ProjectileSpeed;
 
             //Calculate how far they would travel in that time
 	        var aimAheadDistance = targetVector * timeToTravel;
@@ -79,8 +82,8 @@ namespace GBC2017.Entities.BaseEntities
 	        var aimLocation = aimAheadDistance + targetPosition;
 
             //Recalculate time with the new aiming location
-	        targetDistance = Position - aimLocation;
-            timeToTravel = targetDistance.Length() / ProjectileSpeed;
+	        targetDistance = Vector3.Distance(Position, aimLocation);
+            timeToTravel = targetDistance / ProjectileSpeed;
 	        aimAheadDistance = targetVector * timeToTravel;
 	        aimLocation = targetPosition + aimAheadDistance;
 
@@ -92,7 +95,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private void ChooseTarget()
 	    {
 	        var localPotentialTarget =
-	            PotentialTargetList.FirstOrDefault(pt => pt.CircleInstance.CollideAgainst(RangeCircleInstance));
+	            _potentialTargetList.FirstOrDefault(pt => pt.CircleInstance.CollideAgainst(RangeCircleInstance));
 
 	        if (localPotentialTarget != null)
 	        {

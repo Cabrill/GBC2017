@@ -109,7 +109,7 @@
     <Name>Hurt</Name>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -117,7 +117,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -125,7 +125,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -133,7 +133,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -141,7 +141,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -149,7 +149,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
@@ -270,7 +270,7 @@
     <Name>StartRangedAttack</Name>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -278,7 +278,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -286,7 +286,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -295,7 +295,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -331,7 +331,7 @@
     <Name>FinishRangedAttack</Name>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>1536</LeftCoordinate>
       <RightCoordinate>2048</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -339,7 +339,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>1280</LeftCoordinate>
       <RightCoordinate>1536</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -348,7 +348,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -356,7 +356,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -365,7 +365,7 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
@@ -373,11 +373,23 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>2560</TopCoordinate>
       <BottomCoordinate>3075</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>RangedAim</Name>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>1024</LeftCoordinate>
+      <RightCoordinate>1280</RightCoordinate>
+      <TopCoordinate>2560</TopCoordinate>
+      <BottomCoordinate>3075</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

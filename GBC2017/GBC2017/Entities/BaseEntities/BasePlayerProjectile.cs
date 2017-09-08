@@ -14,7 +14,6 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BasePlayerProjectile
 	{
-	    public bool ShouldBeDestroyed { get; private set; }
 	    public float MaxRange { private get; set; }
 	    private bool _hitTheGround;
 
@@ -43,7 +42,6 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 
             //These have to be set here, because the object is pooled (reused)
-		    ShouldBeDestroyed = false;
 		    _hitTheGround = false;
 		    _startingPosition = null;
         }
@@ -71,7 +69,7 @@ namespace GBC2017.Entities.BaseEntities
 
 		    _hitTheGround = pctDistanceTraveled >= 1;
 
-		    ShouldBeDestroyed = _hitTheGround;
+		    if (_hitTheGround) Destroy();
         }
 
 		private void CustomDestroy()
