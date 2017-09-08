@@ -105,17 +105,46 @@ namespace GBC2017.Screens
 
             HandleTouchActivity();
 		    BuildingStatusActivity();
-		    ProjectileActivity();
+		    PlayerProjectileActivity();
+		    EnemyProjectileActivity();
 		}
 
-	    private void ProjectileActivity()
+	    private void EnemyProjectileActivity()
+	    {
+	        BaseEnemyProjectile projectile;
+	        BaseStructure structure;
+	        for (var i = EnemyProjectileList.Count; i > 0; i--)
+	        {
+	            projectile = EnemyProjectileList[i - 1];
+
+	            if (projectile.ShouldBeDestroyed || !PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            {
+	                projectile.Destroy();
+	            }
+	            else
+	            {
+	                for (var e = AllStructuresList.Count; e > 0; e--)
+	                {
+	                    structure = AllStructuresList[e - 1];
+
+                        if (!projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)) continue;
+
+	                    //structure.GetHitBy(projectile);
+	                    projectile.Destroy();
+	                }
+	            }
+	        }
+        }
+
+	    private void PlayerProjectileActivity()
 	    {
 	        BasePlayerProjectile projectile;
+	        BaseEnemy enemy;
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
 	            projectile = PlayerProjectileList[i-1];
 
-                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+                if (projectile.ShouldBeDestroyed || !PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	            {
 	                projectile.Destroy();
 	            }
@@ -123,9 +152,10 @@ namespace GBC2017.Screens
                 {
                     for (var e = AllEnemiesList.Count; e > 0; e--)
                     {
-                        if (!projectile.CircleInstance.CollideAgainst(AllEnemiesList[e - 1].CircleInstance)) continue;
+                        enemy = AllEnemiesList[e - 1];
+                        if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
-                        AllEnemiesList[e-1].GetHitBy(projectile);
+                        enemy.GetHitBy(projectile);
                         projectile.Destroy();
                     }
                 }

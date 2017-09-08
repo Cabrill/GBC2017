@@ -43,7 +43,11 @@ namespace GBC2017.Entities.BaseEntities
 
 		    preferredStructureToAttack = Type.GetType(PreferredStructureType);
             HealthRemaining = MaximumHealth;
-		}
+		    MeleeRadius = CircleInstance.Radius * 1.1f;
+		    LastRangeAttackTime = TimeManager.CurrentTime;
+		    LastMeleeAttackTime = TimeManager.CurrentTime;
+
+        }
 
 		private void CustomActivity()
 		{
@@ -62,6 +66,10 @@ namespace GBC2017.Entities.BaseEntities
 		        newProjectile.Position = Position;
 		        newProjectile.Position.Y -= CircleInstance.Radius * 0.75f;
 		        newProjectile.XVelocity = (CurrentDirectionState == Direction.MovingLeft ? -ProjectileSpeed : ProjectileSpeed);
+		        newProjectile.DamageInflicted = RangedAttackDamage;
+		        newProjectile.Speed = ProjectileSpeed;
+		        newProjectile.MaxRange = RangedRadius * 1.5f;
+
                 CurrentActionState = Action.FinishRangedAttack;
 		    }
             else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)

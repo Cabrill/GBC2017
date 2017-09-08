@@ -35,8 +35,6 @@ namespace GBC2017.Entities.Enemies
 	    protected override BaseEnemyProjectile CreateProjectile()
 	    {
 	        var newProjectile = RangedEnemyProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        newProjectile.DamageInflicted = RangedAttackDamage;
-	        newProjectile.Speed = ProjectileSpeed;
 	        return newProjectile;
 	    }
 

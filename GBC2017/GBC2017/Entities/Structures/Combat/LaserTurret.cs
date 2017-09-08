@@ -34,11 +34,9 @@ namespace GBC2017.Entities.Structures.Combat
 
 		}
 
-	    protected override BasePlayerProjectile CreateProjectile()
+	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        newProjectile.DamageInflicted = AttackDamage;
-	        newProjectile.Speed = ProjectileSpeed;
 	        return newProjectile;
 	    }
 

@@ -11,6 +11,8 @@
     <property name="PreferredStructureType" type="string" default="GBC2017.Entities.BaseEntities.BaseCombatStructure" />
     <property name="SecondsBetweenRangedAttack" type="float" default="5" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
+    <property name="RangedRadius" type="float" default="250" />
+    <property name="MeleeRadius" type="float" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" default="5" />
@@ -24,7 +26,7 @@
     <property name="CarbonBuildCost" type="int" default="300" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
     <property name="EnergyCostToFire" type="float" default="10" />
-    <property name="RangeRadius" type="float" default="400" />
+    <property name="RangedRadius" type="float" default="400" />
     <property name="ProjectileSpeed" type="float" default="300" />
     <property name="MaximumHealth" type="float" />
     <property name="HealthRemaining" type="float" />

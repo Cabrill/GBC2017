@@ -32,7 +32,9 @@ namespace GBC2017.Entities.BaseEntities
 		{
 		    random = new Random((int)TimeManager.SystemCurrentTime);
 		    RangeCircleInstance.Visible = true;
-		    AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
+		    LastFiredTime = TimeManager.CurrentTime;
+
+            AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
 		}
 
 		private void CustomActivity()
@@ -102,8 +104,10 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (TimeManager.SecondsSince(LastFiredTime) > SecondsBetweenFiring)
             {
-	            var newProjectile = CreateProjectile();
-
+	            var newProjectile = CreateNewProjectile();
+                newProjectile.DamageInflicted = AttackDamage;
+                newProjectile.Speed = ProjectileSpeed;
+                newProjectile.MaxRange = RangedRadius * 1.5f;
                 newProjectile.Position = Position;
 
                 var direction = new Vector3(
@@ -126,7 +130,7 @@ namespace GBC2017.Entities.BaseEntities
         /// Allows the child combat structure to generate a projectile of its own type
         /// </summary>
         /// <returns>The projectile to be fired by the </returns>
-	    protected virtual BasePlayerProjectile CreateProjectile()
+	    protected virtual BasePlayerProjectile CreateNewProjectile()
 	    {
 	        return new BasePlayerProjectile();
 	    }
