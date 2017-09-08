@@ -11,7 +11,7 @@ using FlatRedBall.Math.Geometry;
 
 namespace GBC2017.Entities.BaseEntities
 {
-	public partial class BaseEnergyGenerator
+	public partial class BaseEnergyProducer
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).

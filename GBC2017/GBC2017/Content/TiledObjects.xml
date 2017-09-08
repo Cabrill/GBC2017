@@ -7,7 +7,6 @@
     <property name="MeleeAttackDamage" type="float" default="15" />
     <property name="RangedAttackDamage" type="float" default="10" />
     <property name="ProjectileSpeed" type="float" default="300" />
-    <property name="PreferredStructureType" type="string" default="GBC2017.Entities.BaseEntities.BaseCombatStructure" />
     <property name="SecondsBetweenRangedAttack" type="float" default="2" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
     <property name="RangedRadius" type="float" default="250" />
@@ -28,21 +27,29 @@
     <property name="RangedRadius" type="float" default="400" />
     <property name="ProjectileSpeed" type="float" default="300" />
     <property name="MaximumHealth" type="float" default="50" />
+    <property name="EnergyRequiredPerSecond" type="int" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
   </objecttype>
   <objecttype name="SolarPanels">
-    <property name="EnergyBuildCost" type="int" />
-    <property name="CarbonBuildCost" type="int" />
-    <property name="EnergyPerSecond" type="float" />
+    <property name="EnergyBuildCost" type="int" default="200" />
+    <property name="CarbonBuildCost" type="int" default="300" />
     <property name="MaximumHealth" type="float" default="30" />
+    <property name="EnergyRequiredPerSecond" type="int" default="0" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
+    <property name="EnergyProducedPerSecond" type="float" default="10" />
   </objecttype>
   <objecttype name="Home">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
     <property name="MaximumHealth" type="float" />
+    <property name="EnergyRequiredPerSecond" type="int" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" />
     <property name="CarbonBuildCost" type="int" />
     <property name="MaximumHealth" type="float" />
+    <property name="EnergyRequiredPerSecond" type="int" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
   </objecttype>
 </objecttypes>

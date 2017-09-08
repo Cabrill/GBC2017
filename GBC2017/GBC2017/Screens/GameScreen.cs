@@ -17,6 +17,7 @@ using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
+using GBC2017.ResourceManagers;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -56,6 +57,7 @@ namespace GBC2017.Screens
 	    {
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
+            EnergyManager.Initialize(AllStructuresList);
 	    }
 
 	    private void SetCollisionVisibility()
@@ -105,6 +107,9 @@ namespace GBC2017.Screens
 		    EnemyStatusActivity();
 		    PlayerProjectileActivity();
 		    EnemyProjectileActivity();
+
+            EnergyManager.Update();
+            InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease);
 		}
 
 	    private void EnemyStatusActivity()

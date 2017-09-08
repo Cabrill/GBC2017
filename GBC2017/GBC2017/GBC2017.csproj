@@ -58,9 +58,9 @@
     <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\BaseEntities\BaseEnergyGenerator.cs" />
-    <Compile Include="Entities\BaseEntities\BaseEnergyGenerator.Generated.cs">
-      <DependentUpon>BaseEnergyGenerator.cs</DependentUpon>
+    <Compile Include="Entities\BaseEntities\BaseEnergyProducer.cs" />
+    <Compile Include="Entities\BaseEntities\BaseEnergyProducer.Generated.cs">
+      <DependentUpon>BaseEnergyProducer.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BasePlayerProjectile.cs" />
     <Compile Include="Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
@@ -221,10 +221,16 @@
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\InfoBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\InfoBarRuntime.cs" />
+    <Compile Include="GumRuntimes\InfoBarRuntime.Generated.cs">
+      <DependentUpon>InfoBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
+      <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
@@ -236,6 +242,7 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManagers\EnergyManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>

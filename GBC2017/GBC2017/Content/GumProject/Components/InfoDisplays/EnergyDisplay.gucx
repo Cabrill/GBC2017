@@ -38,13 +38,19 @@
     <Variable>
       <Type>ChildrenLayout</Type>
       <Name>ChangeContainer.Children Layout</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ChangeContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>ChangeContainer.Height</Name>
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -68,7 +74,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ChangeContainer.Wraps Children</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -84,6 +90,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>EnergyBalanceState</Type>
+      <Name>EnergyBalanceState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>EnergyDecreaseText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -93,6 +104,12 @@
       <Type>int</Type>
       <Name>EnergyDecreaseText.Green</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyDecreaseText.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -110,7 +127,7 @@
     <Variable>
       <Type>string</Type>
       <Name>EnergyDecreaseText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">EnergyTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -140,13 +157,13 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -164,13 +181,13 @@
     <Variable>
       <Type>string</Type>
       <Name>EnergyEqualsText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">EnergyTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -204,6 +221,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>EnergyIncreaseText.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyIncreaseText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -218,7 +241,7 @@
     <Variable>
       <Type>string</Type>
       <Name>EnergyIncreaseText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">EnergyTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -248,13 +271,19 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyNetText.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -278,13 +307,13 @@
     <Variable>
       <Type>string</Type>
       <Name>EnergyNetText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">EnergyTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -306,6 +335,108 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>EnergyTextBackground.Alpha</Name>
+      <Value xsi:type="xsd:int">150</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyTextBackground.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyTextBackground.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyTextBackground.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergyTextBackground.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EnergyTextBackground.Parent</Name>
+      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyTextBackground.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyTextBackground.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergyTextBackground.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>EnergyTextContainer.Children Layout</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyTextContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyTextContainer.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergyTextContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>EnergyTextContainer.Parent</Name>
+      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyTextContainer.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>EnergyTextContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyTextContainer.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
       <Value xsi:type="xsd:boolean">true</Value>
@@ -321,7 +452,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -350,9 +481,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>StorageContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StorageContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>StorageContainer.Height</Name>
-      <Value xsi:type="xsd:float">65</Value>
+      <Value xsi:type="xsd:float">60</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -447,6 +590,76 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>EnergyBalance</Name>
+    <State>
+      <Name>Positive</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Red</Name>
+        <Value xsi:type="xsd:int">127</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Negative</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Balanced</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>EnergyNetText.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Instance>
+    <Name>EnergyTextBackground</Name>
+    <BaseType>ColoredRectangle</BaseType>
+  </Instance>
   <Instance>
     <Name>StorageContainer</Name>
     <BaseType>Container</BaseType>
@@ -474,6 +687,10 @@
   <Instance>
     <Name>EnergyNetText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>EnergyTextContainer</Name>
+    <BaseType>Container</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

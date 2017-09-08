@@ -31,7 +31,7 @@
     <Variable>
       <Type>string</Type>
       <Name>CarbonDecreaseText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">CarbonTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -61,13 +61,13 @@
     <Variable>
       <Type>int</Type>
       <Name>CarbonEqualsText.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>CarbonEqualsText.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -85,13 +85,13 @@
     <Variable>
       <Type>string</Type>
       <Name>CarbonEqualsText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">CarbonTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>CarbonEqualsText.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -139,7 +139,7 @@
     <Variable>
       <Type>string</Type>
       <Name>CarbonIncreaseText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">CarbonTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -169,13 +169,13 @@
     <Variable>
       <Type>int</Type>
       <Name>CarbonNetText.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>CarbonNetText.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -199,13 +199,13 @@
     <Variable>
       <Type>string</Type>
       <Name>CarbonNetText.Parent</Name>
-      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <Value xsi:type="xsd:string">CarbonTextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>CarbonNetText.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -258,15 +258,105 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>CarbonTextBackground.Alpha</Name>
+      <Value xsi:type="xsd:int">150</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CarbonTextBackground.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CarbonTextBackground.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CarbonTextBackground.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CarbonTextBackground.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>CarbonTextBackground.Parent</Name>
+      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>CarbonTextBackground.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CarbonTextBackground.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CarbonTextBackground.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
-      <Name>ChangeContainer.Children Layout</Name>
+      <Name>CarbonTextContainer.Children Layout</Name>
       <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>CarbonTextContainer.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CarbonTextContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>CarbonTextContainer.Parent</Name>
+      <Value xsi:type="xsd:string">ChangeContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CarbonTextContainer.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>CarbonTextContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>ChangeContainer.Children Layout</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>ChangeContainer.Height</Name>
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -290,7 +380,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ChangeContainer.Wraps Children</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -352,7 +442,7 @@
     <Variable>
       <Type>float</Type>
       <Name>StorageContainer.Height</Name>
-      <Value xsi:type="xsd:float">65</Value>
+      <Value xsi:type="xsd:float">60</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -448,6 +538,10 @@
     </VariableList>
   </State>
   <Instance>
+    <Name>CarbonTextBackground</Name>
+    <BaseType>ColoredRectangle</BaseType>
+  </Instance>
+  <Instance>
     <Name>StorageContainer</Name>
     <BaseType>Container</BaseType>
   </Instance>
@@ -474,6 +568,10 @@
   <Instance>
     <Name>CarbonNetText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CarbonTextContainer</Name>
+    <BaseType>Container</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>
