@@ -56,8 +56,6 @@ namespace GBC2017.Screens
         #region Energy structure buttons
         private void BuildBarInstanceOnSolarButtonClick(IWindow window)
         {
-            CurrentGameMode = GameMode.Building;
-
             if (ShouldCreateNewBuildRequest<SolarPanels>())
             {
                 var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
@@ -72,8 +70,6 @@ namespace GBC2017.Screens
 
         private void BuildBarInstanceOnLaserTurretButtonClick(IWindow window)
         {
-            CurrentGameMode = GameMode.Building;
-
             if (ShouldCreateNewBuildRequest<LaserTurret>())
             {
                 var newTurret = LaserTurretFactory.CreateNew(EntityLayer);

@@ -21,6 +21,8 @@ using GBC2017.ResourceManagers;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using RenderingLibrary;
+using Camera = FlatRedBall.Camera;
 
 namespace GBC2017.Screens
 {
@@ -35,6 +37,7 @@ namespace GBC2017.Screens
 	    };
 
 	    private GameMode CurrentGameMode = GameMode.Normal;
+	    private IPositionedSizedObject selectedObject;
         #endregion
 
         #region Initialization
@@ -102,6 +105,7 @@ namespace GBC2017.Screens
 		    HandleDebugInput();
             #endif
 
+		    UpdateGameModeActivity();
             HandleTouchActivity();
 		    BuildingStatusActivity();
 		    EnemyStatusActivity();
@@ -112,13 +116,27 @@ namespace GBC2017.Screens
             InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease, EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
 		}
 
+	    private void UpdateGameModeActivity()
+	    {
+	        if (AllStructuresList.Any(s => s.IsBeingPlaced))
+	        {
+	            CurrentGameMode = GameMode.Building;
+	        }
+            else if (selectedObject != null)
+            { 
+	            CurrentGameMode = GameMode.Inspecting;
+            }
+	        else
+	        {
+	            CurrentGameMode = GameMode.Normal;
+	        }
+	    }
+
 	    private void EnemyStatusActivity()
 	    {
-	        BaseEnemy enemy;
-
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
-	            enemy = AllEnemiesList[i-1];
+	            var enemy = AllEnemiesList[i-1];
 	            if (!PlayAreaRectangle.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
@@ -197,7 +215,10 @@ namespace GBC2017.Screens
 	                    newLocationIsValid = false;
 	                }
 	            }
-	            newStructure.IsValidLocation = newLocationIsValid;
+	            if (newStructure.IsValidLocation != newLocationIsValid)
+	            {
+	                newStructure.IsValidLocation = newLocationIsValid;
+	            }
 	        }
 	    }
 
