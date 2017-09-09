@@ -9,6 +9,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -22,6 +23,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
+	    protected SoundEffectInstance GroundHitSound;
+	    protected SoundEffectInstance TargetHitSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -69,14 +72,23 @@ namespace GBC2017.Entities.BaseEntities
 
 		    _hitTheGround = pctDistanceTraveled >= 1;
 
-		    if (_hitTheGround) Destroy();
+		    if (_hitTheGround)
+		    {
+		        GroundHitSound.Play();
+                Destroy();
+		    }
         }
+
+	    public void PlayHitTargetSound()
+	    {
+	        TargetHitSound.Play();
+	    }
 
 		private void CustomDestroy()
 		{
-
-
-		}
+		    GroundHitSound.Dispose();
+		    TargetHitSound.Dispose();
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

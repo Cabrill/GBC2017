@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -19,11 +20,12 @@ namespace GBC2017.Entities.BaseEntities
 	    public bool HasSufficientEnergy { get; private set; }
 	    public bool IsDestroyed => _healthRemaining <= 0;
 
-	    private float _healthRemaining;
-        private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 	    public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
+        public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
 
-	    public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
+        private float _healthRemaining;
+        private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
+	    protected SoundEffectInstance PlacementSound;
 
 	    /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -49,6 +51,7 @@ namespace GBC2017.Entities.BaseEntities
 
 		    _healthRemaining = MaximumHealth;
 		    BatteryLevel = 0.6f * InternalBatteryMaxStorage;
+		    PlacementSound = Structure_Placed.CreateInstance();
 		}
 
 	    private void CustomActivity()
@@ -58,6 +61,7 @@ namespace GBC2017.Entities.BaseEntities
 		    {
 		        IsBeingPlaced = false;
                 CurrentState = VariableState.Built;
+                PlacementSound.Play();
 		    }
 		    if (XCancelInstance.WasClickedThisFrame(GuiManager.Cursor))
 		    {
@@ -102,9 +106,9 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
+		    PlacementSound.Dispose();
 
-
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

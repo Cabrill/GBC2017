@@ -24,10 +24,10 @@ namespace GBC2017.Entities.Structures.Combat
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-		{
+        {
+            attackSound = Laser_Shoot.CreateInstance();
 
-
-		}
+        }
 
 		private void CustomActivity()
 		{

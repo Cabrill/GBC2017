@@ -12,6 +12,7 @@ using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -28,6 +29,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private double LastRangeAttackTime;
 	    private double LastMeleeAttackTime;
 	    private float _healthRemaining;
+	    protected SoundEffectInstance rangedChargeSound;
+	    protected SoundEffectInstance rangedAttackSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -135,6 +138,8 @@ namespace GBC2017.Entities.BaseEntities
             newProjectile.Velocity = direction * newProjectile.Speed;
 	        newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity)-MathHelper.ToRadians(90);
 
+            rangedAttackSound.Play();
+
             LastRangeAttackTime = TimeManager.CurrentTime;
 
             CurrentActionState = Action.FinishRangedAttack;
@@ -161,7 +166,8 @@ namespace GBC2017.Entities.BaseEntities
                     Direction.MovingLeft);
 
 	            CurrentActionState = Action.StartRangedAttack;
-            }
+	            this.Call(rangedChargeSound.Play).After(0.3f);
+	        }
 	    }
 
 	    private void ChooseStructureTarget()
@@ -181,6 +187,7 @@ namespace GBC2017.Entities.BaseEntities
 	    public void GetHitBy(BasePlayerProjectile projectile)
 	    {
 	        _healthRemaining -= projectile.DamageInflicted;
+            projectile.PlayHitTargetSound();
 
 	        if (_healthRemaining <= 0)
 	        {
@@ -188,6 +195,12 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        else
 	        {
+	            if (CurrentActionState == Action.StartRangedAttack)
+	            {
+                    Instructions.Clear();
+	                if (rangedChargeSound.State == SoundState.Playing) rangedChargeSound.Stop();
+	            }
+
 	            StopMovement();
                 CurrentActionState = Action.Hurt;
 	        }
@@ -236,7 +249,8 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-
+            rangedAttackSound.Dispose();
+            rangedChargeSound.Dispose();
 
 		}
 

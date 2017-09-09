@@ -13,6 +13,7 @@ using FlatRedBall.Math.Geometry;
 using GBC2017.Factories;
 using GBC2017.Screens;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -20,7 +21,7 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    private BaseEnemy targetEnemy;
-        
+	    protected SoundEffectInstance attackSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -124,6 +125,8 @@ namespace GBC2017.Entities.BaseEntities
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
                 newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
+
+                attackSound.Play();
 
                 LastFiredTime = TimeManager.CurrentTime;
             }

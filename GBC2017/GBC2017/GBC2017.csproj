@@ -333,6 +333,41 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Hit_Ground</Name>
+      <Link>content\globalcontent\sounds\alien_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Powerup</Name>
+      <Link>content\globalcontent\sounds\alien_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\alien_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Shoot</Name>
+      <Link>content\globalcontent\sounds\alien_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Ground</Name>
+      <Link>content\globalcontent\sounds\laser_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\laser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Hit</Name>
+      <Link>content\globalcontent\sounds\laser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\laser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Shoot</Name>
+      <Link>content\globalcontent\sounds\laser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Structure_Placed</Name>
+      <Link>content\globalcontent\sounds\structure_placed.xnb</Link>
+    </None>
     <None Include="content\entities\enemies\basicalien\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>

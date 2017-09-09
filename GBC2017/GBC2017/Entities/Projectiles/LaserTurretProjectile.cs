@@ -19,10 +19,10 @@ namespace GBC2017.Entities.Projectiles
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-		{
-
-
-		}
+        {
+            GroundHitSound = Laser_Ground.CreateInstance();
+            TargetHitSound = Laser_Hit.CreateInstance();
+        }
 
 		private void CustomActivity()
 		{
