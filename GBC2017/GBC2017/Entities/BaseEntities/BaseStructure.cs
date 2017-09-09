@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
+using GBC2017.ResourceManagers;
 using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.BaseEntities
@@ -56,18 +57,47 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomActivity()
 		{
-		    if (CheckmarkInstance.CurrentState == Checkmark.VariableState.Enabled && 
-                CheckmarkInstance.WasClickedThisFrame(GuiManager.Cursor))
+		    if (IsBeingPlaced)
 		    {
-		        IsBeingPlaced = false;
-                CurrentState = VariableState.Built;
-                PlacementSound.Play();
-		    }
-		    if (XCancelInstance.WasClickedThisFrame(GuiManager.Cursor))
-		    {
-		        Destroy();
+#if DEBUG
+		        if (DebugVariables.IgnoreStructureBuildCost)
+		        {
+		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+                } else
+#endif
+                if (EnergyManager.StoredEnergy >= EnergyBuildCost || EnergyManager.EnergyIncrease >= EnergyBuildCost)
+		        {
+		            CurrentState = VariableState.CantAfford;
+		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
+		        }
+		        else
+		        {
+		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+                }
+
+		        if (CheckmarkInstance.CurrentState == Checkmark.VariableState.Enabled &&
+		            CheckmarkInstance.WasClickedThisFrame(GuiManager.Cursor))
+		        {
+		            BuildStructure();
+		        }
+
+		        if (XCancelInstance.WasClickedThisFrame(GuiManager.Cursor))
+		        {
+		            Destroy();
+		        }
 		    }
 		}
+
+	    private void BuildStructure()
+	    {
+	        var energyDebitSuccessful = EnergyManager.DebitEnergyForBuildRequest(EnergyBuildCost);
+	        if (energyDebitSuccessful)
+	        {
+	            IsBeingPlaced = false;
+	            CurrentState = VariableState.Built;
+	            PlacementSound.Play();
+	        }
+	    }
 
 	    public void GetHitBy(BaseEnemyProjectile projectile)
 	    {

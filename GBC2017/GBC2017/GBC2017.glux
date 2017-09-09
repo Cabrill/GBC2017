@@ -1512,6 +1512,21 @@
           </InstructionSaves>
           <Name>Built</Name>
         </StateSave>
+        <StateSave>
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>Single</Type>
+              <Member>SpriteInstanceRed</Member>
+              <ValueAsFloat>255</ValueAsFloat>
+            </InstructionSave>
+            <InstructionSave>
+              <Type>Single</Type>
+              <Member>SpriteInstanceGreen</Member>
+              <ValueAsFloat>255</ValueAsFloat>
+            </InstructionSave>
+          </InstructionSaves>
+          <Name>CantAfford</Name>
+        </StateSave>
       </States>
       <CustomVariables>
         <CustomVariable>
@@ -1599,24 +1614,24 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
+              <ValueAsString>double</ValueAsString>
             </PropertySave>
           </Properties>
           <Name>EnergyBuildCost</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">9999</DefaultValue>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
         <CustomVariable>
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
+              <ValueAsString>double</ValueAsString>
             </PropertySave>
           </Properties>
           <Name>CarbonBuildCost</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">9999</DefaultValue>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
         <CustomVariable>
@@ -1803,6 +1818,17 @@
           <Name>EnableDebugHotkeys</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IgnoreStructureBuildCost</Name>
+          <Type>bool</Type>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>

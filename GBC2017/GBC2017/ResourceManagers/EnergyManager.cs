@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall;
 using FlatRedBall.Math;
+using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures.Utility;
 using RenderingLibrary;
@@ -22,6 +23,7 @@ namespace GBC2017.ResourceManagers
         public static double MaxStorage { get; private set; }
 
         private static double _lastUpdateTime;
+        private static double _energyBuildDebt;
 
         private static PositionedObjectList<BaseStructure> _allStructures;
         private static IEnumerable<Battery> BatteryList => _allStructures.OfType<Battery>()
@@ -38,16 +40,20 @@ namespace GBC2017.ResourceManagers
             {
                 var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
+                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
 
                 var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
 
-                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
+                
+                var availableEnergy = EnergyIncrease - _energyBuildDebt;
+                _energyBuildDebt = 0;
+
                 var energyRequestSum = energyRequesterArray.Sum(eu => eu.EnergyRequestAmount);
 
                 var energyInStorage = StoredEnergy;
 
-                var sufficientEnergyFromIncreaseAlone = EnergyIncrease >= energyRequestSum;
+                var sufficientEnergyFromIncreaseAlone = availableEnergy >= energyRequestSum;
 
                 if (sufficientEnergyFromIncreaseAlone)
                 {
@@ -56,7 +62,7 @@ namespace GBC2017.ResourceManagers
                         energyRequester.ReceiveEnergy(energyRequester.EnergyRequestAmount);
                     }
 
-                    var energySurplus = EnergyIncrease - energyRequestSum;
+                    var energySurplus = availableEnergy - energyRequestSum;
                     if (energySurplus > 0)
                     {
                         ChargeBatteriesEqually(energySurplus);
@@ -70,7 +76,7 @@ namespace GBC2017.ResourceManagers
                     var nonBatteryRequestSum = nonBatteryRequesterList.Sum(nbr => nbr.EnergyRequestAmount);
                     EnergyDecrease = nonBatteryRequestSum;
 
-                    var thereIsSufficientEnergyForNonBatteries = EnergyIncrease + energyInStorage >= nonBatteryRequestSum;
+                    var thereIsSufficientEnergyForNonBatteries = availableEnergy + energyInStorage >= nonBatteryRequestSum;
 
                     var energyDistributed = 0.0;
 
@@ -84,7 +90,7 @@ namespace GBC2017.ResourceManagers
                     }
                     else //Insufficient energy for even the non-batteries, fill the smallest demands first
                     {
-                        var energyAvailable = EnergyIncrease + StoredEnergy;
+                        var energyAvailable = availableEnergy + StoredEnergy;
                         var energyRequestsInAscendingOrder = nonBatteryRequesterList.OrderBy(nbr => nbr.EnergyRequestAmount);
                         var numberOfNonBatteryRequests = energyRequestsInAscendingOrder.Count();
 
@@ -99,7 +105,7 @@ namespace GBC2017.ResourceManagers
                         }
                     }
 
-                    var energyBalance = EnergyIncrease - energyDistributed;
+                    var energyBalance = availableEnergy - energyDistributed;
 
                     if (energyBalance < 0)
                     {
@@ -165,6 +171,23 @@ namespace GBC2017.ResourceManagers
             //If this isn't 0~ then we somehow didn't charge enough!
             Debug.Assert(Math.Abs(energyDrainSum) < 1);
             #endif
+        }
+
+        public static bool DebitEnergyForBuildRequest(double energyBuildCost)
+        {
+#if DEBUG
+            if (DebugVariables.IgnoreStructureBuildCost) return true;
+#endif
+            if (StoredEnergy >= energyBuildCost)
+            {
+                DrainBatteriesEqually(energyBuildCost);
+                return true;
+            }
+            else if (_energyBuildDebt + energyBuildCost <= EnergyIncrease)
+            {
+                _energyBuildDebt += energyBuildCost;
+                return true;
+            }
         }
     }
 }
