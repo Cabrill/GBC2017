@@ -16,7 +16,7 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseStructure
 	{
-	    public double BatteryLevel { get; private set; }
+	    public double BatteryLevel { get; protected set; }
 	    public bool HasSufficientEnergy { get; private set; }
 	    public bool IsDestroyed => _healthRemaining <= 0;
 

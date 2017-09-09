@@ -14,24 +14,18 @@ namespace GBC2017.ResourceManagers
 {
     public static class EnergyManager
     {
-        private const double _secondsBetweenUpdates = 1;
+        private const double SecondsBetweenUpdates = 1;
+
+        public static double EnergyIncrease { get; private set; }
+        public static double EnergyDecrease { get; private set; }
+        public static double StoredEnergy { get; private set; }
+        public static double MaxStorage { get; private set; }
+
         private static double _lastUpdateTime;
 
-        private static double _energyIncrease;
-        public static double EnergyIncrease => _energyIncrease;
-
-        private static double _energyDecrease;
-        public static double EnergyDecrease => _energyDecrease;
-
-        public static double EnergyNet => _energyIncrease - _energyDecrease;
-
-        private static IEnumerable<Battery> _batteryList => _allStructures.OfType<Battery>()
-            .Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false);
-
-        public static double EnergyInBatteryStructures => _batteryList.Sum(b => b.BatteryLevel);
-
-
         private static PositionedObjectList<BaseStructure> _allStructures;
+        private static IEnumerable<Battery> BatteryList => _allStructures.OfType<Battery>()
+            .Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false);
 
         public static void Initialize(PositionedObjectList<BaseStructure> allStructures)
         {
@@ -40,7 +34,7 @@ namespace GBC2017.ResourceManagers
 
         public static void Update()
         {
-            if (TimeManager.SecondsSince(_lastUpdateTime) >= _secondsBetweenUpdates)
+            if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
             {
                 var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
@@ -48,12 +42,12 @@ namespace GBC2017.ResourceManagers
                 var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
 
-                _energyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
+                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
                 var energyRequestSum = energyRequesterArray.Sum(eu => eu.EnergyRequestAmount);
 
-                var energyInStorage = EnergyInBatteryStructures;
+                var energyInStorage = StoredEnergy;
 
-                var sufficientEnergyFromIncreaseAlone = _energyIncrease >= energyRequestSum;
+                var sufficientEnergyFromIncreaseAlone = EnergyIncrease >= energyRequestSum;
 
                 if (sufficientEnergyFromIncreaseAlone)
                 {
@@ -62,21 +56,21 @@ namespace GBC2017.ResourceManagers
                         energyRequester.ReceiveEnergy(energyRequester.EnergyRequestAmount);
                     }
 
-                    var energySurplus = _energyIncrease - energyRequestSum;
+                    var energySurplus = EnergyIncrease - energyRequestSum;
                     if (energySurplus > 0)
                     {
                         ChargeBatteriesEqually(energySurplus);
                     }
-                    _energyDecrease = energyRequestSum;
+                    EnergyDecrease = energyRequestSum;
                 }
                 else //Insufficient energy for all requests, charge non-batteries first, then evalute remainder
                 {
-                    var nonBatteryRequesters = energyRequesterArray.Where(nbr => nbr.HasInternalBattery == false);
+                    var nonBatteryRequesters = energyRequesterArray.Except(BatteryList);
                     var nonBatteryRequesterList = nonBatteryRequesters as BaseStructure[] ?? nonBatteryRequesters.ToArray();
                     var nonBatteryRequestSum = nonBatteryRequesterList.Sum(nbr => nbr.EnergyRequestAmount);
-                    _energyDecrease = nonBatteryRequestSum;
+                    EnergyDecrease = nonBatteryRequestSum;
 
-                    var thereIsSufficientEnergyForNonBatteries = _energyIncrease + energyInStorage >= nonBatteryRequestSum;
+                    var thereIsSufficientEnergyForNonBatteries = EnergyIncrease + energyInStorage >= nonBatteryRequestSum;
 
                     var energyDistributed = 0.0;
 
@@ -90,21 +84,22 @@ namespace GBC2017.ResourceManagers
                     }
                     else //Insufficient energy for even the non-batteries, fill the smallest demands first
                     {
-                        var energyAvailable = EnergyIncrease + EnergyInBatteryStructures;
+                        var energyAvailable = EnergyIncrease + StoredEnergy;
                         var energyRequestsInAscendingOrder = nonBatteryRequesterList.OrderBy(nbr => nbr.EnergyRequestAmount);
+                        var numberOfNonBatteryRequests = energyRequestsInAscendingOrder.Count();
 
                         foreach (var energyRequester in energyRequestsInAscendingOrder)
                         {
                             if (energyAvailable <= 0) break;
 
-                            var amountToDistribute = Math.Min(energyAvailable, energyRequester.EnergyRequestAmount);
+                            var amountToDistribute = Math.Min(energyAvailable / numberOfNonBatteryRequests, energyRequester.EnergyRequestAmount);
                             energyRequester.ReceiveEnergy(amountToDistribute);
                             energyAvailable -= amountToDistribute;
                             energyDistributed += amountToDistribute;
                         }
                     }
 
-                    var energyBalance = _energyIncrease - energyDistributed;
+                    var energyBalance = EnergyIncrease - energyDistributed;
 
                     if (energyBalance < 0)
                     {
@@ -116,13 +111,16 @@ namespace GBC2017.ResourceManagers
                     }
                 }
 
+                StoredEnergy = BatteryList.Sum(b => b.BatteryLevel);
+                MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage);
+
                 _lastUpdateTime = TimeManager.CurrentTime;
             }
         }
 
         private static void ChargeBatteriesEqually(double chargeSum)
         {
-            var orderedBatteries = _batteryList.Where(b => b.BatteryLevel > 0).OrderByDescending(b => b.BatteryLevel).ToArray();
+            var orderedBatteries = BatteryList.Where(b => b.BatteryLevel > 0).OrderByDescending(b => b.BatteryLevel).ToArray();
             var numberOfBatteries = orderedBatteries.Length;
 
             for (var i = 0; i < numberOfBatteries; i++)
@@ -148,7 +146,7 @@ namespace GBC2017.ResourceManagers
         /// <param name="drainSum">The sum to be drained from all batteries</param>
         private static void DrainBatteriesEqually(double drainSum)
         {
-            var orderedBatteries = _batteryList.Where(b => b.BatteryLevel > 0).OrderBy(b => b.BatteryLevel).ToArray();
+            var orderedBatteries = BatteryList.Where(b => b.BatteryLevel > 0).OrderBy(b => b.BatteryLevel).ToArray();
             var numberOfBatteries = orderedBatteries.Length;
             var energyDrainSum = Math.Abs(drainSum);
 
@@ -168,6 +166,5 @@ namespace GBC2017.ResourceManagers
             Debug.Assert(Math.Abs(energyDrainSum) < 1);
             #endif
         }
-
     }
 }

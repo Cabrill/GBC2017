@@ -109,7 +109,7 @@ namespace GBC2017.Screens
 		    EnemyProjectileActivity();
 
             EnergyManager.Update();
-            InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease);
+            InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease, EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
 		}
 
 	    private void EnemyStatusActivity()

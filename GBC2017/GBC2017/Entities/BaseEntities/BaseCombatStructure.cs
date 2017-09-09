@@ -58,7 +58,11 @@ namespace GBC2017.Entities.BaseEntities
 		        if (targetEnemy != null)
 		        {
 		            RotateToAim();
-		            PerformFiringActivity();
+
+		            if (BatteryLevel >= EnergyCostToFire)
+		            {
+		                PerformFiringActivity();
+		            }
 		        }
 		    }
 		}
@@ -129,6 +133,7 @@ namespace GBC2017.Entities.BaseEntities
                 attackSound.Play();
 
                 LastFiredTime = TimeManager.CurrentTime;
+                BatteryLevel -= EnergyCostToFire;
             }
         }
 

@@ -8,7 +8,7 @@ namespace GBC2017.GumRuntimes
 {
     public partial class EnergyDisplayRuntime
     {
-        public void UpdateDisplay(double energyIncrease, double energyDecrease)
+        public void UpdateDisplay(double energyIncrease, double energyDecrease, double storedEnergy, double maxStorage)
         {
             var netEnergy = energyIncrease - energyDecrease;
 

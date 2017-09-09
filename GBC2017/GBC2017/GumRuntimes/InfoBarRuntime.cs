@@ -8,9 +8,9 @@ namespace GBC2017.GumRuntimes
 {
     public partial class InfoBarRuntime
     {
-        public void UpdateEnergyDisplay(double energyIncrease, double energyDecrease)
+        public void UpdateEnergyDisplay(double energyIncrease, double energyDecrease, double currentStorage, double maxStorage)
         {
-            EnergyDisplayInstance.UpdateDisplay(energyIncrease, energyDecrease);
+            EnergyDisplayInstance.UpdateDisplay(energyIncrease, energyDecrease, currentStorage, maxStorage);
         }
     }
 }
