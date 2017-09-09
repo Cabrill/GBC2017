@@ -9,6 +9,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Combat;
 using GBC2017.Entities.Structures.EnergyProducers;
+using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GumRuntimes;
 
@@ -22,6 +23,7 @@ namespace GBC2017.Screens
             BuildBarInstance.EnergyStructureButtonClick += BuildBarInstanceOnEnergyStructureButtonClick;
             BuildBarInstance.CombatStructureButtonClick += BuildBarInstanceOnCombatStructureButtonClick;
             BuildBarInstance.UtilityStructureButtonClick += BuildBarInstanceOnUtilityStructureButtonClick;
+            BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
 
             //Energy build buttons
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
@@ -81,6 +83,19 @@ namespace GBC2017.Screens
             }
         }
 
+        #endregion
+
+        #region Utility structure buttons
+        private void BuildBarInstanceOnBatteryButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<Battery>())
+            {
+                var newBattery = BatteryFactory.CreateNew(EntityLayer);
+                FindValidLocationFor(newBattery);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
         #endregion
 
         #region Helper Methods

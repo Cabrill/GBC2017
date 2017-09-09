@@ -46,10 +46,10 @@
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
   </objecttype>
   <objecttype name="Battery">
-    <property name="EnergyBuildCost" type="int" />
-    <property name="CarbonBuildCost" type="int" />
-    <property name="MaximumHealth" type="float" />
-    <property name="EnergyRequiredPerSecond" type="int" />
-    <property name="InternalBatteryMaxStorage" type="int" default="0" />
+    <property name="EnergyBuildCost" type="int" default="100" />
+    <property name="CarbonBuildCost" type="int" default="300" />
+    <property name="MaximumHealth" type="float" default="50" />
+    <property name="InternalBatteryMaxStorage" type="int" default="100" />
+    <property name="EnergyRequiredPerSecond" type="int" default="0" />
   </objecttype>
 </objecttypes>

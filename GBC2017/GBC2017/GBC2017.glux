@@ -3587,6 +3587,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3598,6 +3599,7 @@
           </Properties>
           <Name>CarbonBuildCost</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3609,17 +3611,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>EnergyRequiredPerSecond</Name>
-          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3631,7 +3623,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3645,7 +3637,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>battery_sprite</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3660,7 +3657,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>48</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
