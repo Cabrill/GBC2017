@@ -188,6 +188,7 @@ namespace GBC2017.ResourceManagers
                 _energyBuildDebt += energyBuildCost;
                 return true;
             }
+            return false;
         }
     }
 }
