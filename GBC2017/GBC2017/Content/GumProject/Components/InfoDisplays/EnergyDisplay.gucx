@@ -456,7 +456,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Width</Name>
-      <Value xsi:type="xsd:float">9</Value>
+      <Value xsi:type="xsd:float">7.98293</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

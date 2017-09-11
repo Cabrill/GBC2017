@@ -114,6 +114,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>SunSprite.Width</Name>
+      <Value xsi:type="xsd:float">89.76063</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
       <Name>SunSprite.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>

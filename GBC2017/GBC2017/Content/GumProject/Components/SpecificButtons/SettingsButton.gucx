@@ -72,7 +72,7 @@
     <Variable>
       <Type>int</Type>
       <Name>HighlightSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">82</Value>
+      <Value xsi:type="xsd:int">83</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -90,7 +90,7 @@
     <Variable>
       <Type>int</Type>
       <Name>HighlightSprite.Texture Width</Name>
-      <Value xsi:type="xsd:int">81</Value>
+      <Value xsi:type="xsd:int">82</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -137,7 +137,7 @@
     <Variable>
       <Type>int</Type>
       <Name>SettingsSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">82</Value>
+      <Value xsi:type="xsd:int">83</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -155,7 +155,7 @@
     <Variable>
       <Type>int</Type>
       <Name>SettingsSprite.Texture Width</Name>
-      <Value xsi:type="xsd:int">81</Value>
+      <Value xsi:type="xsd:int">82</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

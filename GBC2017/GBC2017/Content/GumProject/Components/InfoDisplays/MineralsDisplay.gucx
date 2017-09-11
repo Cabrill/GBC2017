@@ -461,7 +461,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Width</Name>
-      <Value xsi:type="xsd:float">9</Value>
+      <Value xsi:type="xsd:float">7.98293</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

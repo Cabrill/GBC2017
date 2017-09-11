@@ -172,7 +172,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SettingsButtonInstance.Width</Name>
-      <Value xsi:type="xsd:float">6</Value>
+      <Value xsi:type="xsd:float">5.0015</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
