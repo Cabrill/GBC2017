@@ -438,7 +438,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergySprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">34</Value>
+      <Value xsi:type="xsd:int">35</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
