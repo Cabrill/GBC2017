@@ -216,6 +216,7 @@
     <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
@@ -231,10 +232,17 @@
     <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
       <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
@@ -408,6 +416,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>solar_sprite</Name>
     </None>
+    <None Include="content\globalcontent\allassetssheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AllAssetsSheet</Name>
+    </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BuildBar</Name>
@@ -415,6 +427,10 @@
     <None Include="content\gumproject\components\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Button</Name>
+    </None>
+    <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ResourceBar</Name>
     </None>
     <None Include="content\gumproject\components\horizonbox.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -424,10 +440,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>InfoBar</Name>
     </None>
-    <None Include="content\gumproject\components\infodisplays\carbondisplay.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>CarbonDisplay</Name>
-    </None>
     <None Include="content\gumproject\components\infodisplays\conditionsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ConditionsDisplay</Name>
@@ -435,6 +447,26 @@
     <None Include="content\gumproject\components\infodisplays\energydisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnergyDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\mineralsdisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MineralsDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\sunlightcondition.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SunlightCondition</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\watercondition.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WaterCondition</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\windcondition.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WindCondition</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\settingsbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SettingsButton</Name>
     </None>
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -448,33 +480,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
-    <None Include="content\gumproject\gumcontent\battery.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>battery</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\cloudy.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>cloudy</Name>
-    </None>
     <None Include="content\gumproject\gumcontent\horizons\treeline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>treeline</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\images.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>images</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\temperature.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>temperature</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\water.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>water</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\windsock.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>windsock</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>infodisplays/ConditionsDisplay</Name>
+  <Name>infodisplays/WaterCondition</Name>
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
     <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -61,81 +61,69 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>SunlightConditionInstance.Height</Name>
-      <Value xsi:type="xsd:float">90</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>SunlightConditionInstance.Width</Name>
-      <Value xsi:type="xsd:float">30</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>SunlightConditionInstance.Y</Name>
-      <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>SunlightConditionInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>bool</Type>
       <Name>Visible</Name>
       <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>WaterConditionInstance.Height</Name>
-      <Value xsi:type="xsd:float">90</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>WaterLevelState</Type>
-      <Name>WaterConditionInstance.WaterLevelState</Name>
-      <Value xsi:type="xsd:string">Level3</Value>
+      <Name>WaterLevelState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>WaterSprite.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>WaterConditionInstance.Width</Name>
-      <Value xsi:type="xsd:float">30</Value>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>WaterSprite.SourceFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>WaterConditionInstance.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Type>TextureAddress</Type>
+      <Name>WaterSprite.Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WaterConditionInstance.X Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Type>int</Type>
+      <Name>WaterSprite.Texture Height</Name>
+      <Value xsi:type="xsd:int">65</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>WaterConditionInstance.Y</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Type>int</Type>
+      <Name>WaterSprite.Texture Left</Name>
+      <Value xsi:type="xsd:int">683</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WaterConditionInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
+      <Type>int</Type>
+      <Name>WaterSprite.Texture Top</Name>
+      <Value xsi:type="xsd:int">93</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>WaterSprite.Texture Width</Name>
+      <Value xsi:type="xsd:int">65</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>WaterSprite.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">30</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -147,48 +135,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>WindConditionInstance.Height</Name>
-      <Value xsi:type="xsd:float">90</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WindConditionInstance.Width</Name>
-      <Value xsi:type="xsd:float">30</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>WindLevelState</Type>
-      <Name>WindConditionInstance.WindLevelState</Name>
-      <Value xsi:type="xsd:string">Level4</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WindConditionInstance.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WindConditionInstance.X Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>WindConditionInstance.Y</Name>
-      <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>WindConditionInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>bool</Type>
       <Name>Wraps Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -197,9 +143,8 @@
     <Variable>
       <Type>float</Type>
       <Name>X</Name>
-      <Value xsi:type="xsd:float">2</Value>
       <Category>Position</Category>
-      <SetsValue>true</SetsValue>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>HorizontalAlignment</Type>
@@ -211,7 +156,7 @@
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>X Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -243,17 +188,48 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>WaterLevel</Name>
+    <State>
+      <Name>Level1</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>WaterSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">683</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Level2</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>WaterSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">748</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Level3</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>WaterSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">813</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Frozen</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>WaterSprite.Texture Left</Name>
+        <Value xsi:type="xsd:int">878</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
-    <Name>SunlightConditionInstance</Name>
-    <BaseType>infodisplays/SunlightCondition</BaseType>
-  </Instance>
-  <Instance>
-    <Name>WindConditionInstance</Name>
-    <BaseType>infodisplays/WindCondition</BaseType>
-  </Instance>
-  <Instance>
-    <Name>WaterConditionInstance</Name>
-    <BaseType>infodisplays/WaterCondition</BaseType>
+    <Name>WaterSprite</Name>
+    <BaseType>Sprite</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>
