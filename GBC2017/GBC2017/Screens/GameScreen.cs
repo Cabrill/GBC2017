@@ -90,11 +90,11 @@ namespace GBC2017.Screens
 	        justgrass.Position.X = -justgrass.Width / 2;
 
             //This positions the map between the info bar and build button bar
-	        justgrass.Position.Y = justgrass.Height / 1.85f;
+	        justgrass.Position.Y = justgrass.Height/3;
 
             //Set the play area to match the tilemap size/position
-	        PlayAreaRectangle.Y = justgrass.Position.Y - justgrass.Height/2;
-	        PlayAreaRectangle.Height = justgrass.Height;
+	        PlayAreaRectangle.Y = justgrass.Position.Y- justgrass.Height/2.65f;
+	        PlayAreaRectangle.Height = justgrass.Height/1.65f;
 	        PlayAreaRectangle.Width = justgrass.Width;
 	    }
 #endregion
