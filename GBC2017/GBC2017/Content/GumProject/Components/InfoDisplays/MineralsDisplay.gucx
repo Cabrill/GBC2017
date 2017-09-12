@@ -11,6 +11,18 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ChangeContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>ChangeContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ChangeContainer.Height</Name>
       <Value xsi:type="xsd:float">20</Value>
@@ -85,7 +97,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -98,7 +110,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -578,6 +590,18 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MineralsTextContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsTextContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsTextContainer.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -621,6 +645,18 @@
       <Type>ChildrenLayout</Type>
       <Name>StorageContainer.Children Layout</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StorageContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StorageContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -752,7 +788,7 @@
       <Name>Positive</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Red</Name>
+        <Name>MineralsNetText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -764,7 +800,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Blue</Name>
+        <Name>MineralsNetText.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -773,8 +809,8 @@
       <Name>Negative</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Name>MineralsNetText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -785,8 +821,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Name>MineralsNetText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -794,7 +830,7 @@
       <Name>Balanced</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Red</Name>
+        <Name>MineralsNetText.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -806,7 +842,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsNetText.Blue</Name>
+        <Name>MineralsNetText.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>

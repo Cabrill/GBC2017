@@ -10,8 +10,12 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
+using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
+using Gum.Converters;
+using Gum.DataTypes;
 using Microsoft.Xna.Framework.Audio;
+using RenderingLibrary.Graphics;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -26,38 +30,48 @@ namespace GBC2017.Entities.BaseEntities
 
         private float _healthRemaining;
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
-	    protected SoundEffectInstance PlacementSound;
+
+	    private ResourceBarRuntime _energyBar;
+	    private ResourceBarRuntime _healthBar;
+
+        protected SoundEffect PlacementSound;
 
 	    /// <summary>
-        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-        /// added to managers will not have this method called.
-        /// </summary>
-        private void CustomInitialize()
-		{
+	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+	    /// added to managers will not have this method called.
+	    /// </summary>
+	    private void CustomInitialize()
+	    {
 #if DEBUG
-		    if (DebugVariables.ShowDebugShapes)
-		    {
-		        AxisAlignedRectangleInstance.Visible = true;
-		        CheckmarkInstance.AxisAlignedRectangleInstance.Visible = true;
-		        XCancelInstance.AxisAlignedRectangleInstance.Visible = true;
-		    }
-		    else
+	        if (DebugVariables.ShowDebugShapes)
+	        {
+	            AxisAlignedRectangleInstance.Visible = true;
+	            CheckmarkInstance.AxisAlignedRectangleInstance.Visible = true;
+	            XCancelInstance.AxisAlignedRectangleInstance.Visible = true;
+	        }
+	        else
 #endif
-            {
-                AxisAlignedRectangleInstance.Visible = false;
-                CheckmarkInstance.AxisAlignedRectangleInstance.Visible = false;
-		        XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
-            }
+	        {
+	            AxisAlignedRectangleInstance.Visible = false;
+	            CheckmarkInstance.AxisAlignedRectangleInstance.Visible = false;
+	            XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
+	        }
 
-		    _healthRemaining = MaximumHealth;
-		    BatteryLevel = 0.6f * InternalBatteryMaxStorage;
-		    PlacementSound = Structure_Placed.CreateInstance();
-		}
+	        _healthRemaining = MaximumHealth;
+	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
+	        PlacementSound = Structure_Placed;
+
+	        if (HasInternalBattery)
+	        {
+	            _energyBar = CreateResourceBar(ResourceBarRuntime.BarType.Energy);
+	        }
+	        _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
+	    }
 
 	    private void CustomActivity()
-		{
-		    if (IsBeingPlaced)
+	    {
+            if (IsBeingPlaced)
 		    {
 #if DEBUG
 		        if (DebugVariables.IgnoreStructureBuildCost)
@@ -67,7 +81,7 @@ namespace GBC2017.Entities.BaseEntities
 #endif
                 if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
                 {
-		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+                    CheckmarkInstance.CurrentState = IsValidLocation ? Checkmark.VariableState.Enabled : Checkmark.VariableState.Disabled;
                     CurrentState = IsValidLocation ? VariableState.ValidLocation : VariableState.InvalidLocation;
                 }
 		        else
@@ -87,6 +101,35 @@ namespace GBC2017.Entities.BaseEntities
 		            Destroy();
 		        }
 		    }
+            else
+            {
+                if (HasInternalBattery)
+                {
+                    if (BatteryLevel < InternalBatteryMaxStorage)
+                    {
+                        _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
+                        _energyBar.X = X;
+                        _energyBar.Y = Y + SpriteInstance.Height;
+                        _energyBar.Visible = true;
+                    }
+                    else
+                    {
+                        _energyBar.Visible = false;
+                    }
+                }
+
+                if (_healthRemaining < MaximumHealth)
+                {
+                    _healthBar.UpdateBar(_healthRemaining, MaximumHealth, false);
+                    _healthBar.X = X;
+                    _healthBar.Y = Y + SpriteInstance.Height + _healthBar.Height;
+                    _healthBar.Visible = true;
+                }
+                else
+                {
+                    _healthBar.Visible = false;
+                }
+            }
 		}
 
 	    private void BuildStructure()
@@ -141,8 +184,8 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-		    PlacementSound.Dispose();
-
+		    _energyBar?.Destroy();
+		    _healthBar.Destroy();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
@@ -150,5 +193,24 @@ namespace GBC2017.Entities.BaseEntities
 
 
         }
+
+	    private ResourceBarRuntime CreateResourceBar(ResourceBarRuntime.BarType barType)
+	    {
+	        var newBar = new ResourceBarRuntime
+	        {
+	            XUnits = GeneralUnitType.PixelsFromMiddle,
+	            YUnits = GeneralUnitType.PixelsFromMiddleInverted,
+	            XOrigin = HorizontalAlignment.Center,
+	            YOrigin = VerticalAlignment.Top,
+	            WidthUnits = DimensionUnitType.Absolute,
+	            HeightUnits = DimensionUnitType.Absolute,
+	            Width = SpriteInstance.Width,
+	            Height = SpriteInstance.Width / 5,
+	            CurrentBarTypeState = barType,
+                Visible = false
+	        };
+            newBar.AddToManagers();
+	        return newBar;
+	    }
 	}
 }

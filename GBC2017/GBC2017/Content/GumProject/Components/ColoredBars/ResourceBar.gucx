@@ -115,7 +115,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -627,7 +627,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -1441,6 +1441,156 @@
         <Type>int</Type>
         <Name>ShadeStartSprite.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Health</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillEndSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillEndSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillEndSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillMiddleSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillMiddleSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillMiddleSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillStartSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillStartSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>FillStartSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeEndSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">100</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeEndSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeEndSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeEndSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeMiddleSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">100</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeMiddleSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeMiddleSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeMiddleSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeStartSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">100</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeStartSprite.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeStartSprite.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>ShadeStartSprite.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>

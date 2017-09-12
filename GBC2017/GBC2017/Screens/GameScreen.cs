@@ -37,7 +37,7 @@ namespace GBC2017.Screens
 	    };
 
 	    private GameMode CurrentGameMode = GameMode.Normal;
-	    private IPositionedSizedObject selectedObject;
+	    private PositionedObject selectedObject;
         #endregion
 
         #region Initialization
@@ -114,17 +114,26 @@ namespace GBC2017.Screens
             #endif
 
 		    UpdateGameModeActivity();
+
             HandleTouchActivity();
+
 		    BuildingStatusActivity();
-		    EnemyStatusActivity();
-		    PlayerProjectileActivity();
-		    EnemyProjectileActivity();
 
-            EnergyManager.Update();
-            InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease, EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
+            if (!IsPaused)
+		    {
+		        EnemyStatusActivity();
+		        PlayerProjectileActivity();
+		        EnemyProjectileActivity();
 
-		    MineralsManager.Update();
-            InfoBarInstance.UpdateMineralsDisplay(MineralsManager.MineralsIncrease, MineralsManager.MineralsDecrease, MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
+		        EnergyManager.Update();
+		        MineralsManager.Update();
+
+                InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease,
+		            EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
+
+		        InfoBarInstance.UpdateMineralsDisplay(MineralsManager.MineralsIncrease, MineralsManager.MineralsDecrease,
+		            MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
+		    }
 		}
 
 	    private void UpdateGameModeActivity()
@@ -253,34 +262,69 @@ namespace GBC2017.Screens
         private void HandleTouchActivity()
 	    {
             //User just clicked/touched somewhere, and nothing is currently selected
-	        if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) && GuiManager.Cursor.ObjectGrabbed == null)
+	        if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
+	            GuiManager.Cursor.ObjectGrabbed == null)
 	        {
-	            foreach (var structure in AllStructuresList)
+	            if (CurrentGameMode == GameMode.Building)
 	            {
-	                if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
+	                var structureBeingBuilt = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
+
+	                if (structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
 	                {
-	                    GuiManager.Cursor.ObjectGrabbed = structure;
-	                    break;
+	                    GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
+	                }
+	            }
+	            else //Not building, user is possibly selecting an object
+	            {
+                    //Remove the current selection if the user clicks off of it
+	                if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
+	                {
+                        selectedObject = null;
 	                }
 
+	                foreach (var structure in AllStructuresList)
+	                {
+	                    if (GuiManager.Cursor.IsOn3D(structure.SpriteInstance))
+	                    {
+	                        GuiManager.Cursor.ObjectGrabbed = structure;
+	                        selectedObject = structure;
+	                        CurrentGameMode = GameMode.Inspecting;
+                            break;
+	                    }
+	                }
+
+                    //Didn't select a structure, check for enemies
+	                if (selectedObject == null)
+	                {
+	                    foreach (var enemy in AllEnemiesList)
+	                    {
+	                        if (GuiManager.Cursor.IsOn3D(enemy.SpriteInstance))
+	                        {
+	                            GuiManager.Cursor.ObjectGrabbed = enemy;
+	                            selectedObject = enemy;
+	                            CurrentGameMode = GameMode.Inspecting;
+	                            break;
+	                        }
+	                    }
+                    }
 	            }
 	        }
-            else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
+	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
 	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
 	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced &&
 	                                  PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, EntityLayer);
 
-                if (shouldAllowDrag)
+	            if (shouldAllowDrag)
 	            {
 	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
-                }
+	            }
 	        }
-            else if (!GuiManager.Cursor.PrimaryDown)
+	        else if (!GuiManager.Cursor.PrimaryDown)
 	        {
 	            GuiManager.Cursor.ObjectGrabbed = null;
 	        }
-        }
+	    }
 
 #endregion
 

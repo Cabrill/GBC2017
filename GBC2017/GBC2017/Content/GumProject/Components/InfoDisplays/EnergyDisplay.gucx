@@ -12,6 +12,12 @@
     </Variable>
     <Variable>
       <Type>bool</Type>
+      <Name>ChangeContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
       <Name>ChangeContainer.HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
@@ -180,7 +186,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>EnergyDecreaseText.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -294,7 +300,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>EnergyIncreaseText.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -354,7 +360,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>EnergyNetText.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -557,6 +563,12 @@
     </Variable>
     <Variable>
       <Type>bool</Type>
+      <Name>EnergyTextContainer.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
       <Name>EnergyTextContainer.HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
@@ -600,7 +612,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>

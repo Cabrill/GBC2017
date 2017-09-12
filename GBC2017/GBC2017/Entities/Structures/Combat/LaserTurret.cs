@@ -30,8 +30,8 @@ namespace GBC2017.Entities.Structures.Combat
 
 		private void CustomActivity()
 		{
-
-		}
+		    
+        }
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {

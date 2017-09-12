@@ -53,6 +53,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/StructureInfo</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/SunlightCondition</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

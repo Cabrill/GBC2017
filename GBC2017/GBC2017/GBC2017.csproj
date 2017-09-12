@@ -248,6 +248,7 @@
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs">
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs" />
@@ -478,6 +479,10 @@
     <None Include="content\gumproject\components\infodisplays\mineralsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MineralsDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\structureinfo.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>StructureInfo</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\sunlightcondition.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

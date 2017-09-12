@@ -24,7 +24,7 @@ namespace GBC2017.Entities.BaseEntities
 
         void OnAfterIsValidLocationSet (object sender, EventArgs e)
         {
-            if (IsValidLocation)
+            if (CurrentState != VariableState.CantAfford && IsValidLocation)
             {
                 CurrentState = VariableState.ValidLocation;
                 CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
@@ -35,6 +35,5 @@ namespace GBC2017.Entities.BaseEntities
                 CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
             }
         }
-		
 	}
 }

@@ -11,8 +11,12 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Utilities;
+using GBC2017.GumRuntimes;
+using Gum.Converters;
+using Gum.DataTypes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using RenderingLibrary.Graphics;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -31,6 +35,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _healthRemaining;
 	    protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
+
+	    private ResourceBarRuntime _healthBar;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -56,6 +62,8 @@ namespace GBC2017.Entities.BaseEntities
 
 		    LastRangeAttackTime = TimeManager.CurrentTime;
 		    LastMeleeAttackTime = TimeManager.CurrentTime;
+
+		    _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
         }
 
 	    public static void Initialize(AxisAlignedRectangle playArea, PositionedObjectList<BaseStructure> potentialTargetList)
@@ -100,6 +108,18 @@ namespace GBC2017.Entities.BaseEntities
 		    {
 		        PerformRangedAttackOnTarget();
             }
+
+		    if (_healthRemaining < MaximumHealth)
+		    {
+		        _healthBar.UpdateBar(_healthRemaining, MaximumHealth, false);
+		        _healthBar.X = X;
+		        _healthBar.Y = Y + SpriteInstance.Height/2f;
+		        _healthBar.Visible = true;
+		    }
+		    else
+		    {
+		        _healthBar.Visible = false;
+		    }
         }
 
 	    private void StopMovement()
@@ -251,8 +271,9 @@ namespace GBC2017.Entities.BaseEntities
 		{
             rangedAttackSound.Dispose();
             rangedChargeSound.Dispose();
+		    _healthBar.Destroy();
 
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
@@ -260,6 +281,25 @@ namespace GBC2017.Entities.BaseEntities
 
         }
 
+	    private ResourceBarRuntime CreateResourceBar(ResourceBarRuntime.BarType barType)
+	    {
+	        var newBar = new ResourceBarRuntime
+	        {
+	            XUnits = GeneralUnitType.PixelsFromMiddle,
+	            YUnits = GeneralUnitType.PixelsFromMiddleInverted,
+	            XOrigin = HorizontalAlignment.Center,
+	            YOrigin = VerticalAlignment.Top,
+	            WidthUnits = DimensionUnitType.Absolute,
+	            HeightUnits = DimensionUnitType.Absolute,
+	            Width = SpriteInstance.Width,
+	            Height = SpriteInstance.Width / 5,
+	            CurrentBarTypeState = barType,
+	            Visible = false
+	        };
+	        newBar.AddToManagers();
+	        return newBar;
+	    }
 
-	}
+
+    }
 }
