@@ -19,13 +19,13 @@
     <Variable>
       <Type>int</Type>
       <Name>ColoredRectangleInstance.Blue</Name>
-      <Value xsi:type="xsd:int">209</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>ColoredRectangleInstance.Green</Name>
-      <Value xsi:type="xsd:int">206</Value>
+      <Value xsi:type="xsd:int">222</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -43,7 +43,7 @@
     <Variable>
       <Type>int</Type>
       <Name>ColoredRectangleInstance.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">152</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

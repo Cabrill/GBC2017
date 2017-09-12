@@ -99,7 +99,7 @@
     <Variable>
       <Type>int</Type>
       <Name>WaterSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">683</Value>
+      <Value xsi:type="xsd:int">684</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -201,7 +201,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WaterSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">683</Value>
+        <Value xsi:type="xsd:int">684</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -210,7 +210,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WaterSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">748</Value>
+        <Value xsi:type="xsd:int">749</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -219,7 +219,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WaterSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">813</Value>
+        <Value xsi:type="xsd:int">814</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -228,7 +228,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WaterSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">878</Value>
+        <Value xsi:type="xsd:int">879</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

@@ -30,44 +30,8 @@
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>EmptySpace2.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>EmptySpace2.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>EmptySpace2.Parent</Name>
-      <Value xsi:type="xsd:string">HUDContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EmptySpace2.Width</Name>
-      <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>EmptySpace2.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>EmptySpace2.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>EmptySpace2.X Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Name>ConditionsDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -80,6 +44,18 @@
       <Type>float</Type>
       <Name>EnergyDisplayInstance.Width</Name>
       <Value xsi:type="xsd:float">35</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">21</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyDisplayInstance.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -159,6 +135,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>MineralsDisplayInstance.X</Name>
+      <Value xsi:type="xsd:float">-5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>Parent</Name>
       <SetsValue>true</SetsValue>
@@ -166,19 +148,19 @@
     <Variable>
       <Type>float</Type>
       <Name>SettingsButtonInstance.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">120</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>SettingsButtonInstance.Width</Name>
-      <Value xsi:type="xsd:float">5.0015</Value>
+      <Value xsi:type="xsd:float">6.0018</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>SettingsButtonInstance.X</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -191,6 +173,18 @@
       <Type>PositionUnitType</Type>
       <Name>SettingsButtonInstance.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SettingsButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">-15</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>SettingsButtonInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -275,10 +269,6 @@
   <Instance>
     <Name>ConditionsDisplayInstance</Name>
     <BaseType>infodisplays/ConditionsDisplay</BaseType>
-  </Instance>
-  <Instance>
-    <Name>EmptySpace2</Name>
-    <BaseType>Container</BaseType>
   </Instance>
   <Instance>
     <Name>EnergyDisplayInstance</Name>

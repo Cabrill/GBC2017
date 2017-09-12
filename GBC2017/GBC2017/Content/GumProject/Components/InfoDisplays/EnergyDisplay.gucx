@@ -19,7 +19,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ChangeContainer.Height</Name>
-      <Value xsi:type="xsd:float">40</Value>
+      <Value xsi:type="xsd:float">20</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -100,9 +100,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>FillLevelState</Type>
+      <Name>EnergyBar.FillLevelState</Name>
+      <Value xsi:type="xsd:string">Partial</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyBar.Height</Name>
-      <Value xsi:type="xsd:float">50</Value>
+      <Value xsi:type="xsd:float">37.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -144,7 +150,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyBar.Y</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -402,7 +408,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Height</Name>
-      <Value xsi:type="xsd:float">90</Value>
+      <Value xsi:type="xsd:float">74.074</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -456,7 +462,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Width</Name>
-      <Value xsi:type="xsd:float">7.98293</Value>
+      <Value xsi:type="xsd:float">6.5703</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -468,7 +474,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.X</Name>
-      <Value xsi:type="xsd:float">2</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -668,7 +674,7 @@
     <Variable>
       <Type>float</Type>
       <Name>StorageContainer.Width</Name>
-      <Value xsi:type="xsd:float">89</Value>
+      <Value xsi:type="xsd:float">60</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -680,13 +686,25 @@
     <Variable>
       <Type>float</Type>
       <Name>StorageContainer.X</Name>
-      <Value xsi:type="xsd:float">2.5</Value>
+      <Value xsi:type="xsd:float">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>StorageContainer.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StorageContainer.Y</Name>
+      <Value xsi:type="xsd:float">35</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>StorageContainer.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

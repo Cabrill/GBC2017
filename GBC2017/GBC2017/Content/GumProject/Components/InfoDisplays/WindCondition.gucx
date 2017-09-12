@@ -113,7 +113,7 @@
     <Variable>
       <Type>int</Type>
       <Name>WindSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">423</Value>
+      <Value xsi:type="xsd:int">424</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -201,7 +201,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WindSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">423</Value>
+        <Value xsi:type="xsd:int">424</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -210,7 +210,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WindSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">488</Value>
+        <Value xsi:type="xsd:int">489</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -219,7 +219,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WindSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">553</Value>
+        <Value xsi:type="xsd:int">554</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -228,7 +228,7 @@
       <Variable>
         <Type>int</Type>
         <Name>WindSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">618</Value>
+        <Value xsi:type="xsd:int">619</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

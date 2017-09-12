@@ -98,7 +98,7 @@
     <Variable>
       <Type>int</Type>
       <Name>SunSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">164</Value>
+      <Value xsi:type="xsd:int">165</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -206,7 +206,7 @@
       <Variable>
         <Type>int</Type>
         <Name>SunSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">164</Value>
+        <Value xsi:type="xsd:int">165</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -215,7 +215,7 @@
       <Variable>
         <Type>int</Type>
         <Name>SunSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">229</Value>
+        <Value xsi:type="xsd:int">230</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -224,7 +224,7 @@
       <Variable>
         <Type>int</Type>
         <Name>SunSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">294</Value>
+        <Value xsi:type="xsd:int">295</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -233,7 +233,7 @@
       <Variable>
         <Type>int</Type>
         <Name>SunSprite.Texture Left</Name>
-        <Value xsi:type="xsd:int">359</Value>
+        <Value xsi:type="xsd:int">360</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

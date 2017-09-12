@@ -111,7 +111,7 @@
     <Variable>
       <Type>float</Type>
       <Name>WaterConditionInstance.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -167,7 +167,7 @@
     <Variable>
       <Type>float</Type>
       <Name>WindConditionInstance.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
