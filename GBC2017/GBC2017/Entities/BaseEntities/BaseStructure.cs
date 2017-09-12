@@ -65,13 +65,14 @@ namespace GBC2017.Entities.BaseEntities
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
                 } else
 #endif
-                if (EnergyManager.CanAfford(EnergyBuildCost))
-		        {
+                if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
+                {
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
-		        }
+                    CurrentState = IsValidLocation ? VariableState.ValidLocation : VariableState.InvalidLocation;
+                }
 		        else
 		        {
-		            CurrentState = VariableState.CantAfford;
+                    CurrentState = VariableState.CantAfford;
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
                 }
 
@@ -90,10 +91,14 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void BuildStructure()
 	    {
-	        var energyDebitSuccessful = EnergyManager.DebitEnergyForBuildRequest(EnergyBuildCost);
-	        if (energyDebitSuccessful)
+	        var shouldBuild = EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost);
+
+	        if (shouldBuild)
 	        {
-	            IsBeingPlaced = false;
+	            EnergyManager.DebitEnergyForBuildRequest(EnergyBuildCost);
+	            MineralsManager.DebitMinerals(MineralsBuildCost);
+
+                IsBeingPlaced = false;
 	            CurrentState = VariableState.Built;
 	            PlacementSound.Play();
 	        }

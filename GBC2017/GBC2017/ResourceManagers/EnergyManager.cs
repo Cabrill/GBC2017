@@ -9,6 +9,7 @@ using FlatRedBall;
 using FlatRedBall.Math;
 using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Utility;
 using RenderingLibrary;
 
@@ -30,9 +31,12 @@ namespace GBC2017.ResourceManagers
         private static IEnumerable<Battery> BatteryList => _allStructures.OfType<Battery>()
             .Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false);
 
+        private static Home _home;
+
         public static void Initialize(PositionedObjectList<BaseStructure> allStructures)
         {
             _allStructures =  allStructures;
+            _home = _allStructures.OfType<Home>().FirstOrDefault();
         }
 
         public static void Update()
@@ -52,7 +56,7 @@ namespace GBC2017.ResourceManagers
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
                 EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
 
-                var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(energyGeneratorArray);
+                var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && !(s is Home)).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
                 
                 var availableIncrease = EnergyIncrease - _energyBuildDebt;
@@ -60,7 +64,7 @@ namespace GBC2017.ResourceManagers
 
                 var energyRequestSum = energyRequesterArray.Sum(eu => eu.EnergyRequestAmount);
 
-                var energyInStorage = BatteryList.Sum(b => b.BatteryLevel);
+                var energyInStorage = BatteryList.Sum(b => b.BatteryLevel) + _home.BatteryLevel;
 
                 var sufficientEnergyFromIncreaseAlone = availableIncrease >= energyRequestSum;
 
@@ -80,7 +84,7 @@ namespace GBC2017.ResourceManagers
                 }
                 else //Insufficient energy for all requests, charge non-batteries first, then evalute remainder
                 {
-                    var nonBatteryRequesters = energyRequesterArray.Except(BatteryList);
+                    var nonBatteryRequesters = energyRequesterArray.Where(er => !(er is Home)).Except(BatteryList);
                     var nonBatteryRequesterList = nonBatteryRequesters as BaseStructure[] ?? nonBatteryRequesters.ToArray();
                     var nonBatteryRequestSum = nonBatteryRequesterList.Sum(nbr => nbr.EnergyRequestAmount);
                     EnergyDecrease = nonBatteryRequestSum;
@@ -126,8 +130,8 @@ namespace GBC2017.ResourceManagers
                     }
                 }
 
-                StoredEnergy = BatteryList.Sum(b => b.BatteryLevel);
-                MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage);
+                StoredEnergy = BatteryList.Sum(b => b.BatteryLevel) + _home.BatteryLevel;
+                MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage) + _home.InternalBatteryMaxStorage;
 
                 _lastUpdateTime = TimeManager.CurrentTime;
             }
@@ -148,6 +152,11 @@ namespace GBC2017.ResourceManagers
                 battery.ReceiveEnergy(amountToCharge);
 
                 chargeAvailable -= amountToCharge;
+            }
+
+            if (chargeAvailable > 0)
+            {
+                _home.ReceiveEnergy(Math.Min(_home.EnergyRequestAmount, chargeAvailable));
             }
 
 #if DEBUG
@@ -173,6 +182,13 @@ namespace GBC2017.ResourceManagers
 
                 battery.DrainEnergy(amountToDrain);
 
+                energyDrainSum -= amountToDrain;
+            }
+
+            if (energyDrainSum > 0)
+            {
+                var amountToDrain = Math.Min(_home.BatteryLevel, energyDrainSum);
+                _home.DrainEnergy(amountToDrain);
                 energyDrainSum -= amountToDrain;
             }
 

@@ -117,6 +117,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>MineralsBalanceState</Type>
+      <Name>MineralsBalanceState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>BarTypeState</Type>
       <Name>MineralsBar.BarTypeState</Name>
       <Value xsi:type="xsd:string">Minerals</Value>
@@ -741,6 +746,72 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>MineralsBalance</Name>
+    <State>
+      <Name>Positive</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Negative</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Balanced</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsNetText.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>MineralsSprite</Name>
     <BaseType>Sprite</BaseType>

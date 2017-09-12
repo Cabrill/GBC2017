@@ -9,41 +9,26 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 
-namespace GBC2017.Entities.Structures
+namespace GBC2017.Entities.BaseEntities
 {
-	public partial class Home
+	public partial class BaseMineralsProducer
 	{
-	    public double CurrentMinerals { get; private set; }
-        public double CurrentMineralsStorage { get; private set; }
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-        {
-            CurrentMinerals = 0;
-            CurrentMineralsStorage = BaseMineralsStorage;
-            CurrentMinerals = CurrentMineralsStorage;
-            BatteryLevel = InternalBatteryMaxStorage;
-        }
+		{
+
+
+		}
 
 		private void CustomActivity()
 		{
 
 
 		}
-
-	    public bool SubtractMinerals(double amount)
-	    {
-	        if (CurrentMinerals < amount)
-	        {
-	            return false;
-	        }
-
-	        CurrentMinerals -= amount;
-	        return true;
-	    }
 
 		private void CustomDestroy()
 		{

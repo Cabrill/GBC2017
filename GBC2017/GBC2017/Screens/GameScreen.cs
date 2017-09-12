@@ -49,7 +49,13 @@ namespace GBC2017.Screens
 
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-		    SetCollisionVisibility();
+		    var createAHome = HomeFactory.CreateNew(EntityLayer);
+
+            FindValidLocationFor(createAHome);
+		    createAHome.CurrentState = BaseStructure.VariableState.Built;
+		    createAHome.IsBeingPlaced = false;
+
+            SetCollisionVisibility();
             SetupCamera();
             PositionTiledMap();
 		    SetInfoBarControls();
@@ -62,6 +68,7 @@ namespace GBC2017.Screens
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
             EnergyManager.Initialize(AllStructuresList);
+            MineralsManager.Initialize(AllStructuresList);
 	    }
 
 	    private void SetCollisionVisibility()
@@ -115,6 +122,9 @@ namespace GBC2017.Screens
 
             EnergyManager.Update();
             InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease, EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
+
+		    MineralsManager.Update();
+            InfoBarInstance.UpdateMineralsDisplay(MineralsManager.MineralsIncrease, MineralsManager.MineralsDecrease, MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
 		}
 
 	    private void UpdateGameModeActivity()

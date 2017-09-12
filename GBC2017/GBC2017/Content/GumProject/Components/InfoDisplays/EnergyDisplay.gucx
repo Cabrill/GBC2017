@@ -800,7 +800,7 @@
       <Variable>
         <Type>int</Type>
         <Name>EnergyNetText.Red</Name>
-        <Value xsi:type="xsd:int">127</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
