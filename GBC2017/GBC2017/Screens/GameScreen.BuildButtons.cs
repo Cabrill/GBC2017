@@ -23,7 +23,7 @@ namespace GBC2017.Screens
             BuildBarInstance.EnergyStructureButtonClick += BuildBarInstanceOnEnergyStructureButtonClick;
             BuildBarInstance.CombatStructureButtonClick += BuildBarInstanceOnCombatStructureButtonClick;
             BuildBarInstance.UtilityStructureButtonClick += BuildBarInstanceOnUtilityStructureButtonClick;
-            BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
+            
 
             //Energy build buttons
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
@@ -32,6 +32,8 @@ namespace GBC2017.Screens
             BuildBarInstance.LaserTurretButtonClick += BuildBarInstanceOnLaserTurretButtonClick;
 
             //Utility build buttons
+            BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
+            BuildBarInstance.CarbonTreeButtonClick += BuildBarInstanceOnCarbonTreeButtonClick;
         }
 
         #region Build category buttons
@@ -88,6 +90,18 @@ namespace GBC2017.Screens
             {
                 var newBattery = BatteryFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newBattery);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+
+        private void BuildBarInstanceOnCarbonTreeButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<CarbonTree>())
+            {
+                var newCarbonTree = CarbonTreeFactory.CreateNew(EntityLayer);
+                FindValidLocationFor(newCarbonTree);
 
                 //TODO:  message for player if no valid location found
             }

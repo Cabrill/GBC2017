@@ -120,8 +120,13 @@
     <Compile Include="Entities\Structures\Utility\Battery.Generated.cs">
       <DependentUpon>Battery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\Utility\CarbonTree.cs" />
+    <Compile Include="Entities\Structures\Utility\CarbonTree.Generated.cs">
+      <DependentUpon>CarbonTree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />
+    <Compile Include="Factories\CarbonTreeFactory.Generated.cs" />
     <Compile Include="Factories\HomeFactory.Generated.cs" />
     <Compile Include="Factories\LaserTurretFactory.Generated.cs" />
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
@@ -433,6 +438,10 @@
     <None Include="content\entities\structures\solarpanels\solar_sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>solar_sprite</Name>
+    </None>
+    <None Include="content\entities\structures\utility\carbontree\carbon_tree.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>carbon_tree</Name>
     </None>
     <None Include="content\globalcontent\allassetssheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
