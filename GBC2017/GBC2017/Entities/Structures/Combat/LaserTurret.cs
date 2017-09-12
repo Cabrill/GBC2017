@@ -25,8 +25,7 @@ namespace GBC2017.Entities.Structures.Combat
         /// </summary>
 		private void CustomInitialize()
         {
-            attackSound = Laser_Shoot.CreateInstance();
-
+            attackSound = Laser_Shoot;
         }
 
 		private void CustomActivity()
@@ -40,7 +39,7 @@ namespace GBC2017.Entities.Structures.Combat
 	        return newProjectile;
 	    }
 
-    private void CustomDestroy()
+        private void CustomDestroy()
 		{
 
 

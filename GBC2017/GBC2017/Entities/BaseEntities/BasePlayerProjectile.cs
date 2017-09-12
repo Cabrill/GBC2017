@@ -15,6 +15,7 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BasePlayerProjectile
 	{
+	    private int groundHitCounter = 0;
 	    public float MaxRange { private get; set; }
 	    private bool _hitTheGround;
 
@@ -23,8 +24,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    protected SoundEffectInstance GroundHitSound;
-	    protected SoundEffectInstance TargetHitSound;
+	    protected SoundEffect HitGroundSound;
+	    protected SoundEffect TargetHitSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -74,20 +75,25 @@ namespace GBC2017.Entities.BaseEntities
 
 		    if (_hitTheGround)
 		    {
-		        GroundHitSound.Play();
+		        PlayHitGroundSound();
+
                 Destroy();
 		    }
         }
 
+	    private void PlayHitGroundSound()
+	    {
+	        HitGroundSound.Play();
+        }
+
 	    public void PlayHitTargetSound()
 	    {
-	        TargetHitSound.Play();
-	    }
+            TargetHitSound.Play();
+        }
 
 		private void CustomDestroy()
 		{
-		    GroundHitSound.Dispose();
-		    TargetHitSound.Dispose();
+
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

@@ -23,7 +23,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    protected SoundEffectInstance hitGroundSound;
+	    protected SoundEffect HitGroundSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -71,12 +71,34 @@ namespace GBC2017.Entities.BaseEntities
 
 		    _hitTheGround = pctDistanceTraveled >= 1;
 
-		    if (_hitTheGround) Destroy();
+		    if (_hitTheGround)
+		    {
+		        PlayHitGroundSound();
+                Destroy();
+		    }
+
         }
+
+	    public void PlayHitTargetSound()
+	    {
+	        try
+	        {
+	            //if (!TargetHitSound.IsDisposed) TargetHitSound.Play();
+	        }
+	        catch (Exception)
+	        {
+	            //We may have hit the limit on number of sounds playable, but don't want to crash - just omit the sound
+	        }
+	    }
+
+        private void PlayHitGroundSound()
+	    {
+            HitGroundSound.Play();
+	    }
+
 
         private void CustomDestroy()
 		{
-		    hitGroundSound.Dispose();
 
         }
 

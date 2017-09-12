@@ -20,8 +20,8 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
         {
-            GroundHitSound = Laser_Ground.CreateInstance();
-            TargetHitSound = Laser_Hit.CreateInstance();
+            if (HitGroundSound == null) HitGroundSound = Laser_Ground;
+            if (TargetHitSound == null) TargetHitSound = Laser_Hit;
         }
 
 		private void CustomActivity()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,22 +39,30 @@ namespace GBC2017.ResourceManagers
         {
             if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
             {
+                if (_energyBuildDebt > 0)
+                {
+                    if (_energyBuildDebt <= StoredEnergy)
+                    {
+                        DrainBatteriesEqually(_energyBuildDebt);
+                        _energyBuildDebt = 0;
+                    }
+                }
+
                 var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
                 EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EnergyProducedPerSecond);
 
                 var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
-
                 
-                var availableEnergy = EnergyIncrease - _energyBuildDebt;
+                var availableIncrease = EnergyIncrease - _energyBuildDebt;
                 _energyBuildDebt = 0;
 
                 var energyRequestSum = energyRequesterArray.Sum(eu => eu.EnergyRequestAmount);
 
-                var energyInStorage = StoredEnergy;
+                var energyInStorage = BatteryList.Sum(b => b.BatteryLevel);
 
-                var sufficientEnergyFromIncreaseAlone = availableEnergy >= energyRequestSum;
+                var sufficientEnergyFromIncreaseAlone = availableIncrease >= energyRequestSum;
 
                 if (sufficientEnergyFromIncreaseAlone)
                 {
@@ -62,7 +71,7 @@ namespace GBC2017.ResourceManagers
                         energyRequester.ReceiveEnergy(energyRequester.EnergyRequestAmount);
                     }
 
-                    var energySurplus = availableEnergy - energyRequestSum;
+                    var energySurplus = availableIncrease - energyRequestSum;
                     if (energySurplus > 0)
                     {
                         ChargeBatteriesEqually(energySurplus);
@@ -76,7 +85,7 @@ namespace GBC2017.ResourceManagers
                     var nonBatteryRequestSum = nonBatteryRequesterList.Sum(nbr => nbr.EnergyRequestAmount);
                     EnergyDecrease = nonBatteryRequestSum;
 
-                    var thereIsSufficientEnergyForNonBatteries = availableEnergy + energyInStorage >= nonBatteryRequestSum;
+                    var thereIsSufficientEnergyForNonBatteries = availableIncrease + energyInStorage >= nonBatteryRequestSum;
 
                     var energyDistributed = 0.0;
 
@@ -84,28 +93,28 @@ namespace GBC2017.ResourceManagers
                     {
                         foreach (var energyRequester in nonBatteryRequesterList)
                         {
-                            energyRequester.ReceiveEnergy(energyRequester.EnergyRequestAmount);
-                            energyDistributed += energyRequester.EnergyRequestAmount;
+                            var amountToDistribute = energyRequester.EnergyRequestAmount;
+                            energyRequester.ReceiveEnergy(amountToDistribute);
+                            energyDistributed += amountToDistribute;
                         }
                     }
                     else //Insufficient energy for even the non-batteries, fill the smallest demands first
                     {
-                        var energyAvailable = availableEnergy + StoredEnergy;
-                        var energyRequestsInAscendingOrder = nonBatteryRequesterList.OrderBy(nbr => nbr.EnergyRequestAmount);
+                        var energyAvailable = availableIncrease + StoredEnergy;
+                        var energyRequestsInAscendingOrder = nonBatteryRequesterList.OrderBy(nbr => nbr.EnergyRequestAmount).ToArray();
                         var numberOfNonBatteryRequests = energyRequestsInAscendingOrder.Count();
 
-                        foreach (var energyRequester in energyRequestsInAscendingOrder)
+                        for (var i = 0; i < numberOfNonBatteryRequests; i++)
                         {
-                            if (energyAvailable <= 0) break;
-
-                            var amountToDistribute = Math.Min(energyAvailable / numberOfNonBatteryRequests, energyRequester.EnergyRequestAmount);
+                            var energyRequester = energyRequestsInAscendingOrder[i];
+                            var amountToDistribute = Math.Min(energyAvailable / (numberOfNonBatteryRequests-i), energyRequester.EnergyRequestAmount);
                             energyRequester.ReceiveEnergy(amountToDistribute);
                             energyAvailable -= amountToDistribute;
                             energyDistributed += amountToDistribute;
                         }
                     }
 
-                    var energyBalance = availableEnergy - energyDistributed;
+                    var energyBalance = availableIncrease - energyDistributed;
 
                     if (energyBalance < 0)
                     {
@@ -126,7 +135,8 @@ namespace GBC2017.ResourceManagers
 
         private static void ChargeBatteriesEqually(double chargeSum)
         {
-            var orderedBatteries = BatteryList.Where(b => b.BatteryLevel > 0).OrderByDescending(b => b.BatteryLevel).ToArray();
+            var chargeAvailable = chargeSum;
+            var orderedBatteries = BatteryList.Where(b => b.BatteryLevel < MaxStorage).OrderByDescending(b => b.BatteryLevel).ToArray();
             var numberOfBatteries = orderedBatteries.Length;
 
             for (var i = 0; i < numberOfBatteries; i++)
@@ -135,14 +145,13 @@ namespace GBC2017.ResourceManagers
                 var amountToCharge = chargeSum / (numberOfBatteries - i);
                 amountToCharge = Math.Min(battery.EnergyRequestAmount, amountToCharge);
 
-                battery.DrainEnergy(amountToCharge);
+                battery.ReceiveEnergy(amountToCharge);
 
-                chargeSum -= amountToCharge;
+                chargeAvailable -= amountToCharge;
             }
 
 #if DEBUG
-            //If this isn't 0+ then we somehow spent too much!
-            Debug.Assert(Math.Abs(chargeSum) > -1);
+            if (Math.Abs(chargeAvailable) < 0) throw new InvalidDataException("If this isn't <0 then we somehow spent too much!");
 #endif
         }
 
@@ -160,17 +169,21 @@ namespace GBC2017.ResourceManagers
             {
                 var battery = orderedBatteries[i];
                 var amountToDrain = energyDrainSum / (numberOfBatteries - i);
-                amountToDrain = Math.Max(battery.BatteryLevel, amountToDrain);
+                amountToDrain = Math.Min(battery.BatteryLevel, amountToDrain);
 
                 battery.DrainEnergy(amountToDrain);
 
                 energyDrainSum -= amountToDrain;
             }
 
-            #if DEBUG
-            //If this isn't 0~ then we somehow didn't charge enough!
-            Debug.Assert(Math.Abs(energyDrainSum) < 1);
-            #endif
+#if DEBUG
+            if (Math.Abs(energyDrainSum) > 1f) throw new InvalidDataException("If this isn't 0~ then we somehow didn't charge enough!");
+#endif
+        }
+
+        public static bool CanAfford(double amount)
+        {
+            return StoredEnergy + EnergyIncrease - _energyBuildDebt >= amount;
         }
 
         public static bool DebitEnergyForBuildRequest(double energyBuildCost)

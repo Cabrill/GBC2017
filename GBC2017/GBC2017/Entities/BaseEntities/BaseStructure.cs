@@ -65,14 +65,14 @@ namespace GBC2017.Entities.BaseEntities
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
                 } else
 #endif
-                if (EnergyManager.StoredEnergy >= EnergyBuildCost || EnergyManager.EnergyIncrease >= EnergyBuildCost)
+                if (EnergyManager.CanAfford(EnergyBuildCost))
 		        {
-		            CurrentState = VariableState.CantAfford;
-		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
+		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
 		        }
 		        else
 		        {
-		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+		            CurrentState = VariableState.CantAfford;
+		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
                 }
 
 		        if (CheckmarkInstance.CurrentState == Checkmark.VariableState.Enabled &&

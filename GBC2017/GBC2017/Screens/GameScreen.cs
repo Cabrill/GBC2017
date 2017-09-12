@@ -52,7 +52,8 @@ namespace GBC2017.Screens
 		    SetCollisionVisibility();
             SetupCamera();
             PositionTiledMap();
-		    SetBuildButtonControls();
+		    SetInfoBarControls();
+            SetBuildButtonControls();
 		    InitializeBaseEntities();
 		}
 

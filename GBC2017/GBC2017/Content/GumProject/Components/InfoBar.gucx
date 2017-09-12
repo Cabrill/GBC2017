@@ -17,6 +17,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ConditionsDisplayInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>ConditionsDisplayInstance.Parent</Name>
       <Value xsi:type="xsd:string">HUDContainer</Value>
@@ -32,6 +38,12 @@
       <Type>float</Type>
       <Name>ConditionsDisplayInstance.X</Name>
       <Value xsi:type="xsd:float">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyDisplayInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -99,6 +111,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>HUDContainer.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HUDContainer.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -123,6 +141,18 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MineralsDisplayInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsDisplayInstance.HasEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MineralsDisplayInstance.Parent</Name>
       <Value xsi:type="xsd:string">HUDContainer</Value>
@@ -143,6 +173,12 @@
     <Variable>
       <Type>string</Type>
       <Name>Parent</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>SettingsButtonInstance.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -186,6 +222,11 @@
       <Name>SettingsButtonInstance.Y Units</Name>
       <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>SettingsButtonStateState</Type>
+      <Name>SettingsButtonStateState</Name>
+      <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
       <Type>State</Type>
@@ -266,6 +307,27 @@
       <Value />
     </VariableList>
   </State>
+  <Category>
+    <Name>SettingsButtonState</Name>
+    <State>
+      <Name>Highlighted</Name>
+      <Variable>
+        <Type>HighlightState</Type>
+        <Name>SettingsButtonInstance.HighlightState</Name>
+        <Value xsi:type="xsd:string">Highlighted</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>NotHighlighted</Name>
+      <Variable>
+        <Type>HighlightState</Type>
+        <Name>SettingsButtonInstance.HighlightState</Name>
+        <Value xsi:type="xsd:string">NotHighlighted</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>ConditionsDisplayInstance</Name>
     <BaseType>infodisplays/ConditionsDisplay</BaseType>

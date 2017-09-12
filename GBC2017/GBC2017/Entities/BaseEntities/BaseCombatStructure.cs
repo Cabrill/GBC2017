@@ -21,7 +21,7 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    private BaseEnemy targetEnemy;
-	    protected SoundEffectInstance attackSound;
+	    protected SoundEffect attackSound;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -149,8 +149,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private void CustomDestroy()
 		{
 
-
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

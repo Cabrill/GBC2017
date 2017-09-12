@@ -216,7 +216,10 @@
     <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
+    <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
+      <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
@@ -256,6 +259,9 @@
     </Compile>
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\GameScreen.Generated.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.InfoBarButtons.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\LevelSelectScreen.cs" />
@@ -480,6 +486,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
+    <None Include="content\gumproject\fontcache\font36moire extrabold_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Moire ExtraBold_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font36moire extrabold_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Moire ExtraBold_o1_0</Name>
+    </None>
     <None Include="content\gumproject\gumcontent\horizons\treeline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>treeline</Name>
@@ -629,9 +643,7 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\globalcontent\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

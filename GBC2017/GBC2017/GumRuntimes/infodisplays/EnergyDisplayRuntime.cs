@@ -10,11 +10,17 @@ namespace GBC2017.GumRuntimes
     {
         public void UpdateDisplay(double energyIncrease, double energyDecrease, double storedEnergy, double maxStorage)
         {
+            UpdateChanges(energyIncrease, energyDecrease);
+            EnergyBar.UpdateBar(storedEnergy, maxStorage);
+        }
+
+        private void UpdateChanges(double energyIncrease, double energyDecrease)
+        {
             var netEnergy = energyIncrease - energyDecrease;
 
-            var energyIncreaseText = $"+ {energyIncrease}";
-            var energyDecreaseText = $"- {energyDecrease}";
-            var energyNetText = $"{netEnergy}";
+            var energyIncreaseText = $"+ {Math.Round(energyIncrease)}";
+            var energyDecreaseText = $"- {Math.Round(energyDecrease)}";
+            var energyNetText = $"{Math.Round(netEnergy)}";
 
             EnergyIncreaseText.Text = energyIncreaseText;
             EnergyDecreaseText.Text = energyDecreaseText;

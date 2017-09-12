@@ -56,6 +56,7 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
           <SourceType>File</SourceType>
@@ -65,6 +66,7 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
           <SourceType>FlatRedBallType</SourceType>
@@ -141,6 +143,17 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Layer</SourceClassType>
+          <InstanceName>HUDLayer</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <Is2D>true</Is2D>
         </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
@@ -255,7 +268,7 @@
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>CarbonBuildCost</Name>
+          <Name>MineralsBuildCost</Name>
           <Type>int</Type>
           <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
@@ -708,6 +721,18 @@
           <Type>float</Type>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsRewardedWhenKilled</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <SetByDerived>true</SetByDerived>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1106,7 +1131,7 @@
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>CarbonBuildCost</Name>
+          <Name>MineralsBuildCost</Name>
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">9999</DefaultValue>
           <SetByDerived>true</SetByDerived>
@@ -1629,7 +1654,7 @@
               <ValueAsString>double</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>CarbonBuildCost</Name>
+          <Name>MineralsBuildCost</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <SetByDerived>true</SetByDerived>
@@ -1835,6 +1860,7 @@
           </Properties>
           <Name>IgnoreStructureBuildCost</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -1999,6 +2025,17 @@
           </Properties>
           <Name>MeleeRadius</Name>
           <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsRewardedWhenKilled</Name>
+          <Type>double</Type>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3124,18 +3161,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>CarbonBuildCost</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">300</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -3214,6 +3239,18 @@
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">15</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3345,18 +3382,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>CarbonBuildCost</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">300</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -3399,6 +3424,18 @@
           <Name>EnergyProducedPerSecond</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">10</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3506,28 +3543,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>EnergyBuildCost</Name>
-          <Type>int</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>CarbonBuildCost</Name>
-          <Type>int</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -3542,8 +3557,43 @@
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>EnergyRequiredPerSecond</Name>
+          <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BaseMineralsStorage</Name>
+          <Type>double</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3553,7 +3603,7 @@
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>InternalBatteryMaxStorage</Name>
+          <Name>EnergyRequiredPerSecond</Name>
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
@@ -3662,18 +3712,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>CarbonBuildCost</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">300</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -3704,6 +3742,18 @@
           <Name>EnergyRequiredPerSecond</Name>
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
