@@ -2,11 +2,11 @@
 <GumProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <CustomProperties />
   <Version>1</Version>
-  <DefaultCanvasWidth>800</DefaultCanvasWidth>
-  <DefaultCanvasHeight>600</DefaultCanvasHeight>
+  <DefaultCanvasWidth>1920</DefaultCanvasWidth>
+  <DefaultCanvasHeight>1080</DefaultCanvasHeight>
   <ShowOutlines>true</ShowOutlines>
   <RestrictToUnitValues>true</RestrictToUnitValues>
-  <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
+  <RestrictFileNamesForAndroid>true</RestrictFileNamesForAndroid>
   <Guides />
   <ScreenReference>
     <Name>GameScreenGum</Name>
@@ -45,6 +45,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/EnemyInfo</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/EnergyDisplay</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -54,10 +58,6 @@
   </ComponentReference>
   <ComponentReference>
     <Name>infodisplays/StructureInfo</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>infodisplays/EnemyInfo</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

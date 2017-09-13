@@ -12,6 +12,7 @@
     <property name="RangedRadius" type="float" default="250" />
     <property name="MeleeRadius" type="float" />
     <property name="MineralsRewardedWhenKilled" type="float" />
+    <property name="DisplayName" type="string" default="Basic Alien" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" default="5" />
@@ -30,6 +31,7 @@
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="15" />
     <property name="MineralsBuildCost" type="float" default="50" />
+    <property name="DisplayName" type="string" default="Laser Turret" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="100" />
@@ -38,6 +40,7 @@
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="EnergyProducedPerSecond" type="float" default="10" />
     <property name="MineralsBuildCost" type="float" default="100" />
+    <property name="DisplayName" type="string" default="Solar Panels" />
   </objecttype>
   <objecttype name="Home">
     <property name="MaximumHealth" type="float" default="100" />
@@ -47,6 +50,7 @@
     <property name="MineralsBuildCost" type="float" default="0" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="MineralsStorageIncreaseFromUpgrade" type="float" default="250" />
+    <property name="DisplayName" type="string" default="Home" />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" default="100" />
@@ -54,6 +58,7 @@
     <property name="InternalBatteryMaxStorage" type="int" default="100" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="MineralsBuildCost" type="float" default="150" />
+    <property name="DisplayName" type="string" default="Battery" />
   </objecttype>
   <objecttype name="CarbonTree">
     <property name="EnergyBuildCost" type="float" default="50" />
@@ -62,5 +67,6 @@
     <property name="EnergyRequiredPerSecond" type="int" default="5" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="MineralsProducedPerSecond" type="float" default="1" />
+    <property name="DisplayName" type="string" default="Carbon Tree" />
   </objecttype>
 </objecttypes>

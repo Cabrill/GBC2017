@@ -5,30 +5,30 @@
 	{
 		internal static class CameraSetup
 		{
-			const float Scale = 1f;
+			const float Scale = 0.5f;
 			internal static void ResetCamera (Camera cameraToReset)
 			{
 				FlatRedBall.Camera.Main.Orthogonal = true;
-				FlatRedBall.Camera.Main.OrthogonalHeight = 1080;
-				FlatRedBall.Camera.Main.OrthogonalWidth = 1920;
+				FlatRedBall.Camera.Main.OrthogonalHeight = 1440;
+				FlatRedBall.Camera.Main.OrthogonalWidth = 2560;
 				FlatRedBall.Camera.Main.FixAspectRatioYConstant();
+				SetAspectRatioTo(16 / 9m);
 			}
-			internal static void SetupCamera (Camera cameraToSetUp, Microsoft.Xna.Framework.GraphicsDeviceManager graphicsDeviceManager, int width = 1920, int height = 1080)
+			internal static void SetupCamera (Camera cameraToSetUp, Microsoft.Xna.Framework.GraphicsDeviceManager graphicsDeviceManager, int width = 2560, int height = 1440)
 			{
 				#if WINDOWS || DESKTOP_GL
-				FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = false;
-				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution(width, height);
+				FlatRedBall.FlatRedBallServices.Game.Window.AllowUserResizing = true;
+				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetResolution((int)(width * Scale), (int)(height * Scale));
 				#elif IOS || ANDROID
 				FlatRedBall.FlatRedBallServices.GraphicsOptions.SetFullScreen(FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionWidth, FlatRedBall.FlatRedBallServices.GraphicsOptions.ResolutionHeight);
 				#elif UWP
 				#endif
 				ResetCamera(cameraToSetUp);
+				FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += HandleResolutionChange;
 			}
 			private static void HandleResolutionChange (object sender, System.EventArgs args)
 			{
 				SetAspectRatioTo(16 / 9m);
-				FlatRedBall.Camera.Main.OrthogonalHeight = FlatRedBall.Camera.Main.DestinationRectangle.Height / Scale;
-				FlatRedBall.Camera.Main.FixAspectRatioYConstant();
 			}
 			private static void SetAspectRatioTo (decimal aspectRatio)
 			{

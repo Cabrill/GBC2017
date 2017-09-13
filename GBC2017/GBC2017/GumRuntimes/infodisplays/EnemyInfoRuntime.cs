@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GBC2017.Entities.BaseEntities;
 
 namespace GBC2017.GumRuntimes
 {
     public partial class EnemyInfoRuntime
     {
-        public Action OnClose;
-
-        partial void CustomInitialize()
+        public void Show(BaseEnemy enemy)
         {
-            CloseButton.Click += CloseButton_Click;
+            Visible = true;
+            X = enemy.X;
+            Y = enemy.Y + enemy.SpriteInstance.Height / 2;
+            EnemyName = enemy.DisplayName;
+            EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
+            EnemyMelee = enemy.MeleeAttackDamage.ToString();
+            EnemyRanged = enemy.RangedAttackDamage.ToString();
         }
 
-        private void CloseButton_Click(FlatRedBall.Gui.IWindow window)
+        public void Hide()
         {
             Visible = false;
-            OnClose?.Invoke();
         }
     }
 }

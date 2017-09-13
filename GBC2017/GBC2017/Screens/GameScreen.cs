@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -56,7 +55,6 @@ namespace GBC2017.Screens
 		    createAHome.IsBeingPlaced = false;
 
             SetCollisionVisibility();
-            SetupCamera();
             PositionTiledMap();
 		    SetInfoBarControls();
             SetBuildButtonControls();
@@ -85,12 +83,6 @@ namespace GBC2017.Screens
 	        }
         }
 
-	    private void SetupCamera()
-	    {
-            Camera.Main.OrthogonalWidth = 2560;
-            Camera.Main.OrthogonalHeight = 1440;
-        }
-
 	    void PositionTiledMap()
 	    {
             //This centers the map in the middle of the screen
@@ -106,17 +98,20 @@ namespace GBC2017.Screens
 	    }
 #endregion
 
-#region Activity
+    #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
+
             #if DEBUG
 		    HandleDebugInput();
             #endif
+		    var temp = Gum.Wireframe.GraphicalUiElement.CanvasWidth;
 
-		    UpdateGameModeActivity();
+            UpdateGameModeActivity();
 
 		    HandleTouchActivity();
 		    SelectedItemActivity();
+            
 
             if (!IsPaused)
 		    {
@@ -140,20 +135,20 @@ namespace GBC2017.Screens
 	    {
 	        if (selectedObject == null)
 	        {
-	            EnemyInfoInstance.Visible = false;
-	            StructureInfoInstance.Visible = false;
+	            EnemyInfoInstance.Hide();
+	            StructureInfoInstance.Hide();
 	            return;
 	        }
 
 	        if (selectedObject is BaseStructure)
 	        {
-                EnemyInfoInstance.Visible = false;
-                ShowStructureInfo((BaseStructure) selectedObject);
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Show((BaseStructure) selectedObject);
 	        }
 	        if (selectedObject is BaseEnemy)
 	        {
-                StructureInfoInstance.Visible = false;
-                ShowEnemyInfo((BaseEnemy) selectedObject);
+                StructureInfoInstance.Hide();
+                EnemyInfoInstance.Show((BaseEnemy) selectedObject);
 	        }
 	    }
 
@@ -311,7 +306,7 @@ namespace GBC2017.Screens
 	                        GuiManager.Cursor.ObjectGrabbed = structure;
 	                        selectedObject = structure;
 	                        CurrentGameMode = GameMode.Inspecting;
-	                        ShowStructureInfo(structure);
+	                        StructureInfoInstance.Show(structure);
 	                        break;
 	                    }
 	                }
@@ -326,7 +321,7 @@ namespace GBC2017.Screens
 	                            GuiManager.Cursor.ObjectGrabbed = enemy;
 	                            selectedObject = enemy;
 	                            CurrentGameMode = GameMode.Inspecting;
-	                            ShowEnemyInfo(enemy);
+	                            EnemyInfoInstance.Show(enemy);
 	                            break;
 	                        }
 	                    }
@@ -349,23 +344,6 @@ namespace GBC2017.Screens
 	            GuiManager.Cursor.ObjectGrabbed = null;
 	        }
 	    }
-
-	    private void ShowStructureInfo(BaseStructure structure)
-	    {
-	        StructureInfoInstance.Visible = true;
-	        StructureInfoInstance.X = structure.X;
-	        StructureInfoInstance.Y = structure.Y + structure.SpriteInstance.Height / 2;
-	        StructureInfoInstance.OnClose = () => selectedObject = null;
-	    }
-
-	    private void ShowEnemyInfo(BaseEnemy enemy)
-	    {
-	        EnemyInfoInstance.Visible = true;
-	        EnemyInfoInstance.X = enemy.X;
-	        EnemyInfoInstance.Y = enemy.Y + enemy.SpriteInstance.Height / 2;
-	        EnemyInfoInstance.OnClose = () => selectedObject = null;
-	    }
-
         #endregion
 
         #region Destroy

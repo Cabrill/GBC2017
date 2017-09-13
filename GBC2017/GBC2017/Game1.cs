@@ -28,6 +28,7 @@ namespace GBC2017
             // so let's keep that for other phones too
             TargetElapsedTime = TimeSpan.FromTicks(333333);
             graphics.IsFullScreen = true;
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
 #elif WINDOWS || DESKTOP_GL
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;

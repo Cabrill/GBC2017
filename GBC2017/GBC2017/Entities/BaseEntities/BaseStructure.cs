@@ -23,12 +23,12 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    public double BatteryLevel { get; protected set; }
 	    public bool HasSufficientEnergy { get; private set; }
-	    public bool IsDestroyed => _healthRemaining <= 0;
+	    public bool IsDestroyed => HealthRemaining <= 0;
 
 	    public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
         public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
+	    public float HealthRemaining { get; private set; }
 
-        private float _healthRemaining;
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 
 	    private ResourceBarRuntime _energyBar;
@@ -58,7 +58,7 @@ namespace GBC2017.Entities.BaseEntities
 	            XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
 	        }
 
-	        _healthRemaining = MaximumHealth;
+	        HealthRemaining = MaximumHealth;
 	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
 	        PlacementSound = Structure_Placed;
 
@@ -118,9 +118,9 @@ namespace GBC2017.Entities.BaseEntities
                     }
                 }
 
-                if (_healthRemaining < MaximumHealth)
+                if (HealthRemaining < MaximumHealth)
                 {
-                    _healthBar.UpdateBar(_healthRemaining, MaximumHealth, false);
+                    _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
                     _healthBar.X = X;
                     _healthBar.Y = Y + SpriteInstance.Height + _healthBar.Height;
                     _healthBar.Visible = true;
@@ -149,7 +149,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void GetHitBy(BaseEnemyProjectile projectile)
 	    {
-	        _healthRemaining -= projectile.DamageInflicted;
+	        HealthRemaining -= projectile.DamageInflicted;
 
 	        if (IsDestroyed)
 	        {

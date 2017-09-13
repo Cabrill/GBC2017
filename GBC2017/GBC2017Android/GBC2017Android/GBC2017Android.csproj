@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F46A8B17-6B24-4D23-832E-36EE3C679DCF}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GBC2017</RootNamespace>
+    <AssemblyName>GBC2017</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidSupportedAbis>armeabi%3barmeabi-v7a%3bx86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidUseLatestPlatformSdk />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ANDROID; XNA4; MONOGAME; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <Debugger>Xamarin</Debugger>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ANDROID; XNA4; MONOGAME; FRB_XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Android\Debug\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Mono.Android">
+      <HintPath>Libraries\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatRedBallAndroid">
+      <HintPath>Libraries\Android\Debug\FlatRedBallAndroid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GBC2017\DataTypes\TileMapInfo.Generated.cs">
+      <Link>DataTypes\TileMapInfo.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseCombatStructure.cs">
+      <Link>Entities\BaseEntities\BaseCombatStructure.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseCombatStructure.Generated.cs">
+      <Link>Entities\BaseEntities\BaseCombatStructure.Generated.cs</Link>
+      <DependentUpon>BaseCombatStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Event.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.Event.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Generated.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.Generated.cs</Link>
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.Generated.Event.cs</Link>
+      <DependentUpon>BaseEnemy.Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.cs">
+      <Link>Entities\BaseEntities\BaseEnemyProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
+      <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.cs</Link>
+      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnergyProducer.cs">
+      <Link>Entities\BaseEntities\BaseEnergyProducer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnergyProducer.Generated.cs">
+      <Link>Entities\BaseEntities\BaseEnergyProducer.Generated.cs</Link>
+      <DependentUpon>BaseEnergyProducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseMineralsProducer.cs">
+      <Link>Entities\BaseEntities\BaseMineralsProducer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseMineralsProducer.Generated.cs">
+      <Link>Entities\BaseEntities\BaseMineralsProducer.Generated.cs</Link>
+      <DependentUpon>BaseMineralsProducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.cs">
+      <Link>Entities\BaseEntities\BasePlayerProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
+      <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.cs</Link>
+      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.cs">
+      <Link>Entities\BaseEntities\BaseStructure.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Event.cs">
+      <Link>Entities\BaseEntities\BaseStructure.Event.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Generated.cs">
+      <Link>Entities\BaseEntities\BaseStructure.Generated.cs</Link>
+      <DependentUpon>BaseStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Generated.Event.cs">
+      <Link>Entities\BaseEntities\BaseStructure.Generated.Event.cs</Link>
+      <DependentUpon>BaseStructure.Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\DebugVariables.cs">
+      <Link>Entities\DebugVariables.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\DebugVariables.Generated.cs">
+      <Link>Entities\DebugVariables.Generated.cs</Link>
+      <DependentUpon>DebugVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlien.cs">
+      <Link>Entities\Enemies\BasicAlien.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlien.Generated.cs">
+      <Link>Entities\Enemies\BasicAlien.Generated.cs</Link>
+      <DependentUpon>BasicAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.cs">
+      <Link>Entities\GraphicalElements\Checkmark.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.Generated.cs">
+      <Link>Entities\GraphicalElements\Checkmark.Generated.cs</Link>
+      <DependentUpon>Checkmark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\GraphicalElements\XCancel.cs">
+      <Link>Entities\GraphicalElements\XCancel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\GraphicalElements\XCancel.Generated.cs">
+      <Link>Entities\GraphicalElements\XCancel.Generated.cs</Link>
+      <DependentUpon>XCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\LaserTurretProjectile.cs">
+      <Link>Entities\Projectiles\LaserTurretProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\LaserTurretProjectile.Generated.cs">
+      <Link>Entities\Projectiles\LaserTurretProjectile.Generated.cs</Link>
+      <DependentUpon>LaserTurretProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\RangedEnemyProjectile.cs">
+      <Link>Entities\Projectiles\RangedEnemyProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
+      <Link>Entities\Projectiles\RangedEnemyProjectile.Generated.cs</Link>
+      <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.cs">
+      <Link>Entities\Structures\Combat\LaserTurret.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.Generated.cs">
+      <Link>Entities\Structures\Combat\LaserTurret.Generated.cs</Link>
+      <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\SolarPanels.cs">
+      <Link>Entities\Structures\EnergyProducers\SolarPanels.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\SolarPanels.Generated.cs">
+      <Link>Entities\Structures\EnergyProducers\SolarPanels.Generated.cs</Link>
+      <DependentUpon>SolarPanels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Home.cs">
+      <Link>Entities\Structures\Home.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Home.Generated.cs">
+      <Link>Entities\Structures\Home.Generated.cs</Link>
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\Battery.cs">
+      <Link>Entities\Structures\Utility\Battery.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\Battery.Generated.cs">
+      <Link>Entities\Structures\Utility\Battery.Generated.cs</Link>
+      <DependentUpon>Battery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\CarbonTree.cs">
+      <Link>Entities\Structures\Utility\CarbonTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\CarbonTree.Generated.cs">
+      <Link>Entities\Structures\Utility\CarbonTree.Generated.cs</Link>
+      <DependentUpon>CarbonTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\BasicAlienFactory.Generated.cs">
+      <Link>Factories\BasicAlienFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\BatteryFactory.Generated.cs">
+      <Link>Factories\BatteryFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\CarbonTreeFactory.Generated.cs">
+      <Link>Factories\CarbonTreeFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\HomeFactory.Generated.cs">
+      <Link>Factories\HomeFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\LaserTurretFactory.Generated.cs">
+      <Link>Factories\LaserTurretFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\LaserTurretProjectileFactory.Generated.cs">
+      <Link>Factories\LaserTurretProjectileFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\RangedEnemyProjectileFactory.Generated.cs">
+      <Link>Factories\RangedEnemyProjectileFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
+      <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\FileAliases.Generated.cs">
+      <Link>FileAliases.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Game1.cs">
+      <Link>Game1.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GlobalContent.Generated.cs">
+      <Link>GlobalContent.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\AnimationFrame.cs">
+      <Link>GumCore\AnimationFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Atlas.cs">
+      <Link>GumCore\Atlas.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\AtlasedTexture.cs">
+      <Link>GumCore\AtlasedTexture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\BehaviorReference.cs">
+      <Link>GumCore\BehaviorReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\BehaviorSave.cs">
+      <Link>GumCore\BehaviorSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\BitmapCharacterInfo.cs">
+      <Link>GumCore\BitmapCharacterInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\BitmapFont.cs">
+      <Link>GumCore\BitmapFont.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Blend.cs">
+      <Link>GumCore\Blend.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\BmfcSave.cs">
+      <Link>GumCore\BmfcSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Camera.cs">
+      <Link>GumCore\Camera.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ComponentSave.cs">
+      <Link>GumCore\ComponentSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ContentManagerWrapper.cs">
+      <Link>GumCore\ContentManagerWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\CustomPropertySave.cs">
+      <Link>GumCore\CustomPropertySave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\DimensionUnitType.cs">
+      <Link>GumCore\DimensionUnitType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementBehaviorReference.cs">
+      <Link>GumCore\ElementBehaviorReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementReference.cs">
+      <Link>GumCore\ElementReference.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementSave.cs">
+      <Link>GumCore\ElementSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementSaveExtensionMethods.cs">
+      <Link>GumCore\ElementSaveExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementSaveExtensions.GumRuntime.cs">
+      <Link>GumCore\ElementSaveExtensions.GumRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ElementWithState.cs">
+      <Link>GumCore\ElementWithState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\EventSave.cs">
+      <Link>GumCore\EventSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\FileManager.cs">
+      <Link>GumCore\FileManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GraphicalUiElement.cs">
+      <Link>GumCore\GraphicalUiElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GraphicalUiElement.IWindow.cs">
+      <Link>GumCore\GraphicalUiElement.IWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GuideRectangle.cs">
+      <Link>GumCore\GuideRectangle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GumAnimation.cs">
+      <Link>GumCore\GumAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GumIdb.cs">
+      <Link>GumCore\GumIdb.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\GumProjectSave.cs">
+      <Link>GumCore\GumProjectSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IAnimation.cs">
+      <Link>GumCore\IAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IContentLoader.cs">
+      <Link>GumCore\IContentLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ImageData.cs">
+      <Link>GumCore\ImageData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\InstanceSave.cs">
+      <Link>GumCore\InstanceSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\InstanceSaveExtensionMethods.cs">
+      <Link>GumCore\InstanceSaveExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\InstanceSaveExtensionMethods.GumRuntime.cs">
+      <Link>GumCore\InstanceSaveExtensionMethods.GumRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\InvisibleRenderable.cs">
+      <Link>GumCore\InvisibleRenderable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IPositionedSizedObject.cs">
+      <Link>GumCore\IPositionedSizedObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IRenderable.cs">
+      <Link>GumCore\IRenderable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IRenderableIpso.cs">
+      <Link>GumCore\IRenderableIpso.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IStateContainer.cs">
+      <Link>GumCore\IStateContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IVariableFinder.cs">
+      <Link>GumCore\IVariableFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\IVisible.cs">
+      <Link>GumCore\IVisible.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Layer.cs">
+      <Link>GumCore\Layer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LayerCameraSettings.cs">
+      <Link>GumCore\LayerCameraSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Line.cs">
+      <Link>GumCore\Line.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LineCircle.cs">
+      <Link>GumCore\LineCircle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LineGrid.cs">
+      <Link>GumCore\LineGrid.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LinePrimitive.cs">
+      <Link>GumCore\LinePrimitive.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LineRectangle.cs">
+      <Link>GumCore\LineRectangle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\LoaderManager.cs">
+      <Link>GumCore\LoaderManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\MathFunctions.cs">
+      <Link>GumCore\MathFunctions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\NamedRectangle.cs">
+      <Link>GumCore\NamedRectangle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\NineSlice.cs">
+      <Link>GumCore\NineSlice.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ObjectFinder.cs">
+      <Link>GumCore\ObjectFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\PlatformCompatability.cs">
+      <Link>GumCore\PlatformCompatability.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\RecursiveVariableFinder.cs">
+      <Link>GumCore\RecursiveVariableFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ReflectionManager.cs">
+      <Link>GumCore\ReflectionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Renderer.cs">
+      <Link>GumCore\Renderer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ScreenSave.cs">
+      <Link>GumCore\ScreenSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\ShapeManager.cs">
+      <Link>GumCore\ShapeManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SolidRectangle.cs">
+      <Link>GumCore\SolidRectangle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SortableLayer.cs">
+      <Link>GumCore\SortableLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Sprite.cs">
+      <Link>GumCore\Sprite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SpriteBatchStack.cs">
+      <Link>GumCore\SpriteBatchStack.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SpriteManager.cs">
+      <Link>GumCore\SpriteManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SpriteRenderer.cs">
+      <Link>GumCore\SpriteRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StandardElementSave.cs">
+      <Link>GumCore\StandardElementSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StandardElementsManager.cs">
+      <Link>GumCore\StandardElementsManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StateSave.cs">
+      <Link>GumCore\StateSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StateSaveCategory.cs">
+      <Link>GumCore\StateSaveCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StateSaveExtensionMethods.cs">
+      <Link>GumCore\StateSaveExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\StringFunctions.cs">
+      <Link>GumCore\StringFunctions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SystemManagers.cs">
+      <Link>GumCore\SystemManagers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\SystemManagers.FlatRedBall.cs">
+      <Link>GumCore\SystemManagers.FlatRedBall.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\Text.cs">
+      <Link>GumCore\Text.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\TextManager.cs">
+      <Link>GumCore\TextManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\TextureFlipAnimation.cs">
+      <Link>GumCore\TextureFlipAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\TimedSpriteSheetAnimation.cs">
+      <Link>GumCore\TimedSpriteSheetAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\UnitConverter.cs">
+      <Link>GumCore\UnitConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\VariableListSave.cs">
+      <Link>GumCore\VariableListSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\VariableSave.cs">
+      <Link>GumCore\VariableSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumCore\VariableSaveExtensionMethods.cs">
+      <Link>GumCore\VariableSaveExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\BuildBarRuntime.Generated.cs">
+      <Link>GumRuntimes\BuildBarRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\ButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\ButtonRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\CircleRuntime.Generated.cs">
+      <Link>GumRuntimes\CircleRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\coloredbars\ResourceBarRuntime.cs">
+      <Link>GumRuntimes\coloredbars\ResourceBarRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
+      <Link>GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs</Link>
+      <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\ColoredRectangleRuntime.Generated.cs">
+      <Link>GumRuntimes\ColoredRectangleRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
+      <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\GameScreenGumRuntime.Generated.cs">
+      <Link>GumRuntimes\GameScreenGumRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\GumIdb.Generated.cs">
+      <Link>GumRuntimes\GumIdb.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\HorizonBoxRuntime.Generated.cs">
+      <Link>GumRuntimes\HorizonBoxRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\InfoBarRuntime.cs">
+      <Link>GumRuntimes\InfoBarRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\InfoBarRuntime.Generated.cs">
+      <Link>GumRuntimes\InfoBarRuntime.Generated.cs</Link>
+      <DependentUpon>InfoBarRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnemyInfoRuntime.cs">
+      <Link>GumRuntimes\infodisplays\EnemyInfoRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs</Link>
+      <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnergyDisplayRuntime.cs">
+      <Link>GumRuntimes\infodisplays\EnergyDisplayRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs</Link>
+      <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsDisplayRuntime.cs">
+      <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs</Link>
+      <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\StructureInfoRuntime.cs">
+      <Link>GumRuntimes\infodisplays\StructureInfoRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\StructureInfoRuntime.Generated.cs</Link>
+      <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs">
+      <Link>GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\MainMenuGumRuntime.Generated.cs">
+      <Link>GumRuntimes\MainMenuGumRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\NineSliceRuntime.Generated.cs">
+      <Link>GumRuntimes\NineSliceRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\RectangleRuntime.Generated.cs">
+      <Link>GumRuntimes\RectangleRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\SpriteRuntime.Generated.cs">
+      <Link>GumRuntimes\SpriteRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\TechnologyTreeRuntime.Generated.cs">
+      <Link>GumRuntimes\TechnologyTreeRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\TextRuntime.Generated.cs">
+      <Link>GumRuntimes\TextRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Performance\IEntityFactory.Generated.cs">
+      <Link>Performance\IEntityFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Performance\PoolList.Generated.cs">
+      <Link>Performance\PoolList.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\ResourceManagers\EnergyManager.cs">
+      <Link>ResourceManagers\EnergyManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\ResourceManagers\MineralsManager.cs">
+      <Link>ResourceManagers\MineralsManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.BuildButtons.cs">
+      <Link>Screens\GameScreen.BuildButtons.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.cs">
+      <Link>Screens\GameScreen.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.Generated.cs">
+      <Link>Screens\GameScreen.Generated.cs</Link>
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.InfoBarButtons.cs">
+      <Link>Screens\GameScreen.InfoBarButtons.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\LevelSelectScreen.cs">
+      <Link>Screens\LevelSelectScreen.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\LevelSelectScreen.Generated.cs">
+      <Link>Screens\LevelSelectScreen.Generated.cs</Link>
+      <DependentUpon>LevelSelectScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\LoadingScreen.cs">
+      <Link>Screens\LoadingScreen.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\LoadingScreen.Generated.cs">
+      <Link>Screens\LoadingScreen.Generated.cs</Link>
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\MainMenu.cs">
+      <Link>Screens\MainMenu.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\MainMenu.Generated.cs">
+      <Link>Screens\MainMenu.Generated.cs</Link>
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Setup\CameraSetup.cs">
+      <Link>Setup\CameraSetup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Back.cs">
+      <Link>StateInterpolation\Back.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Bounce.cs">
+      <Link>StateInterpolation\Bounce.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Circular.cs">
+      <Link>StateInterpolation\Circular.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Cubic.cs">
+      <Link>StateInterpolation\Cubic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Elastic.cs">
+      <Link>StateInterpolation\Elastic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Exponential.cs">
+      <Link>StateInterpolation\Exponential.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Instant.cs">
+      <Link>StateInterpolation\Instant.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Linear.cs">
+      <Link>StateInterpolation\Linear.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Quadratic.cs">
+      <Link>StateInterpolation\Quadratic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Quartic.cs">
+      <Link>StateInterpolation\Quartic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Quintic.cs">
+      <Link>StateInterpolation\Quintic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\ShakeTweener.cs">
+      <Link>StateInterpolation\ShakeTweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Sinusoidal.cs">
+      <Link>StateInterpolation\Sinusoidal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\Tweener.cs">
+      <Link>StateInterpolation\Tweener.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StateInterpolation\TweenerManager.cs">
+      <Link>StateInterpolation\TweenerManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileCollisions\TileShapeCollection.cs">
+      <Link>TileCollisions\TileShapeCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileEntities\TileEntityInstantiator.cs">
+      <Link>TileEntities\TileEntityInstantiator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\AbstractMapLayer.cs">
+      <Link>TileGraphics\AbstractMapLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\AnimationChainContainer.cs">
+      <Link>TileGraphics\AnimationChainContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\ExternalTileset.cs">
+      <Link>TileGraphics\ExternalTileset.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\LayeredTileMap.cs">
+      <Link>TileGraphics\LayeredTileMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\LayeredTileMapAnimation.cs">
+      <Link>TileGraphics\LayeredTileMapAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\MapDrawableBatch.cs">
+      <Link>TileGraphics\MapDrawableBatch.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\MapLayer.cs">
+      <Link>TileGraphics\MapLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\MapTileset.cs">
+      <Link>TileGraphics\MapTileset.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\MapTilesetTile.cs">
+      <Link>TileGraphics\MapTilesetTile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\NamedValue.cs">
+      <Link>TileGraphics\NamedValue.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\ReducedTileMapInfo.cs">
+      <Link>TileGraphics\ReducedTileMapInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\ReducedTileMapInfo.TiledMapSave.cs">
+      <Link>TileGraphics\ReducedTileMapInfo.TiledMapSave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TileAnimation.cs">
+      <Link>TileGraphics\TileAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TileAnimationFrame.cs">
+      <Link>TileGraphics\TileAnimationFrame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TiledMapSave.Conversion.cs">
+      <Link>TileGraphics\TiledMapSave.Conversion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TiledMapSave.Serialization.cs">
+      <Link>TileGraphics\TiledMapSave.Serialization.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TiledMapToShapeCollectionConverter.cs">
+      <Link>TileGraphics\TiledMapToShapeCollectionConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TileNodeNetworkCreator.cs">
+      <Link>TileGraphics\TileNodeNetworkCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\Tileset.cs">
+      <Link>TileGraphics\Tileset.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\TileGraphics\TilesetExtensionMethods.cs">
+      <Link>TileGraphics\TilesetExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="Activity1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Libraries\Android\Debug\FlatRedBallAndroid.dll" />
+    <None Include="Libraries\Android\Debug\MonoGame.Framework.dll" />
+    <None Include="Libraries\Android\Debug\OpenTK.dll" />
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
+      <Name>Alien_Hit_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
+      <Name>Alien_Powerup</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_powerup.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_shoot.xnb">
+      <Name>Alien_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
+      <Name>Laser_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_hit.xnb">
+      <Name>Laser_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_shoot.xnb">
+      <Name>Laser_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
+      <Name>Structure_Placed</Name>
+      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\enemies\basicalien\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\greenalien.png">
+      <Name>greenalien</Name>
+      <Link>Assets\content\entities\enemies\basicalien\greenalien.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\graphicalelements\checkmark_x.png">
+      <Name>checkmark_x</Name>
+      <Link>Assets\content\entities\graphicalelements\checkmark_x.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\alien_fire.png">
+      <Name>alien_fire</Name>
+      <Link>Assets\content\entities\projectiles\alien_fire.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\laser_bullet.png">
+      <Name>laser_bullet</Name>
+      <Link>Assets\content\entities\projectiles\laser_bullet.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\shadow.png">
+      <Name>shadow</Name>
+      <Link>Assets\content\entities\shadow.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\battery\battery_sprite.png">
+      <Name>battery_sprite</Name>
+      <Link>Assets\content\entities\structures\battery\battery_sprite.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\home\brickhouse.png">
+      <Name>brickhouse</Name>
+      <Link>Assets\content\entities\structures\home\brickhouse.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\laserturret\laser_turret_sprite.png">
+      <Name>laser_turret_sprite</Name>
+      <Link>Assets\content\entities\structures\laserturret\laser_turret_sprite.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\solarpanels\solar_sprite.png">
+      <Name>solar_sprite</Name>
+      <Link>Assets\content\entities\structures\solarpanels\solar_sprite.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbon_tree.png">
+      <Name>carbon_tree</Name>
+      <Link>Assets\content\entities\structures\utility\carbontree\carbon_tree.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
+      <Name>allassetssheet</Name>
+      <Link>Assets\content\globalcontent\allassetssheet.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
+      <Name>buildbar</Name>
+      <Link>Assets\content\gumproject\components\buildbar.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\button.gucx">
+      <Name>button</Name>
+      <Link>Assets\content\gumproject\components\button.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\coloredbars\resourcebar.gucx">
+      <Name>resourcebar</Name>
+      <Link>Assets\content\gumproject\components\coloredbars\resourcebar.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\horizonbox.gucx">
+      <Name>horizonbox</Name>
+      <Link>Assets\content\gumproject\components\horizonbox.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infobar.gucx">
+      <Name>infobar</Name>
+      <Link>Assets\content\gumproject\components\infobar.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\conditionsdisplay.gucx">
+      <Name>conditionsdisplay</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\conditionsdisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\enemyinfo.gucx">
+      <Name>enemyinfo</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\enemyinfo.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\energydisplay.gucx">
+      <Name>energydisplay</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\energydisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\mineralsdisplay.gucx">
+      <Name>mineralsdisplay</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\mineralsdisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\structureinfo.gucx">
+      <Name>structureinfo</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\structureinfo.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\sunlightcondition.gucx">
+      <Name>sunlightcondition</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\sunlightcondition.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\watercondition.gucx">
+      <Name>watercondition</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\watercondition.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\windcondition.gucx">
+      <Name>windcondition</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\windcondition.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\settingsbutton.gucx">
+      <Name>settingsbutton</Name>
+      <Link>Assets\content\gumproject\components\specificbuttons\settingsbutton.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\technologytree.gucx">
+      <Name>technologytree</Name>
+      <Link>Assets\content\gumproject\components\technologytree.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18arial.fnt">
+      <Name>font18arial</Name>
+      <Link>Assets\content\gumproject\fontcache\font18arial.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18arial_0.png">
+      <Name>font18arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font18arial_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1.fnt">
+      <Name>font36moire extrabold_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
+      <Name>font36moire extrabold_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumcontent\horizons\treeline.png">
+      <Name>treeline</Name>
+      <Link>Assets\content\gumproject\gumcontent\horizons\treeline.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumproject.gumx">
+      <Name>gumproject</Name>
+      <Link>Assets\content\gumproject\gumproject.gumx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\gamescreengum.gusx">
+      <Name>gamescreengum</Name>
+      <Link>Assets\content\gumproject\screens\gamescreengum.gusx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\levelselectscreengum.gusx">
+      <Name>levelselectscreengum</Name>
+      <Link>Assets\content\gumproject\screens\levelselectscreengum.gusx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\mainmenugum.gusx">
+      <Name>mainmenugum</Name>
+      <Link>Assets\content\gumproject\screens\mainmenugum.gusx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\circle.gutx">
+      <Name>circle</Name>
+      <Link>Assets\content\gumproject\standards\circle.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\coloredrectangle.gutx">
+      <Name>coloredrectangle</Name>
+      <Link>Assets\content\gumproject\standards\coloredrectangle.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\component.gutx">
+      <Name>component</Name>
+      <Link>Assets\content\gumproject\standards\component.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\container.gutx">
+      <Name>container</Name>
+      <Link>Assets\content\gumproject\standards\container.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\nineslice.gutx">
+      <Name>nineslice</Name>
+      <Link>Assets\content\gumproject\standards\nineslice.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\rectangle.gutx">
+      <Name>rectangle</Name>
+      <Link>Assets\content\gumproject\standards\rectangle.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\sprite.gutx">
+      <Name>sprite</Name>
+      <Link>Assets\content\gumproject\standards\sprite.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomcenter.png">
+      <Name>red_bottomcenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomcenter.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomleft.png">
+      <Name>red_bottomleft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomleft.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomright.png">
+      <Name>red_bottomright</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomright.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_center.png">
+      <Name>red_center</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_center.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_left.png">
+      <Name>red_left</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_left.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_right.png">
+      <Name>red_right</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_right.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topcenter.png">
+      <Name>red_topcenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topcenter.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topleft.png">
+      <Name>red_topleft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topleft.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topright.png">
+      <Name>red_topright</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topright.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\text.gutx">
+      <Name>text</Name>
+      <Link>Assets\content\gumproject\standards\text.gutx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\justgrass.tmx">
+      <Name>justgrass</Name>
+      <Link>Assets\content\screens\gamescreen\levels\justgrass.tmx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\ground_tiles.png">
+      <Name>ground_tiles</Name>
+      <Link>Assets\content\screens\gamescreen\levels\tilesets\ground_tiles.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\waterflow.png">
+      <Name>waterflow</Name>
+      <Link>Assets\content\screens\gamescreen\levels\tilesets\waterflow.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\content\redball.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+    <AndroidResource Include="Resources\Drawable\Splash.png" />
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+  </ItemGroup>
+</Project>

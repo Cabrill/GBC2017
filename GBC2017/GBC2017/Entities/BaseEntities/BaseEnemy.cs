@@ -25,14 +25,15 @@ namespace GBC2017.Entities.BaseEntities
 	    private static AxisAlignedRectangle _playArea;
 	    private static PositionedObjectList<BaseStructure> _potentialTargetList;
 
-        public bool IsDead => _healthRemaining <= 0;
+	    public float HealthRemaining { get; private set; }
+        public bool IsDead => HealthRemaining <= 0;
         
 
-	    private Vector3 storedVelocity;
-        private BaseStructure targetStructure;
-	    private double LastRangeAttackTime;
-	    private double LastMeleeAttackTime;
-	    private float _healthRemaining;
+	    private Vector3 _storedVelocity;
+        private BaseStructure _targetStructure;
+	    private double _lastRangeAttackTime;
+	    private double _lastMeleeAttackTime;
+	    
 	    protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
 
@@ -56,12 +57,12 @@ namespace GBC2017.Entities.BaseEntities
 		        CircleInstance.Visible = false;
 		    }
             
-		    _healthRemaining = MaximumHealth;
+		    HealthRemaining = MaximumHealth;
 
 		    MeleeRadius = CircleInstance.Radius * 1.1f;
 
-		    LastRangeAttackTime = TimeManager.CurrentTime;
-		    LastMeleeAttackTime = TimeManager.CurrentTime;
+		    _lastRangeAttackTime = TimeManager.CurrentTime;
+		    _lastMeleeAttackTime = TimeManager.CurrentTime;
 
 		    _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
         }
@@ -88,7 +89,7 @@ namespace GBC2017.Entities.BaseEntities
 		    }
             else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
 		    {
-		        if (targetStructure == null || targetStructure.IsDestroyed)
+		        if (_targetStructure == null || _targetStructure.IsDestroyed)
 		        {
 		            ResumeMovement();
 		        }
@@ -97,21 +98,21 @@ namespace GBC2017.Entities.BaseEntities
 		            CurrentActionState = Action.RangedAim;
 		        }
 		    }
-            else if (CurrentActionState == Action.RangedAim && (targetStructure == null || targetStructure.IsDestroyed))
+            else if (CurrentActionState == Action.RangedAim && (_targetStructure == null || _targetStructure.IsDestroyed))
 		    {
 		        ResumeMovement();
 		    }
             else if (CurrentActionState != Action.StartRangedAttack && 
                 CurrentActionState != Action.FinishRangedAttack && 
                 CurrentActionState != Action.Hurt &&
-                TimeManager.SecondsSince(LastRangeAttackTime) > SecondsBetweenRangedAttack)
+                TimeManager.SecondsSince(_lastRangeAttackTime) > SecondsBetweenRangedAttack)
 		    {
 		        PerformRangedAttackOnTarget();
             }
 
-		    if (_healthRemaining < MaximumHealth)
+		    if (HealthRemaining < MaximumHealth)
 		    {
-		        _healthBar.UpdateBar(_healthRemaining, MaximumHealth, false);
+		        _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
 		        _healthBar.X = X;
 		        _healthBar.Y = Y + SpriteInstance.Height/2f;
 		        _healthBar.Visible = true;
@@ -126,14 +127,14 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (Velocity != Vector3.Zero)
 	        {
-	            storedVelocity = Velocity;
+	            _storedVelocity = Velocity;
 	        }
 	        Velocity = Vector3.Zero;
         }
 
 	    private void ResumeMovement()
 	    {
-	        Velocity = storedVelocity;
+	        Velocity = _storedVelocity;
 	        CurrentActionState = Action.Running;
 	        CurrentDirectionState =
 	            (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
@@ -149,7 +150,7 @@ namespace GBC2017.Entities.BaseEntities
 	        newProjectile.Speed = ProjectileSpeed;
 	        newProjectile.MaxRange = RangedRadius * 1.5f;
 
-	        var angle = (float)Math.Atan2(newProjectile.Position.Y - targetStructure.Position.Y, newProjectile.Position.X - targetStructure.Position.X);
+	        var angle = (float)Math.Atan2(newProjectile.Position.Y - _targetStructure.Position.Y, newProjectile.Position.X - _targetStructure.Position.X);
 	        var direction = new Vector3(
 	            (float)-Math.Cos(angle),
 	            (float)-Math.Sin(angle), 0);
@@ -160,28 +161,28 @@ namespace GBC2017.Entities.BaseEntities
 
             rangedAttackSound.Play();
 
-            LastRangeAttackTime = TimeManager.CurrentTime;
+            _lastRangeAttackTime = TimeManager.CurrentTime;
 
             CurrentActionState = Action.FinishRangedAttack;
         }
 
         private void PerformRangedAttackOnTarget()
 	    {
-	        if (targetStructure != null && (targetStructure.IsDestroyed || Vector3.Distance(Position, targetStructure.Position) > RangedRadius))
+	        if (_targetStructure != null && (_targetStructure.IsDestroyed || Vector3.Distance(Position, _targetStructure.Position) > RangedRadius))
 	        {
-	            targetStructure = null;
+	            _targetStructure = null;
 	        }
 
-	        if (targetStructure == null)
+	        if (_targetStructure == null)
 	        {
 	            ChooseStructureTarget();
 	        }
 
-	        if (targetStructure != null)
+	        if (_targetStructure != null)
 	        {
 	            StopMovement();
 
-	            CurrentDirectionState =(Position.X < targetStructure.Position.X ? 
+	            CurrentDirectionState =(Position.X < _targetStructure.Position.X ? 
                     Direction.MovingRight : 
                     Direction.MovingLeft);
 
@@ -194,7 +195,7 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (_potentialTargetList != null && _potentialTargetList.Count > 0)
 	        {
-	            targetStructure =
+	            _targetStructure =
 	                _potentialTargetList.Where(pt => 
                         pt.CurrentState == BaseStructure.VariableState.Built && 
                         pt.IsDestroyed == false && 
@@ -206,10 +207,10 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void GetHitBy(BasePlayerProjectile projectile)
 	    {
-	        _healthRemaining -= projectile.DamageInflicted;
+	        HealthRemaining -= projectile.DamageInflicted;
             projectile.PlayHitTargetSound();
 
-	        if (_healthRemaining <= 0)
+	        if (HealthRemaining <= 0)
 	        {
 	            PerformDeath();
 	        }
