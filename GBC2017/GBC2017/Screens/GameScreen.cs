@@ -115,13 +115,13 @@ namespace GBC2017.Screens
 
 		    UpdateGameModeActivity();
 
-            HandleTouchActivity();
-
-		    BuildingStatusActivity();
+		    HandleTouchActivity();
+		    SelectedItemActivity();
 
             if (!IsPaused)
 		    {
-		        EnemyStatusActivity();
+                BuildingStatusActivity();
+                EnemyStatusActivity();
 		        PlayerProjectileActivity();
 		        EnemyProjectileActivity();
 
@@ -135,6 +135,27 @@ namespace GBC2017.Screens
 		            MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
 		    }
 		}
+
+	    private void SelectedItemActivity()
+	    {
+	        if (selectedObject == null)
+	        {
+	            EnemyInfoInstance.Visible = false;
+	            StructureInfoInstance.Visible = false;
+	            return;
+	        }
+
+	        if (selectedObject is BaseStructure)
+	        {
+                EnemyInfoInstance.Visible = false;
+                ShowStructureInfo((BaseStructure) selectedObject);
+	        }
+	        if (selectedObject is BaseEnemy)
+	        {
+                StructureInfoInstance.Visible = false;
+                ShowEnemyInfo((BaseEnemy) selectedObject);
+	        }
+	    }
 
 	    private void UpdateGameModeActivity()
 	    {
@@ -279,6 +300,7 @@ namespace GBC2017.Screens
                     //Remove the current selection if the user clicks off of it
 	                if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
 	                {
+                        
                         selectedObject = null;
 	                }
 
@@ -289,7 +311,8 @@ namespace GBC2017.Screens
 	                        GuiManager.Cursor.ObjectGrabbed = structure;
 	                        selectedObject = structure;
 	                        CurrentGameMode = GameMode.Inspecting;
-                            break;
+	                        ShowStructureInfo(structure);
+	                        break;
 	                    }
 	                }
 
@@ -303,6 +326,7 @@ namespace GBC2017.Screens
 	                            GuiManager.Cursor.ObjectGrabbed = enemy;
 	                            selectedObject = enemy;
 	                            CurrentGameMode = GameMode.Inspecting;
+	                            ShowEnemyInfo(enemy);
 	                            break;
 	                        }
 	                    }
@@ -326,9 +350,25 @@ namespace GBC2017.Screens
 	        }
 	    }
 
-#endregion
+	    private void ShowStructureInfo(BaseStructure structure)
+	    {
+	        StructureInfoInstance.Visible = true;
+	        StructureInfoInstance.X = structure.X;
+	        StructureInfoInstance.Y = structure.Y + structure.SpriteInstance.Height / 2;
+	        StructureInfoInstance.OnClose = () => selectedObject = null;
+	    }
 
-#region Destroy
+	    private void ShowEnemyInfo(BaseEnemy enemy)
+	    {
+	        EnemyInfoInstance.Visible = true;
+	        EnemyInfoInstance.X = enemy.X;
+	        EnemyInfoInstance.Y = enemy.Y + enemy.SpriteInstance.Height / 2;
+	        EnemyInfoInstance.OnClose = () => selectedObject = null;
+	    }
+
+        #endregion
+
+        #region Destroy
         void CustomDestroy()
 		{
 

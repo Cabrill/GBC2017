@@ -69,6 +69,11 @@
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>SortType</Type>
+            <Member>SortType</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -154,6 +159,26 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>StructureInfoInstance (GBC2017.GumRuntimes.StructureInfoRuntime)</SourceName>
+          <InstanceName>StructureInfoInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>EnemyInfoInstance (GBC2017.GumRuntimes.EnemyInfoRuntime)</SourceName>
+          <InstanceName>EnemyInfoInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
       </NamedObjects>
     </ScreenSave>
