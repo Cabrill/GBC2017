@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Event.cs">
       <Link>Entities\BaseEntities\BaseEnemy.Event.cs</Link>
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Generated.cs">
       <Link>Entities\BaseEntities\BaseEnemy.Generated.cs</Link>
@@ -86,7 +87,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
       <Link>Entities\BaseEntities\BaseEnemy.Generated.Event.cs</Link>
-      <DependentUpon>BaseEnemy.Event.cs</DependentUpon>
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.cs">
       <Link>Entities\BaseEntities\BaseEnemyProjectile.cs</Link>
@@ -121,6 +122,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Event.cs">
       <Link>Entities\BaseEntities\BaseStructure.Event.cs</Link>
+      <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Generated.cs">
       <Link>Entities\BaseEntities\BaseStructure.Generated.cs</Link>
@@ -128,7 +130,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.Generated.Event.cs">
       <Link>Entities\BaseEntities\BaseStructure.Generated.Event.cs</Link>
-      <DependentUpon>BaseStructure.Event.cs</DependentUpon>
+      <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\DebugVariables.cs">
       <Link>Entities\DebugVariables.cs</Link>
@@ -311,6 +313,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\GraphicalUiElement.IWindow.cs">
       <Link>GumCore\GraphicalUiElement.IWindow.cs</Link>
+      <DependentUpon>GraphicalUiElement.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\GuideRectangle.cs">
       <Link>GumCore\GuideRectangle.cs</Link>
@@ -341,6 +344,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\InstanceSaveExtensionMethods.GumRuntime.cs">
       <Link>GumCore\InstanceSaveExtensionMethods.GumRuntime.cs</Link>
+      <DependentUpon>InstanceSaveExtensionMethods.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\InvisibleRenderable.cs">
       <Link>GumCore\InvisibleRenderable.cs</Link>
@@ -458,6 +462,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\SystemManagers.FlatRedBall.cs">
       <Link>GumCore\SystemManagers.FlatRedBall.cs</Link>
+      <DependentUpon>SystemManagers.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\Text.cs">
       <Link>GumCore\Text.cs</Link>
@@ -486,8 +491,14 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\BuildBarRuntime.Generated.cs">
       <Link>GumRuntimes\BuildBarRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\BuildButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\BuildButtonRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\ButtonRuntime.Generated.cs">
       <Link>GumRuntimes\ButtonRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\CategoryButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\CategoryButtonRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\CircleRuntime.Generated.cs">
       <Link>GumRuntimes\CircleRuntime.Generated.cs</Link>
@@ -611,6 +622,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.BuildButtons.cs">
       <Link>Screens\GameScreen.BuildButtons.cs</Link>
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.cs">
       <Link>Screens\GameScreen.cs</Link>
@@ -621,6 +633,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.InfoBarButtons.cs">
       <Link>Screens\GameScreen.InfoBarButtons.cs</Link>
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\LevelSelectScreen.cs">
       <Link>Screens\LevelSelectScreen.cs</Link>
@@ -732,6 +745,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\TileGraphics\ReducedTileMapInfo.TiledMapSave.cs">
       <Link>TileGraphics\ReducedTileMapInfo.TiledMapSave.cs</Link>
+      <DependentUpon>ReducedTileMapInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\TileGraphics\TileAnimation.cs">
       <Link>TileGraphics\TileAnimation.cs</Link>
@@ -853,9 +867,17 @@
       <Name>buildbar</Name>
       <Link>Assets\content\gumproject\components\buildbar.gucx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbutton.gucx">
+      <Name>buildbutton</Name>
+      <Link>Assets\content\gumproject\components\buildbutton.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\button.gucx">
       <Name>button</Name>
       <Link>Assets\content\gumproject\components\button.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\categorybutton.gucx">
+      <Name>categorybutton</Name>
+      <Link>Assets\content\gumproject\components\categorybutton.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\coloredbars\resourcebar.gucx">
       <Name>resourcebar</Name>
@@ -917,6 +939,38 @@
       <Name>font18arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic.fnt">
+      <Name>font18century gothic</Name>
+      <Link>Assets\content\gumproject\fontcache\font18century gothic.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic_0.png">
+      <Name>font18century gothic_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font18century gothic_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black.fnt">
+      <Name>font36arial black</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial black.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_0.png">
+      <Name>font36arial black_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial black_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial.fnt">
+      <Name>font36arial</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_0.png">
+      <Name>font36arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic.fnt">
+      <Name>font36century gothic</Name>
+      <Link>Assets\content\gumproject\fontcache\font36century gothic.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic_0.png">
+      <Name>font36century gothic_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36century gothic_0.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1.fnt">
       <Name>font36moire extrabold_o1</Name>
       <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1.fnt</Link>
@@ -924,6 +978,22 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
       <Name>font36moire extrabold_o1_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold.fnt">
+      <Name>font72moire extrabold</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_0.png">
+      <Name>font72moire extrabold_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_1.png">
+      <Name>font72moire extrabold_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1.fnt">
+      <Name>font72moire extrabold_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumcontent\horizons\treeline.png">
       <Name>treeline</Name>

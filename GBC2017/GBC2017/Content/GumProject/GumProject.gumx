@@ -6,7 +6,7 @@
   <DefaultCanvasHeight>1080</DefaultCanvasHeight>
   <ShowOutlines>true</ShowOutlines>
   <RestrictToUnitValues>true</RestrictToUnitValues>
-  <RestrictFileNamesForAndroid>true</RestrictFileNamesForAndroid>
+  <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
   <ScreenReference>
     <Name>GameScreenGum</Name>
@@ -25,7 +25,15 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>BuildButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>Button</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>CategoryButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>

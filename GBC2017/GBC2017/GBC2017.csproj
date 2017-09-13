@@ -223,7 +223,9 @@
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
     <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BuildButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\CategoryButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
@@ -459,9 +461,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BuildBar</Name>
     </None>
+    <None Include="content\gumproject\components\buildbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildButton</Name>
+    </None>
     <None Include="content\gumproject\components\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Button</Name>
+    </None>
+    <None Include="content\gumproject\components\categorybutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CategoryButton</Name>
     </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -523,6 +533,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
+    <None Include="content\gumproject\fontcache\font36arial black.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial Black</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font36arial black_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial Black_0</Name>
+    </None>
     <None Include="content\gumproject\fontcache\font36moire extrabold_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Moire ExtraBold_o1</Name>
@@ -530,6 +548,18 @@
     <None Include="content\gumproject\fontcache\font36moire extrabold_o1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Moire ExtraBold_o1_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold_1</Name>
     </None>
     <None Include="content\gumproject\gumcontent\horizons\treeline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
