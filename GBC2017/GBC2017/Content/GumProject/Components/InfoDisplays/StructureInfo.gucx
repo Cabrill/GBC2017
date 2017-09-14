@@ -162,6 +162,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>EnergyChangeText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyChangeText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -193,6 +199,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>EnergyChangeText.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyChangeText.Width</Name>
       <Value xsi:type="xsd:float">38</Value>
@@ -202,6 +214,24 @@
       <Type>DimensionUnitType</Type>
       <Name>EnergyChangeText.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyChangeText.Y</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>EnergyChangeText.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyChangeText.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -317,6 +347,12 @@
       <Type>DimensionUnitType</Type>
       <Name>EnergyStorageContainer.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -524,6 +560,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>HealthText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HealthText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -597,6 +639,12 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>MineralChangeText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralChangeText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -628,6 +676,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MineralChangeText.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralChangeText.Width</Name>
       <Value xsi:type="xsd:float">38</Value>
@@ -637,6 +691,24 @@
       <Type>DimensionUnitType</Type>
       <Name>MineralChangeText.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralChangeText.Y</Name>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MineralChangeText.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralChangeText.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -846,6 +918,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>MineralsText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -927,6 +1005,12 @@
       <Type>DimensionUnitType</Type>
       <Name>NameContainer.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>NameText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1221,7 +1305,7 @@
       </Variable>
     </State>
     <State>
-      <Name>Balance</Name>
+      <Name>Balanced</Name>
       <Variable>
         <Type>int</Type>
         <Name>EnergyChangeText.Blue</Name>

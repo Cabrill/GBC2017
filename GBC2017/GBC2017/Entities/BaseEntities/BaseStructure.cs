@@ -28,6 +28,11 @@ namespace GBC2017.Entities.BaseEntities
 	    public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
         public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
 	    public float HealthRemaining { get; private set; }
+        public double EnergyUsedLastSecond { get; private set; }
+	    public double MineralsUsedLastSecond { get; private set; }
+	    private double _lastUsageUpdate;
+	    protected double _energyUsedThisSecond;
+        protected double _mineralsUsedThisSecond;
 
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 
@@ -67,6 +72,9 @@ namespace GBC2017.Entities.BaseEntities
 	            _energyBar = CreateResourceBar(ResourceBarRuntime.BarType.Energy);
 	        }
 	        _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
+
+	        _lastUsageUpdate = TimeManager.CurrentTime;
+
 	    }
 
 	    private void CustomActivity()
@@ -103,6 +111,15 @@ namespace GBC2017.Entities.BaseEntities
 		    }
             else
             {
+                if (TimeManager.SecondsSince(_lastUsageUpdate) >= 1)
+                {
+                    _lastUsageUpdate = TimeManager.CurrentTime;
+                    EnergyUsedLastSecond = _energyUsedThisSecond;
+                    MineralsUsedLastSecond = _mineralsUsedThisSecond;
+
+                    _energyUsedThisSecond = _mineralsUsedThisSecond = 0;
+                }
+
                 if (HasInternalBattery)
                 {
                     if (BatteryLevel < InternalBatteryMaxStorage)
@@ -167,6 +184,7 @@ namespace GBC2017.Entities.BaseEntities
 	        {
 	            HasSufficientEnergy = energyAmount >= EnergyRequestAmount;
 	        }
+	        _energyUsedThisSecond += energyAmount;
 	    }
 
 	    public void DrainEnergy(double energyAmount)

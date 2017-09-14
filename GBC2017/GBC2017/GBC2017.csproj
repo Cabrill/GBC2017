@@ -541,6 +541,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Arial Black_0</Name>
     </None>
+    <None Include="content\gumproject\fontcache\font36arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font36arial_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial_0</Name>
+    </None>
     <None Include="content\gumproject\fontcache\font36moire extrabold_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Moire ExtraBold_o1</Name>
