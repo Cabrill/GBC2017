@@ -631,12 +631,6 @@
     <Compile Include="..\..\GBC2017\Program.cs">
       <Link>Program.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\ResourceManagers\EnergyManager.cs">
-      <Link>ResourceManagers\EnergyManager.cs</Link>
-    </Compile>
-    <Compile Include="..\..\GBC2017\ResourceManagers\MineralsManager.cs">
-      <Link>ResourceManagers\MineralsManager.cs</Link>
-    </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.BuildButtons.cs">
       <Link>Screens\GameScreen.BuildButtons.cs</Link>
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -1029,10 +1023,6 @@
       <Name>font72arial_2</Name>
       <Link>Assets\content\gumproject\fontcache\font72arial_2.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_o1.fnt">
-      <Name>font72arial_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_o1.fnt</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold.fnt">
       <Name>font72moire extrabold</Name>
       <Link>Assets\content\gumproject\fontcache\font72moire extrabold.fnt</Link>
@@ -1044,10 +1034,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_1.png">
       <Name>font72moire extrabold_1</Name>
       <Link>Assets\content\gumproject\fontcache\font72moire extrabold_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1.fnt">
-      <Name>font72moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumcontent\horizons\treeline.png">
       <Name>treeline</Name>
