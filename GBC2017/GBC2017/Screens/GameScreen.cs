@@ -41,6 +41,9 @@ namespace GBC2017.Screens
 
 	    private DateTime gameTimeOfDay;
 
+	    private double lastEnemyWave;
+	    private int numberOfLastWave = 0;
+
         #endregion
 
         #region Initialization
@@ -64,7 +67,7 @@ namespace GBC2017.Screens
             SetBuildButtonControls();
 		    InitializeBaseEntities();
 		    gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
-
+		    lastEnemyWave = TimeManager.CurrentTime;
 		}
 
 	    private void InitializeBaseEntities()
@@ -120,6 +123,8 @@ namespace GBC2017.Screens
 
             if (!IsPaused)
             {
+                TemporaryDebugWaveSpawning();
+
                 SunlightManager.UpdateConditions(gameTimeOfDay);
                 UpdateGameTime();
                 
@@ -138,6 +143,36 @@ namespace GBC2017.Screens
 		            MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
 		    }
 		}
+
+	    private void TemporaryDebugWaveSpawning()
+	    {
+	        if (TimeManager.SecondsSince(lastEnemyWave) > 20)
+	        {
+	            lastEnemyWave = TimeManager.CurrentTime;
+
+                numberOfLastWave++;
+	            var useLeftSide = numberOfLastWave > 3 && numberOfLastWave % 3 == 0;
+
+                for (var i = 0; i < numberOfLastWave; i++)
+                {
+                    if (numberOfLastWave > 3 && i % 3 == 0)
+                    {
+                        useLeftSide = !useLeftSide;
+                    }
+
+                    if (useLeftSide)
+                    {
+                        var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                        newAlien.PlaceOnLeftSide();
+                    }
+                    else
+                    {
+                        var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                        newAlien.PlaceOnRightSide();
+                    }
+                }
+	        }
+	    }
 
 	    private void UpdateGameTime()
 	    {
@@ -170,6 +205,8 @@ namespace GBC2017.Screens
 
 	    private void UpdateGameModeActivity()
 	    {
+            if (!AllStructuresList.Any(s => s is Home)) RestartScreen(false);
+
 	        if (AllStructuresList.Any(s => s.IsBeingPlaced))
 	        {
 	            CurrentGameMode = GameMode.Building;
