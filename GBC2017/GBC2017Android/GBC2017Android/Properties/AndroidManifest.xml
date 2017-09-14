@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1" package="FRB.GBCFinalRound" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="26" />
+	<uses-sdk android:minSdkVersion="14" />
 	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 	<application android:label="GBC2017 Final Round" android:icon="@drawable/Icon"></application>
 </manifest>
