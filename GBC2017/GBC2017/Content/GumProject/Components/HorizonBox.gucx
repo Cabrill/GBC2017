@@ -492,7 +492,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TreesSprite.Height</Name>
-      <Value xsi:type="xsd:float">60</Value>
+      <Value xsi:type="xsd:float">70</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
