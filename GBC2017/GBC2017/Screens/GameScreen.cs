@@ -37,6 +37,9 @@ namespace GBC2017.Screens
 
 	    private GameMode CurrentGameMode = GameMode.Normal;
 	    private PositionedObject selectedObject;
+
+	    private DateTime gameTimeOfDay;
+
         #endregion
 
         #region Initialization
@@ -59,6 +62,8 @@ namespace GBC2017.Screens
 		    SetInfoBarControls();
             SetBuildButtonControls();
 		    InitializeBaseEntities();
+		    gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
+
 		}
 
 	    private void InitializeBaseEntities()
@@ -111,10 +116,11 @@ namespace GBC2017.Screens
 
 		    HandleTouchActivity();
 		    SelectedItemActivity();
-            
 
             if (!IsPaused)
-		    {
+            {
+                UpdateGameTime();
+                
                 BuildingStatusActivity();
                 EnemyStatusActivity();
 		        PlayerProjectileActivity();
@@ -130,6 +136,14 @@ namespace GBC2017.Screens
 		            MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
 		    }
 		}
+
+	    private void UpdateGameTime()
+	    {
+	        var addSeconds = TimeManager.SecondDifference * 480;
+	        gameTimeOfDay = gameTimeOfDay.AddSeconds(addSeconds);
+
+	        HorizonBoxInstance.Update(gameTimeOfDay);
+        }
 
 	    private void SelectedItemActivity()
 	    {

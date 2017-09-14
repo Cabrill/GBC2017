@@ -235,7 +235,10 @@
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
-    <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\HorizonBoxRuntime.cs" />
+    <Compile Include="GumRuntimes\HorizonBoxRuntime.Generated.cs">
+      <DependentUpon>HorizonBoxRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\InfoBarRuntime.cs" />
     <Compile Include="GumRuntimes\InfoBarRuntime.Generated.cs">
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
@@ -456,6 +459,10 @@
     <None Include="content\globalcontent\allassetssheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AllAssetsSheet</Name>
+    </None>
+    <None Include="content\globalcontent\starry_sky.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>starry_sky</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

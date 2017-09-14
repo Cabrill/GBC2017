@@ -522,8 +522,12 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\GumIdb.Generated.cs">
       <Link>GumRuntimes\GumIdb.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\HorizonBoxRuntime.cs">
+      <Link>GumRuntimes\HorizonBoxRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\HorizonBoxRuntime.Generated.cs">
       <Link>GumRuntimes\HorizonBoxRuntime.Generated.cs</Link>
+      <DependentUpon>HorizonBoxRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\InfoBarRuntime.cs">
       <Link>GumRuntimes\InfoBarRuntime.cs</Link>
@@ -862,6 +866,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
       <Name>allassetssheet</Name>
       <Link>Assets\content\globalcontent\allassetssheet.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
+      <Name>starry_sky</Name>
+      <Link>Assets\content\globalcontent\starry_sky.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
       <Name>buildbar</Name>
