@@ -239,6 +239,9 @@
     <Compile Include="..\..\GBC2017\Game1.cs">
       <Link>Game1.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\BaseLevel.cs">
+      <Link>GameClasses\BaseLevel.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GlobalContent.Generated.cs">
       <Link>GlobalContent.Generated.cs</Link>
     </Compile>
@@ -563,6 +566,16 @@
       <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs</Link>
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsIncreaseNotificationRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\MineralsIncreaseNotificationRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs">
+      <Link>GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.Generated.cs</Link>
+      <DependentUpon>ResourceIncreaseNotificationRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\StructureInfoRuntime.cs">
       <Link>GumRuntimes\infodisplays\StructureInfoRuntime.cs</Link>
     </Compile>
@@ -707,6 +720,15 @@
     </Compile>
     <Compile Include="..\..\GBC2017\StateInterpolation\TweenerManager.cs">
       <Link>StateInterpolation\TweenerManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\EnergyManager.cs">
+      <Link>StaticManagers\EnergyManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\MineralsManager.cs">
+      <Link>StaticManagers\MineralsManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\SunlightManager.cs">
+      <Link>StaticManagers\SunlightManager.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\TileCollisions\TileShapeCollection.cs">
       <Link>TileCollisions\TileShapeCollection.cs</Link>
@@ -915,6 +937,10 @@
       <Name>mineralsdisplay</Name>
       <Link>Assets\content\gumproject\components\infodisplays\mineralsdisplay.gucx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\resourceincreasenotification.gucx">
+      <Name>resourceincreasenotification</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\resourceincreasenotification.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\structureinfo.gucx">
       <Name>structureinfo</Name>
       <Link>Assets\content\gumproject\components\infodisplays\structureinfo.gucx</Link>
@@ -986,6 +1012,26 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
       <Name>font36moire extrabold_o1_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial.fnt">
+      <Name>font72arial</Name>
+      <Link>Assets\content\gumproject\fontcache\font72arial.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_0.png">
+      <Name>font72arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font72arial_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_1.png">
+      <Name>font72arial_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72arial_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_2.png">
+      <Name>font72arial_2</Name>
+      <Link>Assets\content\gumproject\fontcache\font72arial_2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_o1.fnt">
+      <Name>font72arial_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72arial_o1.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold.fnt">
       <Name>font72moire extrabold</Name>

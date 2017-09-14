@@ -73,7 +73,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.Height</Name>
-      <Value xsi:type="xsd:float">70</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -104,31 +104,37 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">64</Value>
+      <Value xsi:type="xsd:int">12</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">34</Value>
+      <Value xsi:type="xsd:int">106</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeSprite.Texture Top</Name>
-      <Value xsi:type="xsd:int">29</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeSprite.Texture Width</Name>
-      <Value xsi:type="xsd:int">33</Value>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyChangeSprite.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.Width</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -140,7 +146,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -152,7 +158,13 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.Y</Name>
-      <Value xsi:type="xsd:float">15</Value>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>EnergyChangeSprite.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -207,7 +219,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeText.Width</Name>
-      <Value xsi:type="xsd:float">38</Value>
+      <Value xsi:type="xsd:float">35</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -292,7 +304,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Width</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -304,7 +316,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -350,9 +362,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>EnergyText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>EnergyText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -370,7 +388,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>EnergyText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -402,6 +420,18 @@
       <Type>DimensionUnitType</Type>
       <Name>EnergyText.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyText.X</Name>
+      <Value xsi:type="xsd:float">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyText.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -560,9 +590,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>HealthText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>HealthText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -580,7 +616,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>HealthText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -684,7 +720,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralChangeText.Width</Name>
-      <Value xsi:type="xsd:float">38</Value>
+      <Value xsi:type="xsd:float">33</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -714,7 +750,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeSprite.Height</Name>
-      <Value xsi:type="xsd:float">70</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -745,31 +781,37 @@
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">64</Value>
+      <Value xsi:type="xsd:int">12</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">99</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeSprite.Texture Top</Name>
-      <Value xsi:type="xsd:int">29</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeSprite.Texture Width</Name>
-      <Value xsi:type="xsd:int">33</Value>
+      <Value xsi:type="xsd:int">7</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsChangeSprite.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeSprite.Width</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -781,7 +823,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeSprite.X</Name>
-      <Value xsi:type="xsd:float">2</Value>
+      <Value xsi:type="xsd:float">8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -793,7 +835,13 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeSprite.Y</Name>
-      <Value xsi:type="xsd:float">15</Value>
+      <Value xsi:type="xsd:float">50</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>MineralsChangeSprite.Y Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -860,7 +908,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Width</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -872,7 +920,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -918,9 +966,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>MineralsText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>MineralsText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -938,7 +992,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>MineralsText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -970,6 +1024,18 @@
       <Type>DimensionUnitType</Type>
       <Name>MineralsText.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralsText.X</Name>
+      <Value xsi:type="xsd:float">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralsText.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1008,15 +1074,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>NameText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>NameText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>NameText.Height</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1042,6 +1114,12 @@
       <Name>NameText.Text</Name>
       <Value xsi:type="xsd:string">Structure</Value>
       <ExposedAsName>StructureName</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>NameText.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

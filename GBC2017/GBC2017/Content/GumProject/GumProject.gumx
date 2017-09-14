@@ -65,6 +65,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/ResourceIncreaseNotification</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/StructureInfo</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

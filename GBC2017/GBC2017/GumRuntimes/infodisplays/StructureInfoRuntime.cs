@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.EnergyProducers;
+using GBC2017.StaticManagers;
 
 namespace GBC2017.GumRuntimes
 {
@@ -49,7 +51,7 @@ namespace GBC2017.GumRuntimes
 
             if (structureAsEnergyProducer != null)
             {
-                netEnergy += structureAsEnergyProducer.EnergyProducedPerSecond;
+                netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
             netEnergy -= structure.EnergyUsedLastSecond;
 

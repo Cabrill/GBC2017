@@ -174,6 +174,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>EnabledStatusState</Type>
+      <Name>EnabledStatusState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Height</Name>
       <Value xsi:type="xsd:float">40</Value>
@@ -869,42 +874,42 @@
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">230</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">205</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">95</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">229</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">90</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">24</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -914,43 +919,91 @@
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">240</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">125</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>BackgroundSprite.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">205</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">180</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">50</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>TopBackgroundSprite.Red</Name>
+        <Value xsi:type="xsd:int">120</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
+  <Category>
+    <Name>EnabledStatus</Name>
+    <State>
+      <Name>Enabled</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>TopBackgroundSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>StructureSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <Category>Rendering</Category>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>Disabled</Name>
+      <Variable>
+        <Type>int</Type>
+        <Name>BackgroundSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>StructureSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">50</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>TopBackgroundSprite.Alpha</Name>
+        <Value xsi:type="xsd:int">50</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

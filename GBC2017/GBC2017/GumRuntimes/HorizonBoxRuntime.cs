@@ -47,6 +47,7 @@ namespace GBC2017.GumRuntimes
         private void UpdateStarrySky(DateTime timeOfDay)
         {
             //TODO:  Make sunrise/sunset use latitude/longitude of location
+            //https://www.esrl.noaa.gov/gmd/grad/solcalc/main.js
             if (timeOfDay.Hour >= 18)
             {
                 const int duskStartInMinutes = 22 * 60;

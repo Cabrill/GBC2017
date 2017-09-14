@@ -8,6 +8,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.StaticManagers;
 
 namespace GBC2017.Entities.Structures.EnergyProducers
 {
@@ -18,7 +19,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
+        private void CustomInitialize()
 		{
 
 
@@ -26,9 +27,10 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
 		private void CustomActivity()
 		{
+		    EffectiveEnergyProducedPerSecond = BaseEnergyProducedPerSecond *
+		                                                       SunlightManager.SunlightEffectiveness;
 
-
-		}
+        }
 
 		private void CustomDestroy()
 		{

@@ -17,6 +17,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
 using GBC2017.ResourceManagers;
+using GBC2017.StaticManagers;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -119,6 +120,7 @@ namespace GBC2017.Screens
 
             if (!IsPaused)
             {
+                SunlightManager.UpdateConditions(gameTimeOfDay);
                 UpdateGameTime();
                 
                 BuildingStatusActivity();

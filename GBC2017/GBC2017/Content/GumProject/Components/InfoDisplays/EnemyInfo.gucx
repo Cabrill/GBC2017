@@ -229,6 +229,18 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>HealthText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthText.FontSize</Name>
+      <Value xsi:type="xsd:int">72</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>HealthText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
@@ -242,7 +254,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>HealthText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -407,6 +419,18 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>MeleeText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>MeleeText.FontSize</Name>
+      <Value xsi:type="xsd:int">72</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>MeleeText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
@@ -420,7 +444,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>MeleeText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -486,8 +510,20 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>NameText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>NameText.FontSize</Name>
+      <Value xsi:type="xsd:int">72</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>NameText.Height</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -500,6 +536,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>NameText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>NameText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -516,9 +558,39 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>NameText.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
       <Name>NameText.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>NameText.X</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>NameText.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>NameText.Y</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>NameText.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -655,6 +727,18 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>RangedText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>RangedText.FontSize</Name>
+      <Value xsi:type="xsd:int">72</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>RangedText.Height</Name>
       <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
@@ -668,7 +752,7 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>RangedText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

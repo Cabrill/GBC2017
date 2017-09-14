@@ -1213,7 +1213,7 @@
               <ValueAsString>double</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>EnergyProducedPerSecond</Name>
+          <Name>BaseEnergyProducedPerSecond</Name>
           <Type>double</Type>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
@@ -2295,6 +2295,7 @@
           </Properties>
           <Name>MineralsRewardedWhenKilled</Name>
           <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3704,18 +3705,6 @@
               <ValueAsString>double</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>EnergyProducedPerSecond</Name>
-          <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">10</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>double</ValueAsString>
-            </PropertySave>
-          </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">100</DefaultValue>
@@ -3731,6 +3720,18 @@
           <Name>DisplayName</Name>
           <Type>string</Type>
           <DefaultValue xsi:type="xsd:string">Solar Panels</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BaseEnergyProducedPerSecond</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>

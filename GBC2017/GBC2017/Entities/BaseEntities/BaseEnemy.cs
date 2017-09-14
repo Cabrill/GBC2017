@@ -12,6 +12,7 @@ using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Utilities;
 using GBC2017.GumRuntimes;
+using GBC2017.ResourceManagers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
@@ -237,8 +238,21 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        else if (SpriteInstance.JustCycled)
             {
+                AwardMinerals();
                 Destroy();
             }
+	    }
+
+	    private void AwardMinerals()
+	    {
+	        MineralsManager.DepositMinerals(MineralsRewardedWhenKilled);
+	        var notification = new ResourceIncreaseNotificationRuntime
+	        {
+	            X = X,
+	            Y = Y,
+	            AmountOfIncrease = $"+{MineralsRewardedWhenKilled.ToString()}"
+	        };
+	        notification.AddToManagers();
 	    }
 
 	    public void PlaceOnLeftSide()
