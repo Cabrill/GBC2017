@@ -30,6 +30,7 @@ namespace GBC2017
 
             view.KeyPress += HandleKeyPress;
             view.GenericMotion += HandleGenericMotion;
+            //view.KeyPress += HandleKeyPress;
             SetContentView(view);
             g.Run();
         }
