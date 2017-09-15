@@ -9,6 +9,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
+using FlatRedBall.Gum;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using FlatRedBall.Math;
@@ -16,12 +17,17 @@ using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Factories;
+using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
+using Gum.Converters;
+using Gum.DataTypes;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using RenderingLibrary;
+using RenderingLibrary.Graphics;
 using Camera = FlatRedBall.Camera;
 
 namespace GBC2017.Screens
@@ -43,6 +49,8 @@ namespace GBC2017.Screens
 
 	    private double lastEnemyWave;
 	    private int numberOfLastWave = 0;
+	    private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
+	    
 
         #endregion
 
@@ -54,13 +62,15 @@ namespace GBC2017.Screens
             #endif
 
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
-		    var createAHome = HomeFactory.CreateNew(EntityLayer);
+            var createAHome = HomeFactory.CreateNew(EntityLayer);
 
             FindValidLocationFor(createAHome);
 		    createAHome.CurrentState = BaseStructure.VariableState.Built;
 		    createAHome.IsBeingPlaced = false;
 
+		    CameraZoomManager.Initialize();
             SetCollisionVisibility();
             PositionTiledMap();
 		    SetInfoBarControls();
@@ -160,14 +170,15 @@ namespace GBC2017.Screens
                         useLeftSide = !useLeftSide;
                     }
 
+                    var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                    newAlien.OnDeath += CreateResourceNotification;
+
                     if (useLeftSide)
                     {
-                        var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                         newAlien.PlaceOnLeftSide();
                     }
                     else
                     {
-                        var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                         newAlien.PlaceOnRightSide();
                     }
                 }
@@ -329,47 +340,34 @@ namespace GBC2017.Screens
         }
 #endif
 
-	    bool _pinching = false;
-	    float _pinchInitialDistance;
 
         private void HandleTouchActivity()
 	    {
-
-
-            while (TouchPanel.IsGestureAvailable)
+	        foreach (var gesture in InputManager.TouchScreen.LastFrameGestures)
 	        {
-	            GestureSample gesture = TouchPanel.ReadGesture();
-
 	            if (gesture.GestureType == GestureType.Pinch)
 	            {
 	                // current positions
-	                Vector2 a = gesture.Position;
-	                Vector2 b = gesture.Position2;
-	                float dist = Vector2.Distance(a, b);
+	                var a = gesture.Position;
+	                var b = gesture.Position2;
+	                var dist = Vector2.Distance(a, b);
 
 	                // prior positions
-	                Vector2 aOld = gesture.Position - gesture.Delta;
-	                Vector2 bOld = gesture.Position2 - gesture.Delta2;
-	                float distOld = Vector2.Distance(aOld, bOld);
+	                var aOld = gesture.Position - gesture.Delta;
+	                var bOld = gesture.Position2 - gesture.Delta2;
+	                var distOld = Vector2.Distance(aOld, bOld);
 
-	                if (!_pinching)
-	                {
-	                    // start of pinch, record original distance
-	                    _pinching = true;
-	                    _pinchInitialDistance = distOld;
-	                }
-
+                    
 	                // work out zoom amount based on pinch distance...
-	                float scale = (distOld - dist) * 0.05f;
-//	                ZoomBy(scale);
-	            }
-	            else if (gesture.GestureType == GestureType.PinchComplete)
-	            {
-	                // end of pinch
-	                _pinching = false;
-	            }
-	        }
-
+	                float scale = 1-(distOld - dist) * 0.005f;
+	                CameraZoomManager.ZoomBy(scale);
+	                HorizonBoxInstance.Width = 100 * CameraZoomManager.GumCoordOffset;
+	                HorizonBoxInstance.Height = 100 * CameraZoomManager.GumCoordOffset;
+	                HorizonBoxInstance.TreeHeightScale = CameraZoomManager.GumCoordOffset;
+	                HorizonBoxInstance.TreeWidthScale = CameraZoomManager.GumCoordOffset;
+                    HorizonBoxInstance.UpdateLayout(false, true);
+                }
+            }
 
             //User just clicked/touched somewhere, and nothing is currently selected
             if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
@@ -440,11 +438,31 @@ namespace GBC2017.Screens
 	    }
         #endregion
 
+        #region Other Methods
+	    private void CreateResourceNotification(BaseEnemy enemy)
+	    {
+	        MineralsManager.DepositMinerals(enemy.MineralsRewardedWhenKilled);
+	        var notification = new ResourceIncreaseNotificationRuntime
+	        {
+	            X = enemy.X * CameraZoomManager.GumCoordOffset,
+	            Y = enemy.Y * CameraZoomManager.GumCoordOffset,
+	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
+	        };
+	        notification.AddToManagers();
+            resourceIncreaseNotificationList.Add(notification);
+        }
+        #endregion
+
         #region Destroy
         void CustomDestroy()
 		{
-
-
+		    if (resourceIncreaseNotificationList != null)
+		    {
+		        foreach (var notification in resourceIncreaseNotificationList)
+		        {
+		            notification.Destroy();
+		        }
+		    }
 		}
 #endregion
 

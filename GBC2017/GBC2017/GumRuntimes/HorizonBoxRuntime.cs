@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall;
 using FlatRedBall.Utilities;
+using GBC2017.StaticManagers;
 
 namespace GBC2017.GumRuntimes
 {
@@ -95,13 +96,12 @@ namespace GBC2017.GumRuntimes
             const int angleAdjust = 180 * 240;
             var angle = ((timeOfDay.TimeOfDay.TotalMinutes+ angleAdjust)/ 240) %360;
 
-            var radius = Camera.Main.OrthogonalHeight*0.9f;
+            var radius = CameraZoomManager.OriginalOrthogonalHeight * 0.9f * CameraZoomManager.GumCoordOffset;
             SunSprite.X = (float)Math.Cos(angle) * radius;
             SunSprite.Y = (float)Math.Sin(angle) * radius;
 
             MoonSprite.X = (float)Math.Cos(angle) * -radius;
             MoonSprite.Y = (float)Math.Sin(angle) * -radius;
-
         }
     }
 }

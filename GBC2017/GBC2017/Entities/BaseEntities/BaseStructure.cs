@@ -12,6 +12,7 @@ using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
+using GBC2017.StaticManagers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework.Audio;
@@ -125,8 +126,8 @@ namespace GBC2017.Entities.BaseEntities
                     if (BatteryLevel < InternalBatteryMaxStorage)
                     {
                         _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
-                        _energyBar.X = X;
-                        _energyBar.Y = Y + SpriteInstance.Height;
+                        _energyBar.X = X * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Y = (Y + SpriteInstance.Height) * CameraZoomManager.GumCoordOffset;
                         _energyBar.Visible = true;
                     }
                     else
@@ -138,8 +139,8 @@ namespace GBC2017.Entities.BaseEntities
                 if (HealthRemaining < MaximumHealth)
                 {
                     _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
-                    _healthBar.X = X;
-                    _healthBar.Y = Y + SpriteInstance.Height + _healthBar.Height;
+                    _healthBar.X = X * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Y = (Y + SpriteInstance.Height + _healthBar.Height) * CameraZoomManager.GumCoordOffset;
                     _healthBar.Visible = true;
                 }
                 else

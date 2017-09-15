@@ -530,6 +530,7 @@
       <Type>float</Type>
       <Name>TreesSprite.Texture Height Scale</Name>
       <Value xsi:type="xsd:float">1</Value>
+      <ExposedAsName>TreeHeightScale</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -554,6 +555,7 @@
       <Type>float</Type>
       <Name>TreesSprite.Texture Width Scale</Name>
       <Value xsi:type="xsd:float">1</Value>
+      <ExposedAsName>TreeWidthScale</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -651,14 +653,14 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>X Origin</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>X Units</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">6</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -672,14 +674,14 @@
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>Y Origin</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">8</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>

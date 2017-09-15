@@ -13,6 +13,7 @@ using FlatRedBall.Math.Geometry;
 using FlatRedBall.Utilities;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
+using GBC2017.StaticManagers;
 using Gum.Converters;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
@@ -23,7 +24,8 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseEnemy
 	{
-	    private static AxisAlignedRectangle _playArea;
+	    public event Action<BaseEnemy> OnDeath;
+        private static AxisAlignedRectangle _playArea;
 	    private static PositionedObjectList<BaseStructure> _potentialTargetList;
 
 	    public float HealthRemaining { get; private set; }
@@ -114,9 +116,9 @@ namespace GBC2017.Entities.BaseEntities
 		    if (HealthRemaining < MaximumHealth)
 		    {
 		        _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
-		        _healthBar.X = X;
-		        _healthBar.Y = Y + SpriteInstance.Height/2f;
-		        _healthBar.Visible = true;
+		        _healthBar.X = X * CameraZoomManager.GumCoordOffset;
+                _healthBar.Y = (Y + SpriteInstance.Height/2f) * CameraZoomManager.GumCoordOffset;
+                _healthBar.Visible = true;
 		    }
 		    else
 		    {
@@ -238,21 +240,9 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        else if (SpriteInstance.JustCycled)
             {
-                AwardMinerals();
+                OnDeath?.Invoke(this);
                 Destroy();
             }
-	    }
-
-	    private void AwardMinerals()
-	    {
-	        MineralsManager.DepositMinerals(MineralsRewardedWhenKilled);
-	        var notification = new ResourceIncreaseNotificationRuntime
-	        {
-	            X = X,
-	            Y = Y,
-	            AmountOfIncrease = $"+{MineralsRewardedWhenKilled.ToString()}"
-	        };
-	        notification.AddToManagers();
 	    }
 
 	    public void PlaceOnLeftSide()

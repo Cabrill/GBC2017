@@ -23,8 +23,8 @@ namespace GBC2017.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
         {
-            rangedChargeSound = Alien_Shoot.CreateInstance();
             rangedAttackSound = Alien_Shoot.CreateInstance();
+            rangedChargeSound = Alien_Powerup.CreateInstance();
         }
 
 		private void CustomActivity()
