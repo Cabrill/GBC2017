@@ -20,6 +20,9 @@ namespace GBC2017
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            RequestWindowFeature(WindowFeatures.NoTitle);
+            Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+
             var g = new Game1();
 
             // FRB needs access to the activity to load fonts from the content:
