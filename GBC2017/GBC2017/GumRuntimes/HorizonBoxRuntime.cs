@@ -29,6 +29,17 @@ namespace GBC2017.GumRuntimes
             skyBlue = SkyRectangle.Blue;
         }
 
+        public void ReactToCameraChange()
+        {
+            Width = 100 * CameraZoomManager.GumCoordOffset;
+            Height = 100 * CameraZoomManager.GumCoordOffset;
+            TreeHeightScale = CameraZoomManager.GumCoordOffset;
+            TreeWidthScale = CameraZoomManager.GumCoordOffset;
+            X = -Camera.Main.X * CameraZoomManager.GumCoordOffset;
+            Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
+            UpdateLayout(false, true);
+        }
+
         public void Update(DateTime timeOfDay)
         {
             if (SkyRectangle.Alpha < 255)
@@ -97,11 +108,11 @@ namespace GBC2017.GumRuntimes
             var angle = ((timeOfDay.TimeOfDay.TotalMinutes+ angleAdjust)/ 240) %360;
 
             var radius = CameraZoomManager.OriginalOrthogonalHeight * 0.9f * CameraZoomManager.GumCoordOffset;
-            SunSprite.X = (float)Math.Cos(angle) * radius;
-            SunSprite.Y = (float)Math.Sin(angle) * radius;
+            SunSprite.X = (float)Math.Cos(angle) * radius - (Camera.Main.X * CameraZoomManager.GumCoordOffset); 
+            SunSprite.Y = (float)Math.Sin(angle) * radius - (Camera.Main.Y * CameraZoomManager.GumCoordOffset); 
 
-            MoonSprite.X = (float)Math.Cos(angle) * -radius;
-            MoonSprite.Y = (float)Math.Sin(angle) * -radius;
+            MoonSprite.X = (float)Math.Cos(angle) * -radius - (Camera.Main.X * CameraZoomManager.GumCoordOffset); 
+            MoonSprite.Y = (float)Math.Sin(angle) * -radius - (Camera.Main.Y * CameraZoomManager.GumCoordOffset); 
         }
     }
 }

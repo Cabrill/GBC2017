@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlatRedBall;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.EnergyProducers;
@@ -15,8 +16,8 @@ namespace GBC2017.GumRuntimes
         public void Show(BaseStructure structure)
         {
             Visible = true;
-            X = structure.X;
-            Y = structure.Y + structure.SpriteInstance.Height / 2;
+            X = structure.X - Camera.Main.X;
+            Y = structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y;
             StructureName = structure.DisplayName;
             StructureHealth = $" {structure.HealthRemaining.ToString("0")} / {structure.MaximumHealth.ToString("0")}";
 

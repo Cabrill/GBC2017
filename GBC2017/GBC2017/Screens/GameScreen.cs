@@ -351,6 +351,8 @@ namespace GBC2017.Screens
 	                var a = gesture.Position;
 	                var b = gesture.Position2;
 	                var dist = Vector2.Distance(a, b);
+	                var centerX = (a.X + b.X) / 2;
+	                var centerY = (a.Y + b.Y) / 2;
 
 	                // prior positions
 	                var aOld = gesture.Position - gesture.Delta;
@@ -360,12 +362,33 @@ namespace GBC2017.Screens
                     
 	                // work out zoom amount based on pinch distance...
 	                float scale = 1-(distOld - dist) * 0.005f;
-	                CameraZoomManager.ZoomBy(scale);
-	                HorizonBoxInstance.Width = 100 * CameraZoomManager.GumCoordOffset;
-	                HorizonBoxInstance.Height = 100 * CameraZoomManager.GumCoordOffset;
-	                HorizonBoxInstance.TreeHeightScale = CameraZoomManager.GumCoordOffset;
-	                HorizonBoxInstance.TreeWidthScale = CameraZoomManager.GumCoordOffset;
-                    HorizonBoxInstance.UpdateLayout(false, true);
+	                CameraZoomManager.PerformZoom(scale, centerX, centerY);
+
+                    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+                    HorizonBoxInstance.ReactToCameraChange();
+                }
+                else if ((gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
+                                                 GestureType.VerticalDrag)) > 0)
+	            {
+	                var a = gesture.Position;
+
+	                // prior positions
+	                var aOld = gesture.Position - gesture.Delta;
+                    
+	                var newX = Camera.Main.X - ((a.X - aOld.X) * (1 - CameraZoomManager.ZoomFactor));
+	                var newY = Camera.Main.Y + ((a.Y - aOld.Y) * (1 - CameraZoomManager.ZoomFactor));
+
+	                var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth  - Camera.Main.OrthogonalWidth) / 2;
+	                var effectiveScreenLimitY = (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
+
+                    newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
+	                newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
+
+	                Camera.Main.X = newX;
+	                Camera.Main.Y = newY;
+
+	                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+                    HorizonBoxInstance.ReactToCameraChange();
                 }
             }
 
@@ -444,8 +467,8 @@ namespace GBC2017.Screens
 	        MineralsManager.DepositMinerals(enemy.MineralsRewardedWhenKilled);
 	        var notification = new ResourceIncreaseNotificationRuntime
 	        {
-	            X = enemy.X * CameraZoomManager.GumCoordOffset,
-	            Y = enemy.Y * CameraZoomManager.GumCoordOffset,
+	            X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset,
+	            Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset,
 	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
 	        };
 	        notification.AddToManagers();
