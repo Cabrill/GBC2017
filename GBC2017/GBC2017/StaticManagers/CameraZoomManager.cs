@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using FlatRedBall;
 using Microsoft.Xna.Framework;
 
@@ -36,8 +29,8 @@ namespace GBC2017.StaticManagers
 
         public static void PerformZoom(float scale, float towardsX, float towardsY)
         {
-            ZoomFactor = MathHelper.Clamp(ZoomFactor + scale, 0.25f, 1f);
-            var newHeight = MathHelper.Clamp(OriginalOrthogonalHeight * ZoomFactor, minimumHeight, OriginalOrthogonalHeight);
+            ZoomFactor = MathHelper.Clamp(ZoomFactor - scale, 0.25f, 1f);
+            var newHeight = MathHelper.Clamp(Camera.Main.OrthogonalHeight * ZoomFactor, minimumHeight, OriginalOrthogonalHeight);
 
             Camera.Main.OrthogonalHeight = newHeight;
             Camera.Main.FixAspectRatioYConstant();

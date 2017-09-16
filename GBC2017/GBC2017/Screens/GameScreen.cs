@@ -340,6 +340,8 @@ namespace GBC2017.Screens
         }
 #endif
 
+	    private float centerX;
+	    private float centerY;
 
         private void HandleTouchActivity()
 	    {
@@ -351,8 +353,12 @@ namespace GBC2017.Screens
 	                var a = gesture.Position;
 	                var b = gesture.Position2;
 	                var dist = Vector2.Distance(a, b);
-	                var centerX = (a.X + b.X) / 2;
-	                var centerY = (a.Y + b.Y) / 2;
+
+	                if (InputManager.TouchScreen.PinchStarted)
+	                {
+	                    centerX = GuiManager.Cursor.WorldXAt((a.X + b.X) / 2) * CameraZoomManager.GumCoordOffset;
+	                    centerY = GuiManager.Cursor.WorldYAt((a.Y + b.Y) / 2) * CameraZoomManager.GumCoordOffset;
+	                }
 
 	                // prior positions
 	                var aOld = gesture.Position - gesture.Delta;
@@ -361,7 +367,7 @@ namespace GBC2017.Screens
 
                     
 	                // work out zoom amount based on pinch distance...
-	                float scale = 1-(distOld - dist) * 0.005f;
+	                float scale = (distOld - dist) * 0.0005f;
 	                CameraZoomManager.PerformZoom(scale, centerX, centerY);
 
                     //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
