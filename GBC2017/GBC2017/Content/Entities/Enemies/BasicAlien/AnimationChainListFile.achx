@@ -9,49 +9,49 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>524288</RightCoordinate>
+      <RightCoordinate>128</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>1054720</BottomCoordinate>
+      <BottomCoordinate>256</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>256</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>213</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
+      <RightCoordinate>384</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>213</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
+      <BottomCoordinate>213</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>213</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>640</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
       <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>768</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1280</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1280</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>515</BottomCoordinate>
+      <BottomCoordinate>213</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -60,49 +60,49 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
+      <RightCoordinate>384</RightCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>640</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>768</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1280</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1280</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>512</TopCoordinate>
-      <BottomCoordinate>1027</BottomCoordinate>
+      <TopCoordinate>256</TopCoordinate>
+      <BottomCoordinate>513</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -111,49 +111,49 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
+      <RightCoordinate>384</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>768</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>768</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>256</LeftCoordinate>
-      <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>256</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -162,73 +162,73 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
+      <RightCoordinate>384</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1536</LeftCoordinate>
-      <RightCoordinate>2048</RightCoordinate>
-      <TopCoordinate>1024</TopCoordinate>
-      <BottomCoordinate>1539</BottomCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>256</RightCoordinate>
+      <TopCoordinate>768</TopCoordinate>
+      <BottomCoordinate>1025</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>1536</TopCoordinate>
-      <BottomCoordinate>2051</BottomCoordinate>
+      <TopCoordinate>768</TopCoordinate>
+      <BottomCoordinate>1025</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>1536</TopCoordinate>
-      <BottomCoordinate>2051</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>1536</TopCoordinate>
-      <BottomCoordinate>2051</BottomCoordinate>
+      <RightCoordinate>768</RightCoordinate>
+      <TopCoordinate>768</TopCoordinate>
+      <BottomCoordinate>1025</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -237,33 +237,33 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>2048</TopCoordinate>
-      <BottomCoordinate>2563</BottomCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>2048</TopCoordinate>
-      <BottomCoordinate>2563</BottomCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>2048</TopCoordinate>
-      <BottomCoordinate>2563</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>2048</TopCoordinate>
-      <BottomCoordinate>2563</BottomCoordinate>
+      <RightCoordinate>768</RightCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -272,59 +272,59 @@
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-8</RelativeX>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
-      <RelativeX>-16</RelativeX>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1280</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.3</FrameLength>
-      <LeftCoordinate>1280</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
-      <RelativeX>-24</RelativeX>
+      <LeftCoordinate>640</LeftCoordinate>
+      <RightCoordinate>768</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-12</RelativeX>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>1536</LeftCoordinate>
-      <RightCoordinate>2048</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <LeftCoordinate>768</LeftCoordinate>
+      <RightCoordinate>1024</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2048</LeftCoordinate>
-      <RightCoordinate>2560</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <LeftCoordinate>1024</LeftCoordinate>
+      <RightCoordinate>1280</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -332,52 +332,52 @@
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1536</LeftCoordinate>
-      <RightCoordinate>2048</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <LeftCoordinate>768</LeftCoordinate>
+      <RightCoordinate>1024</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1280</LeftCoordinate>
-      <RightCoordinate>1536</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
-      <RelativeX>-18</RelativeX>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1280</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <LeftCoordinate>640</LeftCoordinate>
+      <RightCoordinate>768</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-9</RelativeX>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>1024</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
-      <RelativeX>-12</RelativeX>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-6</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>256</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -385,11 +385,11 @@
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1024</LeftCoordinate>
-      <RightCoordinate>1280</RightCoordinate>
-      <TopCoordinate>2560</TopCoordinate>
-      <BottomCoordinate>3075</BottomCoordinate>
-      <RelativeX>-18</RelativeX>
+      <LeftCoordinate>512</LeftCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-9</RelativeX>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
