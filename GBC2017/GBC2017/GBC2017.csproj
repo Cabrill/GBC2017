@@ -135,6 +135,7 @@
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseLevel.cs" />
+    <Compile Include="GameClasses\LevelWave.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
     <Compile Include="GumCore\Atlas.cs" />
@@ -223,7 +224,10 @@
     <Compile Include="GumCore\VariableListSave.cs" />
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
-    <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BuildBarRuntime.cs" />
+    <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs">
+      <DependentUpon>BuildBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\BuildButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CategoryButtonRuntime.Generated.cs" />

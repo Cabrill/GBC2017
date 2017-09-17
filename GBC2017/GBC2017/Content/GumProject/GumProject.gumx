@@ -2,8 +2,8 @@
 <GumProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <CustomProperties />
   <Version>1</Version>
-  <DefaultCanvasWidth>1920</DefaultCanvasWidth>
-  <DefaultCanvasHeight>1080</DefaultCanvasHeight>
+  <DefaultCanvasWidth>2560</DefaultCanvasWidth>
+  <DefaultCanvasHeight>1440</DefaultCanvasHeight>
   <ShowOutlines>true</ShowOutlines>
   <RestrictToUnitValues>true</RestrictToUnitValues>
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>

@@ -8,6 +8,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.StaticManagers;
+using Microsoft.Xna.Framework;
 
 namespace GBC2017.GumRuntimes
 {
@@ -16,8 +17,12 @@ namespace GBC2017.GumRuntimes
         public void Show(BaseStructure structure)
         {
             Visible = true;
-            X = (structure.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-            Y = (structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+
+            var minMaxX = Camera.Main.OrthogonalWidth / 2 - Camera.Main.X - GetAbsoluteWidth() / 2;
+            var minMaxY = Camera.Main.OrthogonalHeight / 2 - Camera.Main.Y - GetAbsoluteHeight() / 2;
+            X = MathHelper.Clamp((structure.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
+            Y = MathHelper.Clamp((structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y) * CameraZoomManager.GumCoordOffset, -minMaxY, minMaxY);
+
             StructureName = structure.DisplayName;
             StructureHealth = $" {structure.HealthRemaining.ToString("0")} / {structure.MaximumHealth.ToString("0")}";
 

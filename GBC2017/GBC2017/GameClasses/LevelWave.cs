@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GBC2017.GameClasses
 {
-    public abstract class BaseLevel
+    public class LevelWave
     {
-        
+
     }
 }

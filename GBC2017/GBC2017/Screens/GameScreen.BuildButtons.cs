@@ -41,16 +41,19 @@ namespace GBC2017.Screens
         private void BuildBarInstanceOnEnergyStructureButtonClick(IWindow window)
         {
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildEnergy ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildEnergy;
+            BuildBarInstance.UpdateSelection();
         }
 
         private void BuildBarInstanceOnCombatStructureButtonClick(IWindow window)
         {
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildCombat ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildCombat;
+            BuildBarInstance.UpdateSelection();
         }
 
         private void BuildBarInstanceOnUtilityStructureButtonClick(IWindow window)
         {
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildUtility ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildUtility;
+            BuildBarInstance.UpdateSelection();
         }
 
         #endregion
@@ -60,6 +63,7 @@ namespace GBC2017.Screens
         {
             if (ShouldCreateNewBuildRequest<SolarPanels>())
             {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newPanel);
 
@@ -74,6 +78,7 @@ namespace GBC2017.Screens
         {
             if (ShouldCreateNewBuildRequest<LaserTurret>())
             {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 var newTurret = LaserTurretFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newTurret);
 
@@ -88,6 +93,8 @@ namespace GBC2017.Screens
         {
             if (ShouldCreateNewBuildRequest<Battery>())
             {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+
                 var newBattery = BatteryFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newBattery);
 
@@ -100,6 +107,8 @@ namespace GBC2017.Screens
         {
             if (ShouldCreateNewBuildRequest<CarbonTree>())
             {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+
                 var newCarbonTree = CarbonTreeFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newCarbonTree);
 

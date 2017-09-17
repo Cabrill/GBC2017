@@ -243,6 +243,9 @@
     <Compile Include="..\..\GBC2017\GameClasses\BaseLevel.cs">
       <Link>GameClasses\BaseLevel.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
+      <Link>GameClasses\LevelWave.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GlobalContent.Generated.cs">
       <Link>GlobalContent.Generated.cs</Link>
     </Compile>
@@ -492,8 +495,12 @@
     <Compile Include="..\..\GBC2017\GumCore\VariableSaveExtensionMethods.cs">
       <Link>GumCore\VariableSaveExtensionMethods.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\BuildBarRuntime.cs">
+      <Link>GumRuntimes\BuildBarRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\BuildBarRuntime.Generated.cs">
       <Link>GumRuntimes\BuildBarRuntime.Generated.cs</Link>
+      <DependentUpon>BuildBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\BuildButtonRuntime.Generated.cs">
       <Link>GumRuntimes\BuildButtonRuntime.Generated.cs</Link>
