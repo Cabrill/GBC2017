@@ -31,14 +31,14 @@ namespace GBC2017.Entities.BaseEntities
 	    public float HealthRemaining { get; private set; }
         public bool IsDead => HealthRemaining <= 0;
         
-
-	    private Vector3 _storedVelocity;
-        private BaseStructure _targetStructure;
+        private BaseStructure _targetStructureToAttack;
+	    private BaseStructure _targetStructureForNavigation;
 	    private double _lastRangeAttackTime;
 	    private double _lastMeleeAttackTime;
 	    
 	    protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
+	    protected SoundEffect meleeAttackSound;
 
 	    private ResourceBarRuntime _healthBar;
 
@@ -82,38 +82,16 @@ namespace GBC2017.Entities.BaseEntities
 		    {
 		        PerformDeath();
 		    }
-            else if (CurrentActionState == Action.Hurt && SpriteInstance.JustCycled)
+            else if (IsRangedAttacker)
 		    {
-                ResumeMovement();
-            }
-            else if (CurrentActionState == Action.StartRangedAttack && SpriteInstance.JustCycled)
-		    {
-                FireProjectile();
+		        RangedAttackActivity();
 		    }
-            else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
+            else if (IsMeleeAttacker)
 		    {
-		        if (_targetStructure == null || _targetStructure.IsDestroyed)
-		        {
-		            ResumeMovement();
-		        }
-		        else
-		        {
-		            CurrentActionState = Action.RangedAim;
-		        }
+		        MeleeAttackActivity();
 		    }
-            else if (CurrentActionState == Action.RangedAim && (_targetStructure == null || _targetStructure.IsDestroyed))
-		    {
-		        ResumeMovement();
-		    }
-            else if (CurrentActionState != Action.StartRangedAttack && 
-                CurrentActionState != Action.FinishRangedAttack && 
-                CurrentActionState != Action.Hurt &&
-                TimeManager.SecondsSince(_lastRangeAttackTime) > SecondsBetweenRangedAttack)
-		    {
-		        PerformRangedAttackOnTarget();
-            }
 
-		    if (HealthRemaining < MaximumHealth)
+            if (HealthRemaining < MaximumHealth)
 		    {
 		        _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
 		        _healthBar.X = X * CameraZoomManager.GumCoordOffset;
@@ -126,22 +104,104 @@ namespace GBC2017.Entities.BaseEntities
 		    }
         }
 
+	    private void MeleeAttackActivity()
+	    {
+	        if (CurrentActionState == Action.Hurt && SpriteInstance.JustCycled && (_targetStructureToAttack == null || _targetStructureToAttack.IsDestroyed))
+	        {
+	            ResumeMovement();
+	        }
+	        else if (CurrentActionState == Action.MeleeAttack && SpriteInstance.JustCycled)
+	        {
+	            DealMeleeDamage();
+	        }
+	        else if (CurrentActionState != Action.MeleeAttack &&
+	                 CurrentActionState != Action.Hurt &&
+	                 TimeManager.SecondsSince(_lastMeleeAttackTime) > SecondsBetweenMeleeAttack)
+	        {
+	            PerformAttackOnStructure();
+	        }
+        }
+
+	    private void DealMeleeDamage()
+	    {
+	        _lastMeleeAttackTime = TimeManager.CurrentTime;
+            meleeAttackSound?.Play();
+	        _targetStructureToAttack.TakeMeleeDamage(this);
+            CurrentActionState = Action.Standing;
+	    }
+
+	    private void RangedAttackActivity()
+	    {
+	        if (CurrentActionState == Action.Hurt && SpriteInstance.JustCycled)
+	        {
+	            if (_targetStructureToAttack == null || _targetStructureToAttack.IsDestroyed)
+	            {
+	                CurrentActionState = Action.RangedAim;
+                }
+	            else
+	            {
+	                ResumeMovement();
+                }
+	        }
+            else if (CurrentActionState == Action.StartRangedAttack && SpriteInstance.JustCycled)
+	        {
+	            FireProjectile();
+	        }
+	        else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
+	        {
+	            if (_targetStructureToAttack == null || _targetStructureToAttack.IsDestroyed)
+	            {
+	                ResumeMovement();
+	            }
+	            else
+	            {
+	                CurrentActionState = Action.RangedAim;
+	            }
+	        }
+	        else if (CurrentActionState == Action.RangedAim && (_targetStructureToAttack == null || _targetStructureToAttack.IsDestroyed))
+	        {
+	            ResumeMovement();
+	        }
+	        else if (CurrentActionState != Action.StartRangedAttack &&
+	                 CurrentActionState != Action.FinishRangedAttack &&
+	                 CurrentActionState != Action.Hurt &&
+	                 TimeManager.SecondsSince(_lastRangeAttackTime) > SecondsBetweenRangedAttack)
+	        {
+	            PerformAttackOnStructure();
+	        }
+        }
+
 	    private void StopMovement()
 	    {
-	        if (Velocity != Vector3.Zero)
-	        {
-	            _storedVelocity = Velocity;
-	        }
 	        Velocity = Vector3.Zero;
         }
 
 	    private void ResumeMovement()
 	    {
-	        Velocity = _storedVelocity;
-	        CurrentActionState = Action.Running;
-	        CurrentDirectionState =
-	            (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
-	        SpriteInstance.IgnoreAnimationChainTextureFlip = true;
+	        if (_targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
+	        {
+	            ChooseStructureForNavigation();
+	        }
+	        if (_targetStructureForNavigation != null)
+	        {
+	            var angle = (float) Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
+	                X - _targetStructureForNavigation.Position.X);
+	            var direction = new Vector3(
+	                (float)-Math.Cos(angle),
+	                (float)-Math.Sin(angle), 0);
+	            direction.Normalize();
+
+	            Velocity = direction * Speed;
+
+                CurrentActionState = Action.Running;
+	            CurrentDirectionState =
+	                (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
+	            SpriteInstance.IgnoreAnimationChainTextureFlip = true;
+            }
+	        else
+	        {
+	            CurrentActionState = Action.Standing;
+	        }
 	    }
 
 	    private void FireProjectile()
@@ -153,7 +213,7 @@ namespace GBC2017.Entities.BaseEntities
 	        newProjectile.Speed = ProjectileSpeed;
 	        newProjectile.MaxRange = RangedRadius * 1.5f;
 
-	        var angle = (float)Math.Atan2(newProjectile.Position.Y - _targetStructure.Position.Y, newProjectile.Position.X - _targetStructure.Position.X);
+	        var angle = (float)Math.Atan2(newProjectile.Position.Y - _targetStructureToAttack.Position.Y, newProjectile.Position.X - _targetStructureToAttack.Position.X);
 	        var direction = new Vector3(
 	            (float)-Math.Cos(angle),
 	            (float)-Math.Sin(angle), 0);
@@ -169,40 +229,60 @@ namespace GBC2017.Entities.BaseEntities
             CurrentActionState = Action.FinishRangedAttack;
         }
 
-        private void PerformRangedAttackOnTarget()
+        private void PerformAttackOnStructure()
 	    {
-	        if (_targetStructure != null && (_targetStructure.IsDestroyed || Vector3.Distance(Position, _targetStructure.Position) > RangedRadius))
+	        if (_targetStructureToAttack != null && (_targetStructureToAttack.IsDestroyed || Vector3.Distance(Position, _targetStructureToAttack.Position) > RangedRadius))
 	        {
-	            _targetStructure = null;
+	            _targetStructureToAttack = null;
 	        }
 
-	        if (_targetStructure == null)
+	        if (_targetStructureToAttack == null)
 	        {
-	            ChooseStructureTarget();
+	            ChooseStructureForAttack();
 	        }
 
-	        if (_targetStructure != null)
+	        if (_targetStructureToAttack != null)
 	        {
 	            StopMovement();
 
-	            CurrentDirectionState =(Position.X < _targetStructure.Position.X ? 
+	            CurrentDirectionState =(Position.X < _targetStructureToAttack.Position.X ? 
                     Direction.MovingRight : 
                     Direction.MovingLeft);
 
-	            CurrentActionState = Action.StartRangedAttack;
-	            this.Call(rangedChargeSound.Play).After(0.3f);
+	            if (IsRangedAttacker)
+	            {
+	                CurrentActionState = Action.StartRangedAttack;
+	                this.Call(rangedChargeSound.Play).After(0.3f);
+                }
+                else if (IsMeleeAttacker)
+	            {
+	                CurrentActionState = Action.MeleeAttack;
+	            }
 	        }
 	    }
 
-	    private void ChooseStructureTarget()
+	    private void ChooseStructureForNavigation()
 	    {
 	        if (_potentialTargetList != null && _potentialTargetList.Count > 0)
 	        {
-	            _targetStructure =
+	            _targetStructureForNavigation =
+	                _potentialTargetList.Where(pt =>
+	                        pt.CurrentState == BaseStructure.VariableState.Built &&
+	                        pt.IsDestroyed == false)
+	                    .OrderBy(pt => Vector3.Distance(Position, pt.Position)
+	                    ).FirstOrDefault();
+	        }
+        }
+
+	    private void ChooseStructureForAttack()
+	    {
+	        if (_potentialTargetList != null && _potentialTargetList.Count > 0)
+	        {
+	            _targetStructureToAttack =
 	                _potentialTargetList.Where(pt => 
                         pt.CurrentState == BaseStructure.VariableState.Built && 
                         pt.IsDestroyed == false && 
-                        Vector3.Distance(Position, pt.Position) <= RangedRadius)
+                        (IsRangedAttacker && Vector3.Distance(Position, pt.Position) <= RangedRadius || IsMeleeAttacker && Vector3.Distance(Position, pt.Position) <= MeleeRadius))
                     .OrderBy(pt => Vector3.Distance(Position, pt.Position)
                     ).FirstOrDefault();
 	        }
@@ -247,21 +327,19 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void PlaceOnLeftSide()
 	    {
-	        CurrentDirectionState = Direction.MovingRight;
-	        CurrentActionState = Action.Running;
-	        XVelocity = this.Speed;
 	        X = _playArea.Left;
 	        Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
-        }
+
+	        ResumeMovement();
+	    }
 
 	    public void PlaceOnRightSide()
 	    {
-	        CurrentDirectionState = Direction.MovingLeft;
-	        CurrentActionState = Action.Running;
-	        XVelocity = -this.Speed;
 	        X = _playArea.Right;
 	        Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
-	    }
+
+	        ResumeMovement();
+        }
 
 	    /// <summary>
 	    /// Allows the child combat structure to generate a projectile of its own type
@@ -274,10 +352,9 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-            rangedAttackSound.Dispose();
-            rangedChargeSound.Dispose();
-		    _healthBar.Destroy();
-
+            rangedAttackSound?.Dispose();
+            rangedChargeSound?.Dispose();
+		    _healthBar?.Destroy();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

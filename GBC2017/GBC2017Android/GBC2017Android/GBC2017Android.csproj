@@ -147,6 +147,20 @@
       <Link>Entities\Enemies\BasicAlien.Generated.cs</Link>
       <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlienCopy.cs">
+      <Link>Entities\Enemies\BasicAlienCopy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlienCopy.Generated.cs">
+      <Link>Entities\Enemies\BasicAlienCopy.Generated.cs</Link>
+      <DependentUpon>BasicAlienCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\MeleeAlien.cs">
+      <Link>Entities\Enemies\MeleeAlien.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\MeleeAlien.Generated.cs">
+      <Link>Entities\Enemies\MeleeAlien.Generated.cs</Link>
+      <DependentUpon>MeleeAlien.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.cs">
       <Link>Entities\GraphicalElements\Checkmark.cs</Link>
     </Compile>
@@ -210,6 +224,9 @@
       <Link>Entities\Structures\Utility\CarbonTree.Generated.cs</Link>
       <DependentUpon>CarbonTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\BasicAlienCopyFactory.Generated.cs">
+      <Link>Factories\BasicAlienCopyFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\BasicAlienFactory.Generated.cs">
       <Link>Factories\BasicAlienFactory.Generated.cs</Link>
     </Compile>
@@ -227,6 +244,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\LaserTurretProjectileFactory.Generated.cs">
       <Link>Factories\LaserTurretProjectileFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\MeleeAlienFactory.Generated.cs">
+      <Link>Factories\MeleeAlienFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\RangedEnemyProjectileFactory.Generated.cs">
       <Link>Factories\RangedEnemyProjectileFactory.Generated.cs</Link>
@@ -818,6 +838,10 @@
       <Name>Alien_Hit_Ground</Name>
       <Link>Assets\content\globalcontent\sounds\alien_hit_ground.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_melee.xnb">
+      <Name>alien_melee</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_melee.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
       <Name>Alien_Powerup</Name>
       <Link>Assets\content\globalcontent\sounds\alien_powerup.xnb</Link>
@@ -1002,6 +1026,14 @@
       <Name>font36arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36arial_0.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1.fnt">
+      <Name>font36arial_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1_0.png">
+      <Name>font36arial_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial_o1_0.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic.fnt">
       <Name>font36century gothic</Name>
       <Link>Assets\content\gumproject\fontcache\font36century gothic.fnt</Link>
@@ -1045,6 +1077,30 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_1.png">
       <Name>font72moire extrabold_1</Name>
       <Link>Assets\content\gumproject\fontcache\font72moire extrabold_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1.fnt">
+      <Name>font72moire extrabold_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_0.png">
+      <Name>font72moire extrabold_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_1.png">
+      <Name>font72moire extrabold_o1_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2.fnt">
+      <Name>font72moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_0.png">
+      <Name>font72moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_1.png">
+      <Name>font72moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_1.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumcontent\horizons\treeline.png">
       <Name>treeline</Name>

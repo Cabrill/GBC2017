@@ -169,8 +169,15 @@ namespace GBC2017.Screens
                     {
                         useLeftSide = !useLeftSide;
                     }
-
-                    var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                    BaseEnemy newAlien;
+                    if (i % 2 == 0)
+                    {
+                        newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                    }
+                    else
+                    {
+                        newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
+                    }
                     newAlien.OnDeath += CreateResourceNotification;
 
                     if (useLeftSide)
@@ -240,6 +247,14 @@ namespace GBC2017.Screens
 	            if (!PlayAreaRectangle.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
+	            }
+	            else
+	            {
+	                for (var j = i- 1; j > 0; j--)
+	                {
+	                    var otherEnemy = AllEnemiesList[j - 1];
+	                    enemy.CollideAgainstBounce(otherEnemy.CircleInstance, 1, 1, 0.1f);
+	                }
 	            }
 	        }
 	    }

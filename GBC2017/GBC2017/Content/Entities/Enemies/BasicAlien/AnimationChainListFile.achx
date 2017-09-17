@@ -256,12 +256,31 @@
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
       <BottomCoordinate>1283</BottomCoordinate>
+      <RelativeX>64</RelativeX>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
+      <RelativeX>64</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>256</LeftCoordinate>
+      <RightCoordinate>512</RightCoordinate>
+      <TopCoordinate>1024</TopCoordinate>
+      <BottomCoordinate>1283</BottomCoordinate>
+      <RelativeX>64</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1024</TopCoordinate>
       <BottomCoordinate>1283</BottomCoordinate>
     </Frame>
@@ -390,6 +409,29 @@
       <TopCoordinate>1280</TopCoordinate>
       <BottomCoordinate>1537</BottomCoordinate>
       <RelativeX>-9</RelativeX>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Standing</Name>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>512</LeftCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>1280</TopCoordinate>
+      <BottomCoordinate>1537</BottomCoordinate>
+      <RelativeX>-9</RelativeX>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Standing</Name>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>769</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

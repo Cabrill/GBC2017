@@ -30,7 +30,7 @@
     <Variable>
       <Type>int</Type>
       <Name>CapacityText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">72</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -60,7 +60,7 @@
     <Variable>
       <Type>int</Type>
       <Name>CapacityText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

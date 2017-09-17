@@ -25,7 +25,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ChangeContainer.Height</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">30</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -179,6 +179,12 @@
     </Variable>
     <Variable>
       <Type>int</Type>
+      <Name>EnergyDecreaseText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
       <Name>EnergyDecreaseText.Green</Name>
       <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
@@ -198,6 +204,12 @@
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>EnergyDecreaseText.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyDecreaseText.OutlineThickness</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -234,13 +246,19 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Blue</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyEqualsText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Green</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -256,6 +274,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>EnergyEqualsText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EnergyEqualsText.Parent</Name>
       <Value xsi:type="xsd:string">EnergyTextContainer</Value>
@@ -264,7 +288,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyEqualsText.Red</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -293,6 +317,12 @@
     </Variable>
     <Variable>
       <Type>int</Type>
+      <Name>EnergyIncreaseText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
       <Name>EnergyIncreaseText.Green</Name>
       <Value xsi:type="xsd:int">252</Value>
       <SetsValue>true</SetsValue>
@@ -312,6 +342,12 @@
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>EnergyIncreaseText.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyIncreaseText.OutlineThickness</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -348,13 +384,19 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Blue</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyNetText.FontSize</Name>
+      <Value xsi:type="xsd:int">36</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Green</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -382,6 +424,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>EnergyNetText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EnergyNetText.Parent</Name>
       <Value xsi:type="xsd:string">EnergyTextContainer</Value>
@@ -390,7 +438,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyNetText.Red</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -510,13 +558,13 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyTextBackground.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyTextBackground.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -540,7 +588,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyTextBackground.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">255</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -842,19 +890,19 @@
       <Variable>
         <Type>int</Type>
         <Name>EnergyNetText.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>EnergyNetText.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
         <Name>EnergyNetText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

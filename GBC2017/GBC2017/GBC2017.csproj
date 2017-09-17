@@ -88,6 +88,10 @@
     <Compile Include="Entities\Enemies\BasicAlien.Generated.cs">
       <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Enemies\MeleeAlien.cs" />
+    <Compile Include="Entities\Enemies\MeleeAlien.Generated.cs">
+      <DependentUpon>meleealien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
       <DependentUpon>Checkmark.cs</DependentUpon>
@@ -124,6 +128,7 @@
     <Compile Include="Entities\Structures\Utility\CarbonTree.Generated.cs">
       <DependentUpon>CarbonTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\MeleeAlienFactory.Generated.cs" />
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />
     <Compile Include="Factories\CarbonTreeFactory.Generated.cs" />
@@ -390,6 +395,11 @@
       <Name>Alien_Hit_Ground</Name>
       <Link>content\globalcontent\sounds\alien_hit_ground.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\alien_melee.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>alien_melee</Name>
+      <Link>content\globalcontent\sounds\alien_melee.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Alien_Powerup</Name>
@@ -572,13 +582,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Arial_0</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font36moire extrabold_o1.fnt">
+    <None Include="content\gumproject\fontcache\font36arial_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Moire ExtraBold_o1</Name>
+      <Name>Font36Arial_o1</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font36moire extrabold_o1_0.png">
+    <None Include="content\gumproject\fontcache\font36arial_o1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Moire ExtraBold_o1_0</Name>
+      <Name>Font36Arial_o1_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font72arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -596,17 +606,29 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font72Arial_2</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold.fnt">
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold</Name>
+      <Name>Font72Moire ExtraBold_o1</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_0.png">
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_0</Name>
+      <Name>Font72Moire ExtraBold_o1_0</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_1.png">
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_1</Name>
+      <Name>Font72Moire ExtraBold_o1_1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o2.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold_o2</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold_o2_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font72Moire ExtraBold_o2_1</Name>
     </None>
     <None Include="content\gumproject\gumcontent\horizons\treeline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

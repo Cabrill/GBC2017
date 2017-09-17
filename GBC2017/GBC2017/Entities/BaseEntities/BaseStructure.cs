@@ -165,6 +165,16 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	    }
 
+	    public void TakeMeleeDamage(BaseEnemy enemy)
+	    {
+	        HealthRemaining -= enemy.MeleeAttackDamage;
+
+	        if (IsDestroyed)
+	        {
+	            PerformDestruction();
+	        }
+	    }
+
 	    public void GetHitBy(BaseEnemyProjectile projectile)
 	    {
 	        HealthRemaining -= projectile.DamageInflicted;

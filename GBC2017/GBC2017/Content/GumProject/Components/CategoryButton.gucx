@@ -55,7 +55,7 @@
     <Variable>
       <Type>int</Type>
       <Name>CapacityText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

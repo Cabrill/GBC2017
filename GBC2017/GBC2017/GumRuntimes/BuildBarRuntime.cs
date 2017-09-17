@@ -8,11 +8,6 @@ namespace GBC2017.GumRuntimes
 {
     public partial class BuildBarRuntime
     {
-        partial void CustomInitialize()
-        {
-            
-        }
-
         public void UpdateSelection()
         {
             UnhighlightAll();
