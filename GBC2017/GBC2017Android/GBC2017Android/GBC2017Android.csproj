@@ -716,6 +716,9 @@
     <Compile Include="..\..\GBC2017\StateInterpolation\TweenerManager.cs">
       <Link>StateInterpolation\TweenerManager.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\CameraZoomManager.cs">
+      <Link>StaticManagers\CameraZoomManager.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\StaticManagers\EnergyManager.cs">
       <Link>StaticManagers\EnergyManager.cs</Link>
     </Compile>
@@ -794,7 +797,6 @@
     </Compile>
     <Compile Include="Activity1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticManagers\CameraZoomManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />

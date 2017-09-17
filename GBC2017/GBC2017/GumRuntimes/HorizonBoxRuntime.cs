@@ -108,11 +108,11 @@ namespace GBC2017.GumRuntimes
             var angle = ((timeOfDay.TimeOfDay.TotalMinutes+ angleAdjust)/ 240) %360;
 
             var radius = CameraZoomManager.OriginalOrthogonalHeight * 0.9f * CameraZoomManager.GumCoordOffset;
-            SunSprite.X = (float)Math.Cos(angle) * radius - (Camera.Main.X * CameraZoomManager.GumCoordOffset); 
-            SunSprite.Y = (float)Math.Sin(angle) * radius - (Camera.Main.Y * CameraZoomManager.GumCoordOffset); 
+            SunSprite.X = (float)Math.Cos(angle) * radius; 
+            SunSprite.Y = (float)Math.Sin(angle) * radius; 
 
-            MoonSprite.X = (float)Math.Cos(angle) * -radius - (Camera.Main.X * CameraZoomManager.GumCoordOffset); 
-            MoonSprite.Y = (float)Math.Sin(angle) * -radius - (Camera.Main.Y * CameraZoomManager.GumCoordOffset); 
+            MoonSprite.X = (float)Math.Cos(angle) * -radius; 
+            MoonSprite.Y = (float)Math.Sin(angle) * -radius; 
         }
     }
 }

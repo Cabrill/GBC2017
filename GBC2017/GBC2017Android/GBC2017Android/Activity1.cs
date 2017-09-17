@@ -31,7 +31,6 @@ namespace GBC2017
 
             var view = (OpenTK.Platform.Android.AndroidGameView)g.Services.GetService(typeof(View));
 
-            view.KeyPress += HandleKeyPress;
             view.GenericMotion += HandleGenericMotion;
             //view.KeyPress += HandleKeyPress;
             SetContentView(view);
