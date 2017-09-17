@@ -18,10 +18,10 @@ namespace GBC2017.GumRuntimes
         {
             Visible = true;
 
-            var minMaxX = Camera.Main.OrthogonalWidth / 2 - Camera.Main.X - GetAbsoluteWidth() / 2;
-            var minMaxY = Camera.Main.OrthogonalHeight / 2 - Camera.Main.Y - GetAbsoluteHeight() / 2;
-            X = MathHelper.Clamp((structure.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
-            Y = MathHelper.Clamp((structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y) * CameraZoomManager.GumCoordOffset, -minMaxY, minMaxY);
+            var minMaxX = (Camera.Main.OrthogonalWidth + GetAbsoluteWidth()) / 2 + Camera.Main.X;
+            var minMaxY = (Camera.Main.OrthogonalHeight + GetAbsoluteHeight()) / 2 + Camera.Main.Y;
+            X = MathHelper.Clamp((structure.X - Camera.Main.X) / CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
+            Y = MathHelper.Clamp((structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y) / CameraZoomManager.GumCoordOffset, -minMaxY, minMaxY);
 
             StructureName = structure.DisplayName;
             StructureHealth = $" {structure.HealthRemaining.ToString("0")} / {structure.MaximumHealth.ToString("0")}";

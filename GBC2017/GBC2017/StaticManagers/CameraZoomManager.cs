@@ -55,8 +55,8 @@ namespace GBC2017.StaticManagers
 
             if (pinchStarted)
             {
-                zoomTowardsX = GuiManager.Cursor.WorldXAt((a.X + b.X) / 2) * GumCoordOffset;
-                zoomTowardsY = GuiManager.Cursor.WorldYAt((a.Y + b.Y) / 2) * GumCoordOffset;
+                zoomTowardsX = GuiManager.Cursor.WorldXAt(((aOld.X + bOld.X) / 2) * GumCoordOffset);
+                zoomTowardsY = GuiManager.Cursor.WorldYAt(((aOld.Y + bOld.Y) / 2) * GumCoordOffset);
                 startX = Camera.Main.X;
                 startY = Camera.Main.Y;
                 currentZoom = zoomIncrement;

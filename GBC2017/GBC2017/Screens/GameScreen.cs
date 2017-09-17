@@ -117,7 +117,7 @@ namespace GBC2017.Screens
 	    }
 #endregion
 
-    #region Activity
+        #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
 
@@ -366,7 +366,7 @@ namespace GBC2017.Screens
                     //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
                     HorizonBoxInstance.ReactToCameraChange();
                 }
-                else if (!InputManager.TouchScreen.IsPinching && (gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
+                else if (GuiManager.Cursor.ObjectGrabbed == null && !InputManager.TouchScreen.IsPinching && (gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
                                                  GestureType.VerticalDrag)) > 0)
 	            {
 	                const int cameraMoveSpeed = 1;

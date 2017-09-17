@@ -90,7 +90,7 @@
     </Compile>
     <Compile Include="Entities\Enemies\MeleeAlien.cs" />
     <Compile Include="Entities\Enemies\MeleeAlien.Generated.cs">
-      <DependentUpon>meleealien.cs</DependentUpon>
+      <DependentUpon>MeleeAlien.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">

@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <Debugger>Xamarin</Debugger>
@@ -147,13 +147,6 @@
       <Link>Entities\Enemies\BasicAlien.Generated.cs</Link>
       <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlienCopy.cs">
-      <Link>Entities\Enemies\BasicAlienCopy.cs</Link>
-    </Compile>
-    <Compile Include="..\..\GBC2017\Entities\Enemies\BasicAlienCopy.Generated.cs">
-      <Link>Entities\Enemies\BasicAlienCopy.Generated.cs</Link>
-      <DependentUpon>BasicAlienCopy.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Enemies\MeleeAlien.cs">
       <Link>Entities\Enemies\MeleeAlien.cs</Link>
     </Compile>
@@ -223,9 +216,6 @@
     <Compile Include="..\..\GBC2017\Entities\Structures\Utility\CarbonTree.Generated.cs">
       <Link>Entities\Structures\Utility\CarbonTree.Generated.cs</Link>
       <DependentUpon>CarbonTree.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\..\GBC2017\Factories\BasicAlienCopyFactory.Generated.cs">
-      <Link>Factories\BasicAlienCopyFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\BasicAlienFactory.Generated.cs">
       <Link>Factories\BasicAlienFactory.Generated.cs</Link>

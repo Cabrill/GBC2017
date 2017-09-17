@@ -31,8 +31,11 @@ namespace GBC2017.Entities.BaseEntities
 	    public float HealthRemaining { get; private set; }
         public bool IsDead => HealthRemaining <= 0;
         
+
         private BaseStructure _targetStructureToAttack;
 	    private BaseStructure _targetStructureForNavigation;
+	    private float _distanceToTargetStructureForNavigation;
+
 	    private double _lastRangeAttackTime;
 	    private double _lastMeleeAttackTime;
 	    
@@ -89,6 +92,19 @@ namespace GBC2017.Entities.BaseEntities
             else if (IsMeleeAttacker)
 		    {
 		        MeleeAttackActivity();
+		    }
+            else if (CurrentActionState == Action.Running)
+		    {
+		        var currentDistanceToTargetNavigation =
+		            Vector3.Distance(Position, _targetStructureForNavigation.Position);
+
+                //This means we overshot it.  Correct course!
+		        if (currentDistanceToTargetNavigation > _distanceToTargetStructureForNavigation)
+		        {
+		            ResumeMovement();
+		        }
+		        _distanceToTargetStructureForNavigation = currentDistanceToTargetNavigation;
+
 		    }
 
             if (HealthRemaining < MaximumHealth)
@@ -184,7 +200,9 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        if (_targetStructureForNavigation != null)
 	        {
-	            var angle = (float) Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
+	            _distanceToTargetStructureForNavigation = Vector3.Distance(Position, _targetStructureForNavigation.Position);
+
+                var angle = (float) Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
 	                X - _targetStructureForNavigation.Position.X);
 	            var direction = new Vector3(
 	                (float)-Math.Cos(angle),

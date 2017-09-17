@@ -14,17 +14,27 @@ namespace GBC2017.GumRuntimes
     {
         public void Show(BaseEnemy enemy)
         {
-            Visible = true;
 
-            var minMaxX = Camera.Main.OrthogonalWidth / 2 - Camera.Main.X-GetAbsoluteWidth()/2;
-            var minMaxY = Camera.Main.OrthogonalHeight / 2 - Camera.Main.Y-GetAbsoluteHeight()/2;
-            X = MathHelper.Clamp(enemy.X * CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
-            Y = MathHelper.Clamp((enemy.Y + enemy.SpriteInstance.Height / 2) * CameraZoomManager.GumCoordOffset, -minMaxY, minMaxY);
+            var isEnemyOnScreen = (enemy.X >= Camera.Main.X - Camera.Main.OrthogonalWidth / 2 ||
+                                   enemy.X <= Camera.Main.X + Camera.Main.OrthogonalWidth / 2) &&
+                                  (enemy.Y >= Camera.Main.Y - Camera.Main.OrthogonalHeight / 2 ||
+                                   enemy.Y <= Camera.Main.Y + Camera.Main.OrthogonalHeight / 2);
 
-            EnemyName = enemy.DisplayName;
-            EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
-            EnemyMelee = enemy.MeleeAttackDamage.ToString();
-            EnemyRanged = enemy.RangedAttackDamage.ToString();
+            Visible = isEnemyOnScreen;
+
+            if (Visible)
+            {
+                var minMaxX = (Camera.Main.OrthogonalWidth + GetAbsoluteWidth()) / 2 + Camera.Main.X;
+                var minMaxY = (Camera.Main.OrthogonalHeight + GetAbsoluteHeight()) / 2 + Camera.Main.Y;
+                X = MathHelper.Clamp(enemy.X - Camera.Main.X / CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
+                Y = MathHelper.Clamp((enemy.Y - Camera.Main.Y + enemy.SpriteInstance.Height / 2) / CameraZoomManager.GumCoordOffset,
+                    -minMaxY, minMaxY);
+
+                EnemyName = enemy.DisplayName;
+                EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
+                EnemyMelee = enemy.MeleeAttackDamage.ToString();
+                EnemyRanged = enemy.RangedAttackDamage.ToString();
+            }
         }
 
         public void Hide()
