@@ -2354,7 +2354,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.15</ValueAsFloat>
+            <ValueAsFloat>0.3</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -2392,7 +2392,7 @@
           </CustomProperty>
           <CustomProperty>
             <Member>Y</Member>
-            <ValueAsFloat>-27</ValueAsFloat>
+            <ValueAsFloat>-25</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>

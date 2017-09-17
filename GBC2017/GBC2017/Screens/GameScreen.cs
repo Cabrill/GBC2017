@@ -340,49 +340,28 @@ namespace GBC2017.Screens
         }
 #endif
 
-	    private float centerX;
-	    private float centerY;
-
         private void HandleTouchActivity()
 	    {
 	        foreach (var gesture in InputManager.TouchScreen.LastFrameGestures)
 	        {
 	            if (gesture.GestureType == GestureType.Pinch)
 	            {
-	                // current positions
-	                var a = gesture.Position;
-	                var b = gesture.Position2;
-	                var dist = Vector2.Distance(a, b);
-
-	                if (InputManager.TouchScreen.PinchStarted)
-	                {
-	                    centerX = GuiManager.Cursor.WorldXAt((a.X + b.X) / 2) * CameraZoomManager.GumCoordOffset;
-	                    centerY = GuiManager.Cursor.WorldYAt((a.Y + b.Y) / 2) * CameraZoomManager.GumCoordOffset;
-	                }
-
-	                // prior positions
-	                var aOld = gesture.Position - gesture.Delta;
-	                var bOld = gesture.Position2 - gesture.Delta2;
-	                var distOld = Vector2.Distance(aOld, bOld);
-
-                    
-	                // work out zoom amount based on pinch distance...
-	                float scale = (distOld - dist) * 0.0005f;
-	                CameraZoomManager.PerformZoom(scale, centerX, centerY);
+	                CameraZoomManager.PerformZoom(gesture, InputManager.TouchScreen.PinchStarted);
 
                     //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
                     HorizonBoxInstance.ReactToCameraChange();
                 }
-                else if ((gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
+                else if (!InputManager.TouchScreen.IsPinching && (gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
                                                  GestureType.VerticalDrag)) > 0)
 	            {
+	                const int cameraMoveSpeed = 1;
 	                var a = gesture.Position;
 
 	                // prior positions
 	                var aOld = gesture.Position - gesture.Delta;
-                    
-	                var newX = Camera.Main.X - ((a.X - aOld.X) * (1 - CameraZoomManager.ZoomFactor));
-	                var newY = Camera.Main.Y + ((a.Y - aOld.Y) * (1 - CameraZoomManager.ZoomFactor));
+
+	                var newX = Camera.Main.X - ((a.X - aOld.X) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
+	                var newY = Camera.Main.Y + ((a.Y - aOld.Y) * cameraMoveSpeed /  CameraZoomManager.GumCoordOffset);
 
 	                var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth  - Camera.Main.OrthogonalWidth) / 2;
 	                var effectiveScreenLimitY = (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;

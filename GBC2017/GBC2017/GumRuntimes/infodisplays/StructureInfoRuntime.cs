@@ -16,8 +16,8 @@ namespace GBC2017.GumRuntimes
         public void Show(BaseStructure structure)
         {
             Visible = true;
-            X = structure.X - Camera.Main.X;
-            Y = structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y;
+            X = (structure.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
+            Y = (structure.Y + (structure.SpriteInstance.Height / 2) - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
             StructureName = structure.DisplayName;
             StructureHealth = $" {structure.HealthRemaining.ToString("0")} / {structure.MaximumHealth.ToString("0")}";
 

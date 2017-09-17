@@ -567,6 +567,9 @@
       <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs</Link>
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsIncreaseNotificationRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\MineralsIncreaseNotificationRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs">
       <Link>GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs</Link>
     </Compile>
@@ -584,11 +587,17 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs">
       <Link>GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs</Link>
