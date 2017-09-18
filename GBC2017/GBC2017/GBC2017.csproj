@@ -122,6 +122,10 @@
     <Compile Include="Entities\Structures\EnergyProducers\SolarPanels.Generated.cs">
       <DependentUpon>SolarPanels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\EnergyProducers\WindTurbine.cs" />
+    <Compile Include="Entities\Structures\EnergyProducers\WindTurbine.Generated.cs">
+      <DependentUpon>WindTurbine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Structures\Home.cs" />
     <Compile Include="Entities\Structures\Home.Generated.cs">
       <DependentUpon>Home.cs</DependentUpon>
@@ -143,6 +147,7 @@
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
     <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
+    <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseLevel.cs" />
@@ -341,6 +346,7 @@
     <Compile Include="StateInterpolation\Tweener.cs" />
     <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\SunlightManager.cs" />
+    <Compile Include="StaticManagers\WindManager.cs" />
     <Compile Include="TileCollisions\TileShapeCollection.cs" />
     <Compile Include="TileEntities\TileEntityInstantiator.cs" />
     <Compile Include="TileGraphics\AbstractMapLayer.cs" />
@@ -468,6 +474,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>battery_sprite</Name>
     </None>
+    <None Include="content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\structures\home\brickhouse.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BrickHouse</Name>
@@ -483,6 +493,10 @@
     <None Include="content\entities\structures\utility\carbontree\carbon_tree.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>carbon_tree</Name>
+    </None>
+    <None Include="content\entities\structures\windturbine\wind_turbine.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wind_turbine</Name>
     </None>
     <None Include="content\globalcontent\allassetssheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

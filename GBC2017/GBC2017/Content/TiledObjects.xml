@@ -58,6 +58,15 @@
     <property name="DisplayName" type="string" default="Solar Panels" />
     <property name="BaseEnergyProducedPerSecond" type="float" default="10" />
   </objecttype>
+  <objecttype name="WindTurbine">
+    <property name="EnergyBuildCost" type="float" default="50" />
+    <property name="MineralsBuildCost" type="float" default="50" />
+    <property name="MaximumHealth" type="float" default="25" />
+    <property name="EnergyRequiredPerSecond" type="int" default="0" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
+    <property name="DisplayName" type="string" default="Wind Turbine" />
+    <property name="BaseEnergyProducedPerSecond" type="float" default="5" />
+  </objecttype>
   <objecttype name="Home">
     <property name="MaximumHealth" type="float" default="100" />
     <property name="InternalBatteryMaxStorage" type="int" default="200" />

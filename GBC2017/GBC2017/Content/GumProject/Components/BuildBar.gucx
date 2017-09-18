@@ -586,7 +586,7 @@
     <Variable>
       <Type>EnabledStatusState</Type>
       <Name>WindButton.EnabledStatusState</Name>
-      <Value xsi:type="xsd:string">Disabled</Value>
+      <Value xsi:type="xsd:string">Enabled</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

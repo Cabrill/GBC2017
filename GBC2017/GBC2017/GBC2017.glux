@@ -872,6 +872,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>shadow</ValueAsString>
@@ -880,11 +885,6 @@
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -4254,6 +4254,231 @@
       <ReferencedFiles>
         <ReferencedFileSave>
           <Name>Entities/Structures/SolarPanels/solar_sprite.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaximumHealth</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyRequiredPerSecond</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InternalBatteryMaxStorage</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Wind Turbine</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BaseEnergyProducedPerSecond</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Structures\EnergyProducers\WindTurbine</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>wind_turbine</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>168</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>262</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Spin</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>-24</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/EnergyProducers/WindTurbine/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/WindTurbine/wind_turbine.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />

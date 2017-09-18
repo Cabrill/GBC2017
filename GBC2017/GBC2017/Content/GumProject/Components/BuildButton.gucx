@@ -290,7 +290,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.75</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -512,7 +512,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.75</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -973,14 +973,14 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>TopBackgroundSprite.Alpha</Name>
+        <Name>StructureSprite.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>StructureSprite.Alpha</Name>
+        <Name>TopBackgroundSprite.Alpha</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>

@@ -26,6 +26,7 @@ namespace GBC2017.Screens
             
             //Energy build buttons
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
+            BuildBarInstance.WindButtonClick += BuildBarInstanceOnWindButtonClick;
             
             //Combat build buttons
             BuildBarInstance.LaserTurretButtonClick += BuildBarInstanceOnLaserTurretButtonClick;
@@ -67,6 +68,20 @@ namespace GBC2017.Screens
 
                 var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newPanel);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        private void BuildBarInstanceOnWindButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<WindTurbine>())
+            {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
+                var newTurbine = WindTurbineFactory.CreateNew(EntityLayer);
+                FindValidLocationFor(newTurbine);
 
                 //TODO:  message for player if no valid location found
             }

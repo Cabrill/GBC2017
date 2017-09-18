@@ -204,6 +204,13 @@
       <Link>Entities\Structures\EnergyProducers\SolarPanels.Generated.cs</Link>
       <DependentUpon>SolarPanels.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.cs">
+      <Link>Entities\Structures\EnergyProducers\WindTurbine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.Generated.cs">
+      <Link>Entities\Structures\EnergyProducers\WindTurbine.Generated.cs</Link>
+      <DependentUpon>WindTurbine.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Home.cs">
       <Link>Entities\Structures\Home.cs</Link>
     </Compile>
@@ -251,6 +258,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
       <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\WindTurbineFactory.Generated.cs">
+      <Link>Factories\WindTurbineFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\FileAliases.Generated.cs">
       <Link>FileAliases.Generated.cs</Link>
@@ -753,6 +763,9 @@
     <Compile Include="..\..\GBC2017\StaticManagers\SunlightManager.cs">
       <Link>StaticManagers\SunlightManager.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\WindManager.cs">
+      <Link>StaticManagers\WindManager.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\TileCollisions\TileShapeCollection.cs">
       <Link>TileCollisions\TileShapeCollection.cs</Link>
     </Compile>
@@ -896,6 +909,10 @@
       <Name>battery_sprite</Name>
       <Link>Assets\content\entities\structures\battery\battery_sprite.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\home\brickhouse.png">
       <Name>brickhouse</Name>
       <Link>Assets\content\entities\structures\home\brickhouse.png</Link>
@@ -911,6 +928,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbon_tree.png">
       <Name>carbon_tree</Name>
       <Link>Assets\content\entities\structures\utility\carbontree\carbon_tree.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
+      <Name>wind_turbine</Name>
+      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
       <Name>allassetssheet</Name>
