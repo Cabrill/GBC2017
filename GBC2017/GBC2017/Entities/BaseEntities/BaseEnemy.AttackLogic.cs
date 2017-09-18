@@ -131,7 +131,7 @@ namespace GBC2017.Entities.BaseEntities
         {
             _lastMeleeAttackTime = TimeManager.CurrentTime;
             meleeAttackSound?.Play();
-            _currentAttackTarget.TakeMeleeDamage(this);
+            _currentAttackTarget?.TakeMeleeDamage(this);
             CurrentActionState = Action.Standing;
         }
         #endregion
