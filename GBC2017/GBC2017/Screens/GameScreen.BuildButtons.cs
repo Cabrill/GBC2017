@@ -34,6 +34,31 @@ namespace GBC2017.Screens
             //Utility build buttons
             BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
             BuildBarInstance.CarbonTreeButtonClick += BuildBarInstanceOnCarbonTreeButtonClick;
+
+            SetBuildCosts();
+        }
+
+        private void SetBuildCosts()
+        {
+            BaseStructure structure = new SolarPanels();
+            BuildBarInstance.UpdateSolarButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
+
+            structure = new WindTurbine();
+            BuildBarInstance.UpdateWindButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
+
+            structure = new Battery();
+            BuildBarInstance.UpdateBatteryButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
+
+            structure = new CarbonTree();
+            BuildBarInstance.UpdateCarbonTreeButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
+
+            structure = new LaserTurret();
+            BuildBarInstance.UpdateLaserButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
         }
 
         #region Build category buttons

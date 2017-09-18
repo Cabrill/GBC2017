@@ -39,9 +39,23 @@ namespace GBC2017.ResourceManagers
             _home = _allStructures.OfType<Home>().FirstOrDefault();
         }
 
-        public static void Update()
+        public static void Update(bool isPregame)
         {
-            if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
+            if (isPregame)
+            {
+                if (_energyBuildDebt > 0)
+                {
+                    if (_energyBuildDebt <= StoredEnergy)
+                    {
+                        DrainBatteriesEqually(_energyBuildDebt);
+                        _energyBuildDebt = 0;
+                    }
+                }
+
+                StoredEnergy = BatteryList.Sum(b => b.BatteryLevel) + _home.BatteryLevel;
+                MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage) + _home.InternalBatteryMaxStorage;
+            }
+            else if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
             {
                 if (_energyBuildDebt > 0)
                 {

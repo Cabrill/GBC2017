@@ -34,9 +34,14 @@ namespace GBC2017.ResourceManagers
             _home = _allStructures.OfType<Home>().FirstOrDefault();
         }
 
-        public static void Update()
+        public static void Update(bool isPregame)
         {
-            if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
+            if (isPregame)
+            {
+                MaxStorage = _home?.MaxMineralsStorage ?? 0;
+                StoredMinerals = _home?.CurrentMinerals ?? 0;
+            }
+            else if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
             {
                 MaxStorage = _home?.MaxMineralsStorage ?? 0;
                 MineralsDecrease = _mineralsDebt;

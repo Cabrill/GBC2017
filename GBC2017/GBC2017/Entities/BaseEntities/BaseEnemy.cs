@@ -86,6 +86,10 @@ namespace GBC2017.Entities.BaseEntities
 		    {
 		        PerformDeath();
 		    }
+		    else if (IsHurt && SpriteInstance.JustCycled)
+		    {
+		        CurrentActionState = Action.Standing;
+		    }
             else if (IsRangedAttacker)
 		    {
 		        RangedAttackActivity();

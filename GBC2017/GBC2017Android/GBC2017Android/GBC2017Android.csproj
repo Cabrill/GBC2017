@@ -677,9 +677,15 @@
     <Compile Include="..\..\GBC2017\Screens\GameScreen.cs">
       <Link>Screens\GameScreen.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.Event.cs">
+      <Link>Screens\GameScreen.Event.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.Generated.cs">
       <Link>Screens\GameScreen.Generated.cs</Link>
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Screens\GameScreen.Generated.Event.cs">
+      <Link>Screens\GameScreen.Generated.Event.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.InfoBarButtons.cs">
       <Link>Screens\GameScreen.InfoBarButtons.cs</Link>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="BasicAlien">
-    <property name="MaximumHealth" type="float" default="30" />
+    <property name="MaximumHealth" type="float" default="20" />
     <property name="Speed" type="float" default="125" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" default="15" />
@@ -16,7 +16,7 @@
     <property name="RangedAttackRadius" type="float" default="350" />
   </objecttype>
   <objecttype name="MeleeAlien">
-    <property name="MaximumHealth" type="float" default="30" />
+    <property name="MaximumHealth" type="float" default="25" />
     <property name="Speed" type="float" default="125" />
     <property name="IsRangedAttacker" type="bool" default="false" />
     <property name="MeleeAttackDamage" type="float" default="5" />
@@ -50,22 +50,22 @@
     <property name="DisplayName" type="string" default="Laser Turret" />
   </objecttype>
   <objecttype name="SolarPanels">
-    <property name="EnergyBuildCost" type="int" default="100" />
+    <property name="EnergyBuildCost" type="int" default="75" />
     <property name="MaximumHealth" type="float" default="30" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
-    <property name="MineralsBuildCost" type="float" default="100" />
+    <property name="MineralsBuildCost" type="float" default="50" />
     <property name="DisplayName" type="string" default="Solar Panels" />
     <property name="BaseEnergyProducedPerSecond" type="float" default="10" />
   </objecttype>
   <objecttype name="WindTurbine">
-    <property name="EnergyBuildCost" type="float" default="50" />
-    <property name="MineralsBuildCost" type="float" default="50" />
+    <property name="EnergyBuildCost" type="float" default="100" />
+    <property name="MineralsBuildCost" type="float" default="75" />
     <property name="MaximumHealth" type="float" default="25" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Wind Turbine" />
-    <property name="BaseEnergyProducedPerSecond" type="float" default="5" />
+    <property name="BaseEnergyProducedPerSecond" type="float" default="20" />
   </objecttype>
   <objecttype name="Home">
     <property name="MaximumHealth" type="float" default="100" />
@@ -78,11 +78,11 @@
     <property name="DisplayName" type="string" default="Home" />
   </objecttype>
   <objecttype name="Battery">
-    <property name="EnergyBuildCost" type="int" default="100" />
+    <property name="EnergyBuildCost" type="int" default="50" />
     <property name="MaximumHealth" type="float" default="50" />
     <property name="InternalBatteryMaxStorage" type="int" default="100" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
-    <property name="MineralsBuildCost" type="float" default="150" />
+    <property name="MineralsBuildCost" type="float" default="100" />
     <property name="DisplayName" type="string" default="Battery" />
   </objecttype>
   <objecttype name="CarbonTree">

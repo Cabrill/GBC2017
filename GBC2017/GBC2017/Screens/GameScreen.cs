@@ -43,7 +43,8 @@ namespace GBC2017.Screens
 	    };
 
 	    private GameMode CurrentGameMode = GameMode.Normal;
-	    private PositionedObject selectedObject;
+	    private bool GameHasStarted;
+        private PositionedObject selectedObject;
 
 	    private DateTime gameTimeOfDay;
 
@@ -78,10 +79,7 @@ namespace GBC2017.Screens
 		    InitializeBaseEntities();
 		    gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
 		    lastEnemyWave = TimeManager.CurrentTime;
-
-	        var newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
-	        newAlien.OnDeath += CreateResourceNotification;
-	        newAlien.PlaceOnRightSide();
+		    GameHasStarted = false;
 		}
 
 	    private void InitializeBaseEntities()
@@ -133,26 +131,27 @@ namespace GBC2017.Screens
 
 		    HandleTouchActivity();
 		    SelectedItemActivity();
+		    BuildingStatusActivity();
 
-            if (!IsPaused)
+            var gameplayOccuring = !IsPaused && GameHasStarted;
+            if (gameplayOccuring)
             {
-                //TemporaryDebugWaveSpawning();
+                TemporaryDebugWaveSpawning();
 
-                SunlightManager.UpdateConditions(gameTimeOfDay);
-                UpdateGameTime();
-                
-                BuildingStatusActivity();
                 EnemyStatusActivity();
 		        PlayerProjectileActivity();
 		        EnemyProjectileActivity();
 
-		        EnergyManager.Update();
-		        MineralsManager.Update();
-                WindManager.Update();
+                UpdateGameTime();
 
-                InfoBarInstance.Update();
+                WindManager.Update();
+                SunlightManager.UpdateConditions(gameTimeOfDay);
 		    }
-		}
+
+		    EnergyManager.Update(!GameHasStarted);
+		    MineralsManager.Update(!GameHasStarted);
+		    InfoBarInstance.Update();
+        }
 
 	    private void TemporaryDebugWaveSpawning()
 	    {
@@ -324,7 +323,7 @@ namespace GBC2017.Screens
 	        if (newStructure == null)
 	        {
 	            CurrentGameMode = GameMode.Normal;
-	        }
+            }
 	        else
 	        {
 	            var newLocationIsValid = AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
@@ -347,7 +346,9 @@ namespace GBC2017.Screens
         #if DEBUG
         private void HandleDebugInput()
 	    {
-	        if (InputManager.Keyboard.KeyPushed(Keys.X))
+	        FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+
+            if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
 	            var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                 newAlien.PlaceOnRightSide();
@@ -360,7 +361,7 @@ namespace GBC2017.Screens
 	        }
 
         }
-#endif
+        #endif
 
         private void HandleTouchActivity()
 	    {
