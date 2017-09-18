@@ -29,8 +29,8 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		{
 		    EffectiveEnergyProducedPerSecond = BaseEnergyProducedPerSecond *
 		                                       WindManager.WindEffectiveness;
-
-        }
+		    SpriteInstance.AnimationSpeed = WindManager.WindEffectiveness;
+		}
 
 		private void CustomDestroy()
 		{

@@ -552,6 +552,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\ColoredRectangleRuntime.Generated.cs">
       <Link>GumRuntimes\ColoredRectangleRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\ConditionsDisplayRuntime.cs">
+      <Link>GumRuntimes\ConditionsDisplayRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
     </Compile>

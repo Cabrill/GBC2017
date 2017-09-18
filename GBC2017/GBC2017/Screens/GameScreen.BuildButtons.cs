@@ -206,7 +206,7 @@ namespace GBC2017.Screens
                 if (!baseStructures.Any(
                     os => os.AxisAlignedRectangleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
                 {
-                    if (!AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
+                    //if (!AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
                     {
                         structure.Position = structure.AxisAlignedRectangleInstance.Position;
                         structure.IsValidLocation = true;

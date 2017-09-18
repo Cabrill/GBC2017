@@ -253,6 +253,7 @@
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\ConditionsDisplayRuntime.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />

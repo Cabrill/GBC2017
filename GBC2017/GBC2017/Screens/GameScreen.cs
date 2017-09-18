@@ -148,12 +148,9 @@ namespace GBC2017.Screens
 
 		        EnergyManager.Update();
 		        MineralsManager.Update();
+                WindManager.Update();
 
-                InfoBarInstance.UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease,
-		            EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
-
-		        InfoBarInstance.UpdateMineralsDisplay(MineralsManager.MineralsIncrease, MineralsManager.MineralsDecrease,
-		            MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
+                InfoBarInstance.Update();
 		    }
 		}
 

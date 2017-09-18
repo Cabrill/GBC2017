@@ -29,7 +29,6 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		{
 		    EffectiveEnergyProducedPerSecond = BaseEnergyProducedPerSecond *
 		                                                       SunlightManager.SunlightEffectiveness;
-
         }
 
 		private void CustomDestroy()
