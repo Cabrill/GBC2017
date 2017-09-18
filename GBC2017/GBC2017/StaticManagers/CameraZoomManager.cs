@@ -38,6 +38,15 @@ namespace GBC2017.StaticManagers
             ZoomFactor = 1f;
         }
 
+        public static void Reset()
+        {
+            ZoomFactor = 1f;
+            Camera.Main.OrthogonalHeight = OriginalOrthogonalHeight;
+            Camera.Main.OrthogonalWidth = OriginalOrthogonalWidth;
+            Camera.Main.X = 0;
+            Camera.Main.Y = 0;
+        }
+
         public static void PerformZoom(GestureSample gesture, bool pinchStarted)
         {
             // current positions
@@ -100,10 +109,6 @@ namespace GBC2017.StaticManagers
 
             Camera.Main.X = newX;
             Camera.Main.Y = newY;
-
-            //GumIdb.UpdateDisplayToMainFrbCamera();
-            //BuildBarInstance.UpdateLayout();
-            //HorizonBoxInstance.UpdateLayout();
         }
     }
 }

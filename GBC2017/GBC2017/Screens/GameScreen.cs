@@ -124,7 +124,6 @@ namespace GBC2017.Screens
             #if DEBUG
 		    HandleDebugInput();
             #endif
-		    var temp = Gum.Wireframe.GraphicalUiElement.CanvasWidth;
 
             UpdateGameModeActivity();
 

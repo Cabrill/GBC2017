@@ -128,6 +128,8 @@ namespace GBC2017.Entities.BaseEntities
                         _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
                         _energyBar.X = (X-Camera.Main.X) * CameraZoomManager.GumCoordOffset;
                         _energyBar.Y = (Y + SpriteInstance.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Height = SpriteInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
                         _energyBar.Visible = true;
                     }
                     else
@@ -141,6 +143,8 @@ namespace GBC2017.Entities.BaseEntities
                     _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
                     _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
                     _healthBar.Y = (Y + SpriteInstance.Height + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Height = SpriteInstance.Width / 5* CameraZoomManager.GumCoordOffset;
                     _healthBar.Visible = true;
                 }
                 else

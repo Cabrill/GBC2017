@@ -1281,7 +1281,7 @@
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>Y Origin</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>

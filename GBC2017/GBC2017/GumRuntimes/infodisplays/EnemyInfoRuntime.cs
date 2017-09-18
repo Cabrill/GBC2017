@@ -15,20 +15,23 @@ namespace GBC2017.GumRuntimes
         public void Show(BaseEnemy enemy)
         {
 
-            var isEnemyOnScreen = (enemy.X >= Camera.Main.X - Camera.Main.OrthogonalWidth / 2 ||
-                                   enemy.X <= Camera.Main.X + Camera.Main.OrthogonalWidth / 2) &&
-                                  (enemy.Y >= Camera.Main.Y - Camera.Main.OrthogonalHeight / 2 ||
-                                   enemy.Y <= Camera.Main.Y + Camera.Main.OrthogonalHeight / 2);
+            var isEnemyOnScreen =  enemy.X >= Camera.Main.X - Camera.Main.OrthogonalWidth / 2 &&
+                                   enemy.X <= Camera.Main.X + Camera.Main.OrthogonalWidth / 2 &&
+                                   enemy.Y >= Camera.Main.Y - Camera.Main.OrthogonalHeight / 2 &&
+                                   enemy.Y <= Camera.Main.Y + Camera.Main.OrthogonalHeight / 2;
 
             Visible = isEnemyOnScreen;
 
             if (Visible)
             {
-                var minMaxX = (Camera.Main.OrthogonalWidth + GetAbsoluteWidth()) / 2 + Camera.Main.X;
-                var minMaxY = (Camera.Main.OrthogonalHeight + GetAbsoluteHeight()) / 2 + Camera.Main.Y;
-                X = MathHelper.Clamp(enemy.X - Camera.Main.X / CameraZoomManager.GumCoordOffset, -minMaxX, minMaxX);
-                Y = MathHelper.Clamp((enemy.Y - Camera.Main.Y + enemy.SpriteInstance.Height / 2) / CameraZoomManager.GumCoordOffset,
-                    -minMaxY, minMaxY);
+                var minMaxX = (CameraZoomManager.OriginalOrthogonalWidth - GetAbsoluteWidth()) / 2;
+                var minMaxY = (CameraZoomManager.OriginalOrthogonalHeight - GetAbsoluteHeight()) / 2;
+
+                var newX = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
+                var newY = (enemy.Y - Camera.Main.Y + enemy.SpriteInstance.Height / 2) * CameraZoomManager.GumCoordOffset + GetAbsoluteHeight() / 2;
+
+                X = MathHelper.Clamp(newX, -minMaxX, minMaxX);
+                Y = MathHelper.Clamp(newY, -minMaxY, minMaxY);
 
                 EnemyName = enemy.DisplayName;
                 EnemyHealth = $"{enemy.HealthRemaining} / {enemy.MaximumHealth}";
