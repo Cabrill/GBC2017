@@ -78,6 +78,10 @@ namespace GBC2017.Screens
 		    InitializeBaseEntities();
 		    gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
 		    lastEnemyWave = TimeManager.CurrentTime;
+
+	        var newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
+	        newAlien.OnDeath += CreateResourceNotification;
+	        newAlien.PlaceOnRightSide();
 		}
 
 	    private void InitializeBaseEntities()
@@ -132,7 +136,7 @@ namespace GBC2017.Screens
 
             if (!IsPaused)
             {
-                TemporaryDebugWaveSpawning();
+                //TemporaryDebugWaveSpawning();
 
                 SunlightManager.UpdateConditions(gameTimeOfDay);
                 UpdateGameTime();
@@ -171,7 +175,7 @@ namespace GBC2017.Screens
                     BaseEnemy newAlien;
                     if (i % 2 == 0)
                     {
-                        newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                        newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
                     }
                     else
                     {
@@ -240,6 +244,8 @@ namespace GBC2017.Screens
 
 	    private void EnemyStatusActivity()
 	    {
+	        var validStructures = AllStructuresList.Where(s => !s.IsBeingPlaced && !s.IsDestroyed).ToArray();
+
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
@@ -252,7 +258,12 @@ namespace GBC2017.Screens
 	                for (var j = i- 1; j > 0; j--)
 	                {
 	                    var otherEnemy = AllEnemiesList[j - 1];
-	                    enemy.CollideAgainstBounce(otherEnemy.CircleInstance, 1, 1, 0.1f);
+	                    enemy.CollideAgainstBounce(otherEnemy.CircleInstance, thisMass:1, otherMass:1, elasticity:0.1f);
+	                }
+	                for (var j = validStructures.Count(); j > 0; j--)
+	                {
+	                    var structure = validStructures[j - 1];
+	                    enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f, elasticity: 0.1f);
 	                }
 	            }
 	        }

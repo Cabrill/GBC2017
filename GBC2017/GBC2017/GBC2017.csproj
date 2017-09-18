@@ -44,6 +44,9 @@
     <Compile Include="Entities\BaseEntities\BaseCombatStructure.Generated.cs">
       <DependentUpon>BaseCombatStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BaseEntities\BaseEnemy.AttackLogic.cs">
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemy.cs" />
     <Compile Include="Entities\BaseEntities\BaseEnemy.Event.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
@@ -52,6 +55,9 @@
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BaseEntities\BaseEnemy.NavigationLogic.cs">
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.cs" />

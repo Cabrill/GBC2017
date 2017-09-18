@@ -75,6 +75,10 @@
       <Link>Entities\BaseEntities\BaseCombatStructure.Generated.cs</Link>
       <DependentUpon>BaseCombatStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.AttackLogic.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.AttackLogic.cs</Link>
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.cs">
       <Link>Entities\BaseEntities\BaseEnemy.cs</Link>
     </Compile>
@@ -88,6 +92,10 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.Generated.Event.cs">
       <Link>Entities\BaseEntities\BaseEnemy.Generated.Event.cs</Link>
+      <DependentUpon>BaseEnemy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemy.NavigationLogic.cs">
+      <Link>Entities\BaseEntities\BaseEnemy.NavigationLogic.cs</Link>
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.cs">

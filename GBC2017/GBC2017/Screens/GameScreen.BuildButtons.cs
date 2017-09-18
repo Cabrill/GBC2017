@@ -63,6 +63,8 @@ namespace GBC2017.Screens
             if (ShouldCreateNewBuildRequest<SolarPanels>())
             {
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
                 var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newPanel);
 
@@ -78,6 +80,8 @@ namespace GBC2017.Screens
             if (ShouldCreateNewBuildRequest<LaserTurret>())
             {
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
                 var newTurret = LaserTurretFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newTurret);
 
@@ -93,6 +97,7 @@ namespace GBC2017.Screens
             if (ShouldCreateNewBuildRequest<Battery>())
             {
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
 
                 var newBattery = BatteryFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newBattery);
@@ -107,6 +112,7 @@ namespace GBC2017.Screens
             if (ShouldCreateNewBuildRequest<CarbonTree>())
             {
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
 
                 var newCarbonTree = CarbonTreeFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newCarbonTree);
