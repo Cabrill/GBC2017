@@ -169,9 +169,9 @@ namespace GBC2017.Screens
                         useLeftSide = !useLeftSide;
                     }
                     BaseEnemy newAlien;
-                    if (i % 2 == 0)
+                    if (i % 4 < 3)
                     {
-                        newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
+                        newAlien = BasicAlienFactory.CreateNew(EntityLayer);
                     }
                     else
                     {
