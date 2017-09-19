@@ -16,9 +16,11 @@ namespace GBC2017.Entities.Structures.Utility
 {
 	public partial class ShieldGenerator
 	{
+	    private float _shieldSpriteScale;
 	    private float CurrentShieldHealth;
 	    private double _lastRegenerationTime;
 	    public bool ShieldIsUp;
+	    private bool _shieldWasUp;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -35,12 +37,12 @@ namespace GBC2017.Entities.Structures.Utility
             ShieldSpriteInstance.Visible = false;
 
             AfterIsBeingPlacedSet += ShieldGenerator_AfterIsBeingPlacedSet;
+            _shieldSpriteScale = ShieldSpriteInstance.TextureScale;
         }
 
         private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
         {
             PolygonShieldInstance.Visible = IsBeingPlaced;
-            ShieldSpriteInstance.Visible = !IsBeingPlaced;
         }
 
         private void RefreshPolygon()
@@ -83,6 +85,10 @@ namespace GBC2017.Entities.Structures.Utility
 	        {
 	            UpdateShieldColor(shouldDip: true);
 	        }
+	        else
+	        {
+	            PopShield();
+            }
         }
 
 	    private void UpdateShieldColor(bool shouldDip)
@@ -113,7 +119,9 @@ namespace GBC2017.Entities.Structures.Utility
 	    {
 	        if (TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
 	        {
-	            if (HasSufficientEnergy)
+	            _shieldWasUp = ShieldIsUp;
+
+                if (HasSufficientEnergy)
 	            {
 	                CurrentShieldHealth = Math.Min(CurrentShieldHealth + ShieldRegenerationRatePerSecond, MaximumShieldHealth);
 	            }
@@ -127,19 +135,45 @@ namespace GBC2017.Entities.Structures.Utility
 
                 if (ShieldIsUp)
 	            {
+	                if (!_shieldWasUp)
+	                {
+	                    GrowShield();
+	                }
 	                UpdateShieldColor(shouldDip: false);
 	            }
+                else if (_shieldWasUp)
+                {
+                    PopShield();
+                }
 	            _lastRegenerationTime = TimeManager.CurrentTime;
             }
+	    }
 
-	        ShieldSpriteInstance.Visible = ShieldIsUp;
+	    private void GrowShield()
+	    {
+	        var secondsToGrow = 1f;
+	        ShieldSpriteInstance.Visible = true;
+            ShieldSpriteInstance.TextureScale = 0;
+	        ShieldSpriteInstance.Alpha = 0;
+            ShieldSpriteInstance.Tween("TextureScale", _shieldSpriteScale, secondsToGrow, InterpolationType.Bounce, Easing.InOut);
+	        ShieldSpriteInstance.Tween("Alpha", 1, secondsToGrow, InterpolationType.Linear, Easing.InOut);
+        }
+
+        private void PopShield()
+        {
+            var secondsToPop = 1f;
+	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
+            ShieldSpriteInstance.Tween("TextureScale", 0, secondsToPop, InterpolationType.Exponential, Easing.In);
+	        ShieldSpriteInstance.Tween("Alpha", 0, secondsToPop, InterpolationType.Linear, Easing.InOut);
+	        this.Call(() => ShieldSpriteInstance.Visible = false).After(secondsToPop);
 	    }
 
 	    public void NotifyGameStart()
 	    {
-	        ShieldIsUp = true;
 	        CurrentShieldHealth = MaximumShieldHealth;
-	    }
+	        ShieldIsUp = true;
+            GrowShield();
+        }
 
 		private void CustomDestroy()
 		{
