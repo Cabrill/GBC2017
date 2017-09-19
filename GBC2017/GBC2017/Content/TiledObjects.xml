@@ -97,7 +97,7 @@
   <objecttype name="ShieldGenerator">
     <property name="EnergyBuildCost" type="float" default="50" />
     <property name="MineralsBuildCost" type="float" default="25" />
-    <property name="MaximumHealth" type="float" default="5" />
+    <property name="MaximumHealth" type="float" default="15" />
     <property name="EnergyRequiredPerSecond" type="int" default="5" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Shield Generator" />

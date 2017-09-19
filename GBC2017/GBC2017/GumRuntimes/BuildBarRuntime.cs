@@ -38,6 +38,12 @@ namespace GBC2017.GumRuntimes
             CarbonTreeButton.MineralsCost = minerals.ToString();
         }
 
+        public void UpdateShieldGeneratorButton(double energy, double minerals)
+        {
+            ShieldGeneratorButton.EnergyCost = energy.ToString();
+            ShieldGeneratorButton.MineralsCost = minerals.ToString();
+        }
+
         public void UpdateSelection()
         {
             UnhighlightAll();

@@ -60,6 +60,10 @@ namespace GBC2017.Screens
             structure = new LaserTurret();
             BuildBarInstance.UpdateLaserButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
             structure.Destroy();
+
+            structure = new ShieldGenerator();
+            BuildBarInstance.UpdateShieldGeneratorButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            structure.Destroy();
         }
 
         #region Build category buttons

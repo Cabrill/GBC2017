@@ -161,7 +161,7 @@ namespace GBC2017.Entities.Structures.Utility
 
         private void PopShield()
         {
-            var secondsToPop = 1f;
+            var secondsToPop = 2f;
 	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
             ShieldSpriteInstance.Tween("TextureScale", 0, secondsToPop, InterpolationType.Exponential, Easing.In);
 	        ShieldSpriteInstance.Tween("Alpha", 0, secondsToPop, InterpolationType.Linear, Easing.InOut);

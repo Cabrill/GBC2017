@@ -5131,7 +5131,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
