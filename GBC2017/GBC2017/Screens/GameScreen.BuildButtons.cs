@@ -34,6 +34,7 @@ namespace GBC2017.Screens
             //Utility build buttons
             BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
             BuildBarInstance.CarbonTreeButtonClick += BuildBarInstanceOnCarbonTreeButtonClick;
+            BuildBarInstance.ShieldGeneratorButtonClick += BuildBarInstanceOnShieldGeneratorButtonClick;
 
             SetBuildCosts();
         }
@@ -156,6 +157,20 @@ namespace GBC2017.Screens
 
                 var newCarbonTree = CarbonTreeFactory.CreateNew(EntityLayer);
                 FindValidLocationFor(newCarbonTree);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        private void BuildBarInstanceOnShieldGeneratorButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<ShieldGenerator>())
+            {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
+                var newShieldGenerator = ShieldGeneratorFactory.CreateNew(EntityLayer);
+                FindValidLocationFor(newShieldGenerator);
 
                 //TODO:  message for player if no valid location found
             }

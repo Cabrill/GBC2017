@@ -138,6 +138,10 @@
     <Compile Include="Entities\Structures\Utility\CarbonTree.Generated.cs">
       <DependentUpon>CarbonTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\Utility\ShieldGenerator.cs" />
+    <Compile Include="Entities\Structures\Utility\ShieldGenerator.Generated.cs">
+      <DependentUpon>ShieldGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\MeleeAlienFactory.Generated.cs" />
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />
@@ -146,6 +150,7 @@
     <Compile Include="Factories\LaserTurretFactory.Generated.cs" />
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
     <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
+    <Compile Include="Factories\ShieldGeneratorFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
     <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
@@ -493,6 +498,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>laser_turret_sprite</Name>
     </None>
+    <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>shield_generator</Name>
+    </None>
     <None Include="content\entities\structures\solarpanels\solar_sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>solar_sprite</Name>
@@ -500,6 +509,10 @@
     <None Include="content\entities\structures\utility\carbontree\carbon_tree.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>carbon_tree</Name>
+    </None>
+    <None Include="content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\windturbine\wind_turbine.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

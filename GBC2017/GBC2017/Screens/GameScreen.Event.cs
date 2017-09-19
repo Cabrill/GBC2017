@@ -4,6 +4,7 @@ using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Specialized;
+using System.Linq;
 using FlatRedBall.Audio;
 using FlatRedBall.Screens;
 using GBC2017.Entities.BaseEntities;
@@ -25,6 +26,11 @@ namespace GBC2017.Screens
             StartButtonInstance.Visible = false;
             GameHasStarted = true;
             lastEnemyWave = TimeManager.CurrentTime - 20;
+
+            foreach (var shieldGenerator in AllStructuresList.OfType<ShieldGenerator>().Cast<ShieldGenerator>())
+            {
+                shieldGenerator.NotifyGameStart();
+            }
         }
     }
 }

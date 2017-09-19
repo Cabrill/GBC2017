@@ -63,13 +63,13 @@ namespace GBC2017.GumRuntimes
             {
                 netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
-            netEnergy -= structure.EnergyUsedLastSecond;
+            netEnergy -= structure.EnergyReceivedLastSecond;
 
             if (structureAsMineralsProducer != null)
             {
                 netMinerals += structureAsMineralsProducer.MineralsProducedPerSecond;
             }
-            netMinerals -= structure.MineralsUsedLastSecond;
+            netMinerals -= structure.MineralsReceivedLastSecond;
 
             SetEnergyUsage(netEnergy);
             SetMineralsUsage(netMinerals);

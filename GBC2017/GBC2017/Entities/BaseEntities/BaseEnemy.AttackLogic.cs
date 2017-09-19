@@ -153,7 +153,8 @@ namespace GBC2017.Entities.BaseEntities
             }
             else if (CurrentActionState == Action.StartRangedAttack && SpriteInstance.JustCycled)
             {
-                FireProjectile();
+                if (_currentAttackTarget != null) FireProjectile();
+                CurrentActionState = Action.FinishRangedAttack;
             }
             else if (CurrentActionState == Action.FinishRangedAttack && SpriteInstance.JustCycled)
             {
@@ -193,8 +194,6 @@ namespace GBC2017.Entities.BaseEntities
             rangedAttackSound.Play();
 
             _lastRangeAttackTime = TimeManager.CurrentTime;
-
-            CurrentActionState = Action.FinishRangedAttack;
         }
 
         #endregion

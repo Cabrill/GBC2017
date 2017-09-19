@@ -16,6 +16,7 @@ using FlatRedBall.Math;
 using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
@@ -122,9 +123,10 @@ namespace GBC2017.Screens
         #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
+            var curious = FlatRedBall.Graphics.Renderer.RenderBreaksAllocatedThisFrame;
 
-            #if DEBUG
-		    HandleDebugInput();
+#if DEBUG
+            HandleDebugInput();
             #endif
 
             UpdateGameModeActivity();
@@ -280,11 +282,28 @@ namespace GBC2017.Screens
 	                for (var e = AllStructuresList.Count; e > 0; e--)
 	                {
 	                    var structure = AllStructuresList[e - 1];
+	                    if (structure.CurrentState != BaseStructure.VariableState.Built) continue;
 
-                        if (structure.CurrentState != BaseStructure.VariableState.Built || !projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)) continue;
+                        if (structure is ShieldGenerator)
+                        {
+                            var shieldGenerator = structure as ShieldGenerator;
 
-	                    structure.GetHitBy(projectile);
-	                    projectile.Destroy();
+                            if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
+                                .CollideAgainst(projectile.CircleInstance))
+                            {
+                                shieldGenerator.HitShieldWith(projectile);
+                                projectile.Destroy();
+                                continue;
+                            }
+                        }
+
+
+                        if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
+	                    {
+	                        structure.GetHitBy(projectile);
+	                        projectile.Destroy();
+                        }
+	                    
 	                }
 	            }
 	        }

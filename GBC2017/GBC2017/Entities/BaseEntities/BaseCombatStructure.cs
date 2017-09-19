@@ -134,7 +134,7 @@ namespace GBC2017.Entities.BaseEntities
 
                 LastFiredTime = TimeManager.CurrentTime;
                 BatteryLevel -= EnergyCostToFire;
-                _energyUsedThisSecond += EnergyCostToFire;
+                _energyReceivedThisSecond += EnergyCostToFire;
             }
         }
 

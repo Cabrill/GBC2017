@@ -422,6 +422,30 @@
     </Variable>
     <Variable>
       <Type>string</Type>
+      <Name>ShieldGeneratorButton.Parent</Name>
+      <Value xsi:type="xsd:string">UtilityButtons</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>StructureTypeState</Type>
+      <Name>ShieldGeneratorButton.StructureTypeState</Name>
+      <Value xsi:type="xsd:string">Utility</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ShieldGeneratorButton.X</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>ShieldGeneratorButton.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
       <Name>SolarButton.ButtonText</Name>
       <Value xsi:type="xsd:string">Solar</Value>
       <SetsValue>true</SetsValue>
@@ -971,6 +995,10 @@
   </Instance>
   <Instance>
     <Name>CarbonTreeButton</Name>
+    <BaseType>BuildButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>ShieldGeneratorButton</Name>
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Behaviors />

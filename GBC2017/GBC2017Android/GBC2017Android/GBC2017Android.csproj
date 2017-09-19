@@ -232,6 +232,13 @@
       <Link>Entities\Structures\Utility\CarbonTree.Generated.cs</Link>
       <DependentUpon>CarbonTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\ShieldGenerator.cs">
+      <Link>Entities\Structures\Utility\ShieldGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Utility\ShieldGenerator.Generated.cs">
+      <Link>Entities\Structures\Utility\ShieldGenerator.Generated.cs</Link>
+      <DependentUpon>ShieldGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\BasicAlienFactory.Generated.cs">
       <Link>Factories\BasicAlienFactory.Generated.cs</Link>
     </Compile>
@@ -255,6 +262,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\RangedEnemyProjectileFactory.Generated.cs">
       <Link>Factories\RangedEnemyProjectileFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\ShieldGeneratorFactory.Generated.cs">
+      <Link>Factories\ShieldGeneratorFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
       <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
@@ -679,6 +689,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.Event.cs">
       <Link>Screens\GameScreen.Event.cs</Link>
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.Generated.cs">
       <Link>Screens\GameScreen.Generated.cs</Link>
@@ -686,6 +697,7 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.Generated.Event.cs">
       <Link>Screens\GameScreen.Generated.Event.cs</Link>
+      <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Screens\GameScreen.InfoBarButtons.cs">
       <Link>Screens\GameScreen.InfoBarButtons.cs</Link>
@@ -930,6 +942,10 @@
       <Name>laser_turret_sprite</Name>
       <Link>Assets\content\entities\structures\laserturret\laser_turret_sprite.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
+      <Name>shield_generator</Name>
+      <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\solarpanels\solar_sprite.png">
       <Name>solar_sprite</Name>
       <Link>Assets\content\entities\structures\solarpanels\solar_sprite.png</Link>
@@ -937,6 +953,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbon_tree.png">
       <Name>carbon_tree</Name>
       <Link>Assets\content\entities\structures\utility\carbontree\carbon_tree.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
       <Name>wind_turbine</Name>

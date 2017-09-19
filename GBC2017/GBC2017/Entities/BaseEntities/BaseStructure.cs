@@ -29,11 +29,11 @@ namespace GBC2017.Entities.BaseEntities
 	    public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
         public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
 	    public float HealthRemaining { get; private set; }
-        public double EnergyUsedLastSecond { get; private set; }
-	    public double MineralsUsedLastSecond { get; private set; }
+        public double EnergyReceivedLastSecond { get; private set; }
+	    public double MineralsReceivedLastSecond { get; private set; }
 	    private double _lastUsageUpdate;
-	    protected double _energyUsedThisSecond;
-        protected double _mineralsUsedThisSecond;
+	    protected double _energyReceivedThisSecond;
+        protected double _mineralsReceivedThisSecond;
 
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 
@@ -115,10 +115,10 @@ namespace GBC2017.Entities.BaseEntities
                 if (TimeManager.SecondsSince(_lastUsageUpdate) >= 1)
                 {
                     _lastUsageUpdate = TimeManager.CurrentTime;
-                    EnergyUsedLastSecond = _energyUsedThisSecond;
-                    MineralsUsedLastSecond = _mineralsUsedThisSecond;
+                    EnergyReceivedLastSecond = _energyReceivedThisSecond;
+                    MineralsReceivedLastSecond = _mineralsReceivedThisSecond;
 
-                    _energyUsedThisSecond = _mineralsUsedThisSecond = 0;
+                    _energyReceivedThisSecond = _mineralsReceivedThisSecond = 0;
                 }
 
                 if (HasInternalBattery)
@@ -199,7 +199,7 @@ namespace GBC2017.Entities.BaseEntities
 	        {
 	            HasSufficientEnergy = energyAmount >= EnergyRequestAmount;
 	        }
-	        _energyUsedThisSecond += energyAmount;
+	        _energyReceivedThisSecond += energyAmount;
 	    }
 
 	    public void DrainEnergy(double energyAmount)
