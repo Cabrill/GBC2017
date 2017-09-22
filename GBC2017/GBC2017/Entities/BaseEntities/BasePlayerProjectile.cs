@@ -5,6 +5,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -48,7 +49,7 @@ namespace GBC2017.Entities.BaseEntities
             //These have to be set here, because the object is pooled (reused)
 		    _hitTheGround = false;
 		    _startingPosition = null;
-        }
+		}
 
 		private void CustomActivity()
 		{
@@ -91,7 +92,14 @@ namespace GBC2017.Entities.BaseEntities
             TargetHitSound.Play();
         }
 
-		private void CustomDestroy()
+
+	    public void AddLightsToDarknessLayer(Layer darknessLayer)
+	    {
+            LayerProvidedByContainer.Remove(LightSpriteInstance);
+            SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	    }
+
+        private void CustomDestroy()
 		{
 
         }

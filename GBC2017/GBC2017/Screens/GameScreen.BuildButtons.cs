@@ -96,7 +96,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newPanel = SolarPanelsFactory.CreateNew(EntityLayer);
+                var newPanel = SolarPanelsFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newPanel);
 
                 //TODO:  message for player if no valid location found
@@ -110,7 +110,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newTurbine = WindTurbineFactory.CreateNew(EntityLayer);
+                var newTurbine = WindTurbineFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newTurbine);
 
                 //TODO:  message for player if no valid location found
@@ -127,7 +127,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newTurret = LaserTurretFactory.CreateNew(EntityLayer);
+                var newTurret = LaserTurretFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newTurret);
 
                 //TODO:  message for player if no valid location found
@@ -144,7 +144,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newBattery = BatteryFactory.CreateNew(EntityLayer);
+                var newBattery = BatteryFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newBattery);
 
                 //TODO:  message for player if no valid location found
@@ -159,7 +159,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newCarbonTree = CarbonTreeFactory.CreateNew(EntityLayer);
+                var newCarbonTree = CarbonTreeFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newCarbonTree);
 
                 //TODO:  message for player if no valid location found
@@ -173,7 +173,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
-                var newShieldGenerator = ShieldGeneratorFactory.CreateNew(EntityLayer);
+                var newShieldGenerator = ShieldGeneratorFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newShieldGenerator);
 
                 //TODO:  message for player if no valid location found

@@ -64,31 +64,59 @@ namespace GBC2017.Screens
             #endif
 
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
+
 		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
-            var createAHome = HomeFactory.CreateNew(EntityLayer);
+		    CameraZoomManager.Initialize();
+		    AdjustLayerOrthoValues();
+		    InitializeShaders();
+            SetCollisionVisibility();
+            PositionTiledMap();
 
-            FindValidLocationFor(createAHome);
+		    var createAHome = HomeFactory.CreateNew(WorldLayer);
+
+		    FindValidLocationFor(createAHome);
 		    createAHome.CurrentState = BaseStructure.VariableState.Built;
 		    createAHome.IsBeingPlaced = false;
 
-		    CameraZoomManager.Initialize();
-            SetCollisionVisibility();
-            PositionTiledMap();
-		    SetInfoBarControls();
+            SetInfoBarControls();
             SetBuildButtonControls();
 		    InitializeBaseEntities();
-		    gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
+
+
+            gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
 		    lastEnemyWave = TimeManager.CurrentTime;
 		    GameHasStarted = false;
 		}
 
-	    private void InitializeBaseEntities()
+	    private void InitializeShaders()
+	    {
+            WorldLayer.RenderTarget = WorldRenderTarget;
+	        LightLayer.RenderTarget = DarknessRenderTarget;
+
+            ShaderRendererInstance.WorldTexture = WorldRenderTarget;
+            ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
+            //ShaderRendererInstance.Effect = darknessshader;
+            ShaderRendererInstance.Viewer = Camera.Main;
+
+            ShaderRendererInstance.InitializeRenderVariables();
+        }
+
+        private void AdjustLayerOrthoValues()
+	    {
+	        LightLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        LightLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+	    }
+
+        private void InitializeBaseEntities()
 	    {
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
             EnergyManager.Initialize(AllStructuresList);
             MineralsManager.Initialize(AllStructuresList);
+	        LaserTurretProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
+
 	    }
 
 	    private void SetCollisionVisibility()
@@ -107,23 +135,33 @@ namespace GBC2017.Screens
 
 	    void PositionTiledMap()
 	    {
+	        //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
+            justgrass.AddToManagers(WorldLayer);
+	        justgrass.Z = -10f;
+
             //This centers the map in the middle of the screen
-	        justgrass.Position.X = -justgrass.Width / 2;
+            justgrass.Position.X = -justgrass.Width / 2;
 
             //This positions the map between the info bar and build button bar
-	        justgrass.Position.Y = justgrass.Height/3;
+	        justgrass.Position.Y = justgrass.Height/4;
+            
+            justgrass.RemoveFromManagersOneWay();
+            justgrass.AddToManagers(WorldLayer);
 
             //Set the play area to match the tilemap size/position
 	        PlayAreaRectangle.Y = justgrass.Position.Y- justgrass.Height/2.65f;
 	        PlayAreaRectangle.Height = justgrass.Height/1.65f;
 	        PlayAreaRectangle.Width = justgrass.Width;
+
+	        TreesSpriteInstance.Y = Camera.Main.OrthogonalHeight*0.3f;
+            //TreesSpriteInstance.Height = Camera.Main.OrthogonalHeight * 0.1f;
+            TreesSpriteInstance.RightTextureCoordinate = 6f;
 	    }
 #endregion
 
         #region Activity
         void CustomActivity(bool firstTimeCalled)
 		{
-            var curious = FlatRedBall.Graphics.Renderer.RenderBreaksAllocatedThisFrame;
 
 #if DEBUG
             HandleDebugInput();
@@ -173,11 +211,11 @@ namespace GBC2017.Screens
                     BaseEnemy newAlien;
                     if (i % 4 < 3)
                     {
-                        newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+                        newAlien = BasicAlienFactory.CreateNew(WorldLayer);
                     }
                     else
                     {
-                        newAlien = MeleeAlienFactory.CreateNew(EntityLayer);
+                        newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
                     }
                     newAlien.OnDeath += CreateResourceNotification;
 
@@ -365,17 +403,17 @@ namespace GBC2017.Screens
         #if DEBUG
         private void HandleDebugInput()
 	    {
-	        FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
+	        //FlatRedBall.Debugging.Debugger.Write(FlatRedBall.Gui.GuiManager.Cursor.WindowOver);
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew(EntityLayer);
+	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnLeftSide();
 	        }
 
@@ -474,7 +512,7 @@ namespace GBC2017.Screens
 	        {
 	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
 	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced &&
-	                                  PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, EntityLayer);
+	                                  PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, WorldLayer);
 
 	            if (shouldAllowDrag)
 	            {

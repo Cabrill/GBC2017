@@ -86,6 +86,10 @@
     <Compile Include="Entities\BaseEntities\BaseStructure.Generated.Event.cs">
       <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DarknessOverlay.cs" />
+    <Compile Include="Entities\DarknessOverlay.Generated.cs">
+      <DependentUpon>DarknessOverlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DebugVariables.cs" />
     <Compile Include="Entities\DebugVariables.Generated.cs">
       <DependentUpon>DebugVariables.cs</DependentUpon>
@@ -113,6 +117,10 @@
     <Compile Include="Entities\Projectiles\RangedEnemyProjectile.cs" />
     <Compile Include="Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ShaderRenderer.cs" />
+    <Compile Include="Entities\ShaderRenderer.Generated.cs">
+      <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Structures\Combat\LaserTurret.cs" />
     <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
@@ -454,6 +462,11 @@
       <Name>Structure_Placed</Name>
       <Link>content\globalcontent\sounds\structure_placed.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>darknessshader</Name>
+      <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
     <None Include="content\entities\enemies\basicalien\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -525,6 +538,10 @@
     <None Include="content\globalcontent\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>starry_sky</Name>
+    </None>
+    <None Include="content\globalcontent\treeline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>treeline</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -669,10 +686,6 @@
     <None Include="content\gumproject\fontcache\font72moire extrabold_o2_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font72Moire ExtraBold_o2_1</Name>
-    </None>
-    <None Include="content\gumproject\gumcontent\horizons\treeline.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>treeline</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

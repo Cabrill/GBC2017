@@ -33,8 +33,6 @@ namespace GBC2017.GumRuntimes
         {
             Width = 100 * CameraZoomManager.GumCoordOffset;
             Height = 100 * CameraZoomManager.GumCoordOffset;
-            TreeHeightScale = CameraZoomManager.GumCoordOffset;
-            TreeWidthScale = CameraZoomManager.GumCoordOffset;
             X = -Camera.Main.X * CameraZoomManager.GumCoordOffset;
             Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
             UpdateLayout(false, true);

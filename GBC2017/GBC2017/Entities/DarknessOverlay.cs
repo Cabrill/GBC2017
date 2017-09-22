@@ -5,17 +5,13 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
-using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
-using GBC2017.Entities.BaseEntities;
-using GBC2017.Entities.Projectiles;
-using GBC2017.Factories;
 
-namespace GBC2017.Entities.Enemies
+namespace GBC2017.Entities
 {
-	public partial class BasicAlien
+	public partial class DarknessOverlay
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -23,10 +19,10 @@ namespace GBC2017.Entities.Enemies
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-        {
-            rangedAttackSound = Alien_Shoot.CreateInstance();
-            rangedChargeSound = Alien_Powerup.CreateInstance();
-        }
+		{
+
+
+		}
 
 		private void CustomActivity()
 		{
@@ -34,13 +30,7 @@ namespace GBC2017.Entities.Enemies
 
 		}
 
-	    protected override BaseEnemyProjectile CreateProjectile()
-	    {
-	        var newProjectile = RangedEnemyProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        return newProjectile;
-	    }
-
-        private void CustomDestroy()
+		private void CustomDestroy()
 		{
 
 

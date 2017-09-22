@@ -141,6 +141,13 @@
       <Link>Entities\BaseEntities\BaseStructure.Generated.Event.cs</Link>
       <DependentUpon>BaseStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\DarknessOverlay.cs">
+      <Link>Entities\DarknessOverlay.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\DarknessOverlay.Generated.cs">
+      <Link>Entities\DarknessOverlay.Generated.cs</Link>
+      <DependentUpon>DarknessOverlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\DebugVariables.cs">
       <Link>Entities\DebugVariables.cs</Link>
     </Compile>
@@ -189,6 +196,13 @@
     <Compile Include="..\..\GBC2017\Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
       <Link>Entities\Projectiles\RangedEnemyProjectile.Generated.cs</Link>
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\ShaderRenderer.cs">
+      <Link>Entities\ShaderRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\ShaderRenderer.Generated.cs">
+      <Link>Entities\ShaderRenderer.Generated.cs</Link>
+      <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.cs">
       <Link>Entities\Structures\Combat\LaserTurret.cs</Link>
@@ -898,6 +912,10 @@
       <Name>Structure_Placed</Name>
       <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
+      <Name>darknessshader</Name>
+      <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\basicalien\animationchainlistfile.achx</Link>
@@ -969,6 +987,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
       <Name>starry_sky</Name>
       <Link>Assets\content\globalcontent\starry_sky.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\treeline.png">
+      <Name>treeline</Name>
+      <Link>Assets\content\globalcontent\treeline.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
       <Name>buildbar</Name>
@@ -1149,10 +1171,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_1.png">
       <Name>font72moire extrabold_o2_1</Name>
       <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumcontent\horizons\treeline.png">
-      <Name>treeline</Name>
-      <Link>Assets\content\gumproject\gumcontent\horizons\treeline.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumproject.gumx">
       <Name>gumproject</Name>
