@@ -116,8 +116,10 @@ namespace GBC2017.Screens
             MineralsManager.Initialize(AllStructuresList);
 	        LaserTurretProjectileFactory.EntitySpawned +=
 	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
+	        ShieldGeneratorFactory.EntitySpawned +=
+	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
 
-	    }
+        }
 
 	    private void SetCollisionVisibility()
 	    {

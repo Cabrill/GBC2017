@@ -49,6 +49,7 @@ namespace GBC2017.Entities.BaseEntities
             //These have to be set here, because the object is pooled (reused)
 		    _hitTheGround = false;
 		    _startingPosition = null;
+		    ShadowSprite.Visible = false;
 		}
 
 		private void CustomActivity()
@@ -56,21 +57,21 @@ namespace GBC2017.Entities.BaseEntities
 		    if (!_startingPosition.HasValue)
 		    {
 		        _startingPosition = Position;
-		        _startingElevation = ShadowSprite.RelativeY;
-		        _startingShadowWidth = ShadowSprite.Width;
-		        _startingShadowHeight = ShadowSprite.Height;
-		        _startingShadowAlpha = ShadowSprite.Alpha;
+		        _startingElevation = LightSpriteInstance.RelativeY;
+		        _startingShadowWidth = LightSpriteInstance.Width;
+		        _startingShadowHeight = LightSpriteInstance.Height;
+		        _startingShadowAlpha = LightSpriteInstance.Alpha;
 		    }
 
 		    var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
 		    var negativeModifier = 1 - (pctDistanceTraveled / 2);
 		    var shadowElevation = _startingElevation * negativeModifier;
 
-		    ShadowSprite.RelativeY = CircleInstance.RelativeY = shadowElevation;
+		    ShadowSprite.RelativeY = CircleInstance.RelativeY = LightSpriteInstance.RelativeY = shadowElevation;
 		    SpriteInstance.RelativeY = _startingElevation * pctDistanceTraveled / 2;
-		    ShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-		    ShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-		    ShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+		    LightSpriteInstance.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
+		    LightSpriteInstance.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
+		    LightSpriteInstance.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
 
 		    _hitTheGround = pctDistanceTraveled >= 1;
 

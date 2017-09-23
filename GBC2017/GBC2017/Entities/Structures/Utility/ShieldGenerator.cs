@@ -6,6 +6,7 @@ using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Glue.StateInterpolation;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -21,6 +22,10 @@ namespace GBC2017.Entities.Structures.Utility
 	    private double _lastRegenerationTime;
 	    public bool ShieldIsUp;
 	    private bool _shieldWasUp;
+	    private static bool _gameHasStarted = false;
+
+	    Tweener _lastShieldSizeTweener;
+	    Tweener _lastShieldColorTweener;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -30,11 +35,13 @@ namespace GBC2017.Entities.Structures.Utility
 		private void CustomInitialize()
         {
             ShieldSpriteInstance.RelativeY = ShieldSpriteInstance.Height / 5;
+            LightSpriteInstance.RelativeY = LightSpriteInstance.Height / 5;
 
             RefreshPolygon();
 
             PolygonShieldInstance.Visible = true;
             ShieldSpriteInstance.Visible = false;
+            LightSpriteInstance.Visible = false;
 
             AfterIsBeingPlacedSet += ShieldGenerator_AfterIsBeingPlacedSet;
             _shieldSpriteScale = ShieldSpriteInstance.TextureScale;
@@ -43,6 +50,8 @@ namespace GBC2017.Entities.Structures.Utility
         private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
         {
             PolygonShieldInstance.Visible = IsBeingPlaced;
+            ShieldIsUp = true;
+            CurrentShieldHealth = MaximumShieldHealth;
         }
 
         private void RefreshPolygon()
@@ -91,33 +100,9 @@ namespace GBC2017.Entities.Structures.Utility
             }
         }
 
-	    private void UpdateShieldColor(bool shouldDip)
-	    {
-	        const float dipSeconds = 0.5f;
-	        var percentHealth = CurrentShieldHealth / MaximumShieldHealth;
-
-            if (shouldDip)
-	        {
-	            var dipLevel = Math.Min(1f, percentHealth * 1.5f);
-
-	            //Immmediately dip 
-	            ShieldSpriteInstance.Red = 1 - dipLevel;
-	            ShieldSpriteInstance.Green = dipLevel;
-
-	            //Recover to actual level
-	            ShieldSpriteInstance.Tween("Red", 1 - percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut);
-	            ShieldSpriteInstance.Tween("Green", percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut);
-	        }
-	        else
-	        {
-	            ShieldSpriteInstance.Red = 1 - percentHealth;
-	            ShieldSpriteInstance.Green = percentHealth;
-            }
-	    }
-
 	    private void CustomActivity()
 	    {
-	        if (TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
+	        if (_gameHasStarted && TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
 	        {
 	            _shieldWasUp = ShieldIsUp;
 
@@ -127,7 +112,7 @@ namespace GBC2017.Entities.Structures.Utility
 	            }
 	            else
 	            {
-	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / _energyReceivedThisSecond);
+	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / Math.Max(1,_energyReceivedThisSecond));
 	            }
 
 	            ShieldIsUp = (ShieldIsUp && CurrentShieldHealth > 0) || 
@@ -149,33 +134,148 @@ namespace GBC2017.Entities.Structures.Utility
             }
 	    }
 
-	    private void GrowShield()
+	    private void UpdateShieldColor(bool shouldDip)
 	    {
-	        var secondsToGrow = 1f;
-	        ShieldSpriteInstance.Visible = true;
-            ShieldSpriteInstance.TextureScale = 0;
-	        ShieldSpriteInstance.Alpha = 0;
-            ShieldSpriteInstance.Tween("TextureScale", _shieldSpriteScale, secondsToGrow, InterpolationType.Bounce, Easing.InOut);
-	        ShieldSpriteInstance.Tween("Alpha", 1, secondsToGrow, InterpolationType.Linear, Easing.InOut);
+	        const float dipSeconds = 0.25f;
+	        var percentHealth = CurrentShieldHealth / MaximumShieldHealth;
+
+	        if (shouldDip)
+	        {
+	            var dipLevel = Math.Min(1f, percentHealth * 0.6f);
+
+	            //Immmediately dip 
+	            ShieldSpriteInstance.Red = (1 - dipLevel)/2;
+	            ShieldSpriteInstance.Green = dipLevel;
+
+	            //Recover to actual level
+	            if (_lastShieldColorTweener != null && _lastShieldColorTweener.Running)
+	            {
+	                _lastShieldColorTweener.Stop();
+	                _lastShieldColorTweener = null;
+	            }
+
+	            _lastShieldColorTweener =
+	                new Tweener(dipLevel, percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut)
+	                {
+	                    PositionChanged = HandleShieldColorPositionSet,
+	                    Owner = this
+	                };
+                _lastShieldColorTweener.Ended += LastShieldColorTweenerOnEnded;
+
+	            TweenerManager.Self.Add(_lastShieldColorTweener);
+	            _lastShieldColorTweener.Start();
+
+            }
+            else if (_lastShieldColorTweener == null || !_lastShieldColorTweener.Running)
+	        {
+	            LightSpriteInstance.Red = ShieldSpriteInstance.Red = (1 - percentHealth)/2;
+	            LightSpriteInstance.Green = ShieldSpriteInstance.Green = percentHealth;
+	        }
+	    }
+
+	    private void LastShieldColorTweenerOnEnded()
+	    {
+	        const float dipSeconds = 0.25f;
+            var percentHealth = CurrentShieldHealth / MaximumShieldHealth;
+
+            if (_lastShieldColorTweener != null && _lastShieldColorTweener.Running)
+	        {
+	            _lastShieldColorTweener.Stop();
+	            _lastShieldColorTweener = null;
+	        }
+
+	        _lastShieldColorTweener =
+	            new Tweener(ShieldSpriteInstance.Green, percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut)
+	            {
+	                PositionChanged = HandleShieldColorPositionSet,
+	                Owner = this
+	            };
+	        _lastShieldColorTweener.Ended += LastShieldColorTweenerOnEnded;
+
+	        TweenerManager.Self.Add(_lastShieldColorTweener);
+	        _lastShieldColorTweener.Start();
         }
 
-        private void PopShield()
-        {
-            var secondsToPop = 2f;
-	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
-            ShieldSpriteInstance.Tween("TextureScale", 0, secondsToPop, InterpolationType.Exponential, Easing.In);
-	        ShieldSpriteInstance.Tween("Alpha", 0, secondsToPop, InterpolationType.Linear, Easing.InOut);
-	        this.Call(() => ShieldSpriteInstance.Visible = false).After(secondsToPop);
+
+	    private void HandleShieldColorPositionSet(float newposition)
+	    {
+	        LightSpriteInstance.Red = ShieldSpriteInstance.Red = (1 - newposition)/2;
+	        LightSpriteInstance.Green = ShieldSpriteInstance.Green = newposition;
 	    }
+
+	    private void GrowShield()
+	    {
+            var secondsToGrow = 1f;
+	        LightSpriteInstance.Visible = ShieldSpriteInstance.Visible = true;
+	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale = 0f;
+	        LightSpriteInstance.Alpha = ShieldSpriteInstance.Alpha = 0f;
+
+            if (_lastShieldSizeTweener != null && _lastShieldSizeTweener.Running)
+	        {
+	            _lastShieldSizeTweener.Stop();
+	            _lastShieldSizeTweener = null;
+	        }
+
+	        _lastShieldSizeTweener =
+	            new Tweener(0, 1, secondsToGrow, InterpolationType.Bounce, Easing.InOut)
+	            {
+	                PositionChanged = HandleShieldSizePositionSet,
+	                Owner = this
+	            };
+
+	        TweenerManager.Self.Add(_lastShieldSizeTweener);
+	        _lastShieldSizeTweener.Start();
+        }
+
+	    private void HandleShieldSizePositionSet(float newposition)
+	    {
+	        ShieldSpriteInstance.TextureScale = newposition * _shieldSpriteScale;
+	        ShieldSpriteInstance.Alpha = newposition;
+	        
+	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f;
+	        LightSpriteInstance.Alpha = newposition;
+        }
+
+	    private void PopShield()
+        {
+            const float secondsToPop = 1f;
+	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
+            ShieldSpriteInstance.Alpha = 1f;
+
+            if (_lastShieldSizeTweener != null && _lastShieldSizeTweener.Running)
+            {
+                _lastShieldSizeTweener.Stop();
+                _lastShieldSizeTweener = null;
+            }
+
+            var tweener = new Tweener(1, 0, secondsToPop, InterpolationType.Quintic, Easing.Out);
+
+            tweener.PositionChanged = HandleShieldSizePositionSet;
+            tweener.Ended += () =>
+            {
+                ShieldSpriteInstance.Visible = false;
+                LightSpriteInstance.Visible = false;
+            };
+
+            tweener.Owner = this;
+
+            TweenerManager.Self.Add(tweener);
+            tweener.Start();
+        }
 
 	    public void NotifyGameStart()
 	    {
-	        CurrentShieldHealth = MaximumShieldHealth;
-	        ShieldIsUp = true;
+	        _gameHasStarted = true;
             GrowShield();
         }
 
-		private void CustomDestroy()
+	    public void AddLightsToDarknessLayer(Layer darknessLayer)
+	    {
+	        LayerProvidedByContainer.Remove(LightSpriteInstance);
+	        SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	    }
+
+        private void CustomDestroy()
 		{
 
 

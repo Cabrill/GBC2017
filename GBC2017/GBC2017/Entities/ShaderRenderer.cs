@@ -93,7 +93,7 @@ namespace GBC2017.Entities
         
         private void DrawDarknessToRenderTarget(Camera camera)
         {
-            DarknessAlpha = 0.3f;
+            DarknessAlpha = 0.8f;
 
             var destinationRectangle = camera.DestinationRectangle;
 
