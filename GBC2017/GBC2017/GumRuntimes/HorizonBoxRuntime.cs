@@ -13,7 +13,7 @@ namespace GBC2017.GumRuntimes
     {
         public float SunPositionY => SunSprite.AbsoluteY+SunSprite.Component.Height/2;
         public float MoonPositionY => MoonSprite.AbsoluteY+MoonSprite.Component.Height/2;
-        public float HorizonPositionY => SkyRectangle.Component.Height;
+        public float HorizonPositionY => SkyRectangle.AbsoluteY;
 
         private int skyRed;
         private int skyGreen;

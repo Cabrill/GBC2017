@@ -8,6 +8,7 @@ using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
+using FlatRedBall.Gum;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Utilities;
@@ -39,6 +40,7 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffect meleeAttackSound;
 
 	    private ResourceBarRuntime _healthBar;
+	    private float _healthBarWidth;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -68,8 +70,8 @@ namespace GBC2017.Entities.BaseEntities
 		    _lastMeleeAttackTime = TimeManager.CurrentTime;
 
             HealthRemaining = MaximumHealth;
-
-		    _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);		    
+		    _healthBarWidth = SpriteInstance.Width;
+            _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);		    
 		}
 
 	    public static void Initialize(AxisAlignedRectangle playArea, PositionedObjectList<BaseStructure> potentialTargetList)
@@ -114,8 +116,8 @@ namespace GBC2017.Entities.BaseEntities
 	            _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
 	            _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Y = (Y + SpriteInstance.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-	            _healthBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
-	            _healthBar.Height = SpriteInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
+	            _healthBar.Width = _healthBarWidth * CameraZoomManager.GumCoordOffset;
+	            _healthBar.Height = _healthBarWidth / 5 * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Visible = true;
 	        }
 	        else
@@ -183,7 +185,18 @@ namespace GBC2017.Entities.BaseEntities
 
         }
 
-	    private ResourceBarRuntime CreateResourceBar(ResourceBarRuntime.BarType barType)
+	    protected void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, FlatRedBall.Graphics.Layer hudLayer)
+	    {
+	        LayerProvidedByContainer.Remove(CircleInstance);
+	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+
+	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
+
+	        frbLayer.Remove(_healthBar);
+	        _healthBar.MoveToLayer(frbLayer);
+	    }
+
+        private ResourceBarRuntime CreateResourceBar(ResourceBarRuntime.BarType barType)
 	    {
 	        var newBar = new ResourceBarRuntime
 	        {

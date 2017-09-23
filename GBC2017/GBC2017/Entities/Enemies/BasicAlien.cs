@@ -40,6 +40,17 @@ namespace GBC2017.Entities.Enemies
 	        return newProjectile;
 	    }
 
+	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
+	    {
+	        base.AddSpritesToLayers(darknessLayer, hudLayer);
+
+	        if (HasLightSource)
+	        {
+	            //LayerProvidedByContainer.Remove(LightSpriteInstance);
+	            //SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	        }
+	    }
+
         private void CustomDestroy()
 		{
 

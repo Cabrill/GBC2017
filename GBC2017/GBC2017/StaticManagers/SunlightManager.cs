@@ -51,7 +51,7 @@ namespace GBC2017.StaticManagers
 
         private static float GetSunEffectiveness()
         {
-            var sunlight = _horizon.SunPositionY-50f;
+            var sunlight = (_horizon.SunPositionY - HorizonPositionY) / CameraZoomManager.GumCoordOffset;
             return Math.Max(0,1 - (sunlight / 500));
         }
 
@@ -59,7 +59,7 @@ namespace GBC2017.StaticManagers
         {
             //Moonlight is 1/345th as effective as sunlight for powering solar panels
             //https://www.quora.com/Can-moon-light-produce-electricity-from-solar-panels-at-night-Can-moon-light-generate-the-electron-hole-pair-in-a-solar-cell
-            var moonlight = _horizon.MoonPositionY - 50f;
+            var moonlight = (_horizon.MoonPositionY - HorizonPositionY) / CameraZoomManager.GumCoordOffset;
             return Math.Max(0,(1 - (moonlight /500)) / 345);
         }
     }

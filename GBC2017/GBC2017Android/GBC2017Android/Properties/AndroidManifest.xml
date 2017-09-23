@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="4" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.03">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="5" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.05">
 	<uses-sdk android:minSdkVersion="19" />
 	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />

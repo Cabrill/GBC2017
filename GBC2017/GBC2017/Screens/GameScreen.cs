@@ -121,6 +121,9 @@ namespace GBC2017.Screens
 
 	        ShaderOutputLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
 	        ShaderOutputLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+
+	        InfoLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        InfoLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
         }
 
 	    private void InitializeManagers()
@@ -139,31 +142,37 @@ namespace GBC2017.Screens
 	    private void InitializeFactories()
 	    {
 	        HomeFactory.EntitySpawned +=
-	            home => home.AddSpritesToLayers(LightLayer, HUDLayer);
+	            home => home.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        LaserTurretProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddSpritesToLayers(LightLayer, HUDLayer);
+	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        RangedEnemyProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddSpritesToLayers(LightLayer, HUDLayer);
+	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        LaserTurretFactory.EntitySpawned +=
-	            turrent => turrent.AddSpritesToLayers(LightLayer, HUDLayer);
+	            turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        ShieldGeneratorFactory.EntitySpawned +=
-	            shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, HUDLayer);
+	            shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        SolarPanelsFactory.EntitySpawned +=
-	            solarpanel => solarpanel.AddSpritesToLayers(LightLayer, HUDLayer);
+	            solarpanel => solarpanel.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        WindTurbineFactory.EntitySpawned +=
-	            windturbine => windturbine.AddSpritesToLayers(LightLayer, HUDLayer);
+	            windturbine => windturbine.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        BatteryFactory.EntitySpawned +=
-	            battery => battery.AddSpritesToLayers(LightLayer, HUDLayer);
+	            battery => battery.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        CarbonTreeFactory.EntitySpawned +=
-	            carbontree => carbontree.AddSpritesToLayers(LightLayer, HUDLayer);
+	            carbontree => carbontree.AddSpritesToLayers(LightLayer, InfoLayer);
+
+	        BasicAlienFactory.EntitySpawned +=
+	            basicalien => basicalien.AddSpritesToLayers(LightLayer, InfoLayer);
+
+	        MeleeAlienFactory.EntitySpawned +=
+	            meleealien => meleealien.AddSpritesToLayers(LightLayer, InfoLayer);
         }
 
 	    private void SetCollisionVisibility()
@@ -242,7 +251,7 @@ namespace GBC2017.Screens
 
 	    private void TemporaryDebugWaveSpawning()
 	    {
-	        if (TimeManager.SecondsSince(lastEnemyWave) > 20)
+	        if (TimeManager.SecondsSince(lastEnemyWave) > 30)
 	        {
 	            lastEnemyWave = TimeManager.CurrentTime;
 

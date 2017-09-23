@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
@@ -8,6 +9,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
+using FlatRedBall.Gum;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
 using GBC2017.GumRuntimes;
@@ -264,6 +266,16 @@ namespace GBC2017.Entities.BaseEntities
 
 	        LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
-	    }
+
+	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
+
+            if (HasInternalBattery)
+	        {
+                frbLayer.Remove(_energyBar);
+                _energyBar.MoveToLayer(frbLayer);
+            }
+            frbLayer.Remove(_healthBar);
+	        _healthBar.MoveToLayer(frbLayer);
+        }
 	}
 }
