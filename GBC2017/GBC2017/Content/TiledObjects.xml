@@ -31,10 +31,14 @@
     <property name="RangedAttackRadius" type="float" default="16" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
-    <property name="DamageInflicted" type="float" default="5" />
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Altitude" type="float" default="20" />
   </objecttype>
   <objecttype name="RangedEnemyProjectile">
     <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
+    <property name="Altitude" type="float" default="20" />
   </objecttype>
   <objecttype name="LaserTurret">
     <property name="AttackDamage" type="float" default="3" />

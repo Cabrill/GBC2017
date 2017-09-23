@@ -43,7 +43,9 @@ namespace GBC2017.Entities.BaseEntities
 
 		private void CustomActivity()
 		{
-		    if (IsBeingPlaced == false)
+		    PerformFiringActivity();
+
+            if (IsBeingPlaced == false)
 		    {
 		        if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {

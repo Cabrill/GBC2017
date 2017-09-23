@@ -49,7 +49,6 @@ namespace GBC2017.Entities.BaseEntities
             //These have to be set here, because the object is pooled (reused)
 		    _hitTheGround = false;
 		    _startingPosition = null;
-		    ShadowSprite.Visible = false;
 		}
 
 		private void CustomActivity()
@@ -57,23 +56,33 @@ namespace GBC2017.Entities.BaseEntities
 		    if (!_startingPosition.HasValue)
 		    {
 		        _startingPosition = Position;
-		        _startingElevation = LightSpriteInstance.RelativeY;
-		        _startingShadowWidth = LightSpriteInstance.Width;
-		        _startingShadowHeight = LightSpriteInstance.Height;
-		        _startingShadowAlpha = LightSpriteInstance.Alpha;
+                _startingElevation = Altitude;
+		        _startingShadowWidth = LightOrShadowSprite.Width;
+		        _startingShadowHeight = LightOrShadowSprite.Height;
+		        _startingShadowAlpha = LightOrShadowSprite.Alpha;
 		    }
 
 		    var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
-		    var negativeModifier = 1 - (pctDistanceTraveled / 2);
-		    var shadowElevation = _startingElevation * negativeModifier;
+		    var negativeModifier = 1 - pctDistanceTraveled;
 
-		    ShadowSprite.RelativeY = CircleInstance.RelativeY = LightSpriteInstance.RelativeY = shadowElevation;
-		    SpriteInstance.RelativeY = _startingElevation * pctDistanceTraveled / 2;
-		    LightSpriteInstance.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-		    LightSpriteInstance.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-		    LightSpriteInstance.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+		    if (HasLightSource)
+		    {
+		        SpriteInstance.RelativeY = _startingElevation * negativeModifier;
 
-		    _hitTheGround = pctDistanceTraveled >= 1;
+		        LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
+                LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
+                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
+            }
+		    else
+		    {
+		        SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+
+		        LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
+		        LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
+		        LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+		    }
+
+            _hitTheGround = pctDistanceTraveled >= 1;
 
 		    if (_hitTheGround)
 		    {
@@ -96,8 +105,11 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void AddLightsToDarknessLayer(Layer darknessLayer)
 	    {
-            LayerProvidedByContainer.Remove(LightSpriteInstance);
-            SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	        if (HasLightSource)
+	        {
+	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
+	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	        }
 	    }
 
         private void CustomDestroy()

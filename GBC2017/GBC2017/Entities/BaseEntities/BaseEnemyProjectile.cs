@@ -5,6 +5,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -30,56 +31,66 @@ namespace GBC2017.Entities.BaseEntities
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
         /// added to managers will not have this method called.
         /// </summary>
-		private void CustomInitialize()
-		{
+	    private void CustomInitialize()
+	    {
 #if DEBUG
-		    if (DebugVariables.ShowDebugShapes)
-		    {
-		        CircleInstance.Visible = true;
-		    }
-		    else
+	        if (DebugVariables.ShowDebugShapes)
+	        {
+	            CircleInstance.Visible = true;
+	        }
+	        else
 #endif
-		    {
-		        CircleInstance.Visible = false;
-		    }
+	        {
+	            CircleInstance.Visible = false;
+	        }
 
-		    //These have to be set here, because the object is pooled (reused)
-		    _hitTheGround = false;
-		    _startingPosition = null;
-        }
+	        //These have to be set here, because the object is pooled (reused)
+	        _hitTheGround = false;
+	        _startingPosition = null;
+	    }
 
-		private void CustomActivity()
-		{
-		    if (!_startingPosition.HasValue)
-		    {
-		        _startingPosition = Position;
-		        _startingElevation = ShadowSprite.RelativeY;
-		        _startingShadowWidth = ShadowSprite.Width;
-		        _startingShadowHeight = ShadowSprite.Height;
-		        _startingShadowAlpha = ShadowSprite.Alpha;
-		    }
+	    private void CustomActivity()
+	    {
+	        if (!_startingPosition.HasValue)
+	        {
+	            _startingPosition = Position;
+	            _startingElevation = Altitude;
+	            _startingShadowWidth = LightOrShadowSprite.Width;
+	            _startingShadowHeight = LightOrShadowSprite.Height;
+	            _startingShadowAlpha = LightOrShadowSprite.Alpha;
+	        }
 
-		    var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
-		    var negativeModifier = 1 - (pctDistanceTraveled / 2);
-		    var shadowElevation = _startingElevation * negativeModifier;
+	        var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
+	        var negativeModifier = 1 - pctDistanceTraveled;
 
-		    ShadowSprite.RelativeY = CircleInstance.RelativeY = shadowElevation;
-		    SpriteInstance.RelativeY = _startingElevation * pctDistanceTraveled / 2;
-		    ShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-		    ShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-		    ShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+	        if (HasLightSource)
+	        {
+	            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
 
-		    _hitTheGround = pctDistanceTraveled >= 1;
+	            LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
+	            LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
+	            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
+	        }
+	        else
+	        {
+	            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
 
-		    if (_hitTheGround)
-		    {
-		        PlayHitGroundSound();
-                Destroy();
-		    }
+	            LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
+	            LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
+	            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+	        }
 
-        }
+	        _hitTheGround = pctDistanceTraveled >= 1;
 
-	    public void PlayHitTargetSound()
+	        if (_hitTheGround)
+	        {
+	            PlayHitGroundSound();
+
+	            Destroy();
+	        }
+	    }
+
+        public void PlayHitTargetSound()
 	    {
 	        try
 	        {
@@ -94,6 +105,15 @@ namespace GBC2017.Entities.BaseEntities
         private void PlayHitGroundSound()
 	    {
             HitGroundSound.Play();
+	    }
+
+	    public void AddLightsToDarknessLayer(Layer darknessLayer)
+	    {
+	        if (HasLightSource)
+	        {
+	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
+	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	        }
 	    }
 
 
