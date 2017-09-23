@@ -133,7 +133,7 @@
           <InstanceName>WorldLayer</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>false</IndependentOfCamera>
+          <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
         </NamedObjectSave>
         <NamedObjectSave>

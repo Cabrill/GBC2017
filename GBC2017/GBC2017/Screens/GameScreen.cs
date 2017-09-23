@@ -104,9 +104,18 @@ namespace GBC2017.Screens
 
         private void AdjustLayerOrthoValues()
 	    {
-	        LightLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        //BackgroundLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        //BackgroundLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+
+            WorldLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        WorldLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+
+            LightLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
 	        LightLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
-	    }
+
+	        ShaderOutputLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+	        ShaderOutputLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+        }
 
         private void InitializeBaseEntities()
 	    {
@@ -434,7 +443,8 @@ namespace GBC2017.Screens
 
                     //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
                     HorizonBoxInstance.ReactToCameraChange();
-                }
+	                AdjustLayerOrthoValues();
+	            }
                 else if (GuiManager.Cursor.ObjectGrabbed == null && !InputManager.TouchScreen.IsPinching && (gesture.GestureType & (GestureType.FreeDrag | GestureType.HorizontalDrag |
                                                  GestureType.VerticalDrag)) > 0)
 	            {

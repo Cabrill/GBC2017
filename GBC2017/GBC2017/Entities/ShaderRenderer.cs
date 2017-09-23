@@ -82,6 +82,10 @@ namespace GBC2017.Entities
         private void DrawToScreen(Camera camera)
         {
             var destinationRectangle = camera.DestinationRectangle;
+            if (global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug)
+            {
+                destinationRectangle.Y -= RenderingLibrary.SystemManagers.Default.Renderer.GraphicsDevice.Viewport.Y;
+            }
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
@@ -89,6 +93,8 @@ namespace GBC2017.Entities
             spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
             spriteBatch.Draw(RenderTargetInstance, destinationRectangle, Color.White);
             spriteBatch.End();
+
+            FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
         }
         
         private void DrawDarknessToRenderTarget(Camera camera)
@@ -96,6 +102,10 @@ namespace GBC2017.Entities
             DarknessAlpha = 0.8f;
 
             var destinationRectangle = camera.DestinationRectangle;
+            if (global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug)
+            {
+                destinationRectangle.Y -= RenderingLibrary.SystemManagers.Default.Renderer.GraphicsDevice.Viewport.Y;
+            }
 
             var darknessColor = new Color(0, 0, 0, DarknessAlpha);
             var blendState = new BlendState
