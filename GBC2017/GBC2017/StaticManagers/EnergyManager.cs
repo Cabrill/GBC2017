@@ -41,7 +41,7 @@ namespace GBC2017.ResourceManagers
 
         public static void Update(bool isPregame)
         {
-            if (isPregame)
+            if (isPregame && _home != null)
             {
                 if (_energyBuildDebt > 0)
                 {

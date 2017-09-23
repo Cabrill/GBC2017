@@ -103,14 +103,17 @@ namespace GBC2017.Entities.BaseEntities
         }
 
 
-	    public void AddLightsToDarknessLayer(Layer darknessLayer)
+	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
 	        if (HasLightSource)
 	        {
 	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
 	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
 	        }
-	    }
+
+	        LayerProvidedByContainer.Remove(CircleInstance);
+	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+        }
 
         private void CustomDestroy()
 		{

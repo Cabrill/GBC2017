@@ -5,6 +5,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -30,7 +31,18 @@ namespace GBC2017.Entities.Structures.Utility
 
 		}
 
-		private void CustomDestroy()
+	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
+	    {
+	        base.AddSpritesToLayers(darknessLayer, hudLayer);
+
+	        if (HasLightSource)
+	        {
+	            //LayerProvidedByContainer.Remove(LightSpriteInstance);
+	            //SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	        }
+	    }
+
+        private void CustomDestroy()
 		{
 
 

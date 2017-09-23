@@ -5,12 +5,14 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using GBC2017.StaticManagers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StateInterpolationPlugin;
 
 namespace GBC2017.Entities
 {
@@ -24,11 +26,20 @@ namespace GBC2017.Entities
 
         public Texture2D WorldTexture { get; set; }
         public Texture2D DarknessTexture { get; set; }
+        public Texture2D BackgroundTexture { get; set; }
         public Texture2D BlowoutTexture { get; set; }
 
         public float DarknessAlpha { get; set; }
 
         public PositionedObject Viewer { get; set; }
+
+        private Color WorldColor = Color.White;
+        private Tweener _lastColorTween;
+        private Color DayColor = Color.White;
+        private Color NightColor = Color.SkyBlue;
+        private Vector3 DayColorAsVector;
+        private Vector3 NightColorAsVector;
+
 
         #endregion
 
@@ -41,6 +52,8 @@ namespace GBC2017.Entities
         private void CustomInitialize()
         {
             spriteBatch = new SpriteBatch(FlatRedBallServices.GraphicsDevice);
+            DayColorAsVector = DayColor.ToVector3();
+            NightColorAsVector = NightColor.ToVector3();
         }
 
         #endregion
@@ -79,6 +92,56 @@ namespace GBC2017.Entities
             DrawToScreen(camera);
         }
 
+        private void UpdateWorldColor()
+        {
+            const float secondsToTransitionColor = 5f;
+            if (_lastColorTween != null && _lastColorTween.Running) return;
+
+            if (WorldColor == DayColor && SunlightManager.MoonIsUp)
+            {
+                _lastColorTween =
+                    new Tweener(1, 0, secondsToTransitionColor, InterpolationType.Linear, Easing.InOut)
+                    {
+                        PositionChanged = HandleColorPositionChanged
+                    };
+
+                _lastColorTween.Ended += () =>
+                {
+                    WorldColor = NightColor;
+                    _lastColorTween.Stop();
+                };
+
+                _lastColorTween.Owner = this;
+
+                TweenerManager.Self.Add(_lastColorTween);
+                _lastColorTween.Start();
+            }
+            else if (WorldColor == NightColor && SunlightManager.SunIsUp)
+            {
+                _lastColorTween =
+                    new Tweener(0, 1, secondsToTransitionColor, InterpolationType.Linear, Easing.InOut)
+                    {
+                        PositionChanged = HandleColorPositionChanged
+                    };
+
+                _lastColorTween.Ended += () =>
+                {
+                    WorldColor = DayColor;
+                    _lastColorTween.Stop();
+                };
+
+                _lastColorTween.Owner = this;
+
+                TweenerManager.Self.Add(_lastColorTween);
+                _lastColorTween.Start();
+            }
+        }
+
+        private void HandleColorPositionChanged(float newposition)
+        {
+            WorldColor = new Color(DayColorAsVector * newposition + NightColorAsVector * (1 - newposition));
+        }
+
         private void DrawToScreen(Camera camera)
         {
             var destinationRectangle = camera.DestinationRectangle;
@@ -89,8 +152,11 @@ namespace GBC2017.Entities
 
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(null);
 
+            UpdateWorldColor();
+
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
-            spriteBatch.Draw(WorldTexture, destinationRectangle, Color.White);
+            spriteBatch.Draw(BackgroundTexture, destinationRectangle, Color.White);
+            spriteBatch.Draw(WorldTexture, destinationRectangle, WorldColor);
             spriteBatch.Draw(RenderTargetInstance, destinationRectangle, Color.White);
             spriteBatch.End();
 
@@ -99,7 +165,8 @@ namespace GBC2017.Entities
         
         private void DrawDarknessToRenderTarget(Camera camera)
         {
-            DarknessAlpha = 0.8f;
+            const float minimumBrightness = 0.7f;
+            DarknessAlpha = minimumBrightness * (1 - SunlightManager.SunlightEffectiveness);
 
             var destinationRectangle = camera.DestinationRectangle;
             if (global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug)

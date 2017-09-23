@@ -20,6 +20,12 @@ namespace GBC2017.Entities.BaseEntities
         {
             CheckmarkInstance.Visible = IsBeingPlaced;
             XCancelInstance.Visible = IsBeingPlaced;
+
+            if (_hudLayer != null)
+            { 
+                _hudLayer.Remove(SpriteInstance);
+                 SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
+            }
         }
 
         void OnAfterIsValidLocationSet (object sender, EventArgs e)

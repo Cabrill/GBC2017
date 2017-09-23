@@ -17,6 +17,7 @@ using Gum.Converters;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework.Audio;
 using RenderingLibrary.Graphics;
+using Layer = FlatRedBall.Graphics.Layer;
 
 namespace GBC2017.Entities.BaseEntities
 {
@@ -36,6 +37,8 @@ namespace GBC2017.Entities.BaseEntities
         protected double _mineralsReceivedThisSecond;
 
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
+
+	    private Layer _hudLayer;
 
 	    private ResourceBarRuntime _energyBar;
 	    private ResourceBarRuntime _healthBar;
@@ -244,6 +247,23 @@ namespace GBC2017.Entities.BaseEntities
 	        };
             newBar.AddToManagers();
 	        return newBar;
+	    }
+
+	    protected void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
+	    {
+	        _hudLayer = hudLayer;
+
+            LayerProvidedByContainer.Remove(CheckmarkInstance.SpriteInstance);
+            CheckmarkInstance.MoveToLayer(hudLayer);
+
+	        LayerProvidedByContainer.Remove(XCancelInstance.SpriteInstance);
+	        XCancelInstance.MoveToLayer(hudLayer);
+
+            LayerProvidedByContainer.Remove(AxisAlignedRectangleInstance);
+            ShapeManager.AddToLayer(AxisAlignedRectangleInstance, hudLayer);
+
+	        LayerProvidedByContainer.Remove(SpriteInstance);
+            FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
 	    }
 	}
 }

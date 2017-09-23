@@ -11,6 +11,10 @@ namespace GBC2017.GumRuntimes
 {
     public partial class HorizonBoxRuntime
     {
+        public float SunPositionY => SunSprite.AbsoluteY+SunSprite.Component.Height/2;
+        public float MoonPositionY => MoonSprite.AbsoluteY+MoonSprite.Component.Height/2;
+        public float HorizonPositionY => SkyRectangle.Component.Height;
+
         private int skyRed;
         private int skyGreen;
         private int skyBlue;

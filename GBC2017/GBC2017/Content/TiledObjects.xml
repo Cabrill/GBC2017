@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="BasicAlien">
-    <property name="MaximumHealth" type="float" default="20" />
+    <property name="MaximumHealth" type="float" default="10" />
     <property name="Speed" type="float" default="125" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" default="15" />
@@ -13,7 +13,7 @@
     <property name="DisplayName" type="string" default="Basic Alien" />
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
-    <property name="RangedAttackRadius" type="float" default="350" />
+    <property name="RangedAttackRadius" type="float" default="300" />
   </objecttype>
   <objecttype name="MeleeAlien">
     <property name="MaximumHealth" type="float" default="25" />
@@ -45,13 +45,14 @@
     <property name="EnergyBuildCost" type="int" default="25" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
     <property name="EnergyCostToFire" type="float" default="3" />
-    <property name="RangedRadius" type="float" default="400" />
+    <property name="RangedRadius" type="float" default="450" />
     <property name="ProjectileSpeed" type="float" default="300" />
     <property name="MaximumHealth" type="float" default="50" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="15" />
     <property name="MineralsBuildCost" type="float" default="50" />
     <property name="DisplayName" type="string" default="Laser Turret" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="75" />
@@ -61,6 +62,7 @@
     <property name="MineralsBuildCost" type="float" default="50" />
     <property name="DisplayName" type="string" default="Solar Panels" />
     <property name="BaseEnergyProducedPerSecond" type="float" default="10" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="WindTurbine">
     <property name="EnergyBuildCost" type="float" default="100" />
@@ -70,6 +72,7 @@
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Wind Turbine" />
     <property name="BaseEnergyProducedPerSecond" type="float" default="20" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="Home">
     <property name="MaximumHealth" type="float" default="100" />
@@ -80,6 +83,7 @@
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="MineralsStorageIncreaseFromUpgrade" type="float" default="250" />
     <property name="DisplayName" type="string" default="Home" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" default="50" />
@@ -88,6 +92,7 @@
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="MineralsBuildCost" type="float" default="100" />
     <property name="DisplayName" type="string" default="Battery" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="CarbonTree">
     <property name="EnergyBuildCost" type="float" default="50" />
@@ -97,6 +102,7 @@
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="MineralsProducedPerSecond" type="float" default="1" />
     <property name="DisplayName" type="string" default="Carbon Tree" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
   <objecttype name="ShieldGenerator">
     <property name="EnergyBuildCost" type="float" default="50" />
@@ -108,5 +114,6 @@
     <property name="MaximumShieldHealth" type="float" default="50" />
     <property name="ShieldRegenerationRatePerSecond" type="float" default="3" />
     <property name="RequiredEnergyPercentToRaiseShields" type="float" default="0.5" />
+    <property name="HasLightSource" type="bool" />
   </objecttype>
 </objecttypes>

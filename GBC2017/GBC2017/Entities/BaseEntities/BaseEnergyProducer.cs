@@ -5,6 +5,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -32,7 +33,7 @@ namespace GBC2017.Entities.BaseEntities
 
 		}
 
-		private void CustomDestroy()
+        private void CustomDestroy()
 		{
 
 

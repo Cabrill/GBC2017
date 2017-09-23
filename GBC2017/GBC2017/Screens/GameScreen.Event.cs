@@ -27,10 +27,6 @@ namespace GBC2017.Screens
             GameHasStarted = true;
             lastEnemyWave = TimeManager.CurrentTime - 20;
 
-            foreach (var shieldGenerator in AllStructuresList.OfType<ShieldGenerator>().Cast<ShieldGenerator>())
-            {
-                shieldGenerator.NotifyGameStart();
-            }
         }
     }
 }

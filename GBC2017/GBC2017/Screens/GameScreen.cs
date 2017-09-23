@@ -67,11 +67,16 @@ namespace GBC2017.Screens
 
 		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
-		    CameraZoomManager.Initialize();
+		    InitializeFactories();
+		    InitializeBaseEntities();
+
+            CameraZoomManager.Initialize();
 		    AdjustLayerOrthoValues();
 		    InitializeShaders();
             SetCollisionVisibility();
             PositionTiledMap();
+            SetInfoBarControls();
+            SetBuildButtonControls();
 
 		    var createAHome = HomeFactory.CreateNew(WorldLayer);
 
@@ -79,23 +84,24 @@ namespace GBC2017.Screens
 		    createAHome.CurrentState = BaseStructure.VariableState.Built;
 		    createAHome.IsBeingPlaced = false;
 
-            SetInfoBarControls();
-            SetBuildButtonControls();
-		    InitializeBaseEntities();
-
+		    InitializeManagers();
 
             gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
 		    lastEnemyWave = TimeManager.CurrentTime;
 		    GameHasStarted = false;
 		}
 
+
+
 	    private void InitializeShaders()
 	    {
             WorldLayer.RenderTarget = WorldRenderTarget;
 	        LightLayer.RenderTarget = DarknessRenderTarget;
+	        BackgroundLayer.RenderTarget = BackgroundRenderTarget;
 
             ShaderRendererInstance.WorldTexture = WorldRenderTarget;
             ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
+	        ShaderRendererInstance.BackgroundTexture = BackgroundRenderTarget;
             //ShaderRendererInstance.Effect = darknessshader;
             ShaderRendererInstance.Viewer = Camera.Main;
 
@@ -117,19 +123,47 @@ namespace GBC2017.Screens
 	        ShaderOutputLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
         }
 
+	    private void InitializeManagers()
+	    {
+	        EnergyManager.Initialize(AllStructuresList);
+	        MineralsManager.Initialize(AllStructuresList);
+	        SunlightManager.Initialize(HorizonBoxInstance);
+        }
+
         private void InitializeBaseEntities()
 	    {
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
-            EnergyManager.Initialize(AllStructuresList);
-            MineralsManager.Initialize(AllStructuresList);
-	        LaserTurretProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
-	        RangedEnemyProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
-            ShieldGeneratorFactory.EntitySpawned +=
-	            projectile => projectile.AddLightsToDarknessLayer(LightLayer);
+        }
 
+	    private void InitializeFactories()
+	    {
+	        HomeFactory.EntitySpawned +=
+	            home => home.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        LaserTurretProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        RangedEnemyProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        LaserTurretFactory.EntitySpawned +=
+	            turrent => turrent.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        ShieldGeneratorFactory.EntitySpawned +=
+	            shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        SolarPanelsFactory.EntitySpawned +=
+	            solarpanel => solarpanel.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        WindTurbineFactory.EntitySpawned +=
+	            windturbine => windturbine.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        BatteryFactory.EntitySpawned +=
+	            battery => battery.AddSpritesToLayers(LightLayer, HUDLayer);
+
+	        CarbonTreeFactory.EntitySpawned +=
+	            carbontree => carbontree.AddSpritesToLayers(LightLayer, HUDLayer);
         }
 
 	    private void SetCollisionVisibility()
@@ -213,9 +247,16 @@ namespace GBC2017.Screens
 	            lastEnemyWave = TimeManager.CurrentTime;
 
                 numberOfLastWave++;
+	            int aliensToGenerate = 1;
+
+	            if (numberOfLastWave > 3)
+	            {
+	                aliensToGenerate += numberOfLastWave / 3;
+	            }
+
 	            var useLeftSide = numberOfLastWave > 3 && numberOfLastWave % 3 == 0;
 
-                for (var i = 0; i < numberOfLastWave; i++)
+                for (var i = 0; i < aliensToGenerate; i++)
                 {
                     if (numberOfLastWave > 3 && i % 3 == 0)
                     {

@@ -22,7 +22,6 @@ namespace GBC2017.Entities.Structures.Utility
 	    private double _lastRegenerationTime;
 	    public bool ShieldIsUp;
 	    private bool _shieldWasUp;
-	    private static bool _gameHasStarted = false;
 
 	    Tweener _lastShieldSizeTweener;
 	    Tweener _lastShieldColorTweener;
@@ -45,13 +44,20 @@ namespace GBC2017.Entities.Structures.Utility
 
             AfterIsBeingPlacedSet += ShieldGenerator_AfterIsBeingPlacedSet;
             _shieldSpriteScale = ShieldSpriteInstance.TextureScale;
+            _lastRegenerationTime = TimeManager.CurrentTime;
         }
 
         private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
         {
             PolygonShieldInstance.Visible = IsBeingPlaced;
-            ShieldIsUp = true;
-            CurrentShieldHealth = MaximumShieldHealth;
+            ShieldSpriteInstance.Visible = !IsBeingPlaced;
+
+            if (!IsBeingPlaced)
+            {
+                ShieldIsUp = true;
+                CurrentShieldHealth = MaximumShieldHealth;
+                GrowShield();
+            }
         }
 
         private void RefreshPolygon()
@@ -102,7 +108,7 @@ namespace GBC2017.Entities.Structures.Utility
 
 	    private void CustomActivity()
 	    {
-	        if (_gameHasStarted && TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
+	        if (TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
 	        {
 	            _shieldWasUp = ShieldIsUp;
 
@@ -248,31 +254,31 @@ namespace GBC2017.Entities.Structures.Utility
                 _lastShieldSizeTweener = null;
             }
 
-            var tweener = new Tweener(1, 0, secondsToPop, InterpolationType.Quintic, Easing.Out);
+            _lastShieldSizeTweener = new Tweener(1, 0, secondsToPop, InterpolationType.Quintic, Easing.Out);
 
-            tweener.PositionChanged = HandleShieldSizePositionSet;
-            tweener.Ended += () =>
+            _lastShieldSizeTweener.PositionChanged = HandleShieldSizePositionSet;
+            _lastShieldSizeTweener.Ended += () =>
             {
                 ShieldSpriteInstance.Visible = false;
                 LightSpriteInstance.Visible = false;
             };
 
-            tweener.Owner = this;
+            _lastShieldSizeTweener.Owner = this;
 
-            TweenerManager.Self.Add(tweener);
-            tweener.Start();
+            TweenerManager.Self.Add(_lastShieldSizeTweener);
+            _lastShieldSizeTweener.Start();
         }
 
-	    public void NotifyGameStart()
+	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
-	        _gameHasStarted = true;
-            GrowShield();
-        }
+	        base.AddSpritesToLayers(darknessLayer, hudLayer);
 
-	    public void AddLightsToDarknessLayer(Layer darknessLayer)
-	    {
 	        LayerProvidedByContainer.Remove(LightSpriteInstance);
 	        SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+
+            LayerProvidedByContainer.Remove(PolygonShieldInstance);
+            ShapeManager.AddToLayer(PolygonShieldInstance, hudLayer);
+
 	    }
 
         private void CustomDestroy()

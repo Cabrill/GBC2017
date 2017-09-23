@@ -6,6 +6,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math;
@@ -43,8 +44,6 @@ namespace GBC2017.Entities.BaseEntities
 
 		private void CustomActivity()
 		{
-		    PerformFiringActivity();
-
             if (IsBeingPlaced == false)
 		    {
 		        if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
@@ -75,28 +74,50 @@ namespace GBC2017.Entities.BaseEntities
 	    private void RotateToAim()
 	    {
             //Gather information about the target
-	        var targetPosition = targetEnemy.Position;
+	        var targetPosition = targetEnemy.CircleInstance.Position;
+
 	        var targetVector = targetEnemy.Velocity;
 	        var targetDistance = Vector3.Distance(Position, targetPosition);
 
             //Calculate how long the bullet would take to reach them
             var timeToTravel = targetDistance / ProjectileSpeed;
 
-            //Calculate how far they would travel in that time
-	        var aimAheadDistance = targetVector * timeToTravel;
+	        var aimLocation = targetPosition;
 
-            //Aim where they'll be in the time the bullet takes to travel
-	        var aimLocation = aimAheadDistance + targetPosition;
+            //If they're moving, we'll aim ahead
+            if (targetVector != Vector3.Zero)
+	        {
+	            //Calculate how far they would travel in the time 
+	            var aimAheadDistance = targetVector * timeToTravel;
 
-            //Recalculate time with the new aiming location
-	        targetDistance = Vector3.Distance(Position, aimLocation);
-            timeToTravel = targetDistance / ProjectileSpeed;
-	        aimAheadDistance = targetVector * timeToTravel;
-	        aimLocation = targetPosition + aimAheadDistance;
+	            //Aim where they'll be in the time the bullet takes to travel
+	            aimLocation = aimAheadDistance + targetPosition;
+
+	            //Recalculate time with the new aiming location
+	            targetDistance = Vector3.Distance(Position, aimLocation);
+	            timeToTravel = targetDistance / ProjectileSpeed;
+	            aimAheadDistance = targetVector * timeToTravel;
+	            aimLocation = targetPosition + aimAheadDistance;
+	        }
 
 	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
-	        
-	        RotationZ = angle;
+	        //var projectileOffset = GetProjectilePositioning(angle);
+            //angle = (float)Math.Atan2(Position.Y-projectileOffset.Y - aimLocation.Y, Position.X-projectileOffset.X - aimLocation.X);
+
+
+            RotationZ = angle;
+	    }
+
+	    private Vector3 GetProjectilePositioning(float? angle = null)
+	    {
+	        if (!angle.HasValue) angle = RotationZ;
+
+	        var direction = new Vector3(
+	            (float)-Math.Cos(angle.Value),
+	            (float)-Math.Sin(angle.Value), 0);
+	        direction.Normalize();
+
+            return new Vector3(22.5f, 12.5f,0) * direction;
 	    }
 
 	    private void ChooseTarget()
@@ -124,9 +145,7 @@ namespace GBC2017.Entities.BaseEntities
                     (float)-Math.Cos(RotationZ),
                     (float)-Math.Sin(RotationZ), 0);
                 direction.Normalize();
-
-                newProjectile.Position.X += 22.5f * direction.X;
-                newProjectile.Position.Y += 12.5f * direction.Y;
+                newProjectile.Position += GetProjectilePositioning();
 
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
@@ -139,6 +158,14 @@ namespace GBC2017.Entities.BaseEntities
                 _energyReceivedThisSecond += EnergyCostToFire;
             }
         }
+
+	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
+	    {
+	        base.AddSpritesToLayers(darknessLayer, hudLayer);
+
+	        LayerProvidedByContainer.Remove(RangeCircleInstance);
+	        ShapeManager.AddToLayer(RangeCircleInstance, hudLayer);
+	    }
 
         /// <summary>
         /// Allows the child combat structure to generate a projectile of its own type
