@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Enemies;
+using GBC2017.Entities.Structures.Combat;
 
 namespace GBC2017.GameClasses
 {
     public static class GameFormulas
     {
+
+        #region Energy Usage fields
         private static readonly float[] HourlyUsageModifiers = {
             1.08695652173913f,
             1f,
@@ -35,17 +40,45 @@ namespace GBC2017.GameClasses
             1.08695652173913f,
         };
 
-        private static float _hourlyUsageGraphSum = 0f;
-        private static float HourlyUsageGraphSum 
+        private static float HourlyUsageGraphSum;
+        #endregion
+
+        #region Enemy Valuation fields
+
+        private static float BaseEnergyPerHitPoint;
+        private static float BaseCombatStructureRange;
+        private static float BaseProjectileSpeed;
+        private static float BaseEnemyMovementSpeed;
+
+        #endregion
+
+        #region Initialize
+
+        public static void Initialize()
         {
-            get
-            {
-                if (_hourlyUsageGraphSum < 1f) _hourlyUsageGraphSum = HourlyUsageModifiers.Sum();
-                return _hourlyUsageGraphSum;
-            }
+            //Calculate the sum of the HourlyUsageModifiers, to be used in deriving hourly min values from avg hourly value
+            HourlyUsageGraphSum = HourlyUsageModifiers.Sum();
+
+            //Instantiate an instance of the base attack structure, and read it's stats
+            var basicTower = new LaserTurret();
+            var baseDamage = basicTower.AttackDamage;
+            var baseEnergyPerAttack = basicTower.EnergyCostToFire;
+
+            BaseEnergyPerHitPoint = baseEnergyPerAttack / baseDamage;
+            BaseCombatStructureRange = basicTower.RangedRadius;
+            BaseProjectileSpeed = basicTower.ProjectileSpeed;
+
+            //Instantiate an instance of the base enemy, and read it's stats
+            var basicEnemy = new BasicAlien();
+            BaseEnemyMovementSpeed = basicEnemy.Speed;
+
+            //Destroy the objects we used for analysis
+            basicEnemy.Destroy();
+            basicTower.Destroy();
         }
+        #endregion
 
-
+        #region Energy usage methods
 
         /// <summary>
         /// Takes the desired hour, and the minimum hourly value for the day, then returns the typical energy consumption for the given hour
@@ -81,5 +114,37 @@ namespace GBC2017.GameClasses
 
             return HourlyEnergyUsageFromCurveAndMinValue(hour, minValue);
         }
+
+        #endregion
+
+        #region Enemy valuation methods
+
+        /// <summary>
+        /// Attempts to calculate an estimated amount of energy expended by a player based on an enemy's attributes
+        /// </summary>
+        /// <param name="enemy">The enemy to be evaluated</param>
+        /// <returns>The estimated energy expended to kill this enemy and/or recover from damage they deal</returns>
+        public static float EnergyRatingForEnemy(BaseEnemy enemy)
+        {
+            //Psuedo-code for calculating energy usage
+            //Life = HP * movementspeed
+            //DPS = Damage * AttacksPerSecond * Range
+            //energyusage = Life + DPS
+
+            var hp = enemy.MaximumHealth * BaseEnergyPerHitPoint;
+            var movementModifier = Math.Max(1f, enemy.Speed / BaseEnemyMovementSpeed);
+            var life = hp * movementModifier;
+
+            //var damage = enemy.IsRangedAttacker ? enemy.RangedAttackDamage : enemy.MeleeAttackDamage;
+            //var rangeModifier = enemy.IsRangedAttacker ? (enemy.RangedAttackRadius / BaseCombatStructureRange) : 1f;
+            //var perSecondModifier = enemy.IsRangedAttacker
+            //    ? enemy.SecondsBetweenRangedAttack
+            //    : enemy.SecondsBetweenMeleeAttack;
+
+            //var dps = damage * rangeModifier * perSecondModifier;
+
+            return life;// + dps;
+        }
+        #endregion
     }
 }

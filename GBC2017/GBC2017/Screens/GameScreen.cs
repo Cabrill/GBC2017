@@ -18,6 +18,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
+using GBC2017.GameClasses;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
@@ -135,6 +136,7 @@ namespace GBC2017.Screens
 
         private void InitializeBaseEntities()
 	    {
+            GameFormulas.Initialize();
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
         }
