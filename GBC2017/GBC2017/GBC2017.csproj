@@ -164,6 +164,7 @@
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\BaseLevel.cs" />
+    <Compile Include="GameClasses\GameFormulas.cs" />
     <Compile Include="GameClasses\LevelWave.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumCore\AnimationFrame.cs" />
