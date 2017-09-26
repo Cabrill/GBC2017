@@ -9,11 +9,17 @@ using GBC2017.Entities.Structures.Combat;
 
 namespace GBC2017.GameClasses
 {
-    public static class GameFormulas
+    public class GameFormulas
     {
 
+        #region Singleton
+
+        public static GameFormulas Instance { get; } = new GameFormulas();
+
+        #endregion
+
         #region Energy Usage fields
-        private static readonly float[] HourlyUsageModifiers = {
+        private readonly float[] HourlyUsageModifiers = {
             1.08695652173913f,
             1f,
             1f,
@@ -40,21 +46,21 @@ namespace GBC2017.GameClasses
             1.08695652173913f,
         };
 
-        private static float HourlyUsageGraphSum;
+        private float HourlyUsageGraphSum;
         #endregion
 
         #region Enemy Valuation fields
 
-        private static float BaseEnergyPerHitPoint;
-        private static float BaseCombatStructureRange;
-        private static float BaseProjectileSpeed;
-        private static float BaseEnemyMovementSpeed;
+        private float BaseEnergyPerHitPoint;
+        private float BaseCombatStructureRange;
+        private float BaseProjectileSpeed;
+        private float BaseEnemyMovementSpeed;
 
         #endregion
 
-        #region Initialize
+        #region Constructor
 
-        public static void Initialize()
+        private GameFormulas()
         {
             //Calculate the sum of the HourlyUsageModifiers, to be used in deriving hourly min values from avg hourly value
             HourlyUsageGraphSum = HourlyUsageModifiers.Sum();
@@ -86,7 +92,7 @@ namespace GBC2017.GameClasses
         /// <param name="hour">The hour of energy use you need</param>
         /// <param name="minValue">The minimum hourly energy usage for the entire day</param>
         /// <returns></returns>
-        public static float HourlyEnergyUsageFromCurveAndMinValue(int hour, float minValue = 2.3f)
+        public float HourlyEnergyUsageFromCurveAndMinValue(int hour, float minValue = 2.3f)
         {
             if (hour >= 0 && hour <= 23)
             {
@@ -108,7 +114,7 @@ namespace GBC2017.GameClasses
         /// <param name="hour">The hour of energy use you need</param>
         /// <param name="avgValue">The average hourly energy usage for the entire day</param>
         /// <returns></returns>
-        public static float HourlyEnergyUsageFromCurveAndAvgValue(int hour, float avgValue = 3.4625f)
+        public float HourlyEnergyUsageFromCurveAndAvgValue(int hour, float avgValue = 3.4625f)
         {
             var minValue = (avgValue * HourlyUsageModifiers.Length) / HourlyUsageGraphSum;
 
@@ -124,7 +130,7 @@ namespace GBC2017.GameClasses
         /// </summary>
         /// <param name="enemy">The enemy to be evaluated</param>
         /// <returns>The estimated energy expended to kill this enemy and/or recover from damage they deal</returns>
-        public static float EnergyRatingForEnemy(BaseEnemy enemy)
+        public float EnergyRatingForEnemy(BaseEnemy enemy)
         {
             //Psuedo-code for calculating energy usage
             //Life = HP * movementspeed

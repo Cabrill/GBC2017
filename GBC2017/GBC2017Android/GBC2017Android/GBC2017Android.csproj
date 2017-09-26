@@ -298,8 +298,14 @@
     <Compile Include="..\..\GBC2017\GameClasses\GameFormulas.cs">
       <Link>GameClasses\GameFormulas.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\InsolationFormulas.cs">
+      <Link>GameClasses\InsolationFormulas.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
       <Link>GameClasses\LevelWave.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\SunTimes.cs">
+      <Link>GameClasses\SunTimes.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GlobalContent.Generated.cs">
       <Link>GlobalContent.Generated.cs</Link>

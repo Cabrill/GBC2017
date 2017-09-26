@@ -136,7 +136,6 @@ namespace GBC2017.Screens
 
         private void InitializeBaseEntities()
 	    {
-            GameFormulas.Initialize();
 	        BaseCombatStructure.Initialize(AllEnemiesList);
 	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
         }
