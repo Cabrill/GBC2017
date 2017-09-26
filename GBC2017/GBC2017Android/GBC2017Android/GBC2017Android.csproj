@@ -295,6 +295,9 @@
     <Compile Include="..\..\GBC2017\GameClasses\BaseLevel.cs">
       <Link>GameClasses\BaseLevel.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\GameFormulas.cs">
+      <Link>GameClasses\GameFormulas.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
       <Link>GameClasses\LevelWave.cs</Link>
     </Compile>

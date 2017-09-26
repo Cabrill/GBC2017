@@ -221,8 +221,9 @@ namespace GBC2017.Screens
         void CustomActivity(bool firstTimeCalled)
 		{
 
-#if DEBUG
+            #if DEBUG
             HandleDebugInput();
+		    ShowDebugInfo();
             #endif
 
             UpdateGameModeActivity();
@@ -250,6 +251,22 @@ namespace GBC2017.Screens
 		    MineralsManager.Update(!GameHasStarted);
 		    InfoBarInstance.Update();
         }
+
+	    private void ShowDebugInfo()
+	    {
+	        if (DebugVariables.ShowPerformanceStats)
+	        {
+	            string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();
+	            string entityBreakdown = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedEntityInformation();
+	            string shapeBreakdown =
+	                FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedBreakdownFromList(FlatRedBall.Math.Geometry
+	                    .ShapeManager.AutomaticallyUpdatedShapes);
+	            string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
+
+	            FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
+	            FlatRedBall.Debugging.Debugger.Write(combinedInfo);
+	        }
+	    }
 
 	    private void TemporaryDebugWaveSpawning()
 	    {
@@ -492,7 +509,7 @@ namespace GBC2017.Screens
 	            if (gesture.GestureType == GestureType.Pinch)
 	            {
 	                CameraZoomManager.PerformZoom(gesture, InputManager.TouchScreen.PinchStarted);
-
+	                Camera.Main.ForceUpdateDependencies();
                     //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
                     HorizonBoxInstance.ReactToCameraChange();
 	                AdjustLayerOrthoValues();
@@ -518,7 +535,8 @@ namespace GBC2017.Screens
 	                Camera.Main.X = newX;
 	                Camera.Main.Y = newY;
 
-	                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+                    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+	                Camera.Main.ForceUpdateDependencies();
                     HorizonBoxInstance.ReactToCameraChange();
                 }
             }

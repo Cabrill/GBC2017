@@ -58,15 +58,11 @@ namespace GBC2017.Entities.BaseEntities
 	        if (DebugVariables.ShowDebugShapes)
 	        {
 	            AxisAlignedRectangleInstance.Visible = true;
-	            CheckmarkInstance.AxisAlignedRectangleInstance.Visible = true;
-	            XCancelInstance.AxisAlignedRectangleInstance.Visible = true;
 	        }
 	        else
 #endif
 	        {
 	            AxisAlignedRectangleInstance.Visible = false;
-	            CheckmarkInstance.AxisAlignedRectangleInstance.Visible = false;
-	            XCancelInstance.AxisAlignedRectangleInstance.Visible = false;
 	        }
 
 	        HealthRemaining = MaximumHealth;

@@ -14,6 +14,7 @@
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="300" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="MeleeAlien">
     <property name="MaximumHealth" type="float" default="25" />
@@ -29,6 +30,7 @@
     <property name="IsMeleeAttacker" type="bool" default="true" />
     <property name="MeleeAttackRadius" type="float" default="32" />
     <property name="RangedAttackRadius" type="float" default="16" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" />

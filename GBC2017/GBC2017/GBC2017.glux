@@ -338,6 +338,7 @@
           <InstanceName>PlayAreaRectangle</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -604,6 +605,7 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -624,7 +626,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -650,7 +654,9 @@
           <SourceClassType>Circle</SourceClassType>
           <InstanceName>RangeCircleInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn />
         </NamedObjectSave>
@@ -1027,6 +1033,7 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1041,7 +1048,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1053,6 +1062,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1079,6 +1090,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1099,7 +1112,9 @@
           <InstanceName>MeleeAttackRadiusCircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1120,7 +1135,9 @@
           <InstanceName>RangedAttackRadiusCircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -1294,6 +1311,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <VariablesToReset>
             <string>X</string>
             <string>Y</string>
@@ -1331,7 +1350,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1343,6 +1364,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -1350,16 +1373,6 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
@@ -1386,6 +1399,16 @@
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>2048</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -1394,6 +1417,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <VariablesToReset>
             <string>X</string>
             <string>Y</string>
@@ -1591,6 +1616,7 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -1611,7 +1637,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -1766,6 +1794,7 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -1786,7 +1815,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -1919,6 +1950,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <VariablesToReset>
             <string>X</string>
             <string>Y</string>
@@ -1942,16 +1975,6 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>-1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
@@ -1978,6 +2001,16 @@
             <Member>BottomTexturePixel</Member>
             <ValueAsFloat>2048</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -1986,6 +2019,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <VariablesToReset>
             <string>X</string>
             <string>Y</string>
@@ -2028,6 +2063,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -2041,6 +2077,8 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2364,6 +2402,7 @@
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -2383,7 +2422,9 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -2403,7 +2444,9 @@
           <SourceClassType>Entities\GraphicalElements\Checkmark</SourceClassType>
           <InstanceName>CheckmarkInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -2423,7 +2466,9 @@
           <SourceClassType>Entities\GraphicalElements\XCancel</SourceClassType>
           <InstanceName>XCancelInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2507,6 +2552,8 @@
           <InstanceName>SpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2552,6 +2599,18 @@
           <Name>IgnoreStructureBuildCost</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ShowPerformanceStats</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -2832,6 +2891,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -2846,7 +2906,9 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -2858,6 +2920,8 @@
           <InstanceName>AnimationChainInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -2894,6 +2958,8 @@
           <InstanceName>ShadowSprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3243,6 +3309,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3257,7 +3324,9 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3269,6 +3338,8 @@
           <InstanceName>AnimationChainInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3305,6 +3376,8 @@
           <InstanceName>ShadowSprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3363,12 +3436,6 @@
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
-      <Properties>
-        <PropertySave>
-          <Name>ImplementsICollidable</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
       <Tags>
         <string>GLUE</string>
       </Tags>
@@ -3440,12 +3507,19 @@
           <SourceObjectProperty>Alpha</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
+      <BaseEntity>Sprite</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\GraphicalElements\Checkmark</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>IsContainer</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
@@ -3482,25 +3556,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>64</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -3515,12 +3571,6 @@
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
-      <Properties>
-        <PropertySave>
-          <Name>ImplementsICollidable</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
       <Tags>
         <string>GLUE</string>
       </Tags>
@@ -3557,12 +3607,19 @@
           <Type>float</Type>
         </CustomVariable>
       </CustomVariables>
+      <BaseEntity>Sprite</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\GraphicalElements\XCancel</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>IsContainer</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
@@ -3599,25 +3656,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>64</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -3726,6 +3765,11 @@
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>laser_bullet</ValueAsString>
@@ -3745,16 +3789,13 @@
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -3802,7 +3843,9 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -3828,34 +3871,16 @@
           <InstanceName>AnimationChainInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>AllAssetsSheet</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>ColorOperation</Type>
-            <Member>ColorOperation</Member>
-            <ValueAsInt>3</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -3879,6 +3904,16 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Red</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
@@ -3892,6 +3927,16 @@
             <Member>Blue</Member>
             <ValueAsFloat>0.1</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -3899,6 +3944,8 @@
           <InstanceName>LightOrShadowSprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -4048,6 +4095,11 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>alien_fire</ValueAsString>
@@ -4077,16 +4129,13 @@
             <Member>TextureScale</Member>
             <ValueAsFloat>0.3</ValueAsFloat>
           </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -4122,7 +4171,9 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -4148,6 +4199,8 @@
           <InstanceName>AnimationChainInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4156,16 +4209,6 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1.5</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>Texture2D</Type>
@@ -4193,19 +4236,19 @@
             <ValueAsFloat>2048</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>ColorOperation</Type>
-            <Member>ColorOperation</Member>
-            <ValueAsInt>3</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>BlendOperation</Type>
-            <Member>BlendOperation</Member>
-            <ValueAsInt>1</ValueAsInt>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>Visible</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4214,13 +4257,23 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0.1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Blue</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
-            <Type>float</Type>
-            <Member>Green</Member>
-            <ValueAsFloat>0.1</ValueAsFloat>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -4229,6 +4282,8 @@
           <InstanceName>LightOrShadowSprite</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <VariablesToReset>
             <string>X</string>
@@ -4308,6 +4363,8 @@
           <InstanceName>RenderTargetInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -4522,6 +4579,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4541,7 +4599,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4730,6 +4790,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4749,7 +4810,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4955,6 +5018,7 @@
           <InstanceName>SpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4979,7 +5043,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5172,6 +5238,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5196,7 +5263,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5361,6 +5430,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5380,7 +5450,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5549,6 +5621,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5568,7 +5641,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5765,6 +5840,7 @@
           <InstanceName>SpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5784,7 +5860,9 @@
           <InstanceName>AxisAlignedRectangleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -5856,6 +5934,8 @@
           <InstanceName>ShieldSpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -5876,6 +5956,8 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -5941,6 +6023,8 @@
           <InstanceName>LightSpriteInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>

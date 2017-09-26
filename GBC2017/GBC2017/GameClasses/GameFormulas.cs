@@ -117,7 +117,7 @@ namespace GBC2017.GameClasses
 
         #endregion
 
-        #region Enemy valuation methods
+        #region Enemy evaluation methods
 
         /// <summary>
         /// Attempts to calculate an estimated amount of energy expended by a player based on an enemy's attributes
