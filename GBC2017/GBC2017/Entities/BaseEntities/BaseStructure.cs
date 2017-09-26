@@ -89,14 +89,22 @@ namespace GBC2017.Entities.BaseEntities
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
                 } else
 #endif
-                if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
-                {
-                    CheckmarkInstance.CurrentState = IsValidLocation ? Checkmark.VariableState.Enabled : Checkmark.VariableState.Disabled;
-                    CurrentState = IsValidLocation ? VariableState.ValidLocation : VariableState.InvalidLocation;
-                }
+		        if (IsValidLocation)
+		        {
+		            if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
+		            {
+		                CurrentState = VariableState.ValidLocation;
+		                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+		            }
+		            else
+		            {
+		                CurrentState = VariableState.CantAfford;
+		                CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
+		            }
+		        }
 		        else
 		        {
-                    CurrentState = VariableState.CantAfford;
+		            CurrentState = VariableState.InvalidLocation;
 		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
                 }
 

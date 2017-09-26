@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall;
 using FlatRedBall.Gui;
+using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Combat;
@@ -12,6 +13,7 @@ using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GumRuntimes;
+using Microsoft.Xna.Framework;
 
 namespace GBC2017.Screens
 {
@@ -225,7 +227,7 @@ namespace GBC2017.Screens
                 return true;
             }
 
-            int searchIncrement = (int)structure.AxisAlignedRectangleInstance.Width;
+            int searchIncrement = (int)Math.Min(structure.AxisAlignedRectangleInstance.Width, structure.AxisAlignedRectangleInstance.Height);
 
             var xMod = 1;
             var yMod = 1;
@@ -236,23 +238,22 @@ namespace GBC2017.Screens
             var xCounter = 0;
             var yCounter = 0;
 
-            var effectiveX = 0;
-            var effectiveY = 0;
+            var effectiveX = Camera.Main.X;
+            var effectiveY = Camera.Main.Y;
 
             //Search the play area, but stop once we gone outside of it
             while (PlayAreaRectangle.IsPointOnOrInside(effectiveX, effectiveY))
             {
                 //Set the X/Y values of the structure's collision rectangle
-                structure.AxisAlignedRectangleInstance.Position.X = effectiveX;
-                structure.AxisAlignedRectangleInstance.Position.Y = effectiveY;
+                structure.Position = new Vector3(effectiveY, effectiveY, structure.Z);
+                structure.AxisAlignedRectangleInstance.ForceUpdateDependencies();
 
                 //If no structures block this location, and no enemies block it, then it's valid
                 if (!baseStructures.Any(
-                    os => os.AxisAlignedRectangleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
+                    os => os.CollideAgainst(structure)))
                 {
-                    //if (!AllEnemiesList.Any(e => e.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance)))
+                    if (!AllEnemiesList.Any(e => e.CollideAgainst(structure)))
                     {
-                        structure.Position = structure.AxisAlignedRectangleInstance.Position;
                         structure.IsValidLocation = true;
                         return true;
                     }
@@ -294,28 +295,59 @@ namespace GBC2017.Screens
                 //Tried all the -x/-y values, move up to higher values of +x/+y
                 else if (xMod == -1 && yMod == -1)
                 {
+                    var incrementMade = false;
                     xMod *= -1;
                     yMod *= -1;
 
                     xCounter = 0;
                     yCounter = 0;
 
-                    maxXCounter++;
-
-                    //X has more search space than Y, so we have to test if there's still available space to search
-                    var proposedY = (maxYCounter+1) * searchIncrement;
-                    var proposedNegativeY = -(maxYCounter+1) * searchIncrement;
+                    var proposedMaxX = (maxXCounter + 1) * searchIncrement;
+                    var proposedMaxNegativeX = -(maxXCounter + 1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (!(PlayAreaRectangle.IsPointOnOrInside(0, proposedY) == false ||
-                        PlayAreaRectangle.IsPointOnOrInside(0, proposedNegativeY) == false))
+                    if (PlayAreaRectangle.IsPointOnOrInside(proposedMaxX, 0) || PlayAreaRectangle.IsPointOnOrInside(proposedMaxNegativeX, 0))
+                    {
+                        maxXCounter++;
+                        incrementMade = true;
+                    }
+
+                    var proposedMaxY = (maxYCounter+1) * searchIncrement;
+                    var proposedMaxNegativeY = -(maxYCounter+1) * searchIncrement;
+
+                    //We've reached the edge of the height of the play area, so don't increment
+                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxY) || PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxNegativeY))
                     {
                         maxYCounter++;
+                        incrementMade = true;
+                    }
+                    if (!incrementMade)
+                    {
+                        break;
                     }
                 }
 
-                effectiveX = xCounter * searchIncrement * xMod;
-                effectiveY = yCounter * searchIncrement * yMod;
+                //Restrain to the play rectangle, while still searching everywhere
+                var proposedEffectiveX = xCounter * searchIncrement * xMod;
+                var proposedEffectiveY = yCounter * searchIncrement * yMod;
+
+                if (PlayAreaRectangle.IsPointOnOrInside(proposedEffectiveX, proposedEffectiveY))
+                {
+                    effectiveX = proposedEffectiveX;
+                    effectiveY = proposedEffectiveY;
+                }
+                else if (PlayAreaRectangle.IsPointOnOrInside(proposedEffectiveX, effectiveY))
+                {
+                    effectiveX = proposedEffectiveX;
+                }
+                else if (PlayAreaRectangle.IsPointOnOrInside(effectiveX, proposedEffectiveY))
+                {
+                    effectiveY = proposedEffectiveY;
+                }
+                else
+                {
+                    break;
+                }
             }
 
             structure.Destroy();
