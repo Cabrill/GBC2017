@@ -43,7 +43,7 @@ namespace GBC2017.GameClasses
         };
 
         /// <summary>
-        /// The monthly insolation rates for Brisbane, with [0]=January
+        /// The monthly insolation rates for Helsinki, with [0]=January
         /// </summary>
         private readonly float[] HelsinkiMonthInsolation = {
             0.28f,
@@ -61,7 +61,7 @@ namespace GBC2017.GameClasses
         };
 
         /// <summary>
-        /// The monthly insolation rates for Helsinki, with [0]=January
+        /// The monthly insolation rates for Brisbane, with [0]=January
         /// </summary>
         private readonly float[] BrisbaneMonthInsolation = {
             6.64f,
