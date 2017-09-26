@@ -626,7 +626,6 @@
           <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>true</SetByDerived>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -654,7 +653,6 @@
           <SourceClassType>Circle</SourceClassType>
           <InstanceName>RangeCircleInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
