@@ -13,6 +13,7 @@ using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GumRuntimes;
+using GBC2017.StaticManagers;
 using Microsoft.Xna.Framework;
 
 namespace GBC2017.Screens
@@ -44,27 +45,27 @@ namespace GBC2017.Screens
         private void SetBuildCosts()
         {
             BaseStructure structure = new SolarPanels();
-            BuildBarInstance.UpdateSolarButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
             structure = new WindTurbine();
-            BuildBarInstance.UpdateWindButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
             structure = new Battery();
-            BuildBarInstance.UpdateBatteryButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
             structure = new CarbonTree();
-            BuildBarInstance.UpdateCarbonTreeButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
             structure = new LaserTurret();
-            BuildBarInstance.UpdateLaserButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
             structure = new ShieldGenerator();
-            BuildBarInstance.UpdateShieldGeneratorButton(structure.EnergyBuildCost, structure.MineralsBuildCost);
+            BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
         }
 
@@ -238,14 +239,17 @@ namespace GBC2017.Screens
             var xCounter = 0;
             var yCounter = 0;
 
-            var effectiveX = Camera.Main.X;
-            var effectiveY = Camera.Main.Y;
+            var baseX = MathHelper.Clamp(Camera.Main.X, PlayAreaRectangle.Left, PlayAreaRectangle.Right);
+            var baseY = MathHelper.Clamp(Camera.Main.Y, PlayAreaRectangle.Bottom, PlayAreaRectangle.Top);
+
+            var effectiveX = baseX;
+            var effectiveY = baseY;
 
             //Search the play area, but stop once we gone outside of it
             while (PlayAreaRectangle.IsPointOnOrInside(effectiveX, effectiveY))
             {
                 //Set the X/Y values of the structure's collision rectangle
-                structure.Position = new Vector3(effectiveY, effectiveY, structure.Z);
+                structure.Position = new Vector3(effectiveX, effectiveY, structure.Z);
                 structure.AxisAlignedRectangleInstance.ForceUpdateDependencies();
 
                 //If no structures block this location, and no enemies block it, then it's valid
@@ -302,21 +306,19 @@ namespace GBC2017.Screens
                     xCounter = 0;
                     yCounter = 0;
 
-                    var proposedMaxX = (maxXCounter + 1) * searchIncrement;
-                    var proposedMaxNegativeX = -(maxXCounter + 1) * searchIncrement;
+                    var proposedMaxX = baseX + (maxXCounter + 1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(proposedMaxX, 0) || PlayAreaRectangle.IsPointOnOrInside(proposedMaxNegativeX, 0))
+                    if (PlayAreaRectangle.IsPointOnOrInside(proposedMaxX, 0) || PlayAreaRectangle.IsPointOnOrInside(-proposedMaxX, 0))
                     {
                         maxXCounter++;
                         incrementMade = true;
                     }
 
-                    var proposedMaxY = (maxYCounter+1) * searchIncrement;
-                    var proposedMaxNegativeY = -(maxYCounter+1) * searchIncrement;
+                    var proposedMaxY = baseY + (maxYCounter+1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxY) || PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxNegativeY))
+                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxY) || PlayAreaRectangle.IsPointOnOrInside(0, -proposedMaxY))
                     {
                         maxYCounter++;
                         incrementMade = true;
@@ -328,8 +330,8 @@ namespace GBC2017.Screens
                 }
 
                 //Restrain to the play rectangle, while still searching everywhere
-                var proposedEffectiveX = xCounter * searchIncrement * xMod;
-                var proposedEffectiveY = yCounter * searchIncrement * yMod;
+                var proposedEffectiveX = baseX + xCounter * searchIncrement * xMod;
+                var proposedEffectiveY = baseY + yCounter * searchIncrement * yMod;
 
                 if (PlayAreaRectangle.IsPointOnOrInside(proposedEffectiveX, proposedEffectiveY))
                 {

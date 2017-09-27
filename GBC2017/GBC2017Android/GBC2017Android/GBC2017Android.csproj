@@ -47,6 +47,12 @@
     <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HockeySDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HockeySDK.Xamarin.5.0.0\lib\MonoAndroid403\HockeySDK.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK.AndroidBindings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HockeySDK.Xamarin.5.0.0\lib\MonoAndroid403\HockeySDK.AndroidBindings.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Android\Debug\MonoGame.Framework.dll</HintPath>
@@ -563,8 +569,12 @@
       <Link>GumRuntimes\BuildBarRuntime.Generated.cs</Link>
       <DependentUpon>BuildBarRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\BuildButtonRuntime.cs">
+      <Link>GumRuntimes\BuildButtonRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\BuildButtonRuntime.Generated.cs">
       <Link>GumRuntimes\BuildButtonRuntime.Generated.cs</Link>
+      <DependentUpon>BuildButtonRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\ButtonRuntime.Generated.cs">
       <Link>GumRuntimes\ButtonRuntime.Generated.cs</Link>
@@ -882,6 +892,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="packages.config" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Libraries\Android\Debug\FlatRedBallAndroid.dll" />
     <None Include="Libraries\Android\Debug\MonoGame.Framework.dll" />
@@ -1089,6 +1100,30 @@
       <Name>font18century gothic_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18century gothic_0.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1.fnt">
+      <Name>font25arial black_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font25arial black_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1_0.png">
+      <Name>font25arial black_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font25arial black_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1.fnt">
+      <Name>font27arial black_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font27arial black_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1_0.png">
+      <Name>font27arial black_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font27arial black_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1.fnt">
+      <Name>font27arial_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font27arial_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1_0.png">
+      <Name>font27arial_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font27arial_o1_0.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black.fnt">
       <Name>font36arial black</Name>
       <Link>Assets\content\gumproject\fontcache\font36arial black.fnt</Link>
@@ -1096,6 +1131,18 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_0.png">
       <Name>font36arial black_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36arial black_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1.fnt">
+      <Name>font36arial black_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial black_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_0.png">
+      <Name>font36arial black_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_1.png">
+      <Name>font36arial black_o1_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_1.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial.fnt">
       <Name>font36arial</Name>

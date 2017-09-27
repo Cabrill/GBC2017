@@ -112,7 +112,7 @@
     <property name="MaximumHealth" type="float" default="15" />
     <property name="EnergyRequiredPerSecond" type="int" default="5" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
-    <property name="DisplayName" type="string" default="Shield Generator" />
+    <property name="DisplayName" type="string" default="Shield" />
     <property name="MaximumShieldHealth" type="float" default="50" />
     <property name="ShieldRegenerationRatePerSecond" type="float" default="3" />
     <property name="RequiredEnergyPercentToRaiseShields" type="float" default="0.5" />

@@ -260,7 +260,10 @@
     <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs">
       <DependentUpon>BuildBarRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\BuildButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BuildButtonRuntime.cs" />
+    <Compile Include="GumRuntimes\BuildButtonRuntime.Generated.cs">
+      <DependentUpon>BuildButtonRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CategoryButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
@@ -626,13 +629,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font36arial black.fnt">
+    <None Include="content\gumproject\fontcache\font25arial black_o1.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial Black</Name>
+      <Name>Font25Arial Black_o1</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font36arial black_0.png">
+    <None Include="content\gumproject\fontcache\font25arial black_o1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial Black_0</Name>
+      <Name>Font25Arial Black_o1_0</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font27arial black_o1.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font27Arial Black_o1</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font27arial black_o1_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font27Arial Black_o1_0</Name>
     </None>
     <None Include="content\gumproject\fontcache\font36arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

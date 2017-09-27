@@ -3,46 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlatRedBall.Graphics.Texture;
+using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Structures.Combat;
+using GBC2017.Entities.Structures.EnergyProducers;
+using GBC2017.Entities.Structures.Utility;
 
 namespace GBC2017.GumRuntimes
 {
     public partial class BuildBarRuntime
     {
-        public void UpdateSolarButton(double energy, double minerals)
+        public void UpdateButton(BaseStructure structure)
         {
-            SolarButton.EnergyCost = energy.ToString();
-            SolarButton.MineralsCost = minerals.ToString();
-        }
+            BuildButtonRuntime button = null;
 
-        public void UpdateWindButton(double energy, double minerals)
-        {
-            WindButton.EnergyCost = energy.ToString();
-            WindButton.MineralsCost = minerals.ToString();
+            if (structure is SolarPanels) button = SolarButton;
+            else if (structure is WindTurbine) button = WindButton;
+            else if (structure is LaserTurret) button = LaserTurretButton;
+            else if (structure is Battery) button = BatteryButton;
+            else if (structure is CarbonTree) button = CarbonTreeButton;
+            else if (structure is ShieldGenerator) button = ShieldGeneratorButton;
+            
+            button?.UpdateFromStructure(structure);
         }
-
-        public void UpdateLaserButton(double energy, double minerals)
-        {
-            LaserTurretButton.EnergyCost = energy.ToString();
-            LaserTurretButton.MineralsCost = minerals.ToString();
-        }
-
-        public void UpdateBatteryButton(double energy, double minerals)
-        {
-            BatteryButton.EnergyCost = energy.ToString();
-            BatteryButton.MineralsCost = minerals.ToString();
-        }
-
-        public void UpdateCarbonTreeButton(double energy, double minerals)
-        {
-            CarbonTreeButton.EnergyCost = energy.ToString();
-            CarbonTreeButton.MineralsCost = minerals.ToString();
-        }
-
-        public void UpdateShieldGeneratorButton(double energy, double minerals)
-        {
-            ShieldGeneratorButton.EnergyCost = energy.ToString();
-            ShieldGeneratorButton.MineralsCost = minerals.ToString();
-        }
+        
 
         public void UpdateSelection()
         {
