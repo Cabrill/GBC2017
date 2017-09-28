@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace GBC2017.GumRuntimes
 
             if (baseEnergyProducer != null)
             {
-                energyChange = baseEnergyProducer.BaseEnergyProducedPerSecond;
+                energyChange = baseEnergyProducer.EffectiveEnergyProducedPerSecond;
                 CurrentEnergyChangeState = energyChange > 0 ? EnergyChange.Increase : EnergyChange.NoChange;
             }
             else if (baseCombatStructure != null)
@@ -50,8 +51,10 @@ namespace GBC2017.GumRuntimes
                 energyChange = structure.EnergyRequiredPerSecond;
                 CurrentEnergyChangeState = energyChange > 0 ? EnergyChange.Decrease : EnergyChange.NoChange;
             }
-            EnergyChangeText.Text = energyChange.ToString();
-            CurrentEnergyChangeDigitsState = energyChange >= 10 ? EnergyChangeDigits.DoubleDigits : EnergyChangeDigits.SingleDigit;
+            energyChange = Math.Round(energyChange);
+            var energyChangeText = energyChange.ToString("0.##");
+            EnergyChangeText.Text = energyChangeText;
+            CurrentEnergyChangeDigitsState = GetDigitState(energyChangeText.Length);
 
             if (baseMineralsProducer != null)
             {
@@ -63,6 +66,18 @@ namespace GBC2017.GumRuntimes
                 CurrentMineralChangeState = mineralChange > 0 ? MineralChange.Decrease : MineralChange.NoChange;
             }
             MineralsChangeText.Text = mineralChange.ToString();
+        }
+
+        private static EnergyChangeDigits GetDigitState(int length)
+        {
+            switch (length)
+            {
+                case 1: return EnergyChangeDigits.SingleDigit;
+                case 2: return EnergyChangeDigits.DoubleDigits;
+                case 3: return EnergyChangeDigits.TripleDigits;
+                case 4: return EnergyChangeDigits.QuadDigits;
+                default: return EnergyChangeDigits.SingleDigit;
+            }
         }
     }
 }

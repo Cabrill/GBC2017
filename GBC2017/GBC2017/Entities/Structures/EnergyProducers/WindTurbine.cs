@@ -22,13 +22,13 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
-		}
+		    EffectiveEnergyProducedPerSecond = 1f *
+		                                       WindManager.WindEffectiveness;
+        }
 
 		private void CustomActivity()
 		{
-		    EffectiveEnergyProducedPerSecond = BaseEnergyProducedPerSecond *
+		    EffectiveEnergyProducedPerSecond = 1f *
 		                                       WindManager.WindEffectiveness;
 		    SpriteInstance.AnimationSpeed = WindManager.WindEffectiveness;
 		}

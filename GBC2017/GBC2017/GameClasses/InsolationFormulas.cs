@@ -20,9 +20,46 @@ namespace GBC2017.GameClasses
         /// </summary>
         public enum City
         {
+            None,
             Helsinki,
             Brisbane
         }
+        #endregion
+
+        #region Public properties
+
+        public float CurrentInsolationLevel
+        {
+            get
+            {
+                if (CurrentCity == City.None || CurrentDateTime == DateTime.MinValue)
+                {
+                    return 0f;
+                }
+                else
+                {
+                    if (CurrentDateTime == priorDateTime)
+                    {
+                        return priorInsolationLevel;
+                    }
+
+                    var newInsolationLevel = GetHourlyInsolationForCityAndDate(CurrentCity, CurrentDateTime);
+                    priorInsolationLevel = newInsolationLevel;
+                    priorDateTime = CurrentDateTime;
+                    return newInsolationLevel;
+                }
+            }
+        }
+        #endregion
+
+        #region Private properties
+
+        private DateTime priorDateTime;
+        private float priorInsolationLevel;
+
+        private City CurrentCity;
+        private DateTime CurrentDateTime;
+
         #endregion
 
         #region Singleton
@@ -78,7 +115,7 @@ namespace GBC2017.GameClasses
             6.80f,
         };
 
-        private Dictionary<City, float[]> CityMonthlyInsolationArrays;
+        private Dictionary<City, float[]> CityMonthlyInsolationArrays = new Dictionary<City, float[]>();
 
 
         #endregion
@@ -86,19 +123,38 @@ namespace GBC2017.GameClasses
         #region Constructor
         private InsolationFormulas()
         {
+            CurrentCity = City.None;
+            CurrentDateTime = DateTime.MinValue;
+            priorDateTime = DateTime.MinValue;
             CityMonthlyInsolationArrays.Add(City.Helsinki, HelsinkiMonthInsolation);
             CityMonthlyInsolationArrays.Add(City.Brisbane, BrisbaneMonthInsolation);
         }
         #endregion
 
         #region Public methods
+
+        public void SetCityAndDate(City city, DateTime date)
+        {
+            CurrentCity = city;
+            CurrentDateTime = date;
+        }
+
+        public void UpdateDateTime(DateTime date)
+        {
+            CurrentDateTime = date;
+        }
+
+        #endregion
+
+        #region Private methods
+
         /// <summary>
         /// The hourly insolation for a specific city on a specific date
         /// </summary>
         /// <param name="city">The City name as an enum</param>
         /// <param name="date">The date used in calculating hourly insolation</param>
         /// <returns>The hourly insolation of the city for the date in terms of kWh/m²</returns>
-        public float GetHourlyInsolationForCityAndDate(City city, DateTime date)
+        private float GetHourlyInsolationForCityAndDate(City city, DateTime date)
         {
             var dailyyInsolation = DailyInsolationForCityAndDate(city, date);
             var latLon = CityLatAndLonTuples[city];
@@ -116,17 +172,13 @@ namespace GBC2017.GameClasses
 
             if (dayTimeSpan.TotalHours > 0)
             {
-                return dailyyInsolation / (float) dayTimeSpan.TotalHours;
+                return dailyyInsolation / (float)dayTimeSpan.TotalHours;
             }
             else
             {
                 return 0f;
             }
         }
-
-        #endregion
-
-        #region Private methods
 
         /// <summary>
         /// Determins the daily insolation for a specific city and a specific day

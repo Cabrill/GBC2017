@@ -49,6 +49,12 @@ namespace GBC2017.GameClasses
         private float HourlyUsageGraphSum;
         #endregion
 
+        #region Public properties
+
+        public const int RealSecondsPerGameHour = 8;
+
+        #endregion
+
         #region Enemy Valuation fields
 
         private float BaseEnergyPerHitPoint;

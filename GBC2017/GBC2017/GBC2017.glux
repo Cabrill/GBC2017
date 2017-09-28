@@ -1542,17 +1542,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>double</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>BaseEnergyProducedPerSecond</Name>
-          <Type>double</Type>
-          <SetByDerived>true</SetByDerived>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
@@ -4745,24 +4734,34 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>double</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>BaseEnergyProducedPerSecond</Name>
-          <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">10</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>NumberOfSquareMeterPanels</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">6</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>PanelEfficiencyRating</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -4938,18 +4937,6 @@
           <Name>DisplayName</Name>
           <Type>string</Type>
           <DefaultValue xsi:type="xsd:string">Wind Turbine</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>double</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>BaseEnergyProducedPerSecond</Name>
-          <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">20</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>

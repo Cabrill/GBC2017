@@ -68,7 +68,11 @@ namespace GBC2017.Screens
 
 		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
-		    InitializeFactories();
+		    //TODO:  Set these values by loading a level
+		    gameTimeOfDay = new DateTime(2017, 6, 15, 12, 0, 0);
+            InsolationFormulas.Instance.SetCityAndDate(InsolationFormulas.City.Helsinki, gameTimeOfDay);
+
+            InitializeFactories();
 		    InitializeBaseEntities();
 
             CameraZoomManager.Initialize();
@@ -87,7 +91,6 @@ namespace GBC2017.Screens
 
 		    InitializeManagers();
 
-            gameTimeOfDay = new DateTime(2017, 1, 1, 12,0,0);
 		    lastEnemyWave = TimeManager.CurrentTime;
 		    GameHasStarted = false;
 		}
@@ -246,6 +249,8 @@ namespace GBC2017.Screens
                 SunlightManager.UpdateConditions(gameTimeOfDay);
 		    }
 
+            InsolationFormulas.Instance.UpdateDateTime(gameTimeOfDay);
+
 		    EnergyManager.Update(!GameHasStarted);
 		    MineralsManager.Update(!GameHasStarted);
 		    InfoBarInstance.Update();
@@ -314,7 +319,7 @@ namespace GBC2017.Screens
 
 	    private void UpdateGameTime()
 	    {
-	        var addSeconds = TimeManager.SecondDifference * 480;
+	        var addSeconds = TimeManager.SecondDifference * 60 * GameFormulas.RealSecondsPerGameHour;
 	        gameTimeOfDay = gameTimeOfDay.AddSeconds(addSeconds);
 
 	        HorizonBoxInstance.Update(gameTimeOfDay);

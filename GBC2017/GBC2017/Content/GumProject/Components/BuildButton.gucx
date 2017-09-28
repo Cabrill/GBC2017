@@ -227,6 +227,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>EnergyChangeDigits</Type>
+      <Name>EnergyChangeDigitsState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.Height</Name>
       <Value xsi:type="xsd:float">40</Value>
@@ -1722,7 +1727,7 @@
       <Name>Increase</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Red</Name>
+        <Name>MineralsChangeText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1734,7 +1739,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Blue</Name>
+        <Name>MineralsChangeText.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1743,7 +1748,7 @@
       <Name>NoChange</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Red</Name>
+        <Name>MineralsChangeText.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1757,7 +1762,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Blue</Name>
+        <Name>MineralsChangeText.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1767,8 +1772,8 @@
       <Name>Decrease</Name>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Name>MineralsChangeText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1781,8 +1786,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsChangeText.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Name>MineralsChangeText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1794,7 +1799,7 @@
       <Name>Increase</Name>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Red</Name>
+        <Name>EnergyChangeText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1806,7 +1811,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Blue</Name>
+        <Name>EnergyChangeText.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1815,7 +1820,7 @@
       <Name>NoChange</Name>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Red</Name>
+        <Name>EnergyChangeText.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1829,7 +1834,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Blue</Name>
+        <Name>EnergyChangeText.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
@@ -1839,8 +1844,8 @@
       <Name>Decrease</Name>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
+        <Name>EnergyChangeText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1853,8 +1858,8 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>EnergyChangeText.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
+        <Name>EnergyChangeText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
         <Category>Rendering</Category>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -1866,14 +1871,14 @@
       <Name>SingleDigit</Name>
       <Variable>
         <Type>float</Type>
-        <Name>EnergyChangeText.Width</Name>
-        <Value xsi:type="xsd:float">30</Value>
+        <Name>EnergyChangeSprite.X</Name>
+        <Value xsi:type="xsd:float">56</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>float</Type>
-        <Name>EnergyChangeSprite.X</Name>
-        <Value xsi:type="xsd:float">56</Value>
+        <Name>EnergyChangeText.Width</Name>
+        <Value xsi:type="xsd:float">30</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1889,6 +1894,36 @@
         <Type>float</Type>
         <Name>EnergyChangeText.Width</Name>
         <Value xsi:type="xsd:float">45</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>TripleDigits</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>EnergyChangeSprite.X</Name>
+        <Value xsi:type="xsd:float">26</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>EnergyChangeText.Width</Name>
+        <Value xsi:type="xsd:float">60</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>QuadDigits</Name>
+      <Variable>
+        <Type>float</Type>
+        <Name>EnergyChangeSprite.X</Name>
+        <Value xsi:type="xsd:float">11</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>float</Type>
+        <Name>EnergyChangeText.Width</Name>
+        <Value xsi:type="xsd:float">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>

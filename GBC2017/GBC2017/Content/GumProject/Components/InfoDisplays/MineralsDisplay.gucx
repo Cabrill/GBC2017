@@ -836,6 +836,24 @@
       <Name>Positive</Name>
       <Variable>
         <Type>int</Type>
+        <Name>MineralsEqualsText.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>MineralsNetText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
@@ -854,25 +872,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsEqualsText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsTextBackground.Red</Name>
+        <Name>MineralsTextBackground.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -884,7 +884,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsTextBackground.Blue</Name>
+        <Name>MineralsTextBackground.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -893,6 +893,24 @@
       <Name>Negative</Name>
       <Variable>
         <Type>int</Type>
+        <Name>MineralsEqualsText.Blue</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Green</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Red</Name>
+        <Value xsi:type="xsd:int">255</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>MineralsNetText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
@@ -911,25 +929,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsEqualsText.Red</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Green</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Blue</Name>
-        <Value xsi:type="xsd:int">255</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsTextBackground.Red</Name>
+        <Name>MineralsTextBackground.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -941,7 +941,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsTextBackground.Blue</Name>
+        <Name>MineralsTextBackground.Red</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -950,6 +950,24 @@
       <Name>Balanced</Name>
       <Variable>
         <Type>int</Type>
+        <Name>MineralsEqualsText.Blue</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Green</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
+        <Name>MineralsEqualsText.Red</Name>
+        <Value xsi:type="xsd:int">0</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>int</Type>
         <Name>MineralsNetText.Blue</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
@@ -968,25 +986,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsEqualsText.Red</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Green</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsEqualsText.Blue</Name>
-        <Value xsi:type="xsd:int">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>int</Type>
-        <Name>MineralsTextBackground.Red</Name>
+        <Name>MineralsTextBackground.Blue</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
@@ -998,7 +998,7 @@
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>MineralsTextBackground.Blue</Name>
+        <Name>MineralsTextBackground.Red</Name>
         <Value xsi:type="xsd:int">255</Value>
         <SetsValue>true</SetsValue>
       </Variable>
