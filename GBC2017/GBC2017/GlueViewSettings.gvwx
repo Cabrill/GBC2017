@@ -105,7 +105,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -315,7 +315,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -357,7 +357,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>

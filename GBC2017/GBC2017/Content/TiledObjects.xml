@@ -64,7 +64,7 @@
     <property name="MineralsBuildCost" type="float" default="50" />
     <property name="DisplayName" type="string" default="Solar Panels" />
     <property name="HasLightSource" type="bool" />
-    <property name="NumberOfPanels" type="int" default="6" />
+    <property name="NumberOfSquareMeterPanels" type="int" default="6" />
     <property name="PanelEfficiencyRating" type="float" default="0.2" />
   </objecttype>
   <objecttype name="WindTurbine">

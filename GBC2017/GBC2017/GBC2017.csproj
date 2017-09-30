@@ -163,7 +163,10 @@
     <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameClasses\BaseLevel.cs" />
+    <Compile Include="GameClasses\BaseClasses\BaseLevel.cs" />
+    <Compile Include="GameClasses\Cities\Brisbane.cs" />
+    <Compile Include="GameClasses\Cities\Helsinki.cs" />
+    <Compile Include="GameClasses\Interfaces\ICity.cs" />
     <Compile Include="GameClasses\SunTimes.cs" />
     <Compile Include="GameClasses\GameFormulas.cs" />
     <Compile Include="GameClasses\InsolationFormulas.cs" />
@@ -373,6 +376,13 @@
     <Compile Include="StateInterpolation\TweenerManager.cs" />
     <Compile Include="StaticManagers\SunlightManager.cs" />
     <Compile Include="StaticManagers\WindManager.cs" />
+    <Compile Include="SunMoonCalculations\MoonIllumination.cs" />
+    <Compile Include="SunMoonCalculations\MoonPosition.cs" />
+    <Compile Include="SunMoonCalculations\MoonTimes.cs" />
+    <Compile Include="SunMoonCalculations\Position.cs" />
+    <Compile Include="SunMoonCalculations\SunAndMoonCalculation.cs" />
+    <Compile Include="SunMoonCalculations\SunTimes.cs" />
+    <Compile Include="SunMoonCalculations\TimeMap.cs" />
     <Compile Include="TileCollisions\TileShapeCollection.cs" />
     <Compile Include="TileEntities\TileEntityInstantiator.cs" />
     <Compile Include="TileGraphics\AbstractMapLayer.cs" />
@@ -501,17 +511,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>shadow</Name>
     </None>
-    <None Include="content\entities\structures\battery\battery_sprite.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>battery_sprite</Name>
-    </None>
     <None Include="content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
-    </None>
-    <None Include="content\entities\structures\home\brickhouse.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>BrickHouse</Name>
     </None>
     <None Include="content\entities\structures\laserturret\laser_turret_sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -520,14 +522,6 @@
     <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>shield_generator</Name>
-    </None>
-    <None Include="content\entities\structures\solarpanels\solar_sprite.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>solar_sprite</Name>
-    </None>
-    <None Include="content\entities\structures\utility\carbontree\carbon_tree.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>carbon_tree</Name>
     </None>
     <None Include="content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

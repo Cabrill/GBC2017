@@ -22,8 +22,8 @@ namespace GBC2017.GumRuntimes
 
             StructureSprite.TextureHeight = (int)textureHeight;
             StructureSprite.TextureWidth = (int)textureWidth;
-            StructureSprite.TextureLeft = (int)structure.SpriteInstance.LeftTextureCoordinate;
-            StructureSprite.TextureTop = (int)structure.SpriteInstance.TopTextureCoordinate;
+            StructureSprite.TextureLeft = (int)structure.SpriteInstance.LeftTexturePixel;
+            StructureSprite.TextureTop = (int)structure.SpriteInstance.TopTexturePixel;
             StructureSprite.Width = textureWidth / textureHeight * 50;
 
             StructureName.Text = structure.DisplayName;
