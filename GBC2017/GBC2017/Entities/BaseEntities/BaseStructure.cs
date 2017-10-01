@@ -77,6 +77,8 @@ namespace GBC2017.Entities.BaseEntities
 
 	        _lastUsageUpdate = TimeManager.CurrentTime;
 
+	        SpriteInstance.RelativeY = SpriteInstance.Height / 2;
+	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
 	    }
 
 	    private void CustomActivity()

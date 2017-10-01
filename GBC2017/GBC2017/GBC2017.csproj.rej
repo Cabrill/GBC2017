@@ -1,0 +1,12 @@
+diff a/GBC2017/GBC2017/GBC2017.csproj b/GBC2017/GBC2017/GBC2017.csproj	(rejected hunks)
+@@ -562,10 +562,6 @@
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+       <Name>ResourceBar</Name>
+     </None>
+-    <None Include="content\gumproject\components\horizonbox.gucx">
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <Name>HorizonBox</Name>
+-    </None>
+     <None Include="content\gumproject\components\infobar.gucx">
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+       <Name>InfoBar</Name>

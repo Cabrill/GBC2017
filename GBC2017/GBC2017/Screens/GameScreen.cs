@@ -19,6 +19,7 @@ using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GameClasses;
+using GBC2017.GameClasses.Cities;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
@@ -69,8 +70,8 @@ namespace GBC2017.Screens
 		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
 		    //TODO:  Set these values by loading a level
-		    gameTimeOfDay = new DateTime(2017, 6, 15, 12, 0, 0);
-            InsolationFormulas.Instance.SetCityAndDate(InsolationFormulas.City.Helsinki, gameTimeOfDay);
+		    gameTimeOfDay = new DateTime(2017, 12, 15, 0, 0, 0, DateTimeKind.Utc);
+            InsolationFormulas.Instance.SetCityAndDate(Helsinki.Instance, gameTimeOfDay);
 
             InitializeFactories();
 		    InitializeBaseEntities();
@@ -93,7 +94,8 @@ namespace GBC2017.Screens
 
 		    lastEnemyWave = TimeManager.CurrentTime;
 		    GameHasStarted = false;
-		}
+		    HorizonBoxInstance.Update(gameTimeOfDay);
+        }
 
 
 
@@ -234,6 +236,8 @@ namespace GBC2017.Screens
 		    SelectedItemActivity();
 		    BuildingStatusActivity();
 
+            HorizonBoxInstance.Update(gameTimeOfDay);
+
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
@@ -246,7 +250,7 @@ namespace GBC2017.Screens
                 UpdateGameTime();
 
                 WindManager.Update();
-                SunlightManager.UpdateConditions(gameTimeOfDay);
+                SunlightManager.UpdateConditions();
 		    }
 
             InsolationFormulas.Instance.UpdateDateTime(gameTimeOfDay);
@@ -270,7 +274,13 @@ namespace GBC2017.Screens
 	            FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
 	            FlatRedBall.Debugging.Debugger.Write(combinedInfo);
 	        }
-	    }
+	        FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
+	        FlatRedBall.Debugging.Debugger.TextRed = 0f;
+            FlatRedBall.Debugging.Debugger.TextGreen = 0f;
+	        FlatRedBall.Debugging.Debugger.TextBlue = 0f;
+
+            FlatRedBall.Debugging.Debugger.Write(gameTimeOfDay.AddHours(3));
+        }
 
 	    private void TemporaryDebugWaveSpawning()
 	    {
@@ -348,7 +358,10 @@ namespace GBC2017.Screens
 
 	    private void UpdateGameModeActivity()
 	    {
-            if (!AllStructuresList.Any(s => s is Home)) RestartScreen(false);
+	        if (!AllStructuresList.Any(s => s is Home))
+	        {
+                RestartScreen(false);
+	        }
 
 	        if (AllStructuresList.Any(s => s.IsBeingPlaced))
 	        {

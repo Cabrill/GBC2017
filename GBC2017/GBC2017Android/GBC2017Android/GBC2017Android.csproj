@@ -347,14 +347,20 @@
     <Compile Include="..\..\GBC2017\Game1.cs">
       <Link>Game1.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\GameClasses\BaseLevel.cs">
-      <Link>GameClasses\BaseLevel.cs</Link>
+    <Compile Include="..\..\GBC2017\GameClasses\Cities\Brisbane.cs">
+      <Link>GameClasses\Cities\Brisbane.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\Cities\Helsinki.cs">
+      <Link>GameClasses\Cities\Helsinki.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\GameFormulas.cs">
       <Link>GameClasses\GameFormulas.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\InsolationFormulas.cs">
       <Link>GameClasses\InsolationFormulas.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\Interfaces\ICity.cs">
+      <Link>GameClasses\Interfaces\ICity.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
       <Link>GameClasses\LevelWave.cs</Link>
@@ -869,6 +875,27 @@
     <Compile Include="..\..\GBC2017\StaticManagers\WindManager.cs">
       <Link>StaticManagers\WindManager.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\MoonIllumination.cs">
+      <Link>SunMoonCalculations\MoonIllumination.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\MoonPosition.cs">
+      <Link>SunMoonCalculations\MoonPosition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\MoonTimes.cs">
+      <Link>SunMoonCalculations\MoonTimes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\Position.cs">
+      <Link>SunMoonCalculations\Position.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\SunAndMoonCalculation.cs">
+      <Link>SunMoonCalculations\SunAndMoonCalculation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\SunTimes.cs">
+      <Link>SunMoonCalculations\SunTimes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\SunMoonCalculations\TimeMap.cs">
+      <Link>SunMoonCalculations\TimeMap.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\TileCollisions\TileShapeCollection.cs">
       <Link>TileCollisions\TileShapeCollection.cs</Link>
     </Compile>
@@ -1019,17 +1046,9 @@
       <Name>shadow</Name>
       <Link>Assets\content\entities\shadow.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\battery\battery_sprite.png">
-      <Name>battery_sprite</Name>
-      <Link>Assets\content\entities\structures\battery\battery_sprite.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\energyproducers\windturbine\animationchainlistfile.achx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\home\brickhouse.png">
-      <Name>brickhouse</Name>
-      <Link>Assets\content\entities\structures\home\brickhouse.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\laserturret\laser_turret_sprite.png">
       <Name>laser_turret_sprite</Name>
@@ -1038,14 +1057,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
       <Name>shield_generator</Name>
       <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\solarpanels\solar_sprite.png">
-      <Name>solar_sprite</Name>
-      <Link>Assets\content\entities\structures\solarpanels\solar_sprite.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbon_tree.png">
-      <Name>carbon_tree</Name>
-      <Link>Assets\content\entities\structures\utility\carbontree\carbon_tree.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
@@ -1400,6 +1411,9 @@
     <AndroidResource Include="Resources\Layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GameClasses\BaseClasses\" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -17,8 +17,6 @@ namespace GBC2017.StaticManagers
         public static bool MoonIsUp { get; private set; }
 
         private static HorizonBoxRuntime _horizon;
-        private static float HorizonPositionY => _horizon.HorizonPositionY;
-
 
         public static void Initialize(HorizonBoxRuntime horizonBox)
         {
@@ -28,10 +26,10 @@ namespace GBC2017.StaticManagers
             MoonIsUp = false;
         }
 
-        public static void UpdateConditions(DateTime timeOfDay)
+        public static void UpdateConditions()
         {
-            SunIsUp = _horizon.SunPositionY <= HorizonPositionY;
-            MoonIsUp = _horizon.MoonPositionY <= HorizonPositionY;
+            SunIsUp = _horizon.SunAboveHorizon;
+            MoonIsUp = _horizon.MoonAboveHorizon;
 
             if (SunIsUp)
             {
@@ -43,7 +41,7 @@ namespace GBC2017.StaticManagers
             }
             else
             {
-                SunlightEffectiveness = _horizon.SunPositionY <= _horizon.MoonPositionY
+                SunlightEffectiveness = _horizon.SunAboveHorizon
                     ? GetSunEffectiveness()
                     : GetMoonEffectiveness();
             }
@@ -51,16 +49,14 @@ namespace GBC2017.StaticManagers
 
         private static float GetSunEffectiveness()
         {
-            var sunlight = (_horizon.SunPositionY - HorizonPositionY) / CameraZoomManager.GumCoordOffset;
-            return Math.Max(0,1 - (sunlight / 500));
+            return  _horizon.SunPercentageAboveHorizon;
         }
 
         private static float GetMoonEffectiveness()
         {
             //Moonlight is 1/345th as effective as sunlight for powering solar panels
             //https://www.quora.com/Can-moon-light-produce-electricity-from-solar-panels-at-night-Can-moon-light-generate-the-electron-hole-pair-in-a-solar-cell
-            var moonlight = (_horizon.MoonPositionY - HorizonPositionY) / CameraZoomManager.GumCoordOffset;
-            return Math.Max(0,(1 - (moonlight /500)) / 345);
+            return _horizon.MoonPercentageAboveHorizon/345;
         }
     }
 }

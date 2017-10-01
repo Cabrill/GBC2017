@@ -1,23 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall;
+using FlatRedBall.Math;
 using FlatRedBall.Utilities;
+using GBC2017.GameClasses.Cities;
 using GBC2017.StaticManagers;
+using GBC2017.SunMoonCalculations;
+using Microsoft.Xna.Framework;
+using static System.Math;
 
 namespace GBC2017.GumRuntimes
 {
     public partial class HorizonBoxRuntime
     {
-        public float SunPositionY => SunSprite.AbsoluteY+SunSprite.Component.Height/2;
-        public float MoonPositionY => MoonSprite.AbsoluteY+MoonSprite.Component.Height/2;
-        public float HorizonPositionY => SkyRectangle.AbsoluteY;
+        private Color NightTimeColor;
+        private Color DayTimeColor;
 
-        private int skyRed;
-        private int skyGreen;
-        private int skyBlue;
+        public bool SunAboveHorizon => SunSprite.Y >= SkyRectangle.Y;
+        public bool MoonAboveHorizon => MoonSprite.Y >= SkyRectangle.Y;
+
+        public float SunPercentageAboveHorizon =>
+            MathHelper.Clamp(SunSprite.Y / SunSprite.GetAbsoluteHeight(), 0f, 1f);
+        public float MoonPercentageAboveHorizon =>
+            MathHelper.Clamp(MoonSprite.Y / MoonSprite.GetAbsoluteHeight(), 0f, 1f);
+        private float SunPercentageBelowHorizon =>
+            MathHelper.Clamp(SunSprite.Y / -SunSprite.GetAbsoluteHeight(), 0f, 1f);
+
 
         partial void CustomInitialize()
         {
@@ -28,9 +41,8 @@ namespace GBC2017.GumRuntimes
 
             StarrySkySprite.X = 50 + xOffset;
             StarrySkySprite.Y = 50 + yOffset;
-            skyRed = SkyRectangle.Red;
-            skyGreen = SkyRectangle.Green;
-            skyBlue = SkyRectangle.Blue;
+            DayTimeColor = new Color(SkyRectangle.Red, SkyRectangle.Green, SkyRectangle.Blue);
+            NightTimeColor = new Color(0, 50, 125);
         }
 
         public void ReactToCameraChange()
@@ -39,82 +51,63 @@ namespace GBC2017.GumRuntimes
             Height = 100 * CameraZoomManager.GumCoordOffset;
             X = -Camera.Main.X * CameraZoomManager.GumCoordOffset;
             Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
-            UpdateLayout(false, true);
         }
 
         public void Update(DateTime timeOfDay)
         {
-            if (SkyRectangle.Alpha < 255)
-            {
-                StarrySkySprite.Visible = true;
-                StarrySkySprite.Rotation = (float) (timeOfDay.TimeOfDay.TotalSeconds%86400) * -0.004167f;
-            }
-            else
-            {
-                StarrySkySprite.Visible = false;
-            }
-
-            UpdateStarrySky(timeOfDay);
             UpdateSunAndMoon(timeOfDay);
+            UpdateStarrySky(timeOfDay);
         }
 
         private void UpdateStarrySky(DateTime timeOfDay)
         {
-            //TODO:  Make sunrise/sunset use latitude/longitude of location
-            //https://www.esrl.noaa.gov/gmd/grad/solcalc/main.js
-            if (timeOfDay.Hour >= 18)
-            {
-                const int duskStartInMinutes = 22 * 60;
-                const int duskLastsInMinutes = 4 * 60;
+            StarrySkySprite.Rotation = (float)(timeOfDay.TimeOfDay.TotalSeconds % 86400) * -0.004167f;
 
-                var skyOpacity = Math.Max(0, (duskStartInMinutes - timeOfDay.TimeOfDay.TotalMinutes) / duskLastsInMinutes);
+            var skyOpacity = 1 - Max(0,SunPercentageBelowHorizon - 0.5f)*2;
 
-                SkyRectangle.Alpha = (int) (255 * skyOpacity);
+            SkyRectangle.Alpha = (int) (255 * skyOpacity);
+            SkyHazeSprite.Alpha = (int)(200 * SunPercentageAboveHorizon);
 
-                SkyRectangle.Red = (int)(skyRed * skyOpacity)/2;
-                SkyRectangle.Green = (int)(skyGreen * skyOpacity)/2;
-                SkyRectangle.Blue = (int)(skyBlue * skyOpacity)/2;
-            }
-            else if (timeOfDay.Hour < 6)
-            {
-                const int dawnStartInMinutes = 4 * 60;
-                const int dawnLastsInMinutes = 4 * 60;
+            var inverseSun = 1 - SunPercentageAboveHorizon;
 
-                var skyOpacity = Math.Max(0, (timeOfDay.TimeOfDay.TotalMinutes - dawnStartInMinutes) / dawnLastsInMinutes);
+            SkyRectangle.Red = (int)   ((SunPercentageAboveHorizon * DayTimeColor.R) + (inverseSun * NightTimeColor.R));
+            SkyRectangle.Green = (int) ((SunPercentageAboveHorizon * DayTimeColor.G) + (inverseSun * NightTimeColor.G));
+            SkyRectangle.Blue = (int)  ((SunPercentageAboveHorizon * DayTimeColor.B) + (inverseSun * NightTimeColor.B));
 
-                SkyRectangle.Alpha = (int) (255 * skyOpacity);
+            DawnDuskSprite.Alpha = MathHelper.Clamp((int) (255 * (1 - SunPercentageAboveHorizon-SunPercentageBelowHorizon*2)),0,255);
+            DawnDuskSprite.Height = 75f + (25f * SunPercentageAboveHorizon);
 
-                SkyRectangle.Red = (int)(skyRed * skyOpacity) / 2;
-                SkyRectangle.Green = (int)(skyGreen * skyOpacity) / 2;
-                SkyRectangle.Blue = (int)(skyBlue * skyOpacity) / 2;
-            }
-            else
-            {
-                const int fullSunTimeInMinutes = 14 * 60;
-                const float fullSunWindowInMinutes = 12 * 60;
-                var minutesFromFullSun = (float)Math.Abs(timeOfDay.TimeOfDay.TotalMinutes - fullSunTimeInMinutes);
-
-                var percentFullSun = 1-Math.Min(1f, minutesFromFullSun / fullSunWindowInMinutes);
-
-                SkyRectangle.Red = (int) (skyRed * percentFullSun);
-                SkyRectangle.Green = (int)(skyGreen * percentFullSun);
-                SkyRectangle.Blue = (int)(skyBlue * percentFullSun);
-
-                SkyRectangle.Alpha = (int)(255 * Math.Min(1f,percentFullSun*1.5f));
-            }
+            StarrySkySprite.Visible = SkyRectangle.Alpha < 255;
         }
 
         private void UpdateSunAndMoon(DateTime timeOfDay)
         {
-            const int angleAdjust = 180 * 240;
-            var angle = ((timeOfDay.TimeOfDay.TotalMinutes+ angleAdjust)/ 240) %360;
+            var radius = SunMoonContainer.GetAbsoluteHeight() / 2;// * CameraZoomManager.GumCoordOffset;
 
-            var radius = CameraZoomManager.OriginalOrthogonalHeight * 0.9f * CameraZoomManager.GumCoordOffset;
-            SunSprite.X = (float)Math.Cos(angle) * radius; 
-            SunSprite.Y = (float)Math.Sin(angle) * radius; 
+            var aspectAdjustment = SunMoonContainer.GetAbsoluteHeight() / SunMoonContainer.GetAbsoluteWidth();
 
-            MoonSprite.X = (float)Math.Cos(angle) * -radius; 
-            MoonSprite.Y = (float)Math.Sin(angle) * -radius; 
+            var sunPosition =
+                SunAndMoonCalculation.GetSunPosition(timeOfDay, Helsinki.Instance.Latitude, Helsinki.Instance.Longitude);
+
+            SphericalToCartesian(radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
+            SunSprite.X = newSunPosition.X / aspectAdjustment;
+            SunSprite.Y = newSunPosition.Y;
+
+            var moonPosition =
+                SunAndMoonCalculation.GetMoonPosition(timeOfDay, Helsinki.Instance.Latitude, Helsinki.Instance.Longitude);
+
+            SphericalToCartesian(radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
+
+            MoonSprite.X = newMoonPosition.X /aspectAdjustment;
+            MoonSprite.Y = newMoonPosition.Y;
+        }
+
+        private static void SphericalToCartesian(float radius, double azimuth, double altitude, out Vector3 outCart)
+        {
+            var a = radius * (float)Math.Cos(altitude);
+            outCart.X = -a * (float)Math.Sin(azimuth); 
+            outCart.Y = radius * (float)Math.Sin(altitude);
+            outCart.Z = a * (float)Math.Cos(azimuth);
         }
     }
 }
