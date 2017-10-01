@@ -18,15 +18,11 @@ namespace GBC2017.GumRuntimes
 {
     public partial class HorizonBoxRuntime
     {
-        public float SunPositionY => SunSprite.AbsoluteY+SunSprite.Component.Height/2;
-        public float MoonPositionY => MoonSprite.AbsoluteY+MoonSprite.Component.Height/2;
-        public float HorizonPositionY => SkyRectangle.AbsoluteY;
-
         private Color NightTimeColor;
         private Color DayTimeColor;
 
-        public bool SunAboveHorizon => SunSprite.Y >=0f;
-        public bool MoonAboveHorizon => MoonSprite.Y >= 0f;
+        public bool SunAboveHorizon => SunSprite.Y >= SkyRectangle.Y;
+        public bool MoonAboveHorizon => MoonSprite.Y >= SkyRectangle.Y;
 
         public float SunPercentageAboveHorizon =>
             MathHelper.Clamp(SunSprite.Y / SunSprite.GetAbsoluteHeight(), 0f, 1f);
@@ -55,7 +51,6 @@ namespace GBC2017.GumRuntimes
             Height = 100 * CameraZoomManager.GumCoordOffset;
             X = -Camera.Main.X * CameraZoomManager.GumCoordOffset;
             Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
-            UpdateLayout(false, true);
         }
 
         public void Update(DateTime timeOfDay)
@@ -71,7 +66,7 @@ namespace GBC2017.GumRuntimes
             var skyOpacity = 1 - Max(0,SunPercentageBelowHorizon - 0.5f)*2;
 
             SkyRectangle.Alpha = (int) (255 * skyOpacity);
-            SkyGradientSprite.Alpha = (int)(255 * SunPercentageAboveHorizon);
+            SkyHazeSprite.Alpha = (int)(200 * SunPercentageAboveHorizon);
 
             var inverseSun = 1 - SunPercentageAboveHorizon;
 
@@ -79,15 +74,15 @@ namespace GBC2017.GumRuntimes
             SkyRectangle.Green = (int) ((SunPercentageAboveHorizon * DayTimeColor.G) + (inverseSun * NightTimeColor.G));
             SkyRectangle.Blue = (int)  ((SunPercentageAboveHorizon * DayTimeColor.B) + (inverseSun * NightTimeColor.B));
 
-            DawnDuskSprite.Alpha = Math.Min(SkyRectangle.Alpha,(int) (255 * (1 - SunPercentageAboveHorizon+SunPercentageBelowHorizon)));
-            DawnDuskSprite.Height = 75 + (25f * SunPercentageAboveHorizon);
+            DawnDuskSprite.Alpha = MathHelper.Clamp((int) (255 * (1 - SunPercentageAboveHorizon-SunPercentageBelowHorizon*2)),0,255);
+            DawnDuskSprite.Height = 75f + (25f * SunPercentageAboveHorizon);
 
             StarrySkySprite.Visible = SkyRectangle.Alpha < 255;
         }
 
         private void UpdateSunAndMoon(DateTime timeOfDay)
         {
-            var radius = SunMoonContainer.GetAbsoluteHeight()/2 * CameraZoomManager.GumCoordOffset;
+            var radius = SunMoonContainer.GetAbsoluteHeight() / 2;// * CameraZoomManager.GumCoordOffset;
 
             var aspectAdjustment = SunMoonContainer.GetAbsoluteHeight() / SunMoonContainer.GetAbsoluteWidth();
 

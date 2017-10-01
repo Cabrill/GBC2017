@@ -17,8 +17,6 @@ namespace GBC2017.StaticManagers
         public static bool MoonIsUp { get; private set; }
 
         private static HorizonBoxRuntime _horizon;
-        private static float HorizonPositionY => _horizon.HorizonPositionY;
-
 
         public static void Initialize(HorizonBoxRuntime horizonBox)
         {
@@ -28,7 +26,7 @@ namespace GBC2017.StaticManagers
             MoonIsUp = false;
         }
 
-        public static void UpdateConditions(DateTime timeOfDay)
+        public static void UpdateConditions()
         {
             SunIsUp = _horizon.SunAboveHorizon;
             MoonIsUp = _horizon.MoonAboveHorizon;
@@ -58,7 +56,7 @@ namespace GBC2017.StaticManagers
         {
             //Moonlight is 1/345th as effective as sunlight for powering solar panels
             //https://www.quora.com/Can-moon-light-produce-electricity-from-solar-panels-at-night-Can-moon-light-generate-the-electron-hole-pair-in-a-solar-cell
-            return _horizon.SunPercentageAboveHorizon/345;
+            return _horizon.MoonPercentageAboveHorizon/345;
         }
     }
 }

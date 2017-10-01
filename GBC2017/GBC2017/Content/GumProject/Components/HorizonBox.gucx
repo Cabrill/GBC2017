@@ -23,6 +23,18 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>DawnDuskSprite.FlipHorizontal</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>DawnDuskSprite.FlipVertical</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>DawnDuskSprite.Green</Name>
       <Value xsi:type="xsd:int">140</Value>
@@ -31,7 +43,7 @@
     <Variable>
       <Type>float</Type>
       <Name>DawnDuskSprite.Height</Name>
-      <Value xsi:type="xsd:float">50</Value>
+      <Value xsi:type="xsd:float">25</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -53,6 +65,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>DawnDuskSprite.Rotation</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>DawnDuskSprite.SourceFile</Name>
@@ -68,7 +86,7 @@
     <Variable>
       <Type>int</Type>
       <Name>DawnDuskSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">288</Value>
+      <Value xsi:type="xsd:int">144</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -90,9 +108,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>DawnDuskSprite.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
       <Name>DawnDuskSprite.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>DawnDuskSprite.Wrap</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -110,7 +140,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -123,7 +153,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>HasEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -244,63 +274,69 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>SkyHazeSprite.Alpha</Name>
+      <Value xsi:type="xsd:int">200</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>SkyGradientSprite.Height Units</Name>
+      <Name>SkyHazeSprite.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>SkyGradientSprite.Parent</Name>
+      <Name>SkyHazeSprite.Parent</Name>
       <Value xsi:type="xsd:string">VisibleHorizonContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <IsFile>true</IsFile>
       <Type>string</Type>
-      <Name>SkyGradientSprite.SourceFile</Name>
+      <Name>SkyHazeSprite.SourceFile</Name>
       <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>TextureAddress</Type>
-      <Name>SkyGradientSprite.Texture Address</Name>
+      <Name>SkyHazeSprite.Texture Address</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>SkyGradientSprite.Texture Height</Name>
-      <Value xsi:type="xsd:int">288</Value>
+      <Name>SkyHazeSprite.Texture Height</Name>
+      <Value xsi:type="xsd:int">144</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>SkyGradientSprite.Texture Left</Name>
-      <Value xsi:type="xsd:int">2047</Value>
+      <Name>SkyHazeSprite.Texture Left</Name>
+      <Value xsi:type="xsd:int">2048</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>SkyGradientSprite.Texture Top</Name>
+      <Name>SkyHazeSprite.Texture Top</Name>
       <Value xsi:type="xsd:int">256</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>SkyGradientSprite.Texture Width</Name>
+      <Name>SkyHazeSprite.Texture Width</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>bool</Type>
-      <Name>SkyGradientSprite.Visible</Name>
+      <Name>SkyHazeSprite.Visible</Name>
       <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>SkyGradientSprite.Width Units</Name>
+      <Name>SkyHazeSprite.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -781,7 +817,7 @@
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>
-    <Name>SkyGradientSprite</Name>
+    <Name>SkyHazeSprite</Name>
     <BaseType>Sprite</BaseType>
   </Instance>
   <Instance>

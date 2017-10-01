@@ -94,7 +94,8 @@ namespace GBC2017.Screens
 
 		    lastEnemyWave = TimeManager.CurrentTime;
 		    GameHasStarted = false;
-		}
+		    HorizonBoxInstance.Update(gameTimeOfDay);
+        }
 
 
 
@@ -235,6 +236,8 @@ namespace GBC2017.Screens
 		    SelectedItemActivity();
 		    BuildingStatusActivity();
 
+            HorizonBoxInstance.Update(gameTimeOfDay);
+
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
@@ -247,13 +250,8 @@ namespace GBC2017.Screens
                 UpdateGameTime();
 
                 WindManager.Update();
-                SunlightManager.UpdateConditions(gameTimeOfDay);
+                SunlightManager.UpdateConditions();
 		    }
-
-            //
-		    SunlightManager.UpdateConditions(gameTimeOfDay);
-		    UpdateGameTime();
-            //
 
             InsolationFormulas.Instance.UpdateDateTime(gameTimeOfDay);
 
