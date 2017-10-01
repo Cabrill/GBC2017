@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 
 namespace GBC2017.GumRuntimes
@@ -25,6 +26,21 @@ namespace GBC2017.GumRuntimes
             StructureSprite.TextureLeft = (int)structure.SpriteInstance.LeftTexturePixel;
             StructureSprite.TextureTop = (int)structure.SpriteInstance.TopTexturePixel;
             StructureSprite.Width = textureWidth / textureHeight * 50;
+
+            var structureAsWindTurbine = structure as WindTurbine;
+
+            if (structureAsWindTurbine != null)
+            {
+                StructureSprite2.SourceFile = structureAsWindTurbine.TurbineSprite.Texture;
+                textureHeight = structureAsWindTurbine.TurbineSprite.BottomTexturePixel - structureAsWindTurbine.TurbineSprite.TopTexturePixel;
+                textureWidth = structureAsWindTurbine.TurbineSprite.RightTexturePixel - structureAsWindTurbine.TurbineSprite.LeftTexturePixel;
+                StructureSprite2.TextureHeight = (int)textureHeight;
+                StructureSprite2.TextureWidth = (int)textureWidth;
+                StructureSprite2.TextureLeft = (int)structureAsWindTurbine.TurbineSprite.LeftTexturePixel;
+                StructureSprite2.TextureTop = (int)structureAsWindTurbine.TurbineSprite.TopTexturePixel;
+
+                StructureSprite2.Visible = true;
+            }
 
             StructureName.Text = structure.DisplayName;
 
