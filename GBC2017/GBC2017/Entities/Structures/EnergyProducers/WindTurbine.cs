@@ -15,6 +15,9 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 {
 	public partial class WindTurbine
 	{
+	    private float _lastWindEffectiveness;
+	    private bool _hasSetTurbineSprite;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -24,20 +27,45 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		{
 		    EffectiveEnergyProducedPerSecond = 1f *
 		                                       WindManager.WindEffectiveness;
-        }
+		    TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
+		}
 
 		private void CustomActivity()
 		{
 		    EffectiveEnergyProducedPerSecond = 1f *
 		                                       WindManager.WindEffectiveness;
-		    SpriteInstance.AnimationSpeed = WindManager.WindEffectiveness;
+
+		    if (IsBeingPlaced)
+		    {
+		        TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
+		        TurbineSprite.Red = SpriteInstance.Red;
+		        TurbineSprite.Green = SpriteInstance.Green;
+		        TurbineSprite.Blue = SpriteInstance.Blue;
+            }
+            else if (!_hasSetTurbineSprite)
+		    {
+		        TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
+		        TurbineSprite.Red = SpriteInstance.Red;
+		        TurbineSprite.Green = SpriteInstance.Green;
+		        TurbineSprite.Blue = SpriteInstance.Blue;
+
+		        _hasSetTurbineSprite = true;
+		    }
+		    else if (_lastWindEffectiveness != WindManager.WindEffectiveness)
+		    {
+		        _lastWindEffectiveness = WindManager.WindEffectiveness;
+		        TurbineSprite.RelativeRotationZVelocity = -WindManager.WindEffectiveness;
+		    }
 		}
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
 	        base.AddSpritesToLayers(darknessLayer, hudLayer);
 
-	        if (HasLightSource)
+	        LayerProvidedByContainer.Remove(TurbineSprite);
+	        SpriteManager.AddToLayer(TurbineSprite, hudLayer);
+
+            if (HasLightSource)
 	        {
 	            //LayerProvidedByContainer.Remove(LightSpriteInstance);
 	            //SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);

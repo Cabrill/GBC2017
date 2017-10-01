@@ -27,6 +27,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowAlpha;
 	    protected SoundEffect HitGroundSound;
 	    protected SoundEffect TargetHitSound;
+	    private bool _spritedAddedToLayers = false;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -105,15 +106,21 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
-	        if (HasLightSource)
+	        if (!_spritedAddedToLayers)
 	        {
-	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
-	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
-	        }
 
-	        LayerProvidedByContainer.Remove(CircleInstance);
-	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
-        }
+	            if (HasLightSource)
+	            {
+	                LayerProvidedByContainer.Remove(LightOrShadowSprite);
+	                SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	            }
+
+	            LayerProvidedByContainer.Remove(CircleInstance);
+	            ShapeManager.AddToLayer(CircleInstance, hudLayer);
+
+	            _spritedAddedToLayers = true;
+	        }
+	    }
 
         private void CustomDestroy()
 		{
