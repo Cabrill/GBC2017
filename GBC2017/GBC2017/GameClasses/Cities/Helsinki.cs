@@ -26,5 +26,22 @@ namespace GBC2017.GameClasses.Cities
             0.46f,
             0.16f
         };
-}
+
+        public float[] MonthlyAverageWindSpeedInKts { get; } =
+        {
+            10,
+            9,
+            9,
+            9,
+            9,
+            10,
+            9,
+            10,
+            8,
+            10,
+            9,
+            10,
+            9
+        };
+    }
 }

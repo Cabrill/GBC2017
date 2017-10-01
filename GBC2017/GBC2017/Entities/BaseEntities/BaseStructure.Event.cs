@@ -11,6 +11,7 @@ using GBC2017.Entities;
 using GBC2017.Entities.Enemies;
 using GBC2017.Entities.GraphicalElements;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Screens;
 namespace GBC2017.Entities.BaseEntities
 {
@@ -25,6 +26,13 @@ namespace GBC2017.Entities.BaseEntities
             { 
                 _hudLayer.Remove(SpriteInstance);
                  SpriteManager.AddToLayer(SpriteInstance, LayerProvidedByContainer);
+
+                var structureAsWindTurbine = this as WindTurbine;
+                if (structureAsWindTurbine != null)
+                {
+                    _hudLayer.Remove(structureAsWindTurbine.TurbineSprite);
+                    SpriteManager.AddToLayer(structureAsWindTurbine.TurbineSprite, LayerProvidedByContainer);
+                }
             }
         }
 
