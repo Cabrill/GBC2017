@@ -174,7 +174,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MoonSprite.Height</Name>
-      <Value xsi:type="xsd:float">22.222</Value>
+      <Value xsi:type="xsd:float">13.3332</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -235,7 +235,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MoonSprite.Width</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

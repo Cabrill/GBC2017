@@ -21,8 +21,8 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
         {
-            if (HitGroundSound == null) HitGroundSound = Laser_Ground;
-            if (TargetHitSound == null) TargetHitSound = Laser_Hit;
+            if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Laser_Ground.CreateInstance();
+            if (TargetHitSound == null || TargetHitSound.IsDisposed) TargetHitSound = Laser_Hit.CreateInstance();
         }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
@@ -45,8 +45,7 @@ namespace GBC2017.Entities.Projectiles
 		private void CustomDestroy()
 		{
 
-
-		}
+        }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

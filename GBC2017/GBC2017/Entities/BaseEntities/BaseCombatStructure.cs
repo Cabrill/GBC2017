@@ -22,7 +22,8 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    private BaseEnemy targetEnemy;
-	    protected SoundEffect attackSound;
+	    protected SoundEffectInstance attackSound;
+	    private float _aimRotation;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -45,8 +46,10 @@ namespace GBC2017.Entities.BaseEntities
 		private void CustomActivity()
 		{
             if (IsBeingPlaced == false)
-		    {
-		        if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
+            {
+                RotateToAimMouse();
+
+                if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
 		        }
@@ -59,8 +62,9 @@ namespace GBC2017.Entities.BaseEntities
 		        if (targetEnemy != null)
 		        {
 		            RotateToAim();
+		            SetAnimationFromAimRotation();
 
-		            if (BatteryLevel >= EnergyCostToFire)
+                    if (BatteryLevel >= EnergyCostToFire)
 		            {
 		                PerformFiringActivity();
 		            }
@@ -101,23 +105,74 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 
 	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
-	        //var projectileOffset = GetProjectilePositioning(angle);
-            //angle = (float)Math.Atan2(Position.Y-projectileOffset.Y - aimLocation.Y, Position.X-projectileOffset.X - aimLocation.X);
 
+	        _aimRotation = angle;
+	    }
 
-            RotationZ = angle;
+	    /// <summary>
+	    /// Determines where the enemy will be, so it can shoot at it
+	    /// </summary>
+	    private void RotateToAimMouse()
+	    {
+	        //Gather information about the target
+	        var targetPositionX = FlatRedBall.Gui.GuiManager.Cursor.WorldXAt(1);
+            var targetPositionY = FlatRedBall.Gui.GuiManager.Cursor.WorldYAt(1);
+
+            var targetPosition = new Vector3(targetPositionX, targetPositionY, 1);
+	        
+	        var aimLocation = targetPosition;
+
+	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
+
+	        _aimRotation = angle;
+
+	        SetAnimationFromAimRotation();
+	        PerformFiringActivity();
+	    }
+
+        private void SetAnimationFromAimRotation()
+	    {
+	        var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
+
+	        if (isolatedAim < 0) isolatedAim = (2 * Math.PI) - Math.Abs(isolatedAim);
+
+	        var quadSize = (2 * Math.PI) / 4;//Four quads in a circle
+	        var aimQuad = (int)(isolatedAim / quadSize);
+	        var quadRemainder = isolatedAim % quadSize;
+
+            //var quadProgress = (int)Math.Floor(quadRemainder / (quadrantSegments/5));
+
+            var quadPercent = quadRemainder / quadSize;
+	        int quadProgress = 0;
+
+	        if (aimQuad == 0 || aimQuad == 2)//bottom-left and top-right
+	        {
+	            if (quadPercent > 0.7f) quadProgress = 4;
+                else if (quadPercent > .4f) quadProgress = 3;
+	            else if (quadPercent > .25f) quadProgress = 2;
+                else if (quadPercent > .12f) quadProgress = 1;
+            }
+	        else//bottom-right and top-left
+	        {
+	            if (quadPercent > 0.97f) quadProgress = 4;
+	            else if (quadPercent > .9f) quadProgress = 3;
+	            else if (quadPercent > .7f) quadProgress = 2;
+	            else if (quadPercent > .35f) quadProgress = 1;
+            }
+
+	        SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
+	        SpriteInstance.RelativeX = SpriteInstance.FlipHorizontal ? 8 : -9;
 	    }
 
 	    private Vector3 GetProjectilePositioning(float? angle = null)
 	    {
-	        if (!angle.HasValue) angle = RotationZ;
+	        if (!angle.HasValue) angle = _aimRotation;
 
 	        var direction = new Vector3(
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-
-            return new Vector3(22.5f, 12.5f,0) * direction;
+            return new Vector3(55f * direction.X, 30f + 25f*direction.Y, 0);
 	    }
 
 	    private void ChooseTarget()
@@ -142,8 +197,8 @@ namespace GBC2017.Entities.BaseEntities
                 newProjectile.Position = Position;
 
                 var direction = new Vector3(
-                    (float)-Math.Cos(RotationZ),
-                    (float)-Math.Sin(RotationZ), 0);
+                    (float)-Math.Cos(_aimRotation),
+                    (float)-Math.Sin(_aimRotation), 0);
                 direction.Normalize();
                 newProjectile.Position += GetProjectilePositioning();
 
@@ -151,7 +206,7 @@ namespace GBC2017.Entities.BaseEntities
 
                 newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
 
-                attackSound.Play();
+                if (attackSound != null && !attackSound.IsDisposed) attackSound.Play();
 
                 LastFiredTime = TimeManager.CurrentTime;
                 BatteryLevel -= EnergyCostToFire;
@@ -178,7 +233,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomDestroy()
 		{
-
+		    if (attackSound != null && !attackSound.IsDisposed) attackSound.Dispose();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

@@ -26,7 +26,7 @@ namespace GBC2017.Entities.Structures.Combat
         /// </summary>
 		private void CustomInitialize()
         {
-            attackSound = Laser_Shoot;
+            attackSound = Laser_Shoot.CreateInstance();
         }
 
 		private void CustomActivity()

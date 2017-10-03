@@ -510,9 +510,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>shadow</Name>
     </None>
-    <None Include="content\entities\structures\laserturret\laser_turret_sprite.png">
+    <None Include="content\entities\structures\combat\laserturret\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>laser_turret_sprite</Name>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

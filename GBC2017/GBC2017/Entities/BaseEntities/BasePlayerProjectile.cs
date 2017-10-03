@@ -25,8 +25,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    protected SoundEffect HitGroundSound;
-	    protected SoundEffect TargetHitSound;
+	    protected SoundEffectInstance HitGroundSound;
+	    protected SoundEffectInstance TargetHitSound;
 	    private bool _spritedAddedToLayers = false;
 
         /// <summary>
@@ -95,12 +95,12 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void PlayHitGroundSound()
 	    {
-	        HitGroundSound.Play();
+            if (HitGroundSound != null && !HitGroundSound.IsDisposed) HitGroundSound.Play();
         }
 
 	    public void PlayHitTargetSound()
 	    {
-            TargetHitSound.Play();
+	        if (TargetHitSound != null && !TargetHitSound.IsDisposed) TargetHitSound.Play();
         }
 
 
@@ -124,7 +124,8 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-
+		    if (HitGroundSound != null && !HitGroundSound.IsDisposed) HitGroundSound.Dispose();
+		    if (TargetHitSound != null && !TargetHitSound.IsDisposed) TargetHitSound.Dispose();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

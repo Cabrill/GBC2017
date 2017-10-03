@@ -24,7 +24,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    protected SoundEffect HitGroundSound;
+	    protected SoundEffectInstance HitGroundSound;
 	    private bool _spritedAddedToLayers = false;
 
         /// <summary>
