@@ -174,8 +174,17 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-            if (rangedAttackSound != null && !rangedAttackSound.IsDisposed) rangedAttackSound.Dispose();
-		    if (rangedChargeSound != null && !rangedChargeSound.IsDisposed) rangedChargeSound.Dispose();
+		    if (rangedAttackSound != null && !rangedAttackSound.IsDisposed)
+		    {
+                rangedAttackSound.Stop(true);
+                rangedAttackSound.Dispose();
+		    }
+
+		    if (rangedChargeSound != null && !rangedChargeSound.IsDisposed) 
+		    {
+		        rangedChargeSound.Stop(true);
+		        rangedChargeSound.Dispose();
+            }
 		    _healthBar?.Destroy();
         }
 

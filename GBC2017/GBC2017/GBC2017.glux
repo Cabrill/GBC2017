@@ -3798,6 +3798,11 @@
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
@@ -3971,6 +3976,8 @@
             <string>RotationZVelocity</string>
             <string>Alpha</string>
             <string>AlphaRate</string>
+            <string>Width</string>
+            <string>Height</string>
           </VariablesToReset>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -4014,7 +4021,6 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
-      <PooledByFactory>true</PooledByFactory>
       <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
@@ -4346,7 +4352,6 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
-      <PooledByFactory>true</PooledByFactory>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -4583,6 +4588,16 @@
             <ValueAsFloat>0.35</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
             <Type>AnimationChainList</Type>
             <Member>AnimationChains</Member>
             <ValueAsString>AnimationChainListFile</ValueAsString>
@@ -4593,19 +4608,9 @@
             <ValueAsString>Turn</ValueAsString>
           </CustomProperty>
           <CustomProperty>
-            <Type>bool</Type>
-            <Member>Animate</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
             <Type>int</Type>
             <Member>CurrentFrameIndex</Member>
             <ValueAsInt>0</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -6044,17 +6049,17 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Red</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>0.9</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Green</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.9</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -6064,7 +6069,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>0.65</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -6148,12 +6153,27 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Green</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
             <ValueAsInt>0</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

@@ -47,8 +47,6 @@ namespace GBC2017.Entities.BaseEntities
 		{
             if (IsBeingPlaced == false)
             {
-                RotateToAimMouse();
-
                 if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
@@ -76,12 +74,14 @@ namespace GBC2017.Entities.BaseEntities
         /// Determines where the enemy will be, so it can shoot at it
         /// </summary>
 	    private void RotateToAim()
-	    {
+        {
+            var startPosition = GetProjectilePositioning();
+
             //Gather information about the target
-	        var targetPosition = targetEnemy.CircleInstance.Position;
+            var targetPosition = targetEnemy.CircleInstance.Position;
 
 	        var targetVector = targetEnemy.Velocity;
-	        var targetDistance = Vector3.Distance(Position, targetPosition);
+	        var targetDistance = Vector3.Distance(startPosition, targetPosition);
 
             //Calculate how long the bullet would take to reach them
             var timeToTravel = targetDistance / ProjectileSpeed;
@@ -98,36 +98,15 @@ namespace GBC2017.Entities.BaseEntities
 	            aimLocation = aimAheadDistance + targetPosition;
 
 	            //Recalculate time with the new aiming location
-	            targetDistance = Vector3.Distance(Position, aimLocation);
+	            targetDistance = Vector3.Distance(startPosition, aimLocation);
 	            timeToTravel = targetDistance / ProjectileSpeed;
 	            aimAheadDistance = targetVector * timeToTravel;
 	            aimLocation = targetPosition + aimAheadDistance;
 	        }
 
-	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
+	        var angle = (float)Math.Atan2(startPosition.Y - aimLocation.Y, startPosition.X - aimLocation.X);
 
 	        _aimRotation = angle;
-	    }
-
-	    /// <summary>
-	    /// Determines where the enemy will be, so it can shoot at it
-	    /// </summary>
-	    private void RotateToAimMouse()
-	    {
-	        //Gather information about the target
-	        var targetPositionX = FlatRedBall.Gui.GuiManager.Cursor.WorldXAt(1);
-            var targetPositionY = FlatRedBall.Gui.GuiManager.Cursor.WorldYAt(1);
-
-            var targetPosition = new Vector3(targetPositionX, targetPositionY, 1);
-	        
-	        var aimLocation = targetPosition;
-
-	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
-
-	        _aimRotation = angle;
-
-	        SetAnimationFromAimRotation();
-	        PerformFiringActivity();
 	    }
 
         private void SetAnimationFromAimRotation()
@@ -172,7 +151,7 @@ namespace GBC2017.Entities.BaseEntities
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-            return new Vector3(55f * direction.X, 30f + 25f*direction.Y, 0);
+            return new Vector3(Position.X + 55f * direction.X, Position.Y + 30f + 25f*direction.Y, 0);
 	    }
 
 	    private void ChooseTarget()
@@ -200,7 +179,7 @@ namespace GBC2017.Entities.BaseEntities
                     (float)-Math.Cos(_aimRotation),
                     (float)-Math.Sin(_aimRotation), 0);
                 direction.Normalize();
-                newProjectile.Position += GetProjectilePositioning();
+                newProjectile.Position = GetProjectilePositioning();
 
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
@@ -232,9 +211,13 @@ namespace GBC2017.Entities.BaseEntities
 	    }
 
 	    private void CustomDestroy()
-		{
-		    if (attackSound != null && !attackSound.IsDisposed) attackSound.Dispose();
-        }
+	    {
+	        if (attackSound != null && !attackSound.IsDisposed)
+	        {
+	            if (attackSound.State != SoundState.Stopped) attackSound.Stop(true);
+	            attackSound.Dispose();
+	        }
+	    }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {

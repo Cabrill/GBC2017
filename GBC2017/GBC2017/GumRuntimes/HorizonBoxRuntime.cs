@@ -87,14 +87,14 @@ namespace GBC2017.GumRuntimes
             var aspectAdjustment = SunMoonContainer.GetAbsoluteHeight() / SunMoonContainer.GetAbsoluteWidth();
 
             var sunPosition =
-                SunAndMoonCalculation.GetSunPosition(timeOfDay, Helsinki.Instance.Latitude, Helsinki.Instance.Longitude);
+                SunAndMoonCalculation.GetSunPosition(timeOfDay, Brisbane.Instance.Latitude, Brisbane.Instance.Longitude);
 
             SphericalToCartesian(radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
             SunSprite.X = newSunPosition.X / aspectAdjustment;
             SunSprite.Y = newSunPosition.Y;
 
             var moonPosition =
-                SunAndMoonCalculation.GetMoonPosition(timeOfDay, Helsinki.Instance.Latitude, Helsinki.Instance.Longitude);
+                SunAndMoonCalculation.GetMoonPosition(timeOfDay, Brisbane.Instance.Latitude, Brisbane.Instance.Longitude);
 
             SphericalToCartesian(radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
 

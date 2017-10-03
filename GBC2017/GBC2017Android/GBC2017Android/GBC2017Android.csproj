@@ -276,10 +276,6 @@
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.cs">
       <Link>Entities\Structures\EnergyProducers\WindTurbine.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.Event.cs">
-      <Link>Entities\Structures\EnergyProducers\WindTurbine.Event.cs</Link>
-      <DependentUpon>WindTurbine.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.Generated.cs">
       <Link>Entities\Structures\EnergyProducers\WindTurbine.Generated.cs</Link>
       <DependentUpon>WindTurbine.cs</DependentUpon>

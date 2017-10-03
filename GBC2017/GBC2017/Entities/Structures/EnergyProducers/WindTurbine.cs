@@ -25,14 +25,14 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         /// </summary>
 		private void CustomInitialize()
 		{
-		    EffectiveEnergyProducedPerSecond = 1f *
+		    EffectiveEnergyProducedPerSecond = 25f *
 		                                       WindManager.WindEffectiveness;
 		    TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
 		}
 
 		private void CustomActivity()
 		{
-		    EffectiveEnergyProducedPerSecond = 1f *
+		    EffectiveEnergyProducedPerSecond = 25f *
 		                                       WindManager.WindEffectiveness;
 
 		    if (IsBeingPlaced)

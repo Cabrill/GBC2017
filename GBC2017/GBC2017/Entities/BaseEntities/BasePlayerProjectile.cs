@@ -28,6 +28,7 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance HitGroundSound;
 	    protected SoundEffectInstance TargetHitSound;
 	    private bool _spritedAddedToLayers = false;
+	    public bool ShouldBeDestroyed;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -50,48 +51,61 @@ namespace GBC2017.Entities.BaseEntities
             //These have to be set here, because the object is pooled (reused)
 		    _hitTheGround = false;
 		    _startingPosition = null;
+		    ShouldBeDestroyed = false;
+		    Visible = true;
+		    LightOrShadowSprite.Position = Position;
 		}
 
 		private void CustomActivity()
 		{
-		    if (!_startingPosition.HasValue)
+		    if (ShouldBeDestroyed)
 		    {
-		        _startingPosition = Position;
-                _startingElevation = Altitude;
-		        _startingShadowWidth = LightOrShadowSprite.Width;
-		        _startingShadowHeight = LightOrShadowSprite.Height;
-		        _startingShadowAlpha = LightOrShadowSprite.Alpha;
+		        if (HitGroundSound.State == SoundState.Stopped && TargetHitSound.State == SoundState.Stopped)
+		        {
+		            Destroy();
+		        }
 		    }
-
-		    var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
-		    var negativeModifier = 1 - pctDistanceTraveled;
-
-		    if (HasLightSource)
-		    {
-		        SpriteInstance.RelativeY = _startingElevation * negativeModifier;
-
-		        LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
-                LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
-                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
-            }
 		    else
 		    {
-		        SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+		        if (!_startingPosition.HasValue)
+		        {
+		            _startingPosition = Position;
+		            _startingElevation = Altitude;
+		            _startingShadowWidth = LightOrShadowSprite.Width;
+		            _startingShadowHeight = LightOrShadowSprite.Height;
+		            _startingShadowAlpha = LightOrShadowSprite.Alpha;
+		        }
 
-		        LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-		        LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-		        LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+		        var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
+		        var negativeModifier = 1 - pctDistanceTraveled;
+
+		        if (HasLightSource)
+		        {
+		            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+
+		            LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
+		            LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
+		            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
+		        }
+		        else
+		        {
+		            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+
+		            LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
+		            LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
+		            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+		        }
+
+		        _hitTheGround = pctDistanceTraveled >= 1;
+
+		        if (_hitTheGround)
+		        {
+		            Visible = false;
+		            PlayHitGroundSound();
+		            ShouldBeDestroyed = true;
+		        }
 		    }
-
-            _hitTheGround = pctDistanceTraveled >= 1;
-
-		    if (_hitTheGround)
-		    {
-		        PlayHitGroundSound();
-
-                Destroy();
-		    }
-        }
+		}
 
 	    private void PlayHitGroundSound()
 	    {
@@ -108,7 +122,6 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (!_spritedAddedToLayers)
 	        {
-
 	            if (HasLightSource)
 	            {
 	                LayerProvidedByContainer.Remove(LightOrShadowSprite);

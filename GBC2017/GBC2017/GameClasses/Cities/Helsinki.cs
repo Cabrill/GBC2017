@@ -6,6 +6,8 @@ namespace GBC2017.GameClasses.Cities
     {
         public static Helsinki Instance { get; } = new Helsinki();
 
+        public int UTCOffset => 3;
+
         public string CityName => "Helsinki";
 
         public float Latitude => 60.1699f;

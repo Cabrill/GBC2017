@@ -26,6 +26,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowAlpha;
 	    protected SoundEffectInstance HitGroundSound;
 	    private bool _spritedAddedToLayers = false;
+	    public bool ShouldBeDestroyed;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -48,48 +49,60 @@ namespace GBC2017.Entities.BaseEntities
 	        //These have to be set here, because the object is pooled (reused)
 	        _hitTheGround = false;
 	        _startingPosition = null;
+	        ShouldBeDestroyed = false;
+	        Visible = true;
 	    }
 
 	    private void CustomActivity()
 	    {
-	        if (!_startingPosition.HasValue)
+	        if (ShouldBeDestroyed)
 	        {
-	            _startingPosition = Position;
-	            _startingElevation = Altitude;
-	            _startingShadowWidth = LightOrShadowSprite.Width;
-	            _startingShadowHeight = LightOrShadowSprite.Height;
-	            _startingShadowAlpha = LightOrShadowSprite.Alpha;
-	        }
-
-	        var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
-	        var negativeModifier = 1 - pctDistanceTraveled;
-
-	        if (HasLightSource)
-	        {
-	            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
-
-	            LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
-	            LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
-	            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
+	            if (HitGroundSound.State == SoundState.Stopped)
+	            {
+	                Destroy();
+                }
 	        }
 	        else
 	        {
-	            SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+	            if (!_startingPosition.HasValue)
+	            {
+	                _startingPosition = Position;
+	                _startingElevation = Altitude;
+	                _startingShadowWidth = LightOrShadowSprite.Width;
+	                _startingShadowHeight = LightOrShadowSprite.Height;
+	                _startingShadowAlpha = LightOrShadowSprite.Alpha;
+	            }
 
-	            LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-	            LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-	            LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+	            var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
+	            var negativeModifier = 1 - pctDistanceTraveled;
+
+	            if (HasLightSource)
+	            {
+	                SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+
+	                LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
+	                LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
+	                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
+	            }
+	            else
+	            {
+	                SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+
+	                LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
+	                LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
+	                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
+	            }
+
+	            _hitTheGround = pctDistanceTraveled >= 1;
+
+	            if (_hitTheGround)
+	            {
+	                Visible = false;
+	                ShouldBeDestroyed = true;
+	                PlayHitGroundSound();
+	            }
 	        }
-
-	        _hitTheGround = pctDistanceTraveled >= 1;
-
-	        if (_hitTheGround)
-	        {
-	            PlayHitGroundSound();
-
-	            Destroy();
-	        }
-	    }
+        }
 
         public void PlayHitTargetSound()
 	    {
