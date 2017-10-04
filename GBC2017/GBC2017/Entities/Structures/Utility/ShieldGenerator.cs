@@ -20,6 +20,7 @@ namespace GBC2017.Entities.Structures.Utility
 	    private float _shieldSpriteScale;
 	    private float CurrentShieldHealth;
 	    private double _lastRegenerationTime;
+	    private float _startingAlpha;
 	    public bool ShieldIsUp;
 	    private bool _shieldWasUp;
 
@@ -45,6 +46,7 @@ namespace GBC2017.Entities.Structures.Utility
             AfterIsBeingPlacedSet += ShieldGenerator_AfterIsBeingPlacedSet;
             _shieldSpriteScale = ShieldSpriteInstance.TextureScale;
             _lastRegenerationTime = TimeManager.CurrentTime;
+            _startingAlpha = ShieldSpriteInstance.Alpha;
         }
 
         private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
@@ -151,7 +153,7 @@ namespace GBC2017.Entities.Structures.Utility
 
 	            //Immmediately dip 
 	            ShieldSpriteInstance.Red = (1 - dipLevel)/2;
-	            ShieldSpriteInstance.Green = dipLevel;
+	            ShieldSpriteInstance.Blue = dipLevel;
 
 	            //Recover to actual level
 	            if (_lastShieldColorTweener != null && _lastShieldColorTweener.Running)
@@ -175,7 +177,7 @@ namespace GBC2017.Entities.Structures.Utility
             else if (_lastShieldColorTweener == null || !_lastShieldColorTweener.Running)
 	        {
 	            LightSpriteInstance.Red = ShieldSpriteInstance.Red = (1 - percentHealth)/2;
-	            LightSpriteInstance.Green = ShieldSpriteInstance.Green = percentHealth;
+	            LightSpriteInstance.Blue = ShieldSpriteInstance.Blue = percentHealth;
 	        }
 	    }
 
@@ -191,7 +193,7 @@ namespace GBC2017.Entities.Structures.Utility
 	        }
 
 	        _lastShieldColorTweener =
-	            new Tweener(ShieldSpriteInstance.Green, percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut)
+	            new Tweener(ShieldSpriteInstance.Blue, percentHealth, dipSeconds, InterpolationType.Bounce, Easing.InOut)
 	            {
 	                PositionChanged = HandleShieldColorPositionSet,
 	                Owner = this
@@ -206,7 +208,7 @@ namespace GBC2017.Entities.Structures.Utility
 	    private void HandleShieldColorPositionSet(float newposition)
 	    {
 	        LightSpriteInstance.Red = ShieldSpriteInstance.Red = (1 - newposition)/2;
-	        LightSpriteInstance.Green = ShieldSpriteInstance.Green = newposition;
+	        LightSpriteInstance.Blue = ShieldSpriteInstance.Blue = newposition;
 	    }
 
 	    private void GrowShield()
@@ -236,17 +238,17 @@ namespace GBC2017.Entities.Structures.Utility
 	    private void HandleShieldSizePositionSet(float newposition)
 	    {
 	        ShieldSpriteInstance.TextureScale = newposition * _shieldSpriteScale;
-	        ShieldSpriteInstance.Alpha = newposition;
+	        ShieldSpriteInstance.Alpha = newposition * _startingAlpha;
 	        
 	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f;
-	        LightSpriteInstance.Alpha = newposition;
+	        LightSpriteInstance.Alpha = newposition * _startingAlpha;
         }
 
 	    private void PopShield()
         {
             const float secondsToPop = 1f;
 	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
-            ShieldSpriteInstance.Alpha = 1f;
+            ShieldSpriteInstance.Alpha = _startingAlpha;
 
             if (_lastShieldSizeTweener != null && _lastShieldSizeTweener.Running)
             {

@@ -276,10 +276,6 @@
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.cs">
       <Link>Entities\Structures\EnergyProducers\WindTurbine.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.Event.cs">
-      <Link>Entities\Structures\EnergyProducers\WindTurbine.Event.cs</Link>
-      <DependentUpon>WindTurbine.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\WindTurbine.Generated.cs">
       <Link>Entities\Structures\EnergyProducers\WindTurbine.Generated.cs</Link>
       <DependentUpon>WindTurbine.cs</DependentUpon>
@@ -1050,9 +1046,9 @@
       <Name>shadow</Name>
       <Link>Assets\content\entities\shadow.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\laserturret\laser_turret_sprite.png">
-      <Name>laser_turret_sprite</Name>
-      <Link>Assets\content\entities\structures\laserturret\laser_turret_sprite.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\laserturret\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\combat\laserturret\animationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
       <Name>shield_generator</Name>

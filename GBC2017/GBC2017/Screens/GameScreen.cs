@@ -279,7 +279,7 @@ namespace GBC2017.Screens
             FlatRedBall.Debugging.Debugger.TextGreen = 0f;
 	        FlatRedBall.Debugging.Debugger.TextBlue = 0f;
 
-            FlatRedBall.Debugging.Debugger.Write(gameTimeOfDay.AddHours(3));
+            //FlatRedBall.Debugging.Debugger.Write(gameTimeOfDay.AddHours(City.Instance.UtcOffset));
         }
 
 	    private void TemporaryDebugWaveSpawning()
@@ -409,38 +409,39 @@ namespace GBC2017.Screens
 	        for (var i = EnemyProjectileList.Count; i > 0; i--)
 	        {
 	            var projectile = EnemyProjectileList[i - 1];
-
-	            if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            if (!projectile.ShouldBeDestroyed)
 	            {
-	                projectile.Destroy();
-	            }
-	            else
-	            {
-	                for (var e = AllStructuresList.Count; e > 0; e--)
+	                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
 	                {
-	                    var structure = AllStructuresList[e - 1];
-	                    if (structure.CurrentState != BaseStructure.VariableState.Built) continue;
-
-                        if (structure is ShieldGenerator)
-                        {
-                            var shieldGenerator = structure as ShieldGenerator;
-
-                            if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
-                                .CollideAgainst(projectile.CircleInstance))
-                            {
-                                shieldGenerator.HitShieldWith(projectile);
-                                projectile.Destroy();
-                                continue;
-                            }
-                        }
-
-
-                        if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
+	                    projectile.Destroy();
+	                }
+	                else
+	                {
+	                    for (var e = AllStructuresList.Count; e > 0; e--)
 	                    {
-	                        structure.GetHitBy(projectile);
-	                        projectile.Destroy();
-                        }
-	                    
+	                        var structure = AllStructuresList[e - 1];
+	                        if (structure.CurrentState != BaseStructure.VariableState.Built) continue;
+
+	                        if (structure is ShieldGenerator)
+	                        {
+	                            var shieldGenerator = structure as ShieldGenerator;
+
+	                            if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
+	                                    .CollideAgainst(projectile.CircleInstance))
+	                            {
+	                                shieldGenerator.HitShieldWith(projectile);
+	                                projectile.ShouldBeDestroyed = true;
+	                                continue;
+	                            }
+	                        }
+
+	                        if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
+	                        {
+	                            structure.GetHitBy(projectile);
+	                            projectile.ShouldBeDestroyed = true;
+	                        }
+
+	                    }
 	                }
 	            }
 	        }
@@ -451,22 +452,24 @@ namespace GBC2017.Screens
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
 	            var projectile = PlayerProjectileList[i-1];
-
-	            if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	            if (!projectile.ShouldBeDestroyed)
 	            {
-	                projectile.Destroy();
-	            }
-                else
-                {
-                    for (var e = AllEnemiesList.Count; e > 0; e--)
-                    {
-                        var enemy = AllEnemiesList[e - 1];
-                        if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
+	                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	                {
+	                    projectile.Destroy();
+	                }
+	                else
+	                {
+	                    for (var e = AllEnemiesList.Count; e > 0; e--)
+	                    {
+	                        var enemy = AllEnemiesList[e - 1];
+	                        if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
-                        enemy.GetHitBy(projectile);
-                        projectile.Destroy();
-                    }
-                }
+	                        enemy.GetHitBy(projectile);
+	                        projectile.ShouldBeDestroyed = true;
+	                    }
+	                }
+	            }
 	        }
 	    }
 
@@ -652,6 +655,7 @@ namespace GBC2017.Screens
 		            notification.Destroy();
 		        }
 		    }
+            PlayAreaRectangle.RemoveSelfFromListsBelongingTo();
 		}
 #endregion
 

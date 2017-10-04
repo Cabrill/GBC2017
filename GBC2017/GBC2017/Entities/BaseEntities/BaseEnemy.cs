@@ -140,7 +140,7 @@ namespace GBC2017.Entities.BaseEntities
 	            if (CurrentActionState == Action.StartRangedAttack)
 	            {
                     Instructions.Clear();
-	                if (rangedChargeSound.State == SoundState.Playing) rangedChargeSound.Stop();
+	                if (rangedChargeSound != null && !rangedChargeSound.IsDisposed && rangedChargeSound.State == SoundState.Playing) rangedChargeSound.Stop();
 	            }
 
 	            StopMovement();
@@ -174,8 +174,17 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-            rangedAttackSound?.Dispose();
-            rangedChargeSound?.Dispose();
+		    if (rangedAttackSound != null && !rangedAttackSound.IsDisposed)
+		    {
+                rangedAttackSound.Stop(true);
+                rangedAttackSound.Dispose();
+		    }
+
+		    if (rangedChargeSound != null && !rangedChargeSound.IsDisposed) 
+		    {
+		        rangedChargeSound.Stop(true);
+		        rangedChargeSound.Dispose();
+            }
 		    _healthBar?.Destroy();
         }
 
@@ -192,7 +201,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
 
-	        frbLayer.Remove(_healthBar);
+	        frbLayer?.Remove(_healthBar);
 	        _healthBar.MoveToLayer(frbLayer);
 	    }
 

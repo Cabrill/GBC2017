@@ -8,6 +8,7 @@ namespace GBC2017.GameClasses.Interfaces
 {
     public interface ICity
     {
+        int UTCOffset { get; }
         string CityName { get; }
         float Latitude { get; }
         float Longitude { get; }

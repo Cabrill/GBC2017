@@ -191,7 +191,7 @@ namespace GBC2017.Entities.BaseEntities
             newProjectile.Velocity = direction * newProjectile.Speed;
             newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity) - MathHelper.ToRadians(90);
 
-            rangedAttackSound.Play();
+            if (rangedAttackSound != null && !rangedAttackSound.IsDisposed) rangedAttackSound.Play();
 
             _lastRangeAttackTime = TimeManager.CurrentTime;
         }

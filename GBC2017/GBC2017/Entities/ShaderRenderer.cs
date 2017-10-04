@@ -97,7 +97,7 @@ namespace GBC2017.Entities
             const float secondsToTransitionColor = 5f;
             if (_lastColorTween != null && _lastColorTween.Running) return;
 
-            if (WorldColor == DayColor && SunlightManager.MoonIsUp)
+            if (WorldColor == DayColor && !SunlightManager.SunIsUp && SunlightManager.MoonIsUp)
             {
                 _lastColorTween =
                     new Tweener(1, 0, secondsToTransitionColor, InterpolationType.Linear, Easing.InOut)

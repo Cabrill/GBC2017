@@ -11,6 +11,8 @@ namespace GBC2017.GameClasses.Cities
     {
         public static Brisbane Instance { get; } = new Brisbane();
 
+        public int UTCOffset => 10;
+
         public string CityName => "Brisbane";
 
         public float Latitude => -27.4698f;
