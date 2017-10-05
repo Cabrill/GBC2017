@@ -38,11 +38,6 @@ namespace RenderingLibrary.Graphics
         CharacterByCharacter
     }
 
-    public enum TextRenderingPositionMode
-    {
-        SnapToPixel,
-        FreeFloating
-    }
 
     public class Text : IRenderableIpso, IVisible
     {
@@ -116,8 +111,6 @@ namespace RenderingLibrary.Graphics
         // It'll break code but it won't be hard to respond to.
         // As of 0.8.7, CharacterByCharacter is the standard in Gum tool
         public static TextRenderingMode TextRenderingMode = TextRenderingMode.CharacterByCharacter;
-
-        public static TextRenderingPositionMode TextRenderingPositionMode = TextRenderingPositionMode.SnapToPixel;
 
         #endregion
 
