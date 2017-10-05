@@ -3794,14 +3794,14 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4471,7 +4471,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4531,7 +4531,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">15</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6152,8 +6152,18 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Green</Member>
             <ValueAsFloat>0.8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -6162,18 +6172,8 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Blue</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Red</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

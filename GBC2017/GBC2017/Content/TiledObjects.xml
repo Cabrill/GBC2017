@@ -46,12 +46,12 @@
     <property name="AttackDamage" type="float" default="3" />
     <property name="EnergyBuildCost" type="int" default="25" />
     <property name="SecondsBetweenFiring" type="float" default="0.5" />
-    <property name="EnergyCostToFire" type="float" default="3" />
+    <property name="EnergyCostToFire" type="float" default="50" />
     <property name="RangedRadius" type="float" default="450" />
     <property name="ProjectileSpeed" type="float" default="300" />
     <property name="MaximumHealth" type="float" default="50" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
-    <property name="InternalBatteryMaxStorage" type="int" default="15" />
+    <property name="InternalBatteryMaxStorage" type="int" default="800" />
     <property name="MineralsBuildCost" type="float" default="50" />
     <property name="DisplayName" type="string" default="Laser Turret" />
     <property name="HasLightSource" type="bool" />

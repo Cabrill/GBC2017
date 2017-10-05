@@ -15,7 +15,7 @@ namespace GBC2017.GameClasses.Levels
         public override ICity City => Helsinki.Instance;
         public override DateTime StartTime => new DateTime(2017, 5, 1);
         public override DateTime EndTime => new DateTime(2017, 5, 4);
-        public override float AvgDailyEnergyUsage => 5;
+        public override float AvgDailyEnergyUsage => 3.45f;
 
         public HelsinkiLevel(Layer layerForEnemies) : base(layerForEnemies)
         {
