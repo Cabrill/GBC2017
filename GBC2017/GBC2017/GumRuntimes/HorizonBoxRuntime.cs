@@ -9,6 +9,7 @@ using FlatRedBall;
 using FlatRedBall.Math;
 using FlatRedBall.Utilities;
 using GBC2017.GameClasses.Cities;
+using GBC2017.GameClasses.Interfaces;
 using GBC2017.StaticManagers;
 using GBC2017.SunMoonCalculations;
 using Microsoft.Xna.Framework;
@@ -53,9 +54,9 @@ namespace GBC2017.GumRuntimes
             Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
         }
 
-        public void Update(DateTime timeOfDay)
+        public void Update(DateTime timeOfDay, ICity city)
         {
-            UpdateSunAndMoon(timeOfDay);
+            UpdateSunAndMoon(timeOfDay, city);
             UpdateStarrySky(timeOfDay);
         }
 
@@ -80,21 +81,21 @@ namespace GBC2017.GumRuntimes
             StarrySkySprite.Visible = SkyRectangle.Alpha < 255;
         }
 
-        private void UpdateSunAndMoon(DateTime timeOfDay)
+        private void UpdateSunAndMoon(DateTime timeOfDay, ICity city)
         {
             var radius = SunMoonContainer.GetAbsoluteHeight() / 2;// * CameraZoomManager.GumCoordOffset;
 
             var aspectAdjustment = SunMoonContainer.GetAbsoluteHeight() / SunMoonContainer.GetAbsoluteWidth();
 
             var sunPosition =
-                SunAndMoonCalculation.GetSunPosition(timeOfDay, Brisbane.Instance.Latitude, Brisbane.Instance.Longitude);
+                SunAndMoonCalculation.GetSunPosition(timeOfDay, city.Latitude, city.Longitude);
 
             SphericalToCartesian(radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
             SunSprite.X = newSunPosition.X / aspectAdjustment;
             SunSprite.Y = newSunPosition.Y;
 
             var moonPosition =
-                SunAndMoonCalculation.GetMoonPosition(timeOfDay, Brisbane.Instance.Latitude, Brisbane.Instance.Longitude);
+                SunAndMoonCalculation.GetMoonPosition(timeOfDay, city.Latitude, city.Longitude);
 
             SphericalToCartesian(radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
 

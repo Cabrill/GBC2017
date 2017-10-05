@@ -196,7 +196,11 @@ namespace GBC2017.Entities.BaseEntities
 
 	    protected void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, FlatRedBall.Graphics.Layer hudLayer)
 	    {
-	        LayerProvidedByContainer.Remove(CircleInstance);
+	        if (LayerProvidedByContainer != null)
+	        {
+	            LayerProvidedByContainer.Remove(CircleInstance);
+            }
+	        
 	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
