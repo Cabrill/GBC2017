@@ -12,6 +12,7 @@
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -20,6 +21,7 @@
       <RightCoordinate>1536</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -28,6 +30,7 @@
       <RightCoordinate>1792</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -36,6 +39,7 @@
       <RightCoordinate>2048</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -44,6 +48,7 @@
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1377</TopCoordinate>
       <BottomCoordinate>1633</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -53,7 +58,7 @@
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1377</TopCoordinate>
       <BottomCoordinate>1633</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -63,7 +68,7 @@
       <RightCoordinate>2048</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -73,7 +78,7 @@
       <RightCoordinate>1792</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -83,7 +88,7 @@
       <RightCoordinate>1536</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -93,7 +98,7 @@
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -103,7 +108,7 @@
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -113,7 +118,7 @@
       <RightCoordinate>1024</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -123,7 +128,7 @@
       <RightCoordinate>768</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -133,7 +138,7 @@
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <FlipHorizontal>true</FlipHorizontal>
@@ -143,7 +148,7 @@
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
-      <RelativeX>48</RelativeX>
+      <RelativeX>-25.7</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -152,6 +157,7 @@
       <RightCoordinate>256</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -160,6 +166,7 @@
       <RightCoordinate>512</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -168,6 +175,7 @@
       <RightCoordinate>768</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -176,6 +184,7 @@
       <RightCoordinate>1024</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
     <Frame>
       <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
@@ -184,6 +193,7 @@
       <RightCoordinate>1280</RightCoordinate>
       <TopCoordinate>1121</TopCoordinate>
       <BottomCoordinate>1377</BottomCoordinate>
+      <RelativeX>22.85</RelativeX>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
