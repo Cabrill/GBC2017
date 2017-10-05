@@ -286,7 +286,6 @@
     <Compile Include="GumRuntimes\InfoBarRuntime.Generated.cs">
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
@@ -300,7 +299,6 @@
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs">
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\MineralsIncreaseNotificationRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\ResourceIncreaseNotificationRuntime.Generated.cs">
       <DependentUpon>ResourceIncreaseNotificationRuntime.cs</DependentUpon>
@@ -310,10 +308,8 @@
       <DependentUpon>StructureInfoRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />

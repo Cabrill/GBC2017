@@ -3794,14 +3794,14 @@
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>bool</Type>
-            <Member>ParentRotationChangesPosition</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4940,7 +4940,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4952,7 +4952,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">75</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5013,6 +5013,28 @@
           <Name>HasLightSource</Name>
           <Type>bool</Type>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>diskArea</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>airDensity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1.225</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -6152,8 +6174,18 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>Green</Member>
             <ValueAsFloat>0.8</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -6162,18 +6194,8 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Blue</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>Alpha</Member>
             <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Red</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

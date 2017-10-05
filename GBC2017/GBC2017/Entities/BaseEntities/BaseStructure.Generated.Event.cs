@@ -18,7 +18,7 @@ using GBC2017.Entities.Structures.Utility;
 using GBC2017.Screens;
 namespace GBC2017.Entities.BaseEntities
 {
-    public partial class BaseStructure
-    {
-    }
+	public partial class BaseStructure
+	{
+	}
 }

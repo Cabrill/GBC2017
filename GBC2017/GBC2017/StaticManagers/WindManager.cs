@@ -11,7 +11,7 @@ namespace GBC2017.StaticManagers
 {
     public static class WindManager
     {
-        public static float WindEffectiveness { get; private set; } = 1f;
+        public static float windSpeed{ get; private set; } = 1f; //in m/s
 
         private const int _secondsBetweenUpdates = 10;
         private const float _maxTimeToShiftSpeed = 5f;
@@ -21,7 +21,7 @@ namespace GBC2017.StaticManagers
         {
             if (TimeManager.SecondsSince(_timeOfLastUpdate) >= _secondsBetweenUpdates)
             {
-                var oldWindSpeed = WindEffectiveness;
+                var oldWindSpeed = windSpeed;
                 var newWindSpeed = FlatRedBallServices.Random.Between(0, 1);
                 var shiftTime = FlatRedBallServices.Random.Between(1, _maxTimeToShiftSpeed);
 
@@ -29,7 +29,7 @@ namespace GBC2017.StaticManagers
                 windSpeedTweener = new Tweener(0, 1, shiftTime, InterpolationType.Bounce, Easing.InOut);
                 windSpeedTweener.PositionChanged += (a) =>
                 {
-                    WindEffectiveness = ((1-a) * oldWindSpeed) + (a * newWindSpeed);
+                    windSpeed = ((1-a) * oldWindSpeed) + (a * newWindSpeed);
                 };
                 windSpeedTweener.Start();
                 TweenerManager.Self.Add(windSpeedTweener);

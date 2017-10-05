@@ -13,7 +13,7 @@ namespace GBC2017.GumRuntimes
         public void Update()
         {
             UpdateSunlightDisplay(SunlightManager.SunlightEffectiveness);
-            UpdateWindDisplay(WindManager.WindEffectiveness);
+            UpdateWindDisplay(WindManager.windSpeed);
         }
 
         private void UpdateSunlightDisplay(float sunlight)

@@ -21,7 +21,7 @@ namespace Gum.Wireframe
         public event WindowEvent EnabledChange;
 
         /// <summary>
-        /// Event which is raised whenever this loses a push. A push occurs when the
+        /// Even which is raised whenever this loses a push. A push occurs when the
         /// cursor is over this window and the left moue button is pushed. A push is lost
         /// if the left mouse button is released or if the user moves the cursor so that it
         /// is no longer over this while the mouse button is pressed. 
@@ -481,10 +481,6 @@ namespace Gum.Wireframe
             {
                 int screenX = cursor.ScreenX;
                 int screenY = cursor.ScreenY;
-
-                // Adjust by viewport values:
-                screenX -= Managers.Renderer.GraphicsDevice.Viewport.X;
-                screenY -= Managers.Renderer.GraphicsDevice.Viewport.Y;
 
                 float worldX;
                 float worldY;
