@@ -25,8 +25,6 @@ namespace GBC2017.Screens
         {
             StartButtonInstance.Visible = false;
             GameHasStarted = true;
-            lastEnemyWave = TimeManager.CurrentTime - 20;
-
         }
     }
 }

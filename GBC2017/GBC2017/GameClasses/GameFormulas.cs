@@ -47,11 +47,13 @@ namespace GBC2017.GameClasses
         };
 
         private float HourlyUsageGraphSum;
+        private const float KiloWattToWatt = 1000;
         #endregion
 
         #region Public properties
 
         public const int RealSecondsPerGameHour = 8;
+        public float MinimumEnergyCostForAnEnemy;
 
         #endregion
 
@@ -84,6 +86,8 @@ namespace GBC2017.GameClasses
             var basicEnemy = new BasicAlien();
             BaseEnemyMovementSpeed = basicEnemy.Speed;
 
+            MinimumEnergyCostForAnEnemy = EnergyRatingForEnemy(basicEnemy);
+
             //Destroy the objects we used for analysis
             basicEnemy.Destroy();
             basicTower.Destroy();
@@ -96,13 +100,13 @@ namespace GBC2017.GameClasses
         /// Takes the desired hour, and the minimum hourly value for the day, then returns the typical energy consumption for the given hour
         /// </summary>
         /// <param name="hour">The hour of energy use you need</param>
-        /// <param name="minValue">The minimum hourly energy usage for the entire day</param>
+        /// <param name="minValue">The minimum hourly energy usage in WattHours for the entire day</param>
         /// <returns></returns>
         public float HourlyEnergyUsageFromCurveAndMinValue(int hour, float minValue = 2.3f)
         {
             if (hour >= 0 && hour <= 23)
             {
-                return HourlyUsageModifiers[hour] * minValue;
+                return HourlyUsageModifiers[hour] * minValue * KiloWattToWatt; ;
             }
 
             //The only way we get here is if the hour value wasn't in 0-23 format.
@@ -118,7 +122,7 @@ namespace GBC2017.GameClasses
         /// Takes the desired hour and the average hourly value for the day, then returns the typical energy consumption for the given hour
         /// </summary>
         /// <param name="hour">The hour of energy use you need</param>
-        /// <param name="avgValue">The average hourly energy usage for the entire day</param>
+        /// <param name="avgValue">The average hourly energy usage in WattHours for the entire day</param>
         /// <returns></returns>
         public float HourlyEnergyUsageFromCurveAndAvgValue(int hour, float avgValue = 3.4625f)
         {
@@ -135,7 +139,7 @@ namespace GBC2017.GameClasses
         /// Attempts to calculate an estimated amount of energy expended by a player based on an enemy's attributes
         /// </summary>
         /// <param name="enemy">The enemy to be evaluated</param>
-        /// <returns>The estimated energy expended to kill this enemy and/or recover from damage they deal</returns>
+        /// <returns>The estimated energy in watts expended to kill this enemy and/or recover from damage they deal</returns>
         public float EnergyRatingForEnemy(BaseEnemy enemy)
         {
             //Psuedo-code for calculating energy usage
@@ -143,7 +147,8 @@ namespace GBC2017.GameClasses
             //DPS = Damage * AttacksPerSecond * Range
             //energyusage = Life + DPS
 
-            var hp = enemy.MaximumHealth * BaseEnergyPerHitPoint;
+            //Adding two free hits here, since the turret will fire at least twice more after an enemy dies
+            var hp = enemy.MaximumHealth * BaseEnergyPerHitPoint + (BaseEnergyPerHitPoint*2);
             var movementModifier = Math.Max(1f, enemy.Speed / BaseEnemyMovementSpeed);
             var life = hp * movementModifier;
 
