@@ -15,6 +15,24 @@
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="300" />
     <property name="HasLightSource" type="bool" default="false" />
+    <property name="IsFlying" type="bool" />
+  </objecttype>
+  <objecttype name="FlyingEnemy">
+    <property name="MaximumHealth" type="float" default="20" />
+    <property name="Speed" type="float" default="75" />
+    <property name="IsRangedAttacker" type="bool" default="true" />
+    <property name="MeleeAttackDamage" type="float" />
+    <property name="RangedAttackDamage" type="float" default="5" />
+    <property name="ProjectileSpeed" type="float" default="200" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="8" />
+    <property name="SecondsBetweenMeleeAttack" type="float" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="50" />
+    <property name="DisplayName" type="string" default="Flybo" />
+    <property name="IsMeleeAttacker" type="bool" default="false" />
+    <property name="MeleeAttackRadius" type="float" default="16" />
+    <property name="RangedAttackRadius" type="float" default="350" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="IsFlying" type="bool" default="true" />
   </objecttype>
   <objecttype name="MeleeAlien">
     <property name="MaximumHealth" type="float" default="25" />
@@ -31,6 +49,11 @@
     <property name="MeleeAttackRadius" type="float" default="32" />
     <property name="RangedAttackRadius" type="float" default="16" />
     <property name="HasLightSource" type="bool" default="false" />
+    <property name="IsFlying" type="bool" />
+  </objecttype>
+  <objecttype name="FlyingEnemyProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" />

@@ -86,12 +86,12 @@ namespace GBC2017.Entities.BaseEntities
                 Direction.MovingRight :
                 Direction.MovingLeft);
 
-            if (IsRangedAttacker)
+            if (IsRangedAttacker && CurrentActionState != Action.StartRangedAttack)
             {
                 CurrentActionState = Action.StartRangedAttack;
                 this.Call(rangedChargeSound.Play).After(0.3f);
             }
-            else if (IsMeleeAttacker)
+            else if (IsMeleeAttacker && CurrentActionState != Action.MeleeAttack)
             {
                 CurrentActionState = Action.MeleeAttack;
             }

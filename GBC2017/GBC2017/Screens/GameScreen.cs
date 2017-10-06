@@ -157,7 +157,10 @@ namespace GBC2017.Screens
 	        RangedEnemyProjectileFactory.EntitySpawned +=
 	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        LaserTurretFactory.EntitySpawned +=
+	        FlyingEnemyProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            LaserTurretFactory.EntitySpawned +=
 	            turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        ShieldGeneratorFactory.EntitySpawned +=
@@ -180,6 +183,9 @@ namespace GBC2017.Screens
 
 	        MeleeAlienFactory.EntitySpawned +=
 	            meleealien => meleealien.AddSpritesToLayers(LightLayer, InfoLayer);
+
+	        FlyingEnemyFactory.EntitySpawned +=
+	            flyingalien => flyingalien.AddSpritesToLayers(LightLayer, InfoLayer);
         }
 
 	    private void SetCollisionVisibility()
@@ -246,6 +252,8 @@ namespace GBC2017.Screens
 
                 CurrentLevel.Update(currentLevelDateTime);
 
+                InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
+
                 HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
 
                 WindManager.Update();
@@ -255,8 +263,6 @@ namespace GBC2017.Screens
 		        PlayerProjectileActivity();
 		        EnemyProjectileActivity();
 		    }
-
-            InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
 
 		    EnergyManager.Update(!GameHasStarted);
 		    MineralsManager.Update(!GameHasStarted);
@@ -465,7 +471,7 @@ namespace GBC2017.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 
