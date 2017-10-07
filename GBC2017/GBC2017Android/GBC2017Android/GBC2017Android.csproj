@@ -347,6 +347,9 @@
     <Compile Include="..\..\GBC2017\Game1.cs">
       <Link>Game1.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\BaseClasses\BaseLevel.cs">
+      <Link>GameClasses\BaseClasses\BaseLevel.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\Cities\Brisbane.cs">
       <Link>GameClasses\Cities\Brisbane.cs</Link>
     </Compile>
@@ -361,6 +364,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\Interfaces\ICity.cs">
       <Link>GameClasses\Interfaces\ICity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GameClasses\Levels\HelsinkiLevel.cs">
+      <Link>GameClasses\Levels\HelsinkiLevel.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
       <Link>GameClasses\LevelWave.cs</Link>
@@ -1014,6 +1020,11 @@
       <Name>Structure_Placed</Name>
       <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
+      <Name>Structure_Placed</Name>
+      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb" />
     <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>

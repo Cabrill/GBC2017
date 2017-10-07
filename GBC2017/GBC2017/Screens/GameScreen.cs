@@ -19,7 +19,9 @@ using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GameClasses;
+using GBC2017.GameClasses.BaseClasses;
 using GBC2017.GameClasses.Cities;
+using GBC2017.GameClasses.Levels;
 using GBC2017.GumRuntimes;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
@@ -45,14 +47,13 @@ namespace GBC2017.Screens
 	        Inspecting
 	    };
 
+	    private BaseLevel CurrentLevel;
+	    private DateTime currentLevelDateTime;
+
 	    private GameMode CurrentGameMode = GameMode.Normal;
 	    private bool GameHasStarted;
         private PositionedObject selectedObject;
 
-	    private DateTime gameTimeOfDay;
-
-	    private double lastEnemyWave;
-	    private int numberOfLastWave = 0;
 	    private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
 	    
 
@@ -69,9 +70,10 @@ namespace GBC2017.Screens
 
 		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
-		    //TODO:  Set these values by loading a level
-		    gameTimeOfDay = new DateTime(2017, 12, 15, 0, 0, 0, DateTimeKind.Utc);
-            InsolationFormulas.Instance.SetCityAndDate(Helsinki.Instance, gameTimeOfDay);
+            //TODO:  Set these values by loading a level
+		    CurrentLevel = new HelsinkiLevel(WorldLayer);
+		    currentLevelDateTime = CurrentLevel.StartTime;
+            InsolationFormulas.Instance.SetCityAndDate(CurrentLevel.City, currentLevelDateTime);
 
             InitializeFactories();
 		    InitializeBaseEntities();
@@ -92,9 +94,8 @@ namespace GBC2017.Screens
 
 		    InitializeManagers();
 
-		    lastEnemyWave = TimeManager.CurrentTime;
-		    GameHasStarted = false;
-		    HorizonBoxInstance.Update(gameTimeOfDay);
+            GameHasStarted = false;
+		    HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
         }
 
 
@@ -236,24 +237,26 @@ namespace GBC2017.Screens
 		    SelectedItemActivity();
 		    BuildingStatusActivity();
 
-            HorizonBoxInstance.Update(gameTimeOfDay);
+            
 
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
-                TemporaryDebugWaveSpawning();
+                UpdateGameTime();
+
+                CurrentLevel.Update(currentLevelDateTime);
+
+                HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+
+                WindManager.Update();
+                SunlightManager.UpdateConditions();
 
                 EnemyStatusActivity();
 		        PlayerProjectileActivity();
 		        EnemyProjectileActivity();
-
-                UpdateGameTime();
-
-                WindManager.Update();
-                SunlightManager.UpdateConditions();
 		    }
 
-            InsolationFormulas.Instance.UpdateDateTime(gameTimeOfDay);
+            InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
 
 		    EnergyManager.Update(!GameHasStarted);
 		    MineralsManager.Update(!GameHasStarted);
@@ -279,60 +282,13 @@ namespace GBC2017.Screens
             FlatRedBall.Debugging.Debugger.TextGreen = 0f;
 	        FlatRedBall.Debugging.Debugger.TextBlue = 0f;
 
-            //FlatRedBall.Debugging.Debugger.Write(gameTimeOfDay.AddHours(City.Instance.UtcOffset));
+            //FlatRedBall.Debugging.Debugger.Write(currentLevelDateTime.AddHours(City.Instance.UtcOffset));
         }
-
-	    private void TemporaryDebugWaveSpawning()
-	    {
-	        if (TimeManager.SecondsSince(lastEnemyWave) > 30)
-	        {
-	            lastEnemyWave = TimeManager.CurrentTime;
-
-                numberOfLastWave++;
-	            int aliensToGenerate = 1;
-
-	            if (numberOfLastWave > 3)
-	            {
-	                aliensToGenerate += numberOfLastWave / 3;
-	            }
-
-	            var useLeftSide = numberOfLastWave > 3 && numberOfLastWave % 3 == 0;
-
-                for (var i = 0; i < aliensToGenerate; i++)
-                {
-                    if (numberOfLastWave > 3 && i % 3 == 0)
-                    {
-                        useLeftSide = !useLeftSide;
-                    }
-                    BaseEnemy newAlien;
-                    if (i % 4 < 3)
-                    {
-                        newAlien = BasicAlienFactory.CreateNew(WorldLayer);
-                    }
-                    else
-                    {
-                        newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
-                    }
-                    newAlien.OnDeath += CreateResourceNotification;
-
-                    if (useLeftSide)
-                    {
-                        newAlien.PlaceOnLeftSide();
-                    }
-                    else
-                    {
-                        newAlien.PlaceOnRightSide();
-                    }
-                }
-	        }
-	    }
-
+        
 	    private void UpdateGameTime()
 	    {
 	        var addSeconds = TimeManager.SecondDifference * 60 * GameFormulas.RealSecondsPerGameHour;
-	        gameTimeOfDay = gameTimeOfDay.AddSeconds(addSeconds);
-
-	        HorizonBoxInstance.Update(gameTimeOfDay);
+	        currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
         }
 
 	    private void SelectedItemActivity()

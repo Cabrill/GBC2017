@@ -4471,7 +4471,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4531,7 +4531,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">15</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
