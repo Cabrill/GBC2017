@@ -69,6 +69,9 @@ namespace GBC2017.ResourceManagers
 
         public static bool CanAfford(double amount)
         {
+#if DEBUG
+            if (DebugVariables.IgnoreStructureBuildCost) return true;
+#endif
             return StoredMinerals + MineralsIncrease - _mineralsDebt >= amount;
         }
 

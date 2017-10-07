@@ -280,6 +280,13 @@
       <Link>Entities\Structures\Combat\LaserTurret.Generated.cs</Link>
       <DependentUpon>LaserTurret.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\HydroGenerator.cs">
+      <Link>Entities\Structures\EnergyProducers\HydroGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\HydroGenerator.Generated.cs">
+      <Link>Entities\Structures\EnergyProducers\HydroGenerator.Generated.cs</Link>
+      <DependentUpon>HydroGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\SolarPanels.cs">
       <Link>Entities\Structures\EnergyProducers\SolarPanels.cs</Link>
     </Compile>
@@ -339,6 +346,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\HomeFactory.Generated.cs">
       <Link>Factories\HomeFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\HydroGeneratorFactory.Generated.cs">
+      <Link>Factories\HydroGeneratorFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\LaserTurretFactory.Generated.cs">
       <Link>Factories\LaserTurretFactory.Generated.cs</Link>
@@ -1051,14 +1061,6 @@
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_shoot.xnb">
       <Name>Laser_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
-      <Name>Structure_Placed</Name>
-      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
-      <Name>Structure_Placed</Name>
-      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb" />
     <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">

@@ -134,6 +134,10 @@
     <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
       <DependentUpon>LaserTurret.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.cs" />
+    <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.Generated.cs">
+      <DependentUpon>HydroGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Structures\EnergyProducers\SolarPanels.cs" />
     <Compile Include="Entities\Structures\EnergyProducers\SolarPanels.Generated.cs">
       <DependentUpon>SolarPanels.cs</DependentUpon>
@@ -160,6 +164,7 @@
     </Compile>
     <Compile Include="Factories\FlyingEnemyFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyProjectileFactory.Generated.cs" />
+    <Compile Include="Factories\HydroGeneratorFactory.Generated.cs" />
     <Compile Include="Factories\MeleeAlienFactory.Generated.cs" />
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />

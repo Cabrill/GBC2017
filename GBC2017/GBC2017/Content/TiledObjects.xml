@@ -79,6 +79,15 @@
     <property name="DisplayName" type="string" default="Laser Turret" />
     <property name="HasLightSource" type="bool" />
   </objecttype>
+  <objecttype name="HydroGenerator">
+    <property name="EnergyBuildCost" type="float" default="0" />
+    <property name="MineralsBuildCost" type="float" default="0" />
+    <property name="MaximumHealth" type="float" default="1" />
+    <property name="EnergyRequiredPerSecond" type="int" default="0" />
+    <property name="InternalBatteryMaxStorage" type="int" default="0" />
+    <property name="DisplayName" type="string" default="Not Set" />
+    <property name="HasLightSource" type="bool" default="false" />
+  </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="75" />
     <property name="MaximumHealth" type="float" default="30" />

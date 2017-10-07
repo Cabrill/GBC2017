@@ -30,6 +30,7 @@ namespace GBC2017.Screens
             //Energy build buttons
             BuildBarInstance.SolarButtonClick += BuildBarInstanceOnSolarButtonClick;
             BuildBarInstance.WindButtonClick += BuildBarInstanceOnWindButtonClick;
+            BuildBarInstance.HydroButtonClick += BuildBarInstanceOnHydroButtonClick;
             
             //Combat build buttons
             BuildBarInstance.LaserTurretButtonClick += BuildBarInstanceOnLaserTurretButtonClick;
@@ -49,6 +50,10 @@ namespace GBC2017.Screens
             structure.Destroy();
 
             structure = new WindTurbine();
+            BuildBarInstance.UpdateButton(structure);
+            structure.Destroy();
+
+            structure = new HydroGenerator();
             BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
@@ -115,6 +120,20 @@ namespace GBC2017.Screens
 
                 var newTurbine = WindTurbineFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newTurbine);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        private void BuildBarInstanceOnHydroButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<HydroGenerator>())
+            {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
+                var newHydro = HydroGeneratorFactory.CreateNew(WorldLayer);
+                FindValidLocationFor(newHydro);
 
                 //TODO:  message for player if no valid location found
             }

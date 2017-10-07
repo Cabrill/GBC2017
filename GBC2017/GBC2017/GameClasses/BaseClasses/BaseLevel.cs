@@ -16,7 +16,9 @@ namespace GBC2017.GameClasses.BaseClasses
         public abstract DateTime EndTime { get; }
         public abstract float AvgDailyEnergyUsage { get; }
 
-        private DateTime _lastEnemyWave;
+        public abstract float WaterFlowRate { get; }
+
+    private DateTime _lastEnemyWave;
         private Layer _layerForEnemies;
         private int _wavesSent;
         private int _wavesToEaseIntoDifficulty = 24;

@@ -33,6 +33,18 @@ namespace GBC2017.Entities.BaseEntities
                     _hudLayer.Remove(structureAsWindTurbine.TurbineSprite);
                     SpriteManager.AddToLayer(structureAsWindTurbine.TurbineSprite, LayerProvidedByContainer);
                 }
+
+                var structureAsHydroGenerator = this as HydroGenerator;
+                if (structureAsHydroGenerator != null)
+                {
+                    _hudLayer.Remove(structureAsHydroGenerator.LargeWheelSprite);
+                    _hudLayer.Remove(structureAsHydroGenerator.SmallWheelSprite);
+                    _hudLayer.Remove(structureAsHydroGenerator.InnerCircleSprite);
+
+                    SpriteManager.AddToLayer(structureAsHydroGenerator.LargeWheelSprite, LayerProvidedByContainer);
+                    SpriteManager.AddToLayer(structureAsHydroGenerator.SmallWheelSprite, LayerProvidedByContainer);
+                    SpriteManager.AddToLayer(structureAsHydroGenerator.InnerCircleSprite, LayerProvidedByContainer);
+                }
             }
         }
 

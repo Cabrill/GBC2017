@@ -350,12 +350,6 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>EnabledStatusState</Type>
-      <Name>HydroButton.EnabledStatusState</Name>
-      <Value xsi:type="xsd:string">Disabled</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>bool</Type>
       <Name>HydroButton.ExposeChildrenEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>

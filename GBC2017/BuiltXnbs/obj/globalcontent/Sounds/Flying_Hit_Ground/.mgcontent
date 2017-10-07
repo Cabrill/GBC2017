@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/cabri/Documents/GitHub/GBC2017/GBC2017/GBC2017/Content/globalcontent/Sounds/Flying_Hit_Ground.wav</File>
     <File>D:/GitHub/GBC2017/GBC2017/GBC2017/Content/globalcontent/Sounds/Flying_Hit_Ground.wav</File>
   </SourceFiles>
 </SourceFileCollection>

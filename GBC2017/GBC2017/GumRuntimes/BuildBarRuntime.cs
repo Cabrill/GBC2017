@@ -16,14 +16,31 @@ namespace GBC2017.GumRuntimes
         public void UpdateButton(BaseStructure structure)
         {
             BuildButtonRuntime button = null;
+            switch (structure)
+            {
+                case SolarPanels _:
+                    button = SolarButton;
+                    break;
+                case WindTurbine _:
+                    button = WindButton;
+                    break;
+                case HydroGenerator _:
+                    button = HydroButton;
+                    break;
+                case LaserTurret _:
+                    button = LaserTurretButton;
+                    break;
+                case Battery _:
+                    button = BatteryButton;
+                    break;
+                case CarbonTree _:
+                    button = CarbonTreeButton;
+                    break;
+                case ShieldGenerator _:
+                    button = ShieldGeneratorButton;
+                    break;
+            }
 
-            if (structure is SolarPanels) button = SolarButton;
-            else if (structure is WindTurbine) button = WindButton;
-            else if (structure is LaserTurret) button = LaserTurretButton;
-            else if (structure is Battery) button = BatteryButton;
-            else if (structure is CarbonTree) button = CarbonTreeButton;
-            else if (structure is ShieldGenerator) button = ShieldGeneratorButton;
-            
             button?.UpdateFromStructure(structure);
         }
         
