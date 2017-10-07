@@ -1103,6 +1103,14 @@
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\combat\laserturret\animationchainlistfile.achx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
+      <Name>emitterlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
+      <Name>waterdropanimationchain</Name>
+      <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
       <Name>shield_generator</Name>
       <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>

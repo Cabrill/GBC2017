@@ -18,14 +18,14 @@ using GBC2017.Entities.Structures.Utility;
 using GBC2017.Screens;
 namespace GBC2017.Screens
 {
-	public partial class GameScreen
-	{
-		void OnStartButtonInstanceClickTunnel (FlatRedBall.Gui.IWindow window)
-		{
-			if (this.StartButtonInstanceClick != null)
-			{
-				StartButtonInstanceClick(window);
-			}
-		}
-	}
+    public partial class GameScreen
+    {
+        void OnStartButtonInstanceClickTunnel (FlatRedBall.Gui.IWindow window)
+        {
+            if (this.StartButtonInstanceClick != null)
+            {
+                StartButtonInstanceClick(window);
+            }
+        }
+    }
 }
