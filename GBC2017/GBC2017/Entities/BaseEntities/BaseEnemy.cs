@@ -33,7 +33,9 @@ namespace GBC2017.Entities.BaseEntities
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
 	    private int _currentNumberOfPotentialTargets;
-
+	    private float _relativeYOffset;
+	    private int _lastFrameIndex;
+	    private string _lastFrameChain;
 
         protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
@@ -64,14 +66,16 @@ namespace GBC2017.Entities.BaseEntities
 		        RangedAttackRadiusCircleInstance.Visible = false;
             }
 
-            SpriteInstance.RelativeY = SpriteInstance.Height / 2;
-
 		    _lastRangeAttackTime = TimeManager.CurrentTime;
 		    _lastMeleeAttackTime = TimeManager.CurrentTime;
 
             HealthRemaining = MaximumHealth;
 		    _healthBarWidth = SpriteInstance.Width;
-            _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);		    
+            _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
+		    _relativeYOffset = SpriteInstance.Height / 2;
+		    SpriteInstance.RelativeY += _relativeYOffset;
+		    _lastFrameIndex = -1;
+		    _lastFrameChain = "";
 		}
 
 	    public static void Initialize(AxisAlignedRectangle playArea, PositionedObjectList<BaseStructure> potentialTargetList)
@@ -106,7 +110,25 @@ namespace GBC2017.Entities.BaseEntities
 		        NavigationActivity();
 		    }
 
-		    UpdateHealthBar();
+		    UpdateAnimation();
+            UpdateHealthBar();
+        }
+
+	    private void UpdateAnimation()
+	    {
+
+	        if (SpriteInstance.CurrentChainIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+	        {
+	            _lastFrameIndex = SpriteInstance.CurrentChainIndex;
+	            _lastFrameChain = SpriteInstance.CurrentChainName;
+
+	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
+	            {
+	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	            }
+	            SpriteInstance.RelativeY += SpriteInstance.Height/2;
+	        }
         }
 
 	    private void UpdateHealthBar()

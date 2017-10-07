@@ -64,7 +64,7 @@ namespace GBC2017.GameClasses.BaseClasses
 
             while (energyAvailable >= minimumCostOfAnEnemy)
             {
-                var newEnemy = BasicAlienFactory.CreateNew(_layerForEnemies);
+                var newEnemy = FlyingEnemyFactory.CreateNew(_layerForEnemies);
                 newEnemy.PlaceOnRightSide();
                 energyAvailable -= GameFormulas.Instance.EnergyRatingForEnemy(newEnemy);
             }

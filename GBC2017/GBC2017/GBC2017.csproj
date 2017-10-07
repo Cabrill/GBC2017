@@ -98,6 +98,10 @@
     <Compile Include="Entities\Enemies\BasicAlien.Generated.cs">
       <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Enemies\FlyingEnemy.cs" />
+    <Compile Include="Entities\Enemies\FlyingEnemy.Generated.cs">
+      <DependentUpon>FlyingEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Enemies\MeleeAlien.cs" />
     <Compile Include="Entities\Enemies\MeleeAlien.Generated.cs">
       <DependentUpon>MeleeAlien.cs</DependentUpon>
@@ -109,6 +113,10 @@
     <Compile Include="Entities\GraphicalElements\XCancel.cs" />
     <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
       <DependentUpon>XCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.cs" />
+    <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.Generated.cs">
+      <DependentUpon>FlyingEnemyProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Projectiles\LaserTurretProjectile.cs" />
     <Compile Include="Entities\Projectiles\LaserTurretProjectile.Generated.cs">
@@ -150,6 +158,8 @@
     <Compile Include="Entities\Structures\Utility\ShieldGenerator.Generated.cs">
       <DependentUpon>ShieldGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\FlyingEnemyFactory.Generated.cs" />
+    <Compile Include="Factories\FlyingEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\MeleeAlienFactory.Generated.cs" />
     <Compile Include="Factories\BasicAlienFactory.Generated.cs" />
     <Compile Include="Factories\BatteryFactory.Generated.cs" />
@@ -454,6 +464,26 @@
       <Name>Alien_Shoot</Name>
       <Link>content\globalcontent\sounds\alien_shoot.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Hit_Ground</Name>
+      <Link>content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_hurt</Name>
+      <Link>content\globalcontent\sounds\flying_hurt.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_powerup</Name>
+      <Link>content\globalcontent\sounds\flying_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\flying_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>flying_shoot</Name>
+      <Link>content\globalcontent\sounds\flying_shoot.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Laser_Ground</Name>
@@ -486,6 +516,10 @@
     <None Include="content\entities\enemies\basicalien\greenalien.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>greenalien</Name>
+    </None>
+    <None Include="content\entities\enemies\flyingenemy\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\graphicalelements\checkmark_x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -526,6 +560,10 @@
     <None Include="content\globalcontent\allassetssheet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AllAssetsSheet</Name>
+    </None>
+    <None Include="content\globalcontent\animation_sheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>animation_sheet</Name>
     </None>
     <None Include="content\globalcontent\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

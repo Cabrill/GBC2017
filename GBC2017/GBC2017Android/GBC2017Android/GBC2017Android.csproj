@@ -217,6 +217,13 @@
       <Link>Entities\Enemies\BasicAlien.Generated.cs</Link>
       <DependentUpon>BasicAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\FlyingEnemy.cs">
+      <Link>Entities\Enemies\FlyingEnemy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\FlyingEnemy.Generated.cs">
+      <Link>Entities\Enemies\FlyingEnemy.Generated.cs</Link>
+      <DependentUpon>FlyingEnemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Enemies\MeleeAlien.cs">
       <Link>Entities\Enemies\MeleeAlien.cs</Link>
     </Compile>
@@ -237,6 +244,13 @@
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\XCancel.Generated.cs">
       <Link>Entities\GraphicalElements\XCancel.Generated.cs</Link>
       <DependentUpon>XCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\FlyingEnemyProjectile.cs">
+      <Link>Entities\Projectiles\FlyingEnemyProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\FlyingEnemyProjectile.Generated.cs">
+      <Link>Entities\Projectiles\FlyingEnemyProjectile.Generated.cs</Link>
+      <DependentUpon>FlyingEnemyProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Projectiles\LaserTurretProjectile.cs">
       <Link>Entities\Projectiles\LaserTurretProjectile.cs</Link>
@@ -316,6 +330,12 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\CarbonTreeFactory.Generated.cs">
       <Link>Factories\CarbonTreeFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\FlyingEnemyFactory.Generated.cs">
+      <Link>Factories\FlyingEnemyFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\FlyingEnemyProjectileFactory.Generated.cs">
+      <Link>Factories\FlyingEnemyProjectileFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\HomeFactory.Generated.cs">
       <Link>Factories\HomeFactory.Generated.cs</Link>
@@ -1004,6 +1024,22 @@
       <Name>Alien_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\alien_shoot.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
+      <Name>Flying_Hit_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
+      <Name>Flying_hurt</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_hurt.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
+      <Name>Flying_powerup</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_powerup.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_shoot.xnb">
+      <Name>flying_shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_shoot.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
       <Name>Laser_Ground</Name>
       <Link>Assets\content\globalcontent\sounds\laser_ground.xnb</Link>
@@ -1036,6 +1072,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\greenalien.png">
       <Name>greenalien</Name>
       <Link>Assets\content\entities\enemies\basicalien\greenalien.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\flyingenemy\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\enemies\flyingenemy\animationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\graphicalelements\checkmark_x.png">
       <Name>checkmark_x</Name>
@@ -1076,6 +1116,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
       <Name>allassetssheet</Name>
       <Link>Assets\content\globalcontent\allassetssheet.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\animation_sheet.png">
+      <Name>animation_sheet</Name>
+      <Link>Assets\content\globalcontent\animation_sheet.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
       <Name>starry_sky</Name>
