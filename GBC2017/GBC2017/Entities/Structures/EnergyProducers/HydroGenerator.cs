@@ -31,6 +31,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
             foreach (var emitter in EmitterListFile)
             {
                 emitter.LayerToEmitOn = LayerProvidedByContainer;
+                emitter.SecondFrequency = 0.05f;
             }
         }
 
@@ -79,9 +80,11 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		    }
 		    else
 		    {
-		        LargeWheelSprite.RelativeRotationZVelocity = -0.5f;
-		        SmallWheelSprite.RelativeRotationZVelocity = 0.5f;
 		        EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
+
+                LargeWheelSprite.RelativeRotationZVelocity = (float)-EffectiveEnergyProducedPerSecond;
+		        SmallWheelSprite.RelativeRotationZVelocity = (float)EffectiveEnergyProducedPerSecond;
+		        
 
 		        UpdateEmitters();
 		    }
