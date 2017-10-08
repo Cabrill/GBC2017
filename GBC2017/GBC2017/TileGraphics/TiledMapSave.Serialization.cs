@@ -298,6 +298,7 @@ namespace TMXGlueLib
 
         private float _offsetX;
         private float _offsetY;
+        private float _opacity;
 
         List<property> mProperties = new List<property>();
 
@@ -349,6 +350,14 @@ namespace TMXGlueLib
         {
             get { return _visibleAsInt; }
             set { _visibleAsInt = value; }
+        }
+
+
+        [XmlAttribute("opacity")]
+        public float opacity
+        {
+            get { return _opacity; }
+            set { _opacity = value; }
         }
 
         [XmlAttribute("offsetx")]

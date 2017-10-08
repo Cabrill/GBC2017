@@ -6,7 +6,7 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>6</ScaleZ>
+    <ScaleZ>10</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
@@ -16,10 +16,10 @@
       <RadialVelocity>20</RadialVelocity>
       <RadialVelocityRange>20</RadialVelocityRange>
       <XVelocity>0</XVelocity>
-      <YVelocity>-200</YVelocity>
+      <YVelocity>-250</YVelocity>
       <ZVelocity>0</ZVelocity>
       <XVelocityRange>0</XVelocityRange>
-      <YVelocityRange>0</YVelocityRange>
+      <YVelocityRange>10</YVelocityRange>
       <ZVelocityRange>0</ZVelocityRange>
       <WedgeAngle>0</WedgeAngle>
       <WedgeSpread>0</WedgeSpread>
@@ -37,7 +37,7 @@
       <RotationZRange>0</RotationZRange>
       <RotationZVelocityRange>0</RotationZVelocityRange>
       <XAcceleration>0</XAcceleration>
-      <YAcceleration>0</YAcceleration>
+      <YAcceleration>-5</YAcceleration>
       <ZAcceleration>0</ZAcceleration>
       <XAccelerationRange>0</XAccelerationRange>
       <YAccelerationRange>0</YAccelerationRange>
@@ -81,7 +81,7 @@
     <RotationChangesParticleRotation>false</RotationChangesParticleRotation>
     <RotationChangesParticleAcceleration>false</RotationChangesParticleAcceleration>
     <AssetsRelativeToFile>false</AssetsRelativeToFile>
-    <SecondsLasting>2</SecondsLasting>
+    <SecondsLasting>1</SecondsLasting>
   </EmitterSave>
   <EmitterSave>
     <X>0</X>
@@ -89,7 +89,7 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>6</ScaleZ>
+    <ScaleZ>10</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
@@ -99,10 +99,10 @@
       <RadialVelocity>20</RadialVelocity>
       <RadialVelocityRange>20</RadialVelocityRange>
       <XVelocity>0</XVelocity>
-      <YVelocity>-200</YVelocity>
+      <YVelocity>-250</YVelocity>
       <ZVelocity>0</ZVelocity>
       <XVelocityRange>0</XVelocityRange>
-      <YVelocityRange>0</YVelocityRange>
+      <YVelocityRange>10</YVelocityRange>
       <ZVelocityRange>0</ZVelocityRange>
       <WedgeAngle>0</WedgeAngle>
       <WedgeSpread>0</WedgeSpread>
@@ -120,7 +120,7 @@
       <RotationZRange>0</RotationZRange>
       <RotationZVelocityRange>0</RotationZVelocityRange>
       <XAcceleration>0</XAcceleration>
-      <YAcceleration>0</YAcceleration>
+      <YAcceleration>-5</YAcceleration>
       <ZAcceleration>0</ZAcceleration>
       <XAccelerationRange>0</XAccelerationRange>
       <YAccelerationRange>0</YAccelerationRange>
@@ -164,7 +164,7 @@
     <RotationChangesParticleRotation>false</RotationChangesParticleRotation>
     <RotationChangesParticleAcceleration>false</RotationChangesParticleAcceleration>
     <AssetsRelativeToFile>false</AssetsRelativeToFile>
-    <SecondsLasting>2</SecondsLasting>
+    <SecondsLasting>1</SecondsLasting>
   </EmitterSave>
   <EmitterSave>
     <X>0</X>
@@ -172,7 +172,7 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>6</ScaleZ>
+    <ScaleZ>10</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
@@ -182,10 +182,10 @@
       <RadialVelocity>20</RadialVelocity>
       <RadialVelocityRange>20</RadialVelocityRange>
       <XVelocity>0</XVelocity>
-      <YVelocity>-200</YVelocity>
+      <YVelocity>-250</YVelocity>
       <ZVelocity>0</ZVelocity>
       <XVelocityRange>0</XVelocityRange>
-      <YVelocityRange>0</YVelocityRange>
+      <YVelocityRange>10</YVelocityRange>
       <ZVelocityRange>0</ZVelocityRange>
       <WedgeAngle>0</WedgeAngle>
       <WedgeSpread>0</WedgeSpread>
@@ -203,7 +203,7 @@
       <RotationZRange>0</RotationZRange>
       <RotationZVelocityRange>0</RotationZVelocityRange>
       <XAcceleration>0</XAcceleration>
-      <YAcceleration>0</YAcceleration>
+      <YAcceleration>-5</YAcceleration>
       <ZAcceleration>0</ZAcceleration>
       <XAccelerationRange>0</XAccelerationRange>
       <YAccelerationRange>0</YAccelerationRange>
@@ -246,7 +246,7 @@
     <RotationChangesParticleRotation>false</RotationChangesParticleRotation>
     <RotationChangesParticleAcceleration>false</RotationChangesParticleAcceleration>
     <AssetsRelativeToFile>false</AssetsRelativeToFile>
-    <SecondsLasting>2</SecondsLasting>
+    <SecondsLasting>1</SecondsLasting>
   </EmitterSave>
   <CoordinateSystem>RightHanded</CoordinateSystem>
 </ArrayOfEmitterSave>

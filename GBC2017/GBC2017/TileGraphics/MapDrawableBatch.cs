@@ -312,6 +312,24 @@ namespace FlatRedBall.TileGraphics
             SpriteManager.AddToLayer(this, layer);
         }
 
+        public void SetAlpha(float alpha)
+        {
+            if (alpha < 1f)
+            {
+                ZBuffered = true;
+                mAlphaTestEffect = new AlphaTestEffect(FlatRedBallServices.GraphicsDevice);
+                mAlphaTestEffect.Alpha = alpha;
+                mAlphaTestEffect.VertexColorEnabled = false;
+            }
+            else
+            {
+                ZBuffered = false;
+                mAlphaTestEffect = new AlphaTestEffect(FlatRedBallServices.GraphicsDevice);
+                mAlphaTestEffect.Alpha = 1;
+                mAlphaTestEffect.VertexColorEnabled = false;
+            }
+        }
+
         public static MapDrawableBatch FromScnx(string sceneFileName, string contentManagerName, bool verifySameTexturePerLayer)
         {
             // TODO: This line crashes when the path is already absolute!

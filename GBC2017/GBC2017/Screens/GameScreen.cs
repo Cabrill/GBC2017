@@ -209,7 +209,16 @@ namespace GBC2017.Screens
 	        //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
             HelsinkiMap.AddToManagers(WorldLayer);
 	        HelsinkiMap.Z = -10;
-	        HelsinkiMap.MapLayers[2].RelativeZ = 20;
+	        HelsinkiMap.MapLayers[2].RelativeZ = 7;
+
+	        PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
+
+            AlienSpawnLeftRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[0];
+	        AlienSpawnRightRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[1];
+
+	        PlayAreaPolygon.AttachTo(HelsinkiMap, true);
+            AlienSpawnLeftRectangle.AttachTo(HelsinkiMap,true);
+	        AlienSpawnRightRectangle.AttachTo(HelsinkiMap, true);
 
             //This centers the map in the middle of the screen
             HelsinkiMap.Position.X = -HelsinkiMap.Width / 2;
@@ -217,12 +226,22 @@ namespace GBC2017.Screens
             //This positions the map between the info bar and build button bar
 	        HelsinkiMap.Position.Y = HelsinkiMap.Height/2;
 
-	        HelsinkiMap.RemoveFromManagersOneWay();
+            HelsinkiMap.RemoveFromManagersOneWay();
 	        HelsinkiMap.AddToManagers(WorldLayer);
 
-	        PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
-	        AlienSpawnLeftRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[0];
-	        AlienSpawnRightRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[1];
+	        
+            //PlayAreaPolygon.Position = new Vector3(PlayAreaPolygon.X - HelsinkiMap.Width/2, PlayAreaPolygon.Y + HelsinkiMap.Height/2, PlayAreaPolygon.Z);
+	        
+	        ShapeManager.AddPolygon(PlayAreaPolygon);
+            ShapeManager.AddToLayer(PlayAreaPolygon, HUDLayer);
+
+            
+            //AlienSpawnLeftRectangle.Position = new Vector3(AlienSpawnLeftRectangle.X - HelsinkiMap.Width / 2, AlienSpawnLeftRectangle.Y + HelsinkiMap.Height / 2, AlienSpawnLeftRectangle.Z);
+            ShapeManager.AddToLayer(AlienSpawnLeftRectangle, HUDLayer);
+
+            
+	        //AlienSpawnRightRectangle.Position = new Vector3(AlienSpawnRightRectangle.X - HelsinkiMap.Width / 2, AlienSpawnRightRectangle.Y + HelsinkiMap.Height / 2, AlienSpawnRightRectangle.Z);
+	        ShapeManager.AddToLayer(AlienSpawnRightRectangle, HUDLayer);
         }
 #endregion
 
@@ -575,9 +594,7 @@ namespace GBC2017.Screens
 	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
 	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
-                //TODO:  This needs to be fixed
-                //&& PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
+	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced && PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
 
 	            if (shouldAllowDrag)
 	            {

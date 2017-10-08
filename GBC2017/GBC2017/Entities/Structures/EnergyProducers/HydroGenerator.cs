@@ -104,28 +104,6 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 	                                 0.4f;
 	            emitter.TimedEmit(_waterDrops);
 	        }
-
-
-	        var waterDropDisappearsAtY = LargeWheelSprite.Position.Y - LargeWheelSprite.Height * FlatRedBallServices.Random.Between(0.4f, 0.6f);
-            var waterDropMaxDisappearAtY = LargeWheelSprite.Position.Y - LargeWheelSprite.Height * 0.6f;
-
-	        bool dropDestroyed = false;
-
-            for (int i = _waterDrops.Count; i > 0; i--)
-	        {
-	            var waterDrop = _waterDrops[i - 1];
-	            if (!dropDestroyed && waterDrop.Y < waterDropDisappearsAtY)
-	            {
-	                dropDestroyed = true;
-                    _waterDrops.RemoveAt(i-1);
-                    SpriteManager.RemoveSprite(waterDrop);
-                }
-                else if (waterDrop.Y < waterDropMaxDisappearAtY)
-	            {
-	                _waterDrops.RemoveAt(i - 1);
-	                SpriteManager.RemoveSprite(waterDrop);
-                }
-	        }
         }
 
 	    private double BaseEnergyPerSecond()
