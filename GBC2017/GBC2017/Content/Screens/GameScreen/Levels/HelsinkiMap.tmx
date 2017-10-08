@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" nextobjectid="11">
+ <layer name="Tile Layer 1" width="80" height="45">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAADwZkvEChtAOAAA
+  </data>
+ </layer>
+ <imagelayer name="GroundImage">
+  <image source="helsinki_ground.png" width="2560" height="1440"/>
+ </imagelayer>
+ <objectgroup name="PlayArea">
+  <object id="1" name="PlayAreaPolygon" x="-4" y="792">
+   <polygon points="0,0 180,8 540,-68 768,-134 964,-182 1116,-204 1378,-230 1580,-174 1790,-80 2014,-52 2112,26 2288,72 2558,78 2558,554 1790,544 1652,386 858,246 356,176 4,172 0,2"/>
+  </object>
+  <object id="9" name="AlienSpawnLeft" x="2" y="796" width="27.5" height="219.5"/>
+  <object id="10" name="AlienSpawnRight" x="2525.33" y="876" width="28.6667" height="470"/>
+ </objectgroup>
+ <imagelayer name="TreesImage" offsetx="0" offsety="0">
+  <image source="helsinki_trees.png" width="2560" height="1440"/>
+ </imagelayer>
+ <objectgroup name="BuildingSpawnPoints">
+  <object id="4" name="HomeSpawnPoint" x="1360.67" y="606.667"/>
+  <object id="5" name="HydroSpawnPoint" x="682" y="1041.33"/>
+ </objectgroup>
+ <imagelayer name="WaterImage">
+  <image source="helsinki_water.png" width="2560" height="1440"/>
+ </imagelayer>
+</map>

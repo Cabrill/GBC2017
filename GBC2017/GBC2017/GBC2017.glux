@@ -26,25 +26,6 @@
       <Name>Screens\GameScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Screens/GameScreen/Levels/Tilesets/ground_tiles.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Screens/GameScreen/Levels/justgrass.tmx</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
-          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Screens/GameScreen/Levels/Tilesets/waterflow.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
           <Name>GumProject/Screens/GameScreenGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
@@ -64,6 +45,30 @@
         </ReferencedFileSave>
         <ReferencedFileSave>
           <Name>globalcontent/treeline.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Levels/HelsinkiMap.tmx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Levels/helsinki_ground.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Levels/helsinki_trees.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/GameScreen/Levels/helsinki_water.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -135,52 +140,6 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
           <Is2D>true</Is2D>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>treeline</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RightTexturePixel</Member>
-            <ValueAsFloat>1024</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TopTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>TextureAddressMode</Type>
-            <Member>TextureAddressMode</Member>
-            <ValueAsInt>0</ValueAsInt>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>Sprite</SourceClassType>
-          <InstanceName>TreesSpriteInstance</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-          <LayerOn>WorldLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
           <SourceType>FlatRedBallType</SourceType>
@@ -321,6 +280,31 @@
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
         <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>RenderTarget2D</SourceClassType>
+          <InstanceName>BackgroundRenderTarget</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>Points</Member>
+            <ValueAsListOfVector2 />
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Polygon</SourceClassType>
+          <InstanceName>PlayAreaPolygon</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
@@ -331,23 +315,43 @@
             <Member>Height</Member>
             <ValueAsFloat>32</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Blue</ValueAsString>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>PlayAreaRectangle</InstanceName>
+          <InstanceName>AlienSpawnLeftRectangle</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
-          <SourceClassType>RenderTarget2D</SourceClassType>
-          <InstanceName>BackgroundRenderTarget</InstanceName>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AlienSpawnRightRectangle</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -2585,7 +2589,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -6303,7 +6307,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>303</ValueAsFloat>
+            <ValueAsFloat>304</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -7302,12 +7306,6 @@
     </ReferencedFileSave>
     <ReferencedFileSave>
       <Name>Entities/Structures/ShieldGenerator/shield_generator.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>globalcontent/treeline.png</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />

@@ -1439,9 +1439,21 @@
       <Name>text</Name>
       <Link>Assets\content\gumproject\standards\text.gutx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\justgrass.tmx">
-      <Name>justgrass</Name>
-      <Link>Assets\content\screens\gamescreen\levels\justgrass.tmx</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinkimap.tmx">
+      <Name>helsinkimap</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinkimap.tmx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_ground.png">
+      <Name>helsinki_ground</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_ground.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_trees.png">
+      <Name>helsinki_trees</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_trees.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_water.png">
+      <Name>helsinki_water</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\ground_tiles.png">
       <Name>ground_tiles</Name>
