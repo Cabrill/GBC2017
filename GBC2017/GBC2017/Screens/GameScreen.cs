@@ -75,6 +75,8 @@ namespace GBC2017.Screens
 		    currentLevelDateTime = CurrentLevel.StartTime;
             InsolationFormulas.Instance.SetCityAndDate(CurrentLevel.City, currentLevelDateTime);
 
+		    LoadTiledMap();
+
             InitializeFactories();
 		    InitializeBaseEntities();
 
@@ -82,7 +84,7 @@ namespace GBC2017.Screens
 		    AdjustLayerOrthoValues();
 		    InitializeShaders();
             SetCollisionVisibility();
-            PositionTiledMap();
+            
             SetInfoBarControls();
             SetBuildButtonControls();
 
@@ -143,7 +145,7 @@ namespace GBC2017.Screens
         private void InitializeBaseEntities()
 	    {
 	        BaseCombatStructure.Initialize(AllEnemiesList);
-	        BaseEnemy.Initialize(PlayAreaRectangle, AllStructuresList);
+	        BaseEnemy.Initialize(AlienSpawnLeftRectangle, AlienSpawnRightRectangle, AllStructuresList);
         }
 
 	    private void InitializeFactories()
@@ -193,39 +195,35 @@ namespace GBC2017.Screens
             #if DEBUG
 	        if (DebugVariables.ShowDebugShapes)
 	        {
-	            PlayAreaRectangle.Visible = true;
+	            PlayAreaPolygon.Visible = true;
 	        }
 	        else
             #endif
 	        {
-	            PlayAreaRectangle.Visible = false;
+	            PlayAreaPolygon.Visible = false;
 	        }
         }
 
-	    void PositionTiledMap()
+	    void LoadTiledMap()
 	    {
 	        //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
-            justgrass.AddToManagers(WorldLayer);
-	        justgrass.Z = -10f;
+            HelsinkiMap.AddToManagers(WorldLayer);
+	        HelsinkiMap.Z = -10;
+	        HelsinkiMap.MapLayers[2].RelativeZ = 20;
 
             //This centers the map in the middle of the screen
-            justgrass.Position.X = -justgrass.Width / 2;
+            HelsinkiMap.Position.X = -HelsinkiMap.Width / 2;
 
             //This positions the map between the info bar and build button bar
-	        justgrass.Position.Y = justgrass.Height/4;
-            
-            justgrass.RemoveFromManagersOneWay();
-            justgrass.AddToManagers(WorldLayer);
+	        HelsinkiMap.Position.Y = HelsinkiMap.Height/2;
 
-            //Set the play area to match the tilemap size/position
-	        PlayAreaRectangle.Y = justgrass.Position.Y- justgrass.Height/2.65f;
-	        PlayAreaRectangle.Height = justgrass.Height/1.65f;
-	        PlayAreaRectangle.Width = justgrass.Width;
+	        HelsinkiMap.RemoveFromManagersOneWay();
+	        HelsinkiMap.AddToManagers(WorldLayer);
 
-	        TreesSpriteInstance.Y = Camera.Main.OrthogonalHeight*0.3f;
-            //TreesSpriteInstance.Height = Camera.Main.OrthogonalHeight * 0.1f;
-            TreesSpriteInstance.RightTextureCoordinate = 6f;
-	    }
+	        PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
+	        AlienSpawnLeftRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[0];
+	        AlienSpawnRightRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[1];
+        }
 #endregion
 
         #region Activity
@@ -346,7 +344,7 @@ namespace GBC2017.Screens
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
-	            if (!PlayAreaRectangle.CollideAgainst(enemy.CircleInstance))
+	            if (!PlayAreaPolygon.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
 	            }
@@ -373,7 +371,7 @@ namespace GBC2017.Screens
 	            var projectile = EnemyProjectileList[i - 1];
 	            if (!projectile.ShouldBeDestroyed)
 	            {
-	                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	                if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
 	                {
 	                    projectile.Destroy();
 	                }
@@ -416,7 +414,7 @@ namespace GBC2017.Screens
 	            var projectile = PlayerProjectileList[i-1];
 	            if (!projectile.ShouldBeDestroyed)
 	            {
-	                if (!PlayAreaRectangle.IsPointOnOrInside(projectile.X, projectile.Y))
+	                if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
 	                {
 	                    projectile.Destroy();
 	                }
@@ -577,8 +575,9 @@ namespace GBC2017.Screens
 	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
 	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced &&
-	                                  PlayAreaRectangle.IsMouseOver(GuiManager.Cursor, WorldLayer);
+	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
+                //TODO:  This needs to be fixed
+                //&& PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
 
 	            if (shouldAllowDrag)
 	            {
@@ -617,7 +616,7 @@ namespace GBC2017.Screens
 		            notification.Destroy();
 		        }
 		    }
-            PlayAreaRectangle.RemoveSelfFromListsBelongingTo();
+		    PlayAreaPolygon.RemoveSelfFromListsBelongingTo();
 		}
 #endregion
 

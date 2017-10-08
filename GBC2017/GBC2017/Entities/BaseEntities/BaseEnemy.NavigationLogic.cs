@@ -20,16 +20,16 @@ namespace GBC2017.Entities.BaseEntities
         #region Placement methods
         public void PlaceOnLeftSide()
         {
-            X = _playArea.Left;
-            Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
+            X = _leftSpawnArea.Left;
+            Y = FlatRedBallServices.Random.Between(_leftSpawnArea.Bottom + CircleInstance.Radius, _leftSpawnArea.Top - CircleInstance.Radius);
 
             NavigateToTargetStructure();
         }
 
         public void PlaceOnRightSide()
         {
-            X = _playArea.Right;
-            Y = FlatRedBallServices.Random.Between(_playArea.Bottom + CircleInstance.Radius, _playArea.Top - CircleInstance.Radius);
+            X = _rightSpawnArea.Right;
+            Y = FlatRedBallServices.Random.Between(_rightSpawnArea.Bottom + CircleInstance.Radius, _rightSpawnArea.Top - CircleInstance.Radius);
 
             NavigateToTargetStructure();
         }

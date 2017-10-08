@@ -822,17 +822,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Text</Name>
     </None>
-    <None Include="content\screens\gamescreen\levels\justgrass.tmx">
+    <None Include="content\screens\gamescreen\levels\helsinkimap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>justgrass</Name>
+      <Name>HelsinkiMap</Name>
     </None>
-    <None Include="content\screens\gamescreen\levels\tilesets\ground_tiles.png">
+    <None Include="content\screens\gamescreen\levels\helsinki_ground.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>ground_tiles</Name>
+      <Name>helsinki_ground</Name>
     </None>
-    <None Include="content\screens\gamescreen\levels\tilesets\waterflow.png">
+    <None Include="content\screens\gamescreen\levels\helsinki_trees.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>waterflow</Name>
+      <Name>helsinki_trees</Name>
+    </None>
+    <None Include="content\screens\gamescreen\levels\helsinki_water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_water</Name>
     </None>
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

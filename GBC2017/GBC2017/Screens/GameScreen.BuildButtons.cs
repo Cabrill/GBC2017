@@ -258,14 +258,14 @@ namespace GBC2017.Screens
             var xCounter = 0;
             var yCounter = 0;
 
-            var baseX = MathHelper.Clamp(Camera.Main.X, PlayAreaRectangle.Left, PlayAreaRectangle.Right);
-            var baseY = MathHelper.Clamp(Camera.Main.Y, PlayAreaRectangle.Bottom, PlayAreaRectangle.Top);
+            var baseX = Camera.Main.X;
+            var baseY = Camera.Main.Y;
 
             var effectiveX = baseX;
             var effectiveY = baseY;
 
             //Search the play area, but stop once we gone outside of it
-            while (PlayAreaRectangle.IsPointOnOrInside(effectiveX, effectiveY))
+            while (PlayAreaPolygon.IsPointInside(effectiveX, effectiveY))
             {
                 //Set the X/Y values of the structure's collision rectangle
                 structure.Position = new Vector3(effectiveX, effectiveY, structure.Z);
@@ -328,7 +328,7 @@ namespace GBC2017.Screens
                     var proposedMaxX = baseX + (maxXCounter + 1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(proposedMaxX, 0) || PlayAreaRectangle.IsPointOnOrInside(-proposedMaxX, 0))
+                    if (PlayAreaPolygon.IsPointInside(proposedMaxX, 0) || PlayAreaPolygon.IsPointInside(-proposedMaxX, 0))
                     {
                         maxXCounter++;
                         incrementMade = true;
@@ -337,7 +337,7 @@ namespace GBC2017.Screens
                     var proposedMaxY = baseY + (maxYCounter+1) * searchIncrement;
 
                     //We've reached the edge of the height of the play area, so don't increment
-                    if (PlayAreaRectangle.IsPointOnOrInside(0, proposedMaxY) || PlayAreaRectangle.IsPointOnOrInside(0, -proposedMaxY))
+                    if (PlayAreaPolygon.IsPointInside(0, proposedMaxY) || PlayAreaPolygon.IsPointInside(0, -proposedMaxY))
                     {
                         maxYCounter++;
                         incrementMade = true;
@@ -352,16 +352,16 @@ namespace GBC2017.Screens
                 var proposedEffectiveX = baseX + xCounter * searchIncrement * xMod;
                 var proposedEffectiveY = baseY + yCounter * searchIncrement * yMod;
 
-                if (PlayAreaRectangle.IsPointOnOrInside(proposedEffectiveX, proposedEffectiveY))
+                if (PlayAreaPolygon.IsPointInside(proposedEffectiveX, proposedEffectiveY))
                 {
                     effectiveX = proposedEffectiveX;
                     effectiveY = proposedEffectiveY;
                 }
-                else if (PlayAreaRectangle.IsPointOnOrInside(proposedEffectiveX, effectiveY))
+                else if (PlayAreaPolygon.IsPointInside(proposedEffectiveX, effectiveY))
                 {
                     effectiveX = proposedEffectiveX;
                 }
-                else if (PlayAreaRectangle.IsPointOnOrInside(effectiveX, proposedEffectiveY))
+                else if (PlayAreaPolygon.IsPointInside(effectiveX, proposedEffectiveY))
                 {
                     effectiveY = proposedEffectiveY;
                 }
@@ -371,8 +371,9 @@ namespace GBC2017.Screens
                 }
             }
 
-            structure.Destroy();
-            return false;
+            structure.IsValidLocation = true;
+            structure.Position = new Vector3(Camera.Main.X, Camera.Main.Y, structure.Z);
+            return true;;
         }
 
         #endregion

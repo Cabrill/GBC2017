@@ -26,8 +26,9 @@ namespace GBC2017.Entities.BaseEntities
 	public partial class BaseEnemy
 	{
 	    public event Action<BaseEnemy> OnDeath;
-        private static AxisAlignedRectangle _playArea;
-	    private static PositionedObjectList<BaseStructure> _potentialTargetList;
+        private static AxisAlignedRectangle _leftSpawnArea;
+	    private static AxisAlignedRectangle _rightSpawnArea;
+        private static PositionedObjectList<BaseStructure> _potentialTargetList;
 
 	    public float HealthRemaining { get; private set; }
         public bool IsDead => HealthRemaining <= 0;
@@ -78,9 +79,10 @@ namespace GBC2017.Entities.BaseEntities
 		    _lastFrameChain = "";
 		}
 
-	    public static void Initialize(AxisAlignedRectangle playArea, PositionedObjectList<BaseStructure> potentialTargetList)
+	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList)
 	    {
-	        _playArea = playArea;
+	        _leftSpawnArea = left;
+	        _rightSpawnArea = right;
 	        _potentialTargetList = potentialTargetList;
 	    }
 
