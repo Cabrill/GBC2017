@@ -398,9 +398,6 @@
     <Compile Include="..\..\GBC2017\GameClasses\Levels\HelsinkiLevel.cs">
       <Link>GameClasses\Levels\HelsinkiLevel.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
-      <Link>GameClasses\LevelWave.cs</Link>
-    </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\SunTimes.cs">
       <Link>GameClasses\SunTimes.cs</Link>
     </Compile>
@@ -1062,7 +1059,10 @@
       <Name>Laser_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb" />
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
+      <Name>Structure_Placed</Name>
+      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
@@ -1455,14 +1455,6 @@
       <Name>helsinki_water</Name>
       <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\ground_tiles.png">
-      <Name>ground_tiles</Name>
-      <Link>Assets\content\screens\gamescreen\levels\tilesets\ground_tiles.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\waterflow.png">
-      <Name>waterflow</Name>
-      <Link>Assets\content\screens\gamescreen\levels\tilesets\waterflow.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1485,9 +1477,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameClasses\BaseClasses\" />
-  </ItemGroup>
+  <ItemGroup />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

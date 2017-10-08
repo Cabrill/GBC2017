@@ -15,7 +15,7 @@
   <object id="9" name="AlienSpawnLeft" x="2" y="796" width="27.5" height="167.5"/>
   <object id="10" name="AlienSpawnRight" x="2525.33" y="876" width="28.6667" height="470"/>
  </objectgroup>
- <imagelayer name="TreesImage" opacity="0.1">
+ <imagelayer name="TreesImage">
   <image source="helsinki_trees.png" width="2560" height="1440"/>
  </imagelayer>
  <objectgroup name="BuildingSpawnPoints">
