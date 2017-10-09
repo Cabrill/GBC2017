@@ -435,16 +435,16 @@ namespace FlatRedBall.TileGraphics
             // add image layers
             foreach (var imageLayer in tms.ImageLayers)
             {
-                var imageLayerFile = tmxDirectory + imageLayer.imageobject.Source;
+                var imageLayerFile = tmxDirectory + imageLayer.ImageObject.Source;
                 var texture = FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(imageLayerFile);
 
                 var newSprite = new Sprite
                 {
                     Texture = texture,
-                    Width = imageLayer.imageobject.width,
-                    Height = imageLayer.imageobject.height,
-                    X = imageLayer.imageobject.width/2 + imageLayer.offsetX,
-                    Y = -imageLayer.imageobject.height/2 + imageLayer.offsetY
+                    Width = imageLayer.ImageObject.Width,
+                    Height = imageLayer.ImageObject.Height,
+                    X = imageLayer.ImageObject.Width / 2 + imageLayer.OffsetX,
+                    Y = -imageLayer.ImageObject.Height / 2 + imageLayer.OffsetY
                 };
 
                 var mdb = new MapDrawableBatch(1, texture);

@@ -47,6 +47,8 @@ namespace GBC2017.Entities.BaseEntities
 
         protected SoundEffect PlacementSound;
 
+	    private float _spriteRelativeY;
+
 	    /// <summary>
 	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
 	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -77,23 +79,33 @@ namespace GBC2017.Entities.BaseEntities
 
 	        _lastUsageUpdate = TimeManager.CurrentTime;
 
-	        SpriteInstance.RelativeY = SpriteInstance.Height / 2;
+	        _spriteRelativeY = GetSpriteRelativeY();
+
+            SpriteInstance.RelativeY = _spriteRelativeY;
 	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
 	    }
 
 	    private void CustomActivity()
 	    {
+	        if (SpriteInstance.JustChangedFrame)
+	        {
+	            SpriteInstance.RelativePosition *= SpriteInstance.TextureScale;
+	            SpriteInstance.RelativeY += _spriteRelativeY;
+	        }
+
             if (IsBeingPlaced)
 		    {
-#if DEBUG
-		        if (DebugVariables.IgnoreStructureBuildCost)
-		        {
-		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
-                } else
-#endif
 		        if (IsValidLocation)
 		        {
-		            if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
+#if DEBUG
+		            if (DebugVariables.IgnoreStructureBuildCost)
+		            {
+		                CurrentState = VariableState.ValidLocation;
+                        CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+		            }
+		            else
+#endif
+                    if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
 		            {
 		                CurrentState = VariableState.ValidLocation;
 		                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
@@ -218,6 +230,23 @@ namespace GBC2017.Entities.BaseEntities
 	        if (HasInternalBattery)
 	        {
 	            BatteryLevel = Math.Max(BatteryLevel - energyAmount, 0);
+	        }
+	    }
+
+	    private float GetSpriteRelativeY()
+	    {
+	        if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            return SpriteInstance.Height / 2;
+	        }
+	        else
+	        {
+	            var maxHeight = 0f;
+	            foreach (var frame in SpriteInstance.CurrentChain)
+	            {
+	                maxHeight = Math.Max(maxHeight, (frame.BottomCoordinate - frame.TopCoordinate) * frame.Texture.Height * SpriteInstance.TextureScale);
+	            }
+	            return maxHeight / 2;
 	        }
 	    }
 
