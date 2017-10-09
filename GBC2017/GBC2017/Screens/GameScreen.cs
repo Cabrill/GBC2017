@@ -119,9 +119,6 @@ namespace GBC2017.Screens
 
         private void AdjustLayerOrthoValues()
 	    {
-	        //BackgroundLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        //BackgroundLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
-
             WorldLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
 	        WorldLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
 
@@ -165,7 +162,13 @@ namespace GBC2017.Screens
             LaserTurretFactory.EntitySpawned +=
 	            turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        ShieldGeneratorFactory.EntitySpawned +=
+	        CannonFactory.EntitySpawned +=
+	            cannon => cannon.AddSpritesToLayers(LightLayer, InfoLayer);
+
+	        TallLaserFactory.EntitySpawned +=
+	            laser => laser.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            ShieldGeneratorFactory.EntitySpawned +=
 	            shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        SolarPanelsFactory.EntitySpawned +=

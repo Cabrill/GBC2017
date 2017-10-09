@@ -34,6 +34,8 @@ namespace GBC2017.Screens
             
             //Combat build buttons
             BuildBarInstance.LaserTurretButtonClick += BuildBarInstanceOnLaserTurretButtonClick;
+            BuildBarInstance.CannonButtonClick += BuildBarInstanceOnCannonButtonClick;
+            BuildBarInstance.TallLaserButtonClick += BuildBarInstanceOnTallLaserButtonClick;
 
             //Utility build buttons
             BuildBarInstance.BatteryButtonClick += BuildBarInstanceOnBatteryButtonClick;
@@ -66,6 +68,14 @@ namespace GBC2017.Screens
             structure.Destroy();
 
             structure = new LaserTurret();
+            BuildBarInstance.UpdateButton(structure);
+            structure.Destroy();
+
+            structure = new Cannon();
+            BuildBarInstance.UpdateButton(structure);
+            structure.Destroy();
+
+            structure = new TallLaser();
             BuildBarInstance.UpdateButton(structure);
             structure.Destroy();
 
@@ -150,6 +160,34 @@ namespace GBC2017.Screens
                 BuildBarInstance.UpdateSelection();
 
                 var newTurret = LaserTurretFactory.CreateNew(WorldLayer);
+                FindValidLocationFor(newTurret);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        private void BuildBarInstanceOnTallLaserButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<LaserTurret>())
+            {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
+                var newTurret = TallLaserFactory.CreateNew(WorldLayer);
+                FindValidLocationFor(newTurret);
+
+                //TODO:  message for player if no valid location found
+            }
+        }
+
+        private void BuildBarInstanceOnCannonButtonClick(IWindow window)
+        {
+            if (ShouldCreateNewBuildRequest<LaserTurret>())
+            {
+                BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
+                BuildBarInstance.UpdateSelection();
+
+                var newTurret = CannonFactory.CreateNew(WorldLayer);
                 FindValidLocationFor(newTurret);
 
                 //TODO:  message for player if no valid location found

@@ -114,6 +114,17 @@
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1090</LeftCoordinate>
+      <RightCoordinate>1276</RightCoordinate>
+      <TopCoordinate>187</TopCoordinate>
+      <BottomCoordinate>371</BottomCoordinate>
+      <RelativeX>21.5</RelativeX>
+      <RelativeY>-16</RelativeY>
+    </Frame>
+    <Frame>
+      <FlipHorizontal>true</FlipHorizontal>
+      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1108</LeftCoordinate>
       <RightCoordinate>1292</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
@@ -193,6 +204,16 @@
       <BottomCoordinate>185</BottomCoordinate>
       <RelativeX>-21.5</RelativeX>
       <RelativeY>-16.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1090</LeftCoordinate>
+      <RightCoordinate>1276</RightCoordinate>
+      <TopCoordinate>187</TopCoordinate>
+      <BottomCoordinate>371</BottomCoordinate>
+      <RelativeX>-21.5</RelativeX>
+      <RelativeY>-16</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -306,6 +327,17 @@
       <FlipHorizontal>true</FlipHorizontal>
       <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>222</LeftCoordinate>
+      <RightCoordinate>408</RightCoordinate>
+      <TopCoordinate>988</TopCoordinate>
+      <BottomCoordinate>1173</BottomCoordinate>
+      <RelativeX>15.5</RelativeX>
+      <RelativeY>-15.5</RelativeY>
+    </Frame>
+    <Frame>
+      <FlipHorizontal>true</FlipHorizontal>
+      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
       <LeftCoordinate>410</LeftCoordinate>
       <RightCoordinate>592</RightCoordinate>
       <TopCoordinate>988</TopCoordinate>
@@ -385,6 +417,16 @@
       <BottomCoordinate>1177</BottomCoordinate>
       <RelativeX>-14.5</RelativeX>
       <RelativeY>-13.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>222</LeftCoordinate>
+      <RightCoordinate>408</RightCoordinate>
+      <TopCoordinate>988</TopCoordinate>
+      <BottomCoordinate>1173</BottomCoordinate>
+      <RelativeX>-15.5</RelativeX>
+      <RelativeY>-15.5</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

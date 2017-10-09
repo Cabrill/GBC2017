@@ -119,9 +119,9 @@ namespace GBC2017.Entities.BaseEntities
 	    private void UpdateAnimation()
 	    {
 
-	        if (SpriteInstance.CurrentChainIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+	        if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
 	        {
-	            _lastFrameIndex = SpriteInstance.CurrentChainIndex;
+	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
 	            _lastFrameChain = SpriteInstance.CurrentChainName;
 
 	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)

@@ -26,15 +26,13 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         /// </summary>
 		private void CustomInitialize()
         {
-            EffectiveEnergyProducedPerSecond = 25f *
-                                               BaseEnergyPerSecond();
+            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
             TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
         }
 
         private void CustomActivity()
         {
-            EffectiveEnergyProducedPerSecond = 0.25f *
-                                               BaseEnergyPerSecond();
+            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
             if (IsBeingPlaced)
             {
@@ -75,7 +73,8 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private double BaseEnergyPerSecond()
         {
-            double wattRealTime = 8 * Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
+            //This calculation is in watts per hour, and since 1 hour is 8 seconds we need to multiply by 1/8th
+            double wattRealTime = 1/8f * Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
             double wattInGame = wattRealTime * 24 * 3600 / 300;
             return wattInGame;
         }

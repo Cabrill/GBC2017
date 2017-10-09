@@ -30,6 +30,12 @@ namespace GBC2017.GumRuntimes
                 case LaserTurret _:
                     button = LaserTurretButton;
                     break;
+                case Cannon _:
+                    button = CannonButton;
+                    break;
+                case TallLaser _:
+                    button = TallLaserButton;
+                    break;
                 case Battery _:
                     button = BatteryButton;
                     break;

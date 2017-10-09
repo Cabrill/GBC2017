@@ -2510,6 +2510,12 @@
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>globalcontent/animation_sheet.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <Events>
         <EventResponseSave>
@@ -2636,6 +2642,18 @@
           <Name>ShowPerformanceStats</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>TurretsAimAtMouse</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
       </CustomVariables>
@@ -3292,7 +3310,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>72</ValueAsFloat>
+            <ValueAsFloat>28</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -4020,14 +4038,14 @@
             <ValueAsString>SlimeAlienAnimationChainListFile</ValueAsString>
           </CustomProperty>
           <CustomProperty>
-            <Type>bool</Type>
-            <Member>IgnoreAnimationChainTextureFlip</Member>
-            <ValueAsBool>true</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
             <Type>string</Type>
             <Member>CurrentChainName</Member>
             <ValueAsString>Standing</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>IgnoreAnimationChainTextureFlip</Member>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5326,7 +5344,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5338,7 +5356,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5350,7 +5368,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5374,7 +5392,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5410,6 +5428,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5421,6 +5440,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5432,6 +5452,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5455,7 +5476,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -5467,7 +5488,27 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>CannonAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Turn</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5488,7 +5529,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>48</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -5563,7 +5604,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5587,7 +5628,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5599,7 +5640,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">33</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5623,7 +5664,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5635,7 +5676,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5659,7 +5700,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">800</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5708,17 +5749,17 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>animation_sheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.35</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -5841,7 +5882,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5853,7 +5894,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5865,7 +5906,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5889,7 +5930,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">400</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5925,6 +5966,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5936,6 +5978,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5947,6 +5990,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5958,7 +6002,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5970,7 +6014,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -5982,7 +6026,27 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>TallLaserAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Turn</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>

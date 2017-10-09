@@ -25,6 +25,9 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance attackSound;
 	    private float _aimRotation;
 
+	    protected int _lastFrameIndex;
+	    protected string _lastFrameChain;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -36,7 +39,10 @@ namespace GBC2017.Entities.BaseEntities
 		    LastFiredTime = TimeManager.CurrentTime;
 
             AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
-		}
+
+		    _lastFrameIndex = -1;
+		    _lastFrameChain = "";
+        }
 
 	    public static void Initialize(PositionedObjectList<BaseEnemy> potentialTargets)
 	    {
@@ -47,6 +53,10 @@ namespace GBC2017.Entities.BaseEntities
 		{
             if (IsBeingPlaced == false)
             {
+#if DEBUG
+                if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
+#endif
+
                 if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
@@ -70,10 +80,33 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 		}
 
+#if DEBUG
         /// <summary>
         /// Determines where the enemy will be, so it can shoot at it
         /// </summary>
-	    private void RotateToAim()
+        private void RotateToAimMouse()
+	    {
+	        //Gather information about the target
+	        var targetPositionX = FlatRedBall.Gui.GuiManager.Cursor.WorldXAt(1);
+	        var targetPositionY = FlatRedBall.Gui.GuiManager.Cursor.WorldYAt(1);
+
+	        var targetPosition = new Vector3(targetPositionX, targetPositionY, 1);
+
+	        var aimLocation = targetPosition;
+
+	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
+
+	        _aimRotation = angle;
+
+	        SetAnimationFromAimRotation();
+	        //PerformFiringActivity();
+	    }
+#endif
+
+        /// <summary>
+        /// Determines where the enemy will be, so it can shoot at it
+        /// </summary>
+        private void RotateToAim()
         {
             var startPosition = GetProjectilePositioning();
 
@@ -109,7 +142,7 @@ namespace GBC2017.Entities.BaseEntities
 	        _aimRotation = angle;
 	    }
 
-        private void SetAnimationFromAimRotation()
+        protected virtual void SetAnimationFromAimRotation()
 	    {
 	        var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
 
@@ -139,9 +172,31 @@ namespace GBC2017.Entities.BaseEntities
 	            else if (quadPercent > .35f) quadProgress = 1;
             }
 
+	        if (targetEnemy == null || !targetEnemy.IsFlying)
+	        {
+	            SpriteInstance.CurrentChainName = "Turn";
+	        }
+	        else
+	        {
+	            SpriteInstance.CurrentChainName = "UpTurn";
+            }
+
 	        SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
-	        SpriteInstance.RelativeX = SpriteInstance.FlipHorizontal ? 8 : -9;
-	    }
+
+	        if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+	        {
+	            SpriteInstance.UpdateToCurrentAnimationFrame();
+                _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
+	            _lastFrameChain = SpriteInstance.CurrentChainName;
+
+	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
+	            {
+	                SpriteInstance.RelativeX *= SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeY *= SpriteInstance.TextureScale;
+	            }
+	            SpriteInstance.RelativeY += _spriteRelativeY;
+	        }
+        }
 
 	    private Vector3 GetProjectilePositioning(float? angle = null)
 	    {

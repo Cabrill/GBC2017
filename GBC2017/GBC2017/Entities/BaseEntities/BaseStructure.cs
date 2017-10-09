@@ -45,9 +45,9 @@ namespace GBC2017.Entities.BaseEntities
 	    private ResourceBarRuntime _energyBar;
 	    private ResourceBarRuntime _healthBar;
 
-        protected SoundEffect PlacementSound;
+        protected SoundEffectInstance PlacementSound;
 
-	    private float _spriteRelativeY;
+	    protected float _spriteRelativeY;
 
 	    /// <summary>
 	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -69,7 +69,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	        HealthRemaining = MaximumHealth;
 	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
-	        PlacementSound = Structure_Placed;
+	        PlacementSound = Structure_Placed.CreateInstance();
 
 	        if (HasInternalBattery)
 	        {
@@ -150,9 +150,9 @@ namespace GBC2017.Entities.BaseEntities
                     {
                         _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
                         _energyBar.X = (X-Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Y = (Y + SpriteInstance.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Height = SpriteInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Y = (Y + _spriteRelativeY*2 - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Height = AxisAlignedRectangleInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
                         _energyBar.Visible = true;
                     }
                     else
@@ -165,9 +165,9 @@ namespace GBC2017.Entities.BaseEntities
                 {
                     _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
                     _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Y = (Y + SpriteInstance.Height + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Height = SpriteInstance.Width / 5* CameraZoomManager.GumCoordOffset;
+                    _healthBar.Y = (Y + _spriteRelativeY*2 + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Height = AxisAlignedRectangleInstance.Width / 5* CameraZoomManager.GumCoordOffset;
                     _healthBar.Visible = true;
                 }
                 else
@@ -257,6 +257,15 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
+		    if (PlacementSound != null && !PlacementSound.IsDisposed)
+		    {
+		        if (PlacementSound.State != SoundState.Stopped)
+		        {
+		            PlacementSound.Stop(true);
+		        }
+		        PlacementSound.Dispose();
+		    }
+
 		    _energyBar?.Destroy();
 		    _healthBar.Destroy();
         }

@@ -101,6 +101,10 @@ namespace GBC2017.GumRuntimes
 
             MoonSprite.X = newMoonPosition.X /aspectAdjustment;
             MoonSprite.Y = newMoonPosition.Y;
+
+            MoonSprite.Red = (int)(0.25f + (1f - SunPercentageAboveHorizon) * 0.75f);
+            MoonSprite.Green = (int)(0.25f + (1f - SunPercentageAboveHorizon) * 0.75f);
+            MoonSprite.Blue = (int)(0.25f + (1f - SunPercentageAboveHorizon) * 0.75f);
         }
 
         private static void SphericalToCartesian(float radius, double azimuth, double altitude, out Vector3 outCart)

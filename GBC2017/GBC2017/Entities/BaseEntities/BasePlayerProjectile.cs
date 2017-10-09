@@ -137,8 +137,17 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomDestroy()
 		{
-		    if (HitGroundSound != null && !HitGroundSound.IsDisposed) HitGroundSound.Dispose();
-		    if (TargetHitSound != null && !TargetHitSound.IsDisposed) TargetHitSound.Dispose();
+		    if (HitGroundSound != null && !HitGroundSound.IsDisposed)
+		    {
+                if (HitGroundSound.State != SoundState.Stopped) HitGroundSound.Stop(true);
+		        HitGroundSound.Dispose();
+		    }
+
+		    if (TargetHitSound != null && !TargetHitSound.IsDisposed)
+		    {
+		        if (TargetHitSound.State != SoundState.Stopped) TargetHitSound.Stop(true);
+                TargetHitSound.Dispose();
+		    }
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
