@@ -13,7 +13,8 @@ namespace GBC2017.Entities.BaseEntities
     {
         #region Propertie and fields
 
-        private bool IsAttacking => CurrentActionState == Action.MeleeAttack ||
+        private bool IsAttacking => CurrentActionState == Action.StartMeleeAttack ||
+                                    CurrentActionState == Action.FinishMeleeAttack ||
                                     CurrentActionState == Action.StartRangedAttack ||
                                     CurrentActionState == Action.FinishRangedAttack ||
                                     (CurrentActionState == Action.RangedAim && _currentAttackTarget != null && TargetIsInAttackRange(_currentAttackTarget));
@@ -91,9 +92,9 @@ namespace GBC2017.Entities.BaseEntities
                 CurrentActionState = Action.StartRangedAttack;
                 this.Call(rangedChargeSound.Play).After(0.3f);
             }
-            else if (IsMeleeAttacker && CurrentActionState != Action.MeleeAttack)
+            else if (IsMeleeAttacker && CurrentActionState != Action.StartMeleeAttack && CurrentActionState != Action.FinishMeleeAttack)
             {
-                CurrentActionState = Action.MeleeAttack;
+                CurrentActionState = Action.StartMeleeAttack;
             }
         }
 
@@ -117,11 +118,20 @@ namespace GBC2017.Entities.BaseEntities
 
         private void MeleeAttackActivity()
         {
-            if (CurrentActionState == Action.MeleeAttack && SpriteInstance.JustCycled)
+            if (IsHurt && SpriteInstance.JustCycled)
             {
-                DealMeleeDamage();
+                CurrentActionState = Action.Standing;
             }
-            else 
+            else if (CurrentActionState == Action.StartMeleeAttack && SpriteInstance.JustCycled)
+            {
+                if (_currentAttackTarget != null) DealMeleeDamage();
+                CurrentActionState = Action.FinishMeleeAttack;
+            }
+            else if (CurrentActionState == Action.FinishMeleeAttack && SpriteInstance.JustCycled)
+            {
+                CurrentActionState = Action.Standing;
+            }
+            else
             {
                 SharedAttackActivity();
             }

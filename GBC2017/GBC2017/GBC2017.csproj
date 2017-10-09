@@ -106,6 +106,10 @@
     <Compile Include="Entities\Enemies\MeleeAlien.Generated.cs">
       <DependentUpon>MeleeAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Enemies\SlimeAlien.cs" />
+    <Compile Include="Entities\Enemies\SlimeAlien.Generated.cs">
+      <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
       <DependentUpon>Checkmark.cs</DependentUpon>
@@ -130,9 +134,17 @@
     <Compile Include="Entities\ShaderRenderer.Generated.cs">
       <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\Combat\Cannon.cs" />
+    <Compile Include="Entities\Structures\Combat\Cannon.Generated.cs">
+      <DependentUpon>Cannon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Structures\Combat\LaserTurret.cs" />
     <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
       <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Structures\Combat\TallLaser.cs" />
+    <Compile Include="Entities\Structures\Combat\TallLaser.Generated.cs">
+      <DependentUpon>TallLaser.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.cs" />
     <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.Generated.cs">
@@ -162,6 +174,7 @@
     <Compile Include="Entities\Structures\Utility\ShieldGenerator.Generated.cs">
       <DependentUpon>ShieldGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\CannonFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\HydroGeneratorFactory.Generated.cs" />
@@ -174,7 +187,9 @@
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
     <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\ShieldGeneratorFactory.Generated.cs" />
+    <Compile Include="Factories\SlimeAlienFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
+    <Compile Include="Factories\TallLaserFactory.Generated.cs" />
     <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -526,6 +541,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SlimeAlienAnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\graphicalelements\checkmark_x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>checkmark_x</Name>
@@ -546,9 +565,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>shadow</Name>
     </None>
+    <None Include="content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonAnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\structures\combat\laserturret\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaserAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -561,6 +588,14 @@
     <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>shield_generator</Name>
+    </None>
+    <None Include="content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BatteryAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CarbonTreeAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

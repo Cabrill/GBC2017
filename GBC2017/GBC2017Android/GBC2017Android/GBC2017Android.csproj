@@ -231,6 +231,13 @@
       <Link>Entities\Enemies\MeleeAlien.Generated.cs</Link>
       <DependentUpon>MeleeAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\SlimeAlien.cs">
+      <Link>Entities\Enemies\SlimeAlien.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\SlimeAlien.Generated.cs">
+      <Link>Entities\Enemies\SlimeAlien.Generated.cs</Link>
+      <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.cs">
       <Link>Entities\GraphicalElements\Checkmark.cs</Link>
     </Compile>
@@ -273,12 +280,26 @@
       <Link>Entities\ShaderRenderer.Generated.cs</Link>
       <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\Cannon.cs">
+      <Link>Entities\Structures\Combat\Cannon.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\Cannon.Generated.cs">
+      <Link>Entities\Structures\Combat\Cannon.Generated.cs</Link>
+      <DependentUpon>Cannon.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.cs">
       <Link>Entities\Structures\Combat\LaserTurret.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.Generated.cs">
       <Link>Entities\Structures\Combat\LaserTurret.Generated.cs</Link>
       <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\TallLaser.cs">
+      <Link>Entities\Structures\Combat\TallLaser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\TallLaser.Generated.cs">
+      <Link>Entities\Structures\Combat\TallLaser.Generated.cs</Link>
+      <DependentUpon>TallLaser.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\HydroGenerator.cs">
       <Link>Entities\Structures\EnergyProducers\HydroGenerator.cs</Link>
@@ -335,6 +356,9 @@
     <Compile Include="..\..\GBC2017\Factories\BatteryFactory.Generated.cs">
       <Link>Factories\BatteryFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\CannonFactory.Generated.cs">
+      <Link>Factories\CannonFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\CarbonTreeFactory.Generated.cs">
       <Link>Factories\CarbonTreeFactory.Generated.cs</Link>
     </Compile>
@@ -365,8 +389,14 @@
     <Compile Include="..\..\GBC2017\Factories\ShieldGeneratorFactory.Generated.cs">
       <Link>Factories\ShieldGeneratorFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\SlimeAlienFactory.Generated.cs">
+      <Link>Factories\SlimeAlienFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
       <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\TallLaserFactory.Generated.cs">
+      <Link>Factories\TallLaserFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\WindTurbineFactory.Generated.cs">
       <Link>Factories\WindTurbineFactory.Generated.cs</Link>
@@ -1067,6 +1097,10 @@
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\content\globalcontent\animation_sheet.png">
+      <Name>animation_sheet</Name>
+      <Link>Assets\content\content\globalcontent\animation_sheet.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\basicalien\animationchainlistfile.achx</Link>
@@ -1078,6 +1112,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\flyingenemy\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\flyingenemy\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx">
+      <Name>slimealienanimationchainlistfile</Name>
+      <Link>Assets\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\graphicalelements\checkmark_x.png">
       <Name>checkmark_x</Name>
@@ -1099,9 +1137,17 @@
       <Name>shadow</Name>
       <Link>Assets\content\entities\shadow.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
+      <Name>cannonanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\laserturret\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\combat\laserturret\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx">
+      <Name>talllaseranimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <Name>emitterlistfile</Name>
@@ -1115,6 +1161,14 @@
       <Name>shield_generator</Name>
       <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
+      <Name>batteryanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\utility\battery\batteryanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx">
+      <Name>carbontreeanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx</Link>
@@ -1122,6 +1176,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
       <Name>wind_turbine</Name>
       <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalanimation_sheet.png">
+      <Name>globalanimation_sheet</Name>
+      <Link>Assets\content\globalanimation_sheet.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
       <Name>allassetssheet</Name>
