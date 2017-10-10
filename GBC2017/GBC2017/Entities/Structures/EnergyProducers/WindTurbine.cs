@@ -73,8 +73,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private double BaseEnergyPerSecond()
         {
-            //This calculation is in watts per hour, and since 1 hour is 8 seconds we need to multiply by 1/8th
-            double wattRealTime = 1/8f * Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
+            double wattRealTime =  Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
             double wattInGame = wattRealTime * 24 * 3600 / 300;
             return wattInGame;
         }
