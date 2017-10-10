@@ -21,7 +21,7 @@ namespace GBC2017.Entities.BaseEntities
 	public partial class BaseCombatStructure
 	{
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
-	    private BaseEnemy targetEnemy;
+	    protected BaseEnemy targetEnemy;
 	    protected SoundEffectInstance attackSound;
 	    private float _aimRotation;
 	    protected float _shotAltitude = 1f;
@@ -213,7 +213,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private void ChooseTarget()
 	    {
 	        var localPotentialTarget =
-	            _potentialTargetList.FirstOrDefault(pt => pt.CircleInstance.CollideAgainst(RangeCircleInstance));
+	            _potentialTargetList.FirstOrDefault(pt => !pt.IsDead && pt.CircleInstance.CollideAgainst(RangeCircleInstance));
 
 	        if (localPotentialTarget != null)
 	        {
@@ -236,9 +236,14 @@ namespace GBC2017.Entities.BaseEntities
                 direction.Normalize();
                 newProjectile.Position = GetProjectilePositioning();
 
+                if (targetEnemy.IsFlying)
+                {
+                    newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
+                }
+
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
-                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
+                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity+newProjectile.AltitudeVelocity);
 
                 PlayFireSound();
 
@@ -247,6 +252,21 @@ namespace GBC2017.Entities.BaseEntities
                 _energyReceivedThisSecond += EnergyCostToFire;
             }
         }
+
+	    private float CalculateAltitudeVelocity(BasePlayerProjectile projectile)
+	    {
+	        var targetPosition = targetEnemy.CircleInstance.Position;
+	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
+	        var timeToTravel = targetDistance / ProjectileSpeed;
+
+	        var altitudeDrop = timeToTravel * projectile.GravityDrag;
+
+	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude + altitudeDrop;
+
+	        var altitudeVelocity = altitudeDifference / timeToTravel;
+
+	        return altitudeVelocity;
+	    }
 
 	    private void PlayFireSound()
 	    {
