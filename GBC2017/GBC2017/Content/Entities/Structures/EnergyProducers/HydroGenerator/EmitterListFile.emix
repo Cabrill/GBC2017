@@ -6,7 +6,7 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>10</ScaleZ>
+    <ScaleZ>5</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
@@ -88,7 +88,7 @@
     <Y>0</Y>
     <Z>0</Z>
     <ScaleX>25</ScaleX>
-    <ScaleY>10</ScaleY>
+    <ScaleY>5</ScaleY>
     <ScaleZ>10</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
@@ -172,7 +172,7 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>10</ScaleZ>
+    <ScaleZ>5</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
@@ -185,7 +185,7 @@
       <YVelocity>-250</YVelocity>
       <ZVelocity>0</ZVelocity>
       <XVelocityRange>0</XVelocityRange>
-      <YVelocityRange>10</YVelocityRange>
+      <YVelocityRange>5</YVelocityRange>
       <ZVelocityRange>0</ZVelocityRange>
       <WedgeAngle>0</WedgeAngle>
       <WedgeSpread>0</WedgeSpread>

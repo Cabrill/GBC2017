@@ -82,8 +82,8 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		    {
 		        EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
-                LargeWheelSprite.RelativeRotationZVelocity = (float)-EffectiveEnergyProducedPerSecond;
-		        SmallWheelSprite.RelativeRotationZVelocity = (float)EffectiveEnergyProducedPerSecond;
+                LargeWheelSprite.RelativeRotationZVelocity = (float)-1;
+		        SmallWheelSprite.RelativeRotationZVelocity = (float)1;
 		        
 
 		        UpdateEmitters();
@@ -104,11 +104,23 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 	                                 0.4f;
 	            emitter.TimedEmit(_waterDrops);
 	        }
+
+	        var minimumY = LargeWheelSprite.Y - LargeWheelSprite.Height/3;
+
+	        for (var i = _waterDrops.Count; i > 0; i--)
+	        {
+	            var waterdrop = _waterDrops[i - 1];
+	            if (waterdrop.Y < minimumY)
+	            {
+	                _waterDrops.RemoveAt(i-1);
+                    SpriteManager.RemoveSprite(waterdrop);
+	            }
+	        }
         }
 
 	    private double BaseEnergyPerSecond()
 	    {
-	        return 1;
+	        return 100;
 	    }
 
 

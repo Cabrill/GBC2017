@@ -222,7 +222,7 @@ namespace GBC2017.Screens
             //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
             HelsinkiMap.AddToManagers(WorldLayer);
             HelsinkiMap.Z = -10;
-            HelsinkiMap.MapLayers[2].RelativeZ = 7;
+            HelsinkiMap.MapLayers[2].RelativeZ = 14;
 
             PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
 
