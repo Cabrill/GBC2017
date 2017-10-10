@@ -18,7 +18,6 @@ namespace GBC2017.Entities.Structures.Combat
 {
 	public partial class LaserTurret
 	{
-
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -27,6 +26,7 @@ namespace GBC2017.Entities.Structures.Combat
 		private void CustomInitialize()
         {
             attackSound = Laser_Shoot.CreateInstance();
+            _shotAltitude = 20f;
         }
 
 		private void CustomActivity()
@@ -37,7 +37,9 @@ namespace GBC2017.Entities.Structures.Combat
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        return newProjectile;
+	        newProjectile.Altitude = _shotAltitude;
+
+            return newProjectile;
 	    }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

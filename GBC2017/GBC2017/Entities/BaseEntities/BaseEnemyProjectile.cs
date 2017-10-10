@@ -17,10 +17,10 @@ namespace GBC2017.Entities.BaseEntities
 	public partial class BaseEnemyProjectile
 	{
 	    public float MaxRange { private get; set; }
+        public float Altitude { get; set; }
 	    private bool _hitTheGround;
 
         private Vector3? _startingPosition;
-	    private float _startingElevation;
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
@@ -28,6 +28,10 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance HitTargetSound;
         private bool _spritedAddedToLayers = false;
 	    public bool ShouldBeDestroyed;
+
+	    protected float gravityDrag = -200f;
+	    protected int _lastFrameIndex;
+	    protected string _lastFrameChain;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -71,39 +75,27 @@ namespace GBC2017.Entities.BaseEntities
 	                Destroy();
                 }
 	        }
-	        else if (CurrentState != VariableState.Impact)            {
-	            if (!_startingPosition.HasValue)
+	        else if (CurrentState != VariableState.Impact)
+	        {
+	            UpdateAnimation();
+                if (!_startingPosition.HasValue)
 	            {
 	                _startingPosition = Position;
-	                _startingElevation = Altitude;
 	                _startingShadowWidth = LightOrShadowSprite.Width;
 	                _startingShadowHeight = LightOrShadowSprite.Height;
 	                _startingShadowAlpha = LightOrShadowSprite.Alpha;
 	            }
 
-	            var pctDistanceTraveled = (Position - _startingPosition.Value).Length() / MaxRange;
-	            var negativeModifier = 1 - pctDistanceTraveled;
+	            var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
+	            var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / distanceAtWhichToGrow), 0, 1);
 
-	            if (HasLightSource)
-	            {
-	                SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+	            LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow;
+	            LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow;
+	            LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
 
-	                LightOrShadowSprite.Width = _startingShadowWidth * 0.25f + pctDistanceTraveled / 2;
-	                LightOrShadowSprite.Height = _startingShadowHeight * 0.25f + pctDistanceTraveled / 2;
-	                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.5f + pctDistanceTraveled);
-	            }
-	            else
-	            {
-	                SpriteInstance.RelativeY = _startingElevation * negativeModifier;
+	            _hitTheGround = SpriteInstance.RelativeY <= 0;
 
-	                LightOrShadowSprite.Width = _startingShadowWidth * (2 + pctDistanceTraveled);
-	                LightOrShadowSprite.Height = _startingShadowHeight * (2 + pctDistanceTraveled);
-	                LightOrShadowSprite.Alpha = _startingShadowAlpha * (0.75f + pctDistanceTraveled);
-	            }
-
-	            _hitTheGround = pctDistanceTraveled >= 1;
-
-	            if (_hitTheGround)
+                if (_hitTheGround)
 	            {
 	                CurrentState = VariableState.Impact;
 	                PlayHitGroundSound();
@@ -115,6 +107,28 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        
 	    }
+
+	    private void UpdateAnimation()
+	    {
+	        Altitude += gravityDrag * TimeManager.SecondDifference;
+
+	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            SpriteInstance.RelativeY = Altitude + SpriteInstance.CurrentChain[0].RelativeY;
+	        }
+	        else if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+	        {
+	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
+	            _lastFrameChain = SpriteInstance.CurrentChainName;
+
+	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
+	            {
+	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	            }
+	            SpriteInstance.RelativeY += Altitude;
+	        }
+        }
 
         public void PlayHitTargetSound()
 	    {

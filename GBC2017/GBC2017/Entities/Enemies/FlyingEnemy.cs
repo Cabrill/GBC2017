@@ -25,12 +25,13 @@ namespace GBC2017.Entities.Enemies
 		{
 		    rangedAttackSound = GlobalContent.Flying_Shoot.CreateInstance();
 		    rangedChargeSound = GlobalContent.Flying_Powerup.CreateInstance();
-
-        }
+		    Altitude = 300f;
+		}
 
 	    protected override BaseEnemyProjectile CreateProjectile()
 	    {
 	        var newProjectile = FlyingEnemyProjectileFactory.CreateNew(LayerProvidedByContainer);
+	        newProjectile.Altitude = Altitude;
 	        return newProjectile;
 	    }
 

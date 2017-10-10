@@ -27,6 +27,7 @@ namespace GBC2017.Entities.Projectiles
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
 		    circleRadius = CircleInstance.Radius;
+		    gravityDrag = -10f;
 		}
 
 	    protected override void HandleImpact()
@@ -36,12 +37,21 @@ namespace GBC2017.Entities.Projectiles
 	        RotationY = 0;
 	        RotationZ = 0;
             SpriteInstance.TextureScale = 2f;
-	        
-	        LightOrShadowSprite.Tween(HandleTweenerUpdate, 0, 2f, SpriteInstance.AnimationChains["Impact"].TotalLength,
+
+	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
+
+            LightOrShadowSprite.Tween(HandleLightGrowUpdate, 0, 2f, duration,
 	            InterpolationType.Elastic, Easing.Out);
+
+	        this.Call(() => FadeOut(duration)).After(duration);
 	    }
 
-	    private void HandleTweenerUpdate(float newPosition)
+	    private void FadeOut(float duration)
+	    {
+	        LightOrShadowSprite.Tween("Alpha", 0, duration, InterpolationType.Exponential, Easing.Out);
+        }
+
+	    private void HandleLightGrowUpdate(float newPosition)
 	    {
 	        LightOrShadowSprite.TextureScale = newPosition;
 	        CircleInstance.Radius = circleRadius * newPosition*2f;

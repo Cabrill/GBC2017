@@ -23,7 +23,7 @@ namespace GBC2017.Entities.Structures.Combat
 		private void CustomInitialize()
         {
             attackSound = GlobalContent.Cannon_Shoot.CreateInstance();
-
+            _shotAltitude = 20f;
         }
 
 		private void CustomActivity()
@@ -35,7 +35,8 @@ namespace GBC2017.Entities.Structures.Combat
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = CannonProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        return newProjectile;
+	        newProjectile.Altitude = _shotAltitude;
+            return newProjectile;
 	    }
 
         private void CustomDestroy()

@@ -26,6 +26,8 @@ namespace GBC2017.Entities.BaseEntities
 	public partial class BaseEnemy
 	{
 	    public event Action<BaseEnemy> OnDeath;
+	    public float Altitude { get; protected set; }
+
         private static AxisAlignedRectangle _leftSpawnArea;
 	    private static AxisAlignedRectangle _rightSpawnArea;
         private static PositionedObjectList<BaseStructure> _potentialTargetList;
@@ -37,6 +39,12 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _relativeYOffset;
 	    private int _lastFrameIndex;
 	    private string _lastFrameChain;
+
+	    private Vector3? _startingPosition;
+	    private float _startingShadowWidth;
+	    private float _startingShadowHeight;
+	    private float _startingShadowAlpha;
+	    private float _spriteRelativeY;
 
         protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
@@ -77,7 +85,8 @@ namespace GBC2017.Entities.BaseEntities
 		    SpriteInstance.RelativeY += _relativeYOffset;
 		    _lastFrameIndex = -1;
 		    _lastFrameChain = "";
-		}
+		    _spriteRelativeY = GetSpriteRelativeY();
+        }
 
 	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList)
 	    {
@@ -118,8 +127,15 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void UpdateAnimation()
 	    {
+	        if (!_startingPosition.HasValue)
+	        {
+	            _startingPosition = Position;
+	            _startingShadowWidth = ShadowSprite.Width;
+	            _startingShadowHeight = ShadowSprite.Height;
+	            _startingShadowAlpha = ShadowSprite.Alpha;
+	        }
 
-	        if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+            if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
 	        {
 	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
 	            _lastFrameChain = SpriteInstance.CurrentChainName;
@@ -130,7 +146,15 @@ namespace GBC2017.Entities.BaseEntities
 	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	            }
 	            SpriteInstance.RelativeY += SpriteInstance.Height/2;
-	        }
+
+	            SpriteInstance.RelativeY += Altitude;
+            }
+
+	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / 800), 0, 1);
+
+	        ShadowSprite.Width = _startingShadowWidth * pctLightShadow;
+	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow;
+	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
         }
 
 	    private void UpdateHealthBar()
@@ -139,7 +163,7 @@ namespace GBC2017.Entities.BaseEntities
 	        {
 	            _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
 	            _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-	            _healthBar.Y = (Y + SpriteInstance.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+	            _healthBar.Y = (Y + _spriteRelativeY + Altitude - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Width = _healthBarWidth * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Height = _healthBarWidth / 5 * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Visible = true;
@@ -150,7 +174,24 @@ namespace GBC2017.Entities.BaseEntities
 	        }
         }
 
-	    public void GetHitBy(BasePlayerProjectile projectile)
+	    private float GetSpriteRelativeY()
+	    {
+	        if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            return SpriteInstance.Height / 2;
+	        }
+	        else
+	        {
+	            var maxHeight = 0f;
+	            foreach (var frame in SpriteInstance.CurrentChain)
+	            {
+	                maxHeight = Math.Max(maxHeight, (frame.BottomCoordinate - frame.TopCoordinate) * frame.Texture.Height * SpriteInstance.TextureScale);
+	            }
+	            return maxHeight / 2;
+	        }
+	    }
+
+        public void GetHitBy(BasePlayerProjectile projectile)
 	    {
 	        HealthRemaining -= projectile.DamageInflicted;
             projectile?.PlayHitTargetSound();
@@ -180,6 +221,10 @@ namespace GBC2017.Entities.BaseEntities
 	        {
 	            CurrentActionState = Action.Dying;
 	        }
+            else if (IsFlying && Altitude > 0)
+            {
+                Altitude += TimeManager.SecondDifference * -300f;
+            }
 	        else if (SpriteInstance.JustCycled)
             {
                 OnDeath?.Invoke(this);

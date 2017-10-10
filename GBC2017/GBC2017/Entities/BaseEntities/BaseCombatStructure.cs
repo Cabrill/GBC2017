@@ -24,6 +24,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private BaseEnemy targetEnemy;
 	    protected SoundEffectInstance attackSound;
 	    private float _aimRotation;
+	    protected float _shotAltitude = 1f;
 
 	    protected int _lastFrameIndex;
 	    protected string _lastFrameChain;

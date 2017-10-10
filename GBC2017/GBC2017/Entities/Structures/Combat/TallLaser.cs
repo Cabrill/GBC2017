@@ -24,6 +24,7 @@ namespace GBC2017.Entities.Structures.Combat
 		private void CustomInitialize()
         {
             attackSound = GlobalContent.TallLaser_Shoot.CreateInstance();
+            _shotAltitude = 150f;
         }
 
 	    protected override void SetAnimationFromAimRotation()
@@ -46,7 +47,8 @@ namespace GBC2017.Entities.Structures.Combat
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = TallLaserProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        return newProjectile;
+	        newProjectile.Altitude = _shotAltitude;
+            return newProjectile;
 	    }
 
         private void CustomActivity()
