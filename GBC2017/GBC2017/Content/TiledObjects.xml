@@ -68,6 +68,11 @@
     <property name="HasLightSource" type="bool" default="false" />
     <property name="IsFlying" type="bool" default="false" />
   </objecttype>
+  <objecttype name="CannonProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="Altitude" type="float" default="1" />
+  </objecttype>
   <objecttype name="FlyingEnemyProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
@@ -81,6 +86,11 @@
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="Altitude" type="float" default="20" />
+  </objecttype>
+  <objecttype name="TallLaserProjectile">
+    <property name="DamageInflicted" type="float" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="Altitude" type="float" default="1" />
   </objecttype>
   <objecttype name="Cannon">
     <property name="EnergyBuildCost" type="float" default="50" />

@@ -21,7 +21,7 @@ namespace GBC2017.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
         {
-            meleeAttackSound = alien_melee;
+            meleeAttackSound = GlobalContent.alien_melee.CreateInstance();
 
 
         }

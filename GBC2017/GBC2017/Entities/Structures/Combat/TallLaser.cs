@@ -22,10 +22,9 @@ namespace GBC2017.Entities.Structures.Combat
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-		{
-
-
-		}
+        {
+            attackSound = GlobalContent.TallLaser_Shoot.CreateInstance();
+        }
 
 	    protected override void SetAnimationFromAimRotation()
 	    {
@@ -46,7 +45,7 @@ namespace GBC2017.Entities.Structures.Combat
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
+	        var newProjectile = TallLaserProjectileFactory.CreateNew(LayerProvidedByContainer);
 	        return newProjectile;
 	    }
 

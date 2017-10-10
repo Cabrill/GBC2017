@@ -118,6 +118,10 @@
     <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
       <DependentUpon>XCancel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Projectiles\CannonProjectile.cs" />
+    <Compile Include="Entities\Projectiles\CannonProjectile.Generated.cs">
+      <DependentUpon>CannonProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.cs" />
     <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.Generated.cs">
       <DependentUpon>FlyingEnemyProjectile.cs</DependentUpon>
@@ -129,6 +133,10 @@
     <Compile Include="Entities\Projectiles\RangedEnemyProjectile.cs" />
     <Compile Include="Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\TallLaserProjectile.cs" />
+    <Compile Include="Entities\Projectiles\TallLaserProjectile.Generated.cs">
+      <DependentUpon>TallLaserProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\ShaderRenderer.cs" />
     <Compile Include="Entities\ShaderRenderer.Generated.cs">
@@ -175,6 +183,7 @@
       <DependentUpon>ShieldGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\CannonFactory.Generated.cs" />
+    <Compile Include="Factories\CannonProjectileFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\HydroGeneratorFactory.Generated.cs" />
@@ -190,6 +199,7 @@
     <Compile Include="Factories\SlimeAlienFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
     <Compile Include="Factories\TallLaserFactory.Generated.cs" />
+    <Compile Include="Factories\TallLaserProjectileFactory.Generated.cs" />
     <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -484,15 +494,30 @@
       <Name>Alien_Shoot</Name>
       <Link>content\globalcontent\sounds\alien_shoot.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\building_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Building_Hit</Name>
+      <Link>content\globalcontent\sounds\building_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\cannon_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Hit</Name>
+      <Link>content\globalcontent\sounds\cannon_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\cannon_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Shoot</Name>
+      <Link>content\globalcontent\sounds\cannon_shoot.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Flying_Hit_Ground</Name>
       <Link>content\globalcontent\sounds\flying_hit_ground.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
+    <None Include="..\builtxnbs\globalcontent\sounds\flying_hit_target.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Flying_hurt</Name>
-      <Link>content\globalcontent\sounds\flying_hurt.xnb</Link>
+      <Name>Flying_Hit_Target</Name>
+      <Link>content\globalcontent\sounds\flying_hit_target.xnb</Link>
     </None>
     <None Include="..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -519,10 +544,35 @@
       <Name>Laser_Shoot</Name>
       <Link>content\globalcontent\sounds\laser_shoot.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\slime_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Hit</Name>
+      <Link>content\globalcontent\sounds\slime_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\slime_jump.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Jump</Name>
+      <Link>content\globalcontent\sounds\slime_jump.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\slime_land.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Land</Name>
+      <Link>content\globalcontent\sounds\slime_land.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Structure_Placed</Name>
       <Link>content\globalcontent\sounds\structure_placed.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\talllaser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Hit</Name>
+      <Link>content\globalcontent\sounds\talllaser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\globalcontent\sounds\talllaser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Shoot</Name>
+      <Link>content\globalcontent\sounds\talllaser_shoot.xnb</Link>
     </None>
     <None Include="..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -545,25 +595,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SlimeAlienAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\graphicalelements\checkmark_x.png">
+    <None Include="content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>checkmark_x</Name>
+      <Name>CannonProjectileAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\alien_fire.png">
+    <None Include="content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>alien_fire</Name>
+      <Name>FlyingEnemyProjectileAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\laser_bullet.png">
+    <None Include="content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>laser_bullet</Name>
+      <Name>LaserTurretProjectileAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\shadow.png">
+    <None Include="content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>shadow</Name>
+      <Name>TallLaserProjectileAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -584,10 +634,6 @@
     <None Include="content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WaterDropAnimationChain</Name>
-    </None>
-    <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>shield_generator</Name>
     </None>
     <None Include="content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -616,10 +662,6 @@
     <None Include="content\globalcontent\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>starry_sky</Name>
-    </None>
-    <None Include="content\globalcontent\treeline.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>treeline</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

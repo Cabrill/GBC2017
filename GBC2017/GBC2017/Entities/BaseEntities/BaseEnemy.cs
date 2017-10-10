@@ -40,7 +40,7 @@ namespace GBC2017.Entities.BaseEntities
 
         protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
-	    protected SoundEffect meleeAttackSound;
+	    protected SoundEffectInstance meleeAttackSound;
 
 	    private ResourceBarRuntime _healthBar;
 	    private float _healthBarWidth;

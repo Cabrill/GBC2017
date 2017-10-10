@@ -3,7 +3,7 @@
   <SourceFile>D:/GitHub/GBC2017/GBC2017/GBC2017/Content/globalcontent/Sounds/alien_melee.wav</SourceFile>
   <SourceTime>2017-09-17T22:14:01.1097744+03:00</SourceTime>
   <DestFile>D:/GitHub/GBC2017/GBC2017/BuiltXnbs/globalcontent/Sounds/alien_melee.xnb</DestFile>
-  <DestTime>2017-09-17T22:14:32.9161939+03:00</DestTime>
+  <DestTime>2017-10-10T13:33:53.4379667+03:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T17:05:36+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

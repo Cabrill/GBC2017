@@ -21,10 +21,10 @@ namespace GBC2017.Entities.Structures.Combat
         /// added to managers will not have this method called.
         /// </summary>
 		private void CustomInitialize()
-		{
+        {
+            attackSound = GlobalContent.Cannon_Shoot.CreateInstance();
 
-
-		}
+        }
 
 		private void CustomActivity()
 		{
@@ -34,7 +34,7 @@ namespace GBC2017.Entities.Structures.Combat
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
-	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
+	        var newProjectile = CannonProjectileFactory.CreateNew(LayerProvidedByContainer);
 	        return newProjectile;
 	    }
 

@@ -26,7 +26,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
 	    protected SoundEffectInstance HitGroundSound;
-	    protected SoundEffectInstance TargetHitSound;
+	    protected SoundEffectInstance HitTargetSound;
 	    private bool _spritedAddedToLayers = false;
 	    public bool ShouldBeDestroyed;
 
@@ -60,7 +60,7 @@ namespace GBC2017.Entities.BaseEntities
 		{
 		    if (ShouldBeDestroyed)
 		    {
-		        if (HitGroundSound.State == SoundState.Stopped && TargetHitSound.State == SoundState.Stopped)
+		        if (HitGroundSound.State == SoundState.Stopped && HitTargetSound.State == SoundState.Stopped)
 		        {
 		            Destroy();
 		        }
@@ -114,7 +114,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void PlayHitTargetSound()
 	    {
-	        if (TargetHitSound != null && !TargetHitSound.IsDisposed) TargetHitSound.Play();
+	        if (HitTargetSound != null && !HitTargetSound.IsDisposed) HitTargetSound.Play();
         }
 
 
@@ -143,10 +143,10 @@ namespace GBC2017.Entities.BaseEntities
 		        HitGroundSound.Dispose();
 		    }
 
-		    if (TargetHitSound != null && !TargetHitSound.IsDisposed)
+		    if (HitTargetSound != null && !HitTargetSound.IsDisposed)
 		    {
-		        if (TargetHitSound.State != SoundState.Stopped) TargetHitSound.Stop(true);
-                TargetHitSound.Dispose();
+		        if (HitTargetSound.State != SoundState.Stopped) HitTargetSound.Stop(true);
+                HitTargetSound.Dispose();
 		    }
         }
 

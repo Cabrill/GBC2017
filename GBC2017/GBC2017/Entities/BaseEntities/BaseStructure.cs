@@ -69,7 +69,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	        HealthRemaining = MaximumHealth;
 	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
-	        PlacementSound = Structure_Placed.CreateInstance();
+	        PlacementSound = GlobalContent.Structure_Placed.CreateInstance();
 
 	        if (HasInternalBattery)
 	        {

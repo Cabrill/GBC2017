@@ -2,5 +2,51 @@
 <AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <FileRelativeTextures>true</FileRelativeTextures>
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
-  <CoordinateType>UV</CoordinateType>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>Shot</Name>
+    <Frame>
+      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>81</LeftCoordinate>
+      <RightCoordinate>103</RightCoordinate>
+      <TopCoordinate>642</TopCoordinate>
+      <BottomCoordinate>647</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Impact</Name>
+    <Frame>
+      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>106</LeftCoordinate>
+      <RightCoordinate>125</RightCoordinate>
+      <TopCoordinate>616</TopCoordinate>
+      <BottomCoordinate>673</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>125</LeftCoordinate>
+      <RightCoordinate>169</RightCoordinate>
+      <TopCoordinate>616</TopCoordinate>
+      <BottomCoordinate>673</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <FrameLength>0.03</FrameLength>
+      <LeftCoordinate>166</LeftCoordinate>
+      <RightCoordinate>210</RightCoordinate>
+      <TopCoordinate>616</TopCoordinate>
+      <BottomCoordinate>673</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <FrameLength>0.01</FrameLength>
+      <LeftCoordinate>210</LeftCoordinate>
+      <RightCoordinate>254</RightCoordinate>
+      <TopCoordinate>616</TopCoordinate>
+      <BottomCoordinate>673</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
 </AnimationChainArraySave>

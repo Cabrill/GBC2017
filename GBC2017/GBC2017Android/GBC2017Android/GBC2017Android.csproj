@@ -252,6 +252,13 @@
       <Link>Entities\GraphicalElements\XCancel.Generated.cs</Link>
       <DependentUpon>XCancel.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\CannonProjectile.cs">
+      <Link>Entities\Projectiles\CannonProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\CannonProjectile.Generated.cs">
+      <Link>Entities\Projectiles\CannonProjectile.Generated.cs</Link>
+      <DependentUpon>CannonProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Projectiles\FlyingEnemyProjectile.cs">
       <Link>Entities\Projectiles\FlyingEnemyProjectile.cs</Link>
     </Compile>
@@ -272,6 +279,13 @@
     <Compile Include="..\..\GBC2017\Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
       <Link>Entities\Projectiles\RangedEnemyProjectile.Generated.cs</Link>
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\TallLaserProjectile.cs">
+      <Link>Entities\Projectiles\TallLaserProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\TallLaserProjectile.Generated.cs">
+      <Link>Entities\Projectiles\TallLaserProjectile.Generated.cs</Link>
+      <DependentUpon>TallLaserProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\ShaderRenderer.cs">
       <Link>Entities\ShaderRenderer.cs</Link>
@@ -359,6 +373,9 @@
     <Compile Include="..\..\GBC2017\Factories\CannonFactory.Generated.cs">
       <Link>Factories\CannonFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\CannonProjectileFactory.Generated.cs">
+      <Link>Factories\CannonProjectileFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\CarbonTreeFactory.Generated.cs">
       <Link>Factories\CarbonTreeFactory.Generated.cs</Link>
     </Compile>
@@ -397,6 +414,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\TallLaserFactory.Generated.cs">
       <Link>Factories\TallLaserFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\TallLaserProjectileFactory.Generated.cs">
+      <Link>Factories\TallLaserProjectileFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\WindTurbineFactory.Generated.cs">
       <Link>Factories\WindTurbineFactory.Generated.cs</Link>
@@ -1061,9 +1081,25 @@
       <Name>Alien_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\alien_shoot.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\building_hit.xnb">
+      <Name>Building_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\building_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\cannon_hit.xnb">
+      <Name>Cannon_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\cannon_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\cannon_shoot.xnb">
+      <Name>Cannon_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\cannon_shoot.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
       <Name>Flying_Hit_Ground</Name>
       <Link>Assets\content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hit_target.xnb">
+      <Name>Flying_Hit_Target</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_hit_target.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
       <Name>Flying_hurt</Name>
@@ -1077,6 +1113,10 @@
       <Name>flying_shoot</Name>
       <Link>Assets\content\globalcontent\sounds\flying_shoot.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_shoot2.xnb">
+      <Name>Flying_Shoot2</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_shoot2.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
       <Name>Laser_Ground</Name>
       <Link>Assets\content\globalcontent\sounds\laser_ground.xnb</Link>
@@ -1089,9 +1129,33 @@
       <Name>Laser_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\slime_hit.xnb">
+      <Name>Slime_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\slime_jump.xnb">
+      <Name>Slime_Jump</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_jump.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\slime_land.xnb">
+      <Name>Slime_Land</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_land.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
       <Name>Structure_Placed</Name>
       <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\talllaser_hit.xnb">
+      <Name>TallLaser_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\talllaser_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\talllaser_shoot.xnb">
+      <Name>TallLaser_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\talllaser_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\unused_deepshot.xnb">
+      <Name>Unused_DeepShot</Name>
+      <Link>Assets\content\globalcontent\sounds\unused_deepshot.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
@@ -1125,17 +1189,25 @@
       <Name>alien_fire</Name>
       <Link>Assets\content\entities\projectiles\alien_fire.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\laser_bullet.png">
-      <Name>laser_bullet</Name>
-      <Link>Assets\content\entities\projectiles\laser_bullet.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
+      <Name>cannonprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx">
+      <Name>flyingenemyprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx">
+      <Name>laserturretprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\shadow.png">
-      <Name>shadow</Name>
-      <Link>Assets\content\entities\shadow.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx">
+      <Name>talllaserprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
       <Name>cannonanimationchainlistfile</Name>
@@ -1156,10 +1228,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
       <Name>waterdropanimationchain</Name>
       <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
-      <Name>shield_generator</Name>
-      <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
       <Name>batteryanimationchainlistfile</Name>
@@ -1192,10 +1260,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
       <Name>starry_sky</Name>
       <Link>Assets\content\globalcontent\starry_sky.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\treeline.png">
-      <Name>treeline</Name>
-      <Link>Assets\content\globalcontent\treeline.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
       <Name>buildbar</Name>
@@ -1513,10 +1577,6 @@
       <Name>helsinki_water</Name>
       <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\content\redball.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -1526,15 +1586,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
-    <AndroidResource Include="Resources\Drawable\Splash.png" />
-    <AndroidResource Include="Resources\Values\Strings.xml" />
-    <AndroidResource Include="Resources\Values\Styles.xml" />
-    <AndroidResource Include="Resources\Layout\Main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
   <ItemGroup />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

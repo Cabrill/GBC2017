@@ -3,7 +3,7 @@
   <SourceFile>D:/GitHub/GBC2017/GBC2017/GBC2017/Content/globalcontent/Sounds/Laser_Hit.wav</SourceFile>
   <SourceTime>2017-09-09T12:41:42.6301588+03:00</SourceTime>
   <DestFile>D:/GitHub/GBC2017/GBC2017/BuiltXnbs/globalcontent/Sounds/Laser_Hit.xnb</DestFile>
-  <DestTime>2017-09-09T12:46:17.7867995+03:00</DestTime>
+  <DestTime>2017-10-10T13:33:52.4665399+03:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T17:05:36+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

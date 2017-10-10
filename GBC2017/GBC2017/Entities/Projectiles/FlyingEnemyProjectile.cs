@@ -21,7 +21,8 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Flying_Hit_Ground.CreateInstance();
+		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.Flying_Hit_Ground.CreateInstance();
+		    if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = GlobalContent.Flying_Hit_Target.CreateInstance();
         }
 
 	    private void CustomActivity()

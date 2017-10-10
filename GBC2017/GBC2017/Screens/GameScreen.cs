@@ -153,7 +153,13 @@ namespace GBC2017.Screens
 	        LaserTurretProjectileFactory.EntitySpawned +=
 	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        RangedEnemyProjectileFactory.EntitySpawned +=
+	        CannonProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+	        TallLaserProjectileFactory.EntitySpawned +=
+	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            RangedEnemyProjectileFactory.EntitySpawned +=
 	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
 	        FlyingEnemyProjectileFactory.EntitySpawned +=
@@ -636,7 +642,9 @@ namespace GBC2017.Screens
 		            notification.Destroy();
 		        }
 		    }
-		    PlayAreaPolygon.RemoveSelfFromListsBelongingTo();
+            ShapeManager.Remove(PlayAreaPolygon);
+		    ShapeManager.Remove(AlienSpawnLeftRectangle);
+		    ShapeManager.Remove(AlienSpawnRightRectangle);
 		}
 #endregion
 
