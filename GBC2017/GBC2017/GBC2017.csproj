@@ -486,6 +486,121 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_hjappiermjusic.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_hjappiermjusic.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\alien_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Hit_Ground</Name>
+      <Link>content\globalcontent\sounds\alien_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\alien_melee.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>alien_melee</Name>
+      <Link>content\globalcontent\sounds\alien_melee.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\alien_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Powerup</Name>
+      <Link>content\globalcontent\sounds\alien_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\alien_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Shoot</Name>
+      <Link>content\globalcontent\sounds\alien_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\building_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Building_Hit</Name>
+      <Link>content\globalcontent\sounds\building_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\cannon_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Hit</Name>
+      <Link>content\globalcontent\sounds\cannon_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\cannon_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Shoot</Name>
+      <Link>content\globalcontent\sounds\cannon_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\flying_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Hit_Ground</Name>
+      <Link>content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\flying_hit_target.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Hit_Target</Name>
+      <Link>content\globalcontent\sounds\flying_hit_target.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\flying_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Powerup</Name>
+      <Link>content\globalcontent\sounds\flying_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\flying_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Shoot</Name>
+      <Link>content\globalcontent\sounds\flying_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\laser_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Ground</Name>
+      <Link>content\globalcontent\sounds\laser_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\laser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Hit</Name>
+      <Link>content\globalcontent\sounds\laser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\laser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Shoot</Name>
+      <Link>content\globalcontent\sounds\laser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\slime_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Hit</Name>
+      <Link>content\globalcontent\sounds\slime_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\slime_jump.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Jump</Name>
+      <Link>content\globalcontent\sounds\slime_jump.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\slime_land.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Land</Name>
+      <Link>content\globalcontent\sounds\slime_land.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\structure_placed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Structure_Placed</Name>
+      <Link>content\globalcontent\sounds\structure_placed.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\talllaser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Hit</Name>
+      <Link>content\globalcontent\sounds\talllaser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\sounds\talllaser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Shoot</Name>
+      <Link>content\globalcontent\sounds\talllaser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>darknessshader</Name>
+      <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Alien_Hit_Ground</Name>

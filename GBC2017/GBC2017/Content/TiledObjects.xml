@@ -14,8 +14,8 @@
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="300" />
-    <property name="HasLightSource" type="bool" default="false" />
     <property name="IsFlying" type="bool" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="FlyingEnemy">
     <property name="MaximumHealth" type="float" default="20" />
@@ -31,8 +31,8 @@
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="350" />
-    <property name="HasLightSource" type="bool" default="false" />
     <property name="IsFlying" type="bool" default="true" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="MeleeAlien">
     <property name="MaximumHealth" type="float" default="25" />
@@ -48,8 +48,8 @@
     <property name="IsMeleeAttacker" type="bool" default="true" />
     <property name="MeleeAttackRadius" type="float" default="32" />
     <property name="RangedAttackRadius" type="float" default="16" />
-    <property name="HasLightSource" type="bool" default="false" />
     <property name="IsFlying" type="bool" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="SlimeAlien">
     <property name="MaximumHealth" type="float" />
@@ -65,13 +65,12 @@
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="16" />
-    <property name="HasLightSource" type="bool" default="false" />
     <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="CannonProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="false" />
-    <property name="Altitude" type="float" default="1" />
   </objecttype>
   <objecttype name="FlyingEnemyProjectile">
     <property name="DamageInflicted" type="float" />
@@ -80,7 +79,6 @@
   <objecttype name="LaserTurretProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
-    <property name="Altitude" type="float" default="20" />
   </objecttype>
   <objecttype name="RangedEnemyProjectile">
     <property name="DamageInflicted" type="float" />
@@ -90,7 +88,6 @@
   <objecttype name="TallLaserProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="false" />
-    <property name="Altitude" type="float" default="1" />
   </objecttype>
   <objecttype name="Cannon">
     <property name="EnergyBuildCost" type="float" default="50" />

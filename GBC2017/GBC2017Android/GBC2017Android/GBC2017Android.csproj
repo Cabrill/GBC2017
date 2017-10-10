@@ -1079,23 +1079,100 @@
     <None Include="Libraries\Android\Debug\MonoGame.Framework.dll" />
     <None Include="Libraries\Android\Debug\OpenTK.dll" />
     <None Include="Resources\AboutResources.txt" />
+    <AndroidResource Include="Resources\Layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals+hjappiermjusic.m4a">
-      <Name>anttisinstrumentals+hjappiermjusic</Name>
-      <Link>Assets\content\globalcontent\music\anttisinstrumentals+hjappiermjusic.m4a</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals+hjappiermjusic.xnb">
-      <Name>anttisinstrumentals+hjappiermjusic</Name>
-      <Link>Assets\content\globalcontent\music\anttisinstrumentals+hjappiermjusic.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a">
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a">
       <Name>anttisinstrumentals_hjappiermjusic</Name>
       <Link>Assets\content\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb">
       <Name>anttisinstrumentals_hjappiermjusic</Name>
       <Link>Assets\content\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\alien_hit_ground.xnb">
+      <Name>Alien_Hit_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\alien_melee.xnb">
+      <Name>alien_melee</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_melee.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\alien_powerup.xnb">
+      <Name>Alien_Powerup</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_powerup.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\alien_shoot.xnb">
+      <Name>Alien_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\alien_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\building_hit.xnb">
+      <Name>Building_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\building_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\cannon_hit.xnb">
+      <Name>Cannon_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\cannon_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\cannon_shoot.xnb">
+      <Name>Cannon_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\cannon_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\flying_hit_ground.xnb">
+      <Name>Flying_Hit_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\flying_hit_target.xnb">
+      <Name>Flying_Hit_Target</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_hit_target.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\flying_powerup.xnb">
+      <Name>Flying_Powerup</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_powerup.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\flying_shoot.xnb">
+      <Name>Flying_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\flying_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\laser_ground.xnb">
+      <Name>Laser_Ground</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\laser_hit.xnb">
+      <Name>Laser_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\laser_shoot.xnb">
+      <Name>Laser_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\slime_hit.xnb">
+      <Name>Slime_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\slime_jump.xnb">
+      <Name>Slime_Jump</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_jump.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\slime_land.xnb">
+      <Name>Slime_Land</Name>
+      <Link>Assets\content\globalcontent\sounds\slime_land.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\structure_placed.xnb">
+      <Name>Structure_Placed</Name>
+      <Link>Assets\content\globalcontent\sounds\structure_placed.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\talllaser_hit.xnb">
+      <Name>TallLaser_Hit</Name>
+      <Link>Assets\content\globalcontent\sounds\talllaser_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\sounds\talllaser_shoot.xnb">
+      <Name>TallLaser_Shoot</Name>
+      <Link>Assets\content\globalcontent\sounds\talllaser_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\effects\darknessshader.xnb">
+      <Name>darknessshader</Name>
+      <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
       <Name>Alien_Hit_Ground</Name>
@@ -1133,10 +1210,6 @@
       <Name>Flying_Hit_Target</Name>
       <Link>Assets\content\globalcontent\sounds\flying_hit_target.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
-      <Name>Flying_hurt</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_hurt.xnb</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
       <Name>Flying_powerup</Name>
       <Link>Assets\content\globalcontent\sounds\flying_powerup.xnb</Link>
@@ -1144,10 +1217,6 @@
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_shoot.xnb">
       <Name>flying_shoot</Name>
       <Link>Assets\content\globalcontent\sounds\flying_shoot.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_shoot2.xnb">
-      <Name>Flying_Shoot2</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_shoot2.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
       <Name>Laser_Ground</Name>
@@ -1185,17 +1254,9 @@
       <Name>TallLaser_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\talllaser_shoot.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\unused_deepshot.xnb">
-      <Name>Unused_DeepShot</Name>
-      <Link>Assets\content\globalcontent\sounds\unused_deepshot.xnb</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\content\globalcontent\animation_sheet.png">
-      <Name>animation_sheet</Name>
-      <Link>Assets\content\content\globalcontent\animation_sheet.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
@@ -1212,14 +1273,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx">
       <Name>slimealienanimationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\graphicalelements\checkmark_x.png">
-      <Name>checkmark_x</Name>
-      <Link>Assets\content\entities\graphicalelements\checkmark_x.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\alien_fire.png">
-      <Name>alien_fire</Name>
-      <Link>Assets\content\entities\projectiles\alien_fire.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
       <Name>cannonprojectileanimationchainlistfile</Name>
@@ -1276,10 +1329,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
       <Name>wind_turbine</Name>
       <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalanimation_sheet.png">
-      <Name>globalanimation_sheet</Name>
-      <Link>Assets\content\globalanimation_sheet.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
       <Name>allassetssheet</Name>
@@ -1610,6 +1659,33 @@
       <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
     </AndroidAsset>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\content\content\globalcontent\" />
+    <Folder Include="Assets\content\entities\graphicalelements\" />
+    <Folder Include="Assets\content\entities\structures\battery\" />
+    <Folder Include="Assets\content\entities\structures\home\" />
+    <Folder Include="Assets\content\entities\structures\laserturret\" />
+    <Folder Include="Assets\content\entities\structures\shieldgenerator\" />
+    <Folder Include="Assets\content\entities\structures\solarpanels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\content\redball.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
@@ -1618,7 +1694,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

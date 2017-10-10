@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/GitHub/GBC2017/GBC2017/GBC2017/Content/globalcontent/Sounds/Structure_Placed.wav</SourceFile>
+  <SourceTime>2017-09-09T12:45:51.4004402+03:00</SourceTime>
+  <DestFile>D:/GitHub/GBC2017/GBC2017/BuiltXnbs/DesktopGL/globalcontent/Sounds/Structure_Placed.xnb</DestFile>
+  <DestTime>2017-10-10T18:11:36.0483296+03:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2017-03-01T17:05:36+02:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2017-03-01T17:05:36+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
