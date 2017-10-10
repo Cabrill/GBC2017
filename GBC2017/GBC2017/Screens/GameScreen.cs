@@ -490,10 +490,6 @@ namespace GBC2017.Screens
 	                    enemy.GetHitBy(projectile);
 	                }
                 }
-	            else if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
-	            {
-	                projectile.ShouldBeDestroyed = true;
-	            }
 	            else
 	            {
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
