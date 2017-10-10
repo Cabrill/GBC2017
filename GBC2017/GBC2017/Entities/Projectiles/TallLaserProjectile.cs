@@ -36,8 +36,14 @@ namespace GBC2017.Entities.Projectiles
 	    {
 	        RotationZ = FlatRedBallServices.Random.Between(-4, 4);
 	        LightOrShadowSprite.TextureScale = 2f;
-	        LightOrShadowSprite.Tween("TextureScale", 0.01f, SpriteInstance.CurrentChain.TotalLength, InterpolationType.Exponential, Easing.Out).Start();
+	        LightOrShadowSprite.Tween(HandleTweenerUpdate, 2f, 0f, SpriteInstance.AnimationChains["Impact"].TotalLength, InterpolationType.Exponential, Easing.Out).Start();
 	    }
+
+	    private void HandleTweenerUpdate(float newPosition)
+	    {
+	        LightOrShadowSprite.TextureScale = newPosition;
+	    }
+
 
         private void CustomDestroy()
 		{

@@ -8,34 +8,34 @@
     <Frame>
       <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>62</LeftCoordinate>
-      <RightCoordinate>124</RightCoordinate>
-      <TopCoordinate>517</TopCoordinate>
-      <BottomCoordinate>535</BottomCoordinate>
+      <LeftCoordinate>532</LeftCoordinate>
+      <RightCoordinate>550</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>61</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>125</LeftCoordinate>
-      <RightCoordinate>187</RightCoordinate>
-      <TopCoordinate>517</TopCoordinate>
-      <BottomCoordinate>535</BottomCoordinate>
+      <LeftCoordinate>549</LeftCoordinate>
+      <RightCoordinate>565</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>61</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>188</LeftCoordinate>
-      <RightCoordinate>251</RightCoordinate>
-      <TopCoordinate>517</TopCoordinate>
-      <BottomCoordinate>535</BottomCoordinate>
+      <LeftCoordinate>565</LeftCoordinate>
+      <RightCoordinate>581</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>61</BottomCoordinate>
     </Frame>
     <Frame>
       <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>251</LeftCoordinate>
-      <RightCoordinate>315</RightCoordinate>
-      <TopCoordinate>517</TopCoordinate>
-      <BottomCoordinate>535</BottomCoordinate>
+      <LeftCoordinate>580</LeftCoordinate>
+      <RightCoordinate>596</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>61</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
