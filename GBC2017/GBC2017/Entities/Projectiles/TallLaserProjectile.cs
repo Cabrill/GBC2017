@@ -5,9 +5,11 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using StateInterpolationPlugin;
 
 namespace GBC2017.Entities.Projectiles
 {
@@ -30,7 +32,14 @@ namespace GBC2017.Entities.Projectiles
 
 		}
 
-		private void CustomDestroy()
+	    protected override void HandleImpact()
+	    {
+	        RotationZ = FlatRedBallServices.Random.Between(-4, 4);
+	        LightOrShadowSprite.TextureScale = 2f;
+	        LightOrShadowSprite.Tween("TextureScale", 0.01f, SpriteInstance.CurrentChain.TotalLength, InterpolationType.Exponential, Easing.Out).Start();
+	    }
+
+        private void CustomDestroy()
 		{
 
 

@@ -54,18 +54,26 @@ namespace GBC2017.Entities.BaseEntities
 		    ShouldBeDestroyed = false;
 		    Visible = true;
 		    LightOrShadowSprite.Position = Position;
+            CurrentState = VariableState.Flying;
 		}
 
 		private void CustomActivity()
 		{
-		    if (ShouldBeDestroyed)
+		    if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
+		    {
+		        Visible = false;
+		        SpriteInstance.Animate = false;
+		        ShouldBeDestroyed = true;
+		    }
+
+            if (ShouldBeDestroyed)
 		    {
 		        if (HitGroundSound.State == SoundState.Stopped && HitTargetSound.State == SoundState.Stopped)
 		        {
 		            Destroy();
 		        }
 		    }
-		    else
+		    else if (CurrentState != VariableState.Impact)
 		    {
 		        if (!_startingPosition.HasValue)
 		        {
@@ -100,21 +108,33 @@ namespace GBC2017.Entities.BaseEntities
 
 		        if (_hitTheGround)
 		        {
-		            Visible = false;
 		            PlayHitGroundSound();
-		            ShouldBeDestroyed = true;
+		            CurrentState = VariableState.Impact;
 		        }
 		    }
 		}
 
-	    private void PlayHitGroundSound()
+	    protected virtual void HandleImpact()
 	    {
-            if (HitGroundSound != null && !HitGroundSound.IsDisposed) HitGroundSound.Play();
+
+	    }
+
+        private void PlayHitGroundSound()
+	    {
+	        try
+	        {
+	            HitGroundSound.Play();
+            }
+	        catch (Exception){}
         }
 
 	    public void PlayHitTargetSound()
 	    {
-	        if (HitTargetSound != null && !HitTargetSound.IsDisposed) HitTargetSound.Play();
+	        try
+	        {
+	            HitTargetSound.Play();
+	        }
+	        catch (Exception) { }
         }
 
 

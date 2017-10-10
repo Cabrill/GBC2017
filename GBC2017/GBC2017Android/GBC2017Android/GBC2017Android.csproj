@@ -156,8 +156,16 @@
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.cs">
       <Link>Entities\BaseEntities\BaseEnemyProjectile.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Event.cs">
+      <Link>Entities\BaseEntities\BaseEnemyProjectile.Event.cs</Link>
+      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
       <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.cs</Link>
+      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Generated.Event.cs">
+      <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.Event.cs</Link>
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnergyProducer.cs">
@@ -177,8 +185,16 @@
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.cs">
       <Link>Entities\BaseEntities\BasePlayerProjectile.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Event.cs">
+      <Link>Entities\BaseEntities\BasePlayerProjectile.Event.cs</Link>
+      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
       <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.cs</Link>
+      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.Event.cs">
+      <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.Event.cs</Link>
       <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.cs">
@@ -1065,6 +1081,22 @@
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals+hjappiermjusic.m4a">
+      <Name>anttisinstrumentals+hjappiermjusic</Name>
+      <Link>Assets\content\globalcontent\music\anttisinstrumentals+hjappiermjusic.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals+hjappiermjusic.xnb">
+      <Name>anttisinstrumentals+hjappiermjusic</Name>
+      <Link>Assets\content\globalcontent\music\anttisinstrumentals+hjappiermjusic.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\globalcontent\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
       <Name>Alien_Hit_Ground</Name>
       <Link>Assets\content\globalcontent\sounds\alien_hit_ground.xnb</Link>

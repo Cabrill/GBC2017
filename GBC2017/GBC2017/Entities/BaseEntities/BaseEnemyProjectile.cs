@@ -52,10 +52,18 @@ namespace GBC2017.Entities.BaseEntities
 	        _startingPosition = null;
 	        ShouldBeDestroyed = false;
 	        Visible = true;
-	    }
+	        CurrentState = VariableState.Flying;
+        }
 
 	    private void CustomActivity()
 	    {
+	        if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
+	        {
+	            Visible = false;
+                SpriteInstance.Animate = false;
+	            ShouldBeDestroyed = true;
+	        }
+
 	        if (ShouldBeDestroyed)
 	        {
 	            if (HitGroundSound.State == SoundState.Stopped)
@@ -63,8 +71,7 @@ namespace GBC2017.Entities.BaseEntities
 	                Destroy();
                 }
 	        }
-	        else
-	        {
+	        else if (CurrentState != VariableState.Impact)            {
 	            if (!_startingPosition.HasValue)
 	            {
 	                _startingPosition = Position;
@@ -98,28 +105,32 @@ namespace GBC2017.Entities.BaseEntities
 
 	            if (_hitTheGround)
 	            {
-	                Visible = false;
-	                ShouldBeDestroyed = true;
+	                CurrentState = VariableState.Impact;
 	                PlayHitGroundSound();
 	            }
 	        }
         }
 
+	    protected virtual void HandleImpact()
+	    {
+	        
+	    }
+
         public void PlayHitTargetSound()
 	    {
 	        try
 	        {
-	            if (!HitTargetSound.IsDisposed) HitTargetSound.Play();
-	        }
-	        catch (Exception)
-	        {
-	            //We may have hit the limit on number of sounds playable, but don't want to crash - just omit the sound
-	        }
+	            HitTargetSound.Play();
+	        }catch (Exception){}
 	    }
 
         private void PlayHitGroundSound()
 	    {
-            HitGroundSound.Play();
+	        try
+	        {
+	            HitGroundSound.Play();
+            }
+	        catch (Exception) { }
 	    }
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

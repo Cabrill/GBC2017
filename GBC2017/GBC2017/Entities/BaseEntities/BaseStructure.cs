@@ -188,8 +188,17 @@ namespace GBC2017.Entities.BaseEntities
 
                 IsBeingPlaced = false;
 	            CurrentState = VariableState.Built;
-	            PlacementSound.Play();
+	            PlayPlacementSound();
 	        }
+	    }
+
+	    private void PlayPlacementSound()
+	    {
+	        try
+	        {
+	            PlacementSound.Play();
+            }
+	        catch (Exception){}
 	    }
 
 	    public void TakeMeleeDamage(BaseEnemy enemy)
@@ -205,8 +214,9 @@ namespace GBC2017.Entities.BaseEntities
 	    public void GetHitBy(BaseEnemyProjectile projectile)
 	    {
 	        HealthRemaining -= projectile.DamageInflicted;
+	        projectile.PlayHitTargetSound();
 
-	        if (IsDestroyed)
+            if (IsDestroyed)
 	        {
 	            PerformDestruction();
 	        }

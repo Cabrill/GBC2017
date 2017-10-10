@@ -99,7 +99,7 @@ namespace GBC2017.Entities.BaseEntities
 	        _aimRotation = angle;
 
 	        SetAnimationFromAimRotation();
-	        //PerformFiringActivity();
+	        PerformFiringActivity();
 	    }
 #endif
 
@@ -240,13 +240,21 @@ namespace GBC2017.Entities.BaseEntities
 
                 newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
 
-                if (attackSound != null && !attackSound.IsDisposed) attackSound.Play();
+                PlayFireSound();
 
                 LastFiredTime = TimeManager.CurrentTime;
                 BatteryLevel -= EnergyCostToFire;
                 _energyReceivedThisSecond += EnergyCostToFire;
             }
         }
+
+	    private void PlayFireSound()
+	    {
+	        try
+	        {
+	            attackSound.Play();
+	        }catch (Exception){}
+	    }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {

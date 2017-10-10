@@ -25,6 +25,7 @@ namespace GBC2017.Screens
         {
             StartButtonInstance.Visible = false;
             GameHasStarted = true;
+            //AudioManager.PlaySong(GlobalContent.anttisinstrumentals_hjappiermjusic, true, true);
         }
     }
 }

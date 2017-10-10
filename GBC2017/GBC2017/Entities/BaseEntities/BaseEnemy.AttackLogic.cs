@@ -90,7 +90,7 @@ namespace GBC2017.Entities.BaseEntities
             if (IsRangedAttacker && CurrentActionState != Action.StartRangedAttack)
             {
                 CurrentActionState = Action.StartRangedAttack;
-                this.Call(rangedChargeSound.Play).After(0.3f);
+                this.Call(PlayRangedChargeSound).After(0.3f);
             }
             else if (IsMeleeAttacker && CurrentActionState != Action.StartMeleeAttack && CurrentActionState != Action.FinishMeleeAttack)
             {
@@ -110,6 +110,16 @@ namespace GBC2017.Entities.BaseEntities
             }
 
             return false;
+        }
+
+        private void PlayRangedChargeSound()
+        {
+            try
+            {
+                rangedChargeSound.Play();
+            }
+            catch (Exception){}
+
         }
 
         #endregion
@@ -140,9 +150,25 @@ namespace GBC2017.Entities.BaseEntities
         private void DealMeleeDamage()
         {
             _lastMeleeAttackTime = TimeManager.CurrentTime;
-            meleeAttackSound?.Play();
+            PlayAttackSound();
             _currentAttackTarget?.TakeMeleeDamage(this);
             CurrentActionState = Action.Standing;
+        }
+
+        private void PlayAttackSound()
+        {
+            try
+            {
+                if (IsMeleeAttacker)
+                {
+                    meleeAttackSound?.Play();
+                }
+                else if (IsRangedAttacker)
+                {
+                    rangedAttackSound?.Play();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 
@@ -201,7 +227,7 @@ namespace GBC2017.Entities.BaseEntities
             newProjectile.Velocity = direction * newProjectile.Speed;
             newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity) - MathHelper.ToRadians(90);
 
-            if (rangedAttackSound != null && !rangedAttackSound.IsDisposed) rangedAttackSound.Play();
+            PlayAttackSound();
 
             _lastRangeAttackTime = TimeManager.CurrentTime;
         }

@@ -153,7 +153,7 @@ namespace GBC2017.Entities.BaseEntities
 	    public void GetHitBy(BasePlayerProjectile projectile)
 	    {
 	        HealthRemaining -= projectile.DamageInflicted;
-            projectile.PlayHitTargetSound();
+            projectile?.PlayHitTargetSound();
 
 	        if (HealthRemaining <= 0)
 	        {
