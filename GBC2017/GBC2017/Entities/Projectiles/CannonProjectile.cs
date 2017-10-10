@@ -27,7 +27,6 @@ namespace GBC2017.Entities.Projectiles
 		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
 		    circleRadius = CircleInstance.Radius;
-		    gravityDrag = -10f;
 		}
 
 	    protected override void HandleImpact()

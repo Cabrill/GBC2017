@@ -209,21 +209,29 @@ namespace GBC2017.Entities.BaseEntities
             }
         }
 
+        private Vector3 GetProjectilePositioning(float angle)
+        {
+            var direction = new Vector3(
+                (float)-Math.Cos(angle),
+                (float)-Math.Sin(angle), 0);
+            direction.Normalize();
+            return new Vector3(Position.X + 55f * direction.X, Position.Y + 30f + 25f * direction.Y, 0);
+        }
+
         private void FireProjectile()
         {
             var newProjectile = CreateProjectile();
-            newProjectile.Position = Position;
             newProjectile.Position.Y += CircleInstance.Radius * 1.5f;
             newProjectile.DamageInflicted = RangedAttackDamage;
             newProjectile.Speed = ProjectileSpeed;
-            newProjectile.MaxRange = RangedAttackRadius * 1.5f;
 
-            var angle = (float)Math.Atan2(newProjectile.Position.Y - _currentAttackTarget.Position.Y, newProjectile.Position.X - _currentAttackTarget.Position.X);
+            var angle = (float)Math.Atan2(Position.Y - _currentAttackTarget.Position.Y, Position.X - _currentAttackTarget.Position.X);
             var direction = new Vector3(
                 (float)-Math.Cos(angle),
                 (float)-Math.Sin(angle), 0);
             direction.Normalize();
 
+            newProjectile.Position = GetProjectilePositioning(angle);
             newProjectile.Velocity = direction * newProjectile.Speed;
             newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity) - MathHelper.ToRadians(90);
 

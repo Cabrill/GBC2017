@@ -26,7 +26,6 @@ namespace GBC2017.Entities.Enemies
         {
             rangedAttackSound = GlobalContent.Alien_Shoot.CreateInstance();
             rangedChargeSound = GlobalContent.Alien_Powerup.CreateInstance();
-            Altitude = 15f;
         }
 
 		private void CustomActivity()
@@ -38,7 +37,9 @@ namespace GBC2017.Entities.Enemies
 	    protected override BaseEnemyProjectile CreateProjectile()
 	    {
 	        var newProjectile = RangedEnemyProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        newProjectile.Altitude = Altitude;
+	        newProjectile.Altitude = 15f;
+	        newProjectile.AltitudeVelocity = 1f;
+	        newProjectile.GravityDrag = -25f;
 	        return newProjectile;
 	    }
 

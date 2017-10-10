@@ -2815,7 +2815,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5347,18 +5347,6 @@
           <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Altitude</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
-          <SetByDerived>true</SetByDerived>
-        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemyProjectile</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -5394,7 +5382,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -5410,6 +5398,11 @@
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5491,11 +5484,6 @@
             <Type>float</Type>
             <Member>Z</Member>
             <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -5591,12 +5579,6 @@
           <Name>Entities/Projectiles/RangedEnemyProjectile/AnimationChainListFile.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>

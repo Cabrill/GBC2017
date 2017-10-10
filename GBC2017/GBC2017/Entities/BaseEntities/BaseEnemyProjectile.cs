@@ -16,8 +16,9 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseEnemyProjectile
 	{
-	    public float MaxRange { private get; set; }
         public float Altitude { get; set; }
+        public float AltitudeVelocity { get; set; }
+	    public float GravityDrag { get; set; } = -100f;
 	    private bool _hitTheGround;
 
         private Vector3? _startingPosition;
@@ -28,10 +29,6 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance HitTargetSound;
         private bool _spritedAddedToLayers = false;
 	    public bool ShouldBeDestroyed;
-
-	    protected float gravityDrag = -200f;
-	    protected int _lastFrameIndex;
-	    protected string _lastFrameChain;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -61,7 +58,9 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomActivity()
 	    {
-	        if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
+	        UpdateAnimation();
+
+            if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
 	        {
 	            Visible = false;
                 SpriteInstance.Animate = false;
@@ -77,7 +76,6 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        else if (CurrentState != VariableState.Impact)
 	        {
-	            UpdateAnimation();
                 if (!_startingPosition.HasValue)
 	            {
 	                _startingPosition = Position;
@@ -93,7 +91,7 @@ namespace GBC2017.Entities.BaseEntities
 	            LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow;
 	            LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
 
-	            _hitTheGround = SpriteInstance.RelativeY <= 0;
+	            _hitTheGround = Altitude <= 0;
 
                 if (_hitTheGround)
 	            {
@@ -110,17 +108,20 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void UpdateAnimation()
 	    {
-	        Altitude += gravityDrag * TimeManager.SecondDifference;
+	        if (CurrentState == VariableState.Flying)
+	        {
+	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
+	            Altitude += AltitudeVelocity * TimeManager.SecondDifference;
+	        }
 
 	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
 	        {
 	            SpriteInstance.RelativeY = Altitude + SpriteInstance.CurrentChain[0].RelativeY;
 	        }
-	        else if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
+	        else
 	        {
-	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
-	            _lastFrameChain = SpriteInstance.CurrentChainName;
-
+                SpriteInstance.UpdateToCurrentAnimationFrame();
+                
 	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
 	            {
 	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;

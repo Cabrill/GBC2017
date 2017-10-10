@@ -6,7 +6,7 @@
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" default="15" />
     <property name="RangedAttackDamage" type="float" default="10" />
-    <property name="ProjectileSpeed" type="float" default="300" />
+    <property name="ProjectileSpeed" type="float" default="500" />
     <property name="SecondsBetweenRangedAttack" type="float" default="2" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
     <property name="MineralsRewardedWhenKilled" type="float" default="25" />
@@ -83,7 +83,6 @@
   <objecttype name="RangedEnemyProjectile">
     <property name="DamageInflicted" type="float" />
     <property name="HasLightSource" type="bool" default="true" />
-    <property name="Altitude" type="float" default="20" />
   </objecttype>
   <objecttype name="TallLaserProjectile">
     <property name="DamageInflicted" type="float" />

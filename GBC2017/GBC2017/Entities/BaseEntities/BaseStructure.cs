@@ -87,11 +87,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomActivity()
 	    {
-	        if (SpriteInstance.JustChangedFrame)
-	        {
-	            SpriteInstance.RelativePosition *= SpriteInstance.TextureScale;
-	            SpriteInstance.RelativeY += _spriteRelativeY;
-	        }
+	        UpdateAnimation();
 
             if (IsBeingPlaced)
 		    {
@@ -177,7 +173,26 @@ namespace GBC2017.Entities.BaseEntities
             }
 		}
 
-	    private void BuildStructure()
+	    private void UpdateAnimation()
+	    {
+	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            SpriteInstance.RelativeY = _spriteRelativeY;
+	        }
+	        else
+	        {
+	            SpriteInstance.UpdateToCurrentAnimationFrame();
+
+	            if (SpriteInstance.UseAnimationRelativePosition)
+	            {
+	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	            }
+	            SpriteInstance.RelativeY += _spriteRelativeY;
+	        }
+	    }
+
+        private void BuildStructure()
 	    {
 	        var shouldBuild = EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost);
 

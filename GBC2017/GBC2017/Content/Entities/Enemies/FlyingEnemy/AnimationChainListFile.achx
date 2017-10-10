@@ -504,19 +504,6 @@
       <RelativeX>-24</RelativeX>
       <RelativeY>5</RelativeY>
     </Frame>
-  </AnimationChain>
-  <AnimationChain>
-    <Name>FinishRangedAttack</Name>
-    <Frame>
-      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
-      <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>1010</LeftCoordinate>
-      <RightCoordinate>1204</RightCoordinate>
-      <TopCoordinate>1316</TopCoordinate>
-      <BottomCoordinate>1438</BottomCoordinate>
-      <RelativeX>-24</RelativeX>
-      <RelativeY>5</RelativeY>
-    </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
       <FrameLength>0.05</FrameLength>
@@ -569,7 +556,7 @@
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
-      <FrameLength>0.5</FrameLength>
+      <FrameLength>0.01</FrameLength>
       <LeftCoordinate>1010</LeftCoordinate>
       <RightCoordinate>1204</RightCoordinate>
       <TopCoordinate>1440</TopCoordinate>
@@ -577,6 +564,9 @@
       <RelativeX>2</RelativeX>
       <RelativeY>0.5</RelativeY>
     </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>FinishRangedAttack</Name>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>

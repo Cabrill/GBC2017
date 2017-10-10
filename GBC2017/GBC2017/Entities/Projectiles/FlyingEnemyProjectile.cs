@@ -31,6 +31,11 @@ namespace GBC2017.Entities.Projectiles
 
 	    }
 
+	    protected override void HandleImpact()
+	    {
+	        SpriteInstance.TextureScale = 2f;
+	    }
+
         public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
 	        base.AddSpritesToLayers(darknessLayer, hudLayer);

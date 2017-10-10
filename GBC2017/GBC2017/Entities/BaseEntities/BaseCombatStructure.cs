@@ -228,7 +228,6 @@ namespace GBC2017.Entities.BaseEntities
 	            var newProjectile = CreateNewProjectile();
                 newProjectile.DamageInflicted = AttackDamage;
                 newProjectile.Speed = ProjectileSpeed;
-                newProjectile.MaxRange = RangedRadius * 1.5f;
                 newProjectile.Position = Position;
 
                 var direction = new Vector3(
