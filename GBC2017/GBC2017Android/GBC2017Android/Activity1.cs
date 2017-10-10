@@ -49,21 +49,21 @@ namespace GBC2017
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            //RenderOnUIThread = true;
+            RenderOnUIThread = true;
 
             MetricsManager.Register(Application, GetString(Resource.String.hockey_app_id));
 
-            //RequestWindowFeature(WindowFeatures.NoTitle);
+            RequestWindowFeature(WindowFeatures.NoTitle);
 
-            //if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
-            //{
-            //    Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
-            //}
-            //else
-            //{
-            //    Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
-            //    ActionBar?.Hide();
-            //}
+            if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
+            {
+                Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+            }
+            else
+            {
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
+                ActionBar?.Hide();
+            }
 
             SetContentView(Resource.Layout.Main);
             InitializeGooglePlayServices();
