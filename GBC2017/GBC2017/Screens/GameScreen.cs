@@ -197,19 +197,39 @@ namespace GBC2017.Screens
                 carbontree => carbontree.AddSpritesToLayers(LightLayer, InfoLayer);
 
             BasicAlienFactory.EntitySpawned +=
-                basicalien => basicalien.AddSpritesToLayers(LightLayer, InfoLayer);
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
 
             MeleeAlienFactory.EntitySpawned +=
-                meleealien => meleealien.AddSpritesToLayers(LightLayer, InfoLayer);
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
 
             FlyingEnemyFactory.EntitySpawned +=
-                flyingalien => flyingalien.AddSpritesToLayers(LightLayer, InfoLayer);
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
 
             SlimeAlienFactory.EntitySpawned +=
-                slimealien => slimealien.AddSpritesToLayers(LightLayer, InfoLayer);
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
 
             SmallSlimeFactory.EntitySpawned +=
-                slimealien => slimealien.AddSpritesToLayers(LightLayer, InfoLayer);
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
         }
 
         private void SetCollisionVisibility()
@@ -682,6 +702,7 @@ namespace GBC2017.Screens
 	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
 	        };
 	        notification.AddToManagers();
+            notification.MoveToLayer(HUDLayerGum);
             resourceIncreaseNotificationList.Add(notification);
         }
         #endregion
