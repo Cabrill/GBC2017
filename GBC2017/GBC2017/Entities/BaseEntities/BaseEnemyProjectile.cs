@@ -80,6 +80,7 @@ namespace GBC2017.Entities.BaseEntities
 	    protected virtual void UpdateScale()
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
 	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	    }
 
@@ -102,7 +103,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	        if (ShouldBeDestroyed)
 	        {
-	            if (HitGroundSound.State == SoundState.Stopped && HitTargetSound.State == SoundState.Stopped)
+	            if ((HitGroundSound == null || HitGroundSound.State == SoundState.Stopped) && (HitTargetSound == null || HitTargetSound.State == SoundState.Stopped))
 	            {
 	                Destroy();
                 }

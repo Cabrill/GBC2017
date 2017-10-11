@@ -208,7 +208,7 @@ namespace GBC2017.Entities.BaseEntities
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-            return new Vector3(Position.X + 55f * direction.X, Position.Y + 30f + 25f*direction.Y, 0);
+            return new Vector3(Position.X + 55f * _currentScale * direction.X, Position.Y + 30f * _currentScale + 25f * _currentScale * direction.Y, 0);
 	    }
 
 	    private void ChooseTarget()
@@ -237,14 +237,11 @@ namespace GBC2017.Entities.BaseEntities
                 direction.Normalize();
                 newProjectile.Position = GetProjectilePositioning();
 
-                if (targetEnemy.IsFlying)
-                {
-                    newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
-                }
+                newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
 
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
-                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity+newProjectile.AltitudeVelocity);
+                newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
 
                 PlayFireSound();
 
@@ -256,17 +253,18 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private float CalculateAltitudeVelocity(BasePlayerProjectile projectile)
 	    {
+	        if (targetEnemy == null) return 0f;
+
 	        var targetPosition = targetEnemy.CircleInstance.Position;
 	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
 	        var timeToTravel = targetDistance / ProjectileSpeed;
 
-	        var altitudeDrop = timeToTravel * projectile.GravityDrag;
+	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
 
-	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude + altitudeDrop;
+	        var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel) - altitudeDifference)) /
+	                               -timeToTravel;
 
-	        var altitudeVelocity = altitudeDifference / timeToTravel;
-
-	        return altitudeVelocity;
+            return altitudeVelocity;
 	    }
 
 	    private void PlayFireSound()

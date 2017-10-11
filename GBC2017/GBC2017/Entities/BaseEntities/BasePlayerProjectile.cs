@@ -65,6 +65,9 @@ namespace GBC2017.Entities.BaseEntities
 		    _startingShadowWidth = LightOrShadowSprite.Width;
 		    _startingShadowHeight = LightOrShadowSprite.Height;
 		    _startingShadowAlpha = LightOrShadowSprite.Alpha;
+		    _startingCircleRadius = CircleInstance.Radius;
+		    _startingSpriteScale = SpriteInstance.TextureScale;
+
             _hitTheGround = false;
 
 		    ShouldBeDestroyed = false;
@@ -81,6 +84,7 @@ namespace GBC2017.Entities.BaseEntities
 	    protected virtual void UpdateScale()
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
 	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	    }
 
@@ -91,6 +95,8 @@ namespace GBC2017.Entities.BaseEntities
 	            CalculateScale();
 	            UpdateScale();
 	        }
+
+	        UpdateAnimation();
 
             if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
 		    {
@@ -120,7 +126,7 @@ namespace GBC2017.Entities.BaseEntities
 		        if (_hitTheGround)
 		        {
 		            PlayHitGroundSound();
-		            CurrentState = VariableState.Impact;
+		            HandleImpact();
 		        }
 		    }
 		}

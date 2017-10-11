@@ -86,6 +86,7 @@ namespace GBC2017.Entities.BaseEntities
 		    _lastMeleeAttackTime = TimeManager.CurrentTime;
 		    _startingSpriteScale = SpriteInstance.TextureScale;
 		    _startingLightScale = LightSprite.TextureScale;
+		    _startingCircleRadius = CircleInstance.Radius;
 
             HealthRemaining = MaximumHealth;
 		    _healthBarWidth = SpriteInstance.Width;
