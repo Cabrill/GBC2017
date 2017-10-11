@@ -49,6 +49,13 @@ namespace GBC2017.GumRuntimes
 
             button?.UpdateFromStructure(structure);
         }
+
+
+        public void SetHydroIsEnabled(bool isEnabled)
+        {
+            HydroButton.Enabled = isEnabled;
+            HydroButton.CurrentEnabledStatusState = isEnabled ? BuildButtonRuntime.EnabledStatus.Enabled : BuildButtonRuntime.EnabledStatus.Disabled;
+        }
         
 
         public void UpdateSelection()

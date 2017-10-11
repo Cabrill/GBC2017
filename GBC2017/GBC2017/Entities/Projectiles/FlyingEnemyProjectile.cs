@@ -31,8 +31,8 @@ namespace GBC2017.Entities.Projectiles
 
 	    }
 
-	    protected override void HandleImpact()
-	    {
+	    protected override void CustomHandleImpact()
+        {
 	        SpriteInstance.TextureScale = 2f;
 	    }
 

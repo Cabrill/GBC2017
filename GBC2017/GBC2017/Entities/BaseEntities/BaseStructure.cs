@@ -25,7 +25,10 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseStructure
 	{
-	    public double BatteryLevel { get; protected set; }
+	    public Action OnBuild;
+	    public Action OnDestroy;
+
+        public double BatteryLevel { get; protected set; }
 	    public bool HasSufficientEnergy { get; private set; }
 	    public bool IsDestroyed => HealthRemaining <= 0;
 
@@ -204,6 +207,7 @@ namespace GBC2017.Entities.BaseEntities
                 IsBeingPlaced = false;
 	            CurrentState = VariableState.Built;
 	            PlayPlacementSound();
+                OnBuild?.Invoke();
 	        }
 	    }
 
@@ -277,7 +281,9 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void PerformDestruction()
 	    {
-	        Destroy();
+	        OnDestroy?.Invoke();
+
+            Destroy();
 	    }
 
         private void CustomDestroy()

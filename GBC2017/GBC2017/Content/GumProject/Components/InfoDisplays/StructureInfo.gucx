@@ -174,9 +174,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>EnergyChangeText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyChangeText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>EnergyChangeText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -195,6 +207,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>EnergyChangeText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyChangeText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -362,15 +380,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>EnergyText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -389,6 +413,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>EnergyText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>EnergyText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -590,15 +620,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>HealthText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HealthText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>HealthText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -617,6 +653,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>HealthText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>HealthText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -675,9 +717,21 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>MineralChangeText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralChangeText.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.8</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>MineralChangeText.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -696,6 +750,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>MineralChangeText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>MineralChangeText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -966,15 +1026,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>MineralsText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -993,6 +1059,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>MineralsText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>MineralsText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1074,15 +1146,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>NameText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>NameText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>NameText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1101,6 +1179,12 @@
       <Type>HorizontalAlignment</Type>
       <Name>NameText.HorizontalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>NameText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

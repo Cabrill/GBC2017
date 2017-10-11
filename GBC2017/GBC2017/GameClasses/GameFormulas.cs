@@ -56,10 +56,11 @@ namespace GBC2017.GameClasses
 
         public const int RealSecondsPerGameHour = 8;
         public float MinimumEnergyCostForAnEnemy;
-        public float EnergyCostOfBasicAlien;
-        public float EnergyCostOfFlyingEnemy;
-        public float EnergyCostOfSlimeAlien;
-        public float EnergyCostOfMeleeAlien;
+        private float EnergyCostOfBasicAlien;
+        private float EnergyCostOfFlyingEnemy;
+        private float EnergyCostOfSlimeAlien;
+        private float EnergyCostOfMeleeAlien;
+        private float EnergyCostOfSmallSlime;
 
         #endregion
 
@@ -108,10 +109,15 @@ namespace GBC2017.GameClasses
             EnergyCostOfMeleeAlien = EnergyRatingForEnemy(melee);
             melee.Destroy();
 
+            var smallslime = new SmallSlime();
+            EnergyCostOfSmallSlime = EnergyRatingForEnemy(smallslime);
+            smallslime.Destroy();
+
             MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfBasicAlien, float.MaxValue);
             MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfSlimeAlien, MinimumEnergyCostForAnEnemy);
             MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfFlyingEnemy, MinimumEnergyCostForAnEnemy);
             MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfMeleeAlien, MinimumEnergyCostForAnEnemy);
+            MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfSmallSlime, MinimumEnergyCostForAnEnemy);
         }
         #endregion
 
@@ -187,10 +193,11 @@ namespace GBC2017.GameClasses
         public BaseEnemy StrongestAffordableEnemy(ref float energyAmount, Layer layerToPutEnemyOn)
         {
             var energyToSpend = 0f;
-            energyToSpend = EnergyCostOfBasicAlien < energyAmount ? EnergyCostOfBasicAlien : energyToSpend;
-            energyToSpend = EnergyCostOfFlyingEnemy < energyAmount ? EnergyCostOfFlyingEnemy : energyToSpend;
-            energyToSpend = EnergyCostOfMeleeAlien < energyAmount ? EnergyCostOfMeleeAlien : energyToSpend;
-            energyToSpend = EnergyCostOfSlimeAlien < energyAmount ? EnergyCostOfSlimeAlien : energyToSpend;
+            energyToSpend = energyToSpend < EnergyCostOfBasicAlien && EnergyCostOfBasicAlien < energyAmount ? EnergyCostOfBasicAlien : energyToSpend;
+            energyToSpend = energyToSpend < EnergyCostOfFlyingEnemy && EnergyCostOfFlyingEnemy < energyAmount ? EnergyCostOfFlyingEnemy : energyToSpend;
+            energyToSpend = energyToSpend < EnergyCostOfMeleeAlien && EnergyCostOfMeleeAlien < energyAmount ? EnergyCostOfMeleeAlien : energyToSpend;
+            energyToSpend = energyToSpend < EnergyCostOfSlimeAlien && EnergyCostOfSlimeAlien < energyAmount ? EnergyCostOfSlimeAlien : energyToSpend;
+            energyToSpend = energyToSpend < EnergyCostOfSmallSlime && EnergyCostOfSmallSlime < energyAmount ? EnergyCostOfSmallSlime : energyToSpend;
 
             if (energyToSpend == 0)
             {
@@ -203,6 +210,7 @@ namespace GBC2017.GameClasses
             if (energyToSpend == EnergyCostOfFlyingEnemy) return FlyingEnemyFactory.CreateNew(layerToPutEnemyOn);
             if (energyToSpend == EnergyCostOfMeleeAlien) return MeleeAlienFactory.CreateNew(layerToPutEnemyOn);
             if (energyToSpend == EnergyCostOfSlimeAlien) return SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
+            if (energyToSpend == EnergyCostOfSmallSlime) return SmallSlimeFactory.CreateNew(layerToPutEnemyOn);
 
             return null;
         }

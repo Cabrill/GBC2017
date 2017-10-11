@@ -101,19 +101,25 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.FontSize</Name>
-      <Value xsi:type="xsd:int">36</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">252</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -135,6 +141,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>TextInstance.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>TextInstance.Parent</Name>
       <Value xsi:type="xsd:string">ColoredRectangleInstance</Value>
@@ -143,7 +155,7 @@
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">124</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

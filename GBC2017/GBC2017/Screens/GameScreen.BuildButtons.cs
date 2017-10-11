@@ -143,7 +143,7 @@ namespace GBC2017.Screens
                 BuildBarInstance.UpdateSelection();
 
                 var newHydro = HydroGeneratorFactory.CreateNew(WorldLayer);
-                FindValidLocationFor(newHydro);
+                GetHydroGeneratorLocationFromTileMap(newHydro);
 
                 //TODO:  message for player if no valid location found
             }
@@ -266,6 +266,42 @@ namespace GBC2017.Screens
                 existingBuildCommand.Destroy();
                 return true;
             }
+        }
+
+        private void GetHomeLocationFromTileMap(Home home)
+        {
+            var shapeCollections = HelsinkiMap.ShapeCollections.Where(sc => sc.Name == "BuildingSpawnPoints").FirstOrDefault();
+            var locationRectangle = shapeCollections?.AxisAlignedRectangles.Where(aar => aar.Name == "HomeSpawnPoint").FirstOrDefault();
+            var locationPosition = locationRectangle.Position + HelsinkiMap.Position;
+
+            home.Position = locationPosition;
+            home.IsValidLocation = true;
+            home.CurrentState = BaseStructure.VariableState.Built;
+            home.IsBeingPlaced = false;
+        }
+
+        private void GetHydroGeneratorLocationFromTileMap(HydroGenerator hydro)
+        {
+            var shapeCollections = HelsinkiMap.ShapeCollections.Where(sc => sc.Name == "BuildingSpawnPoints").FirstOrDefault();
+            var locationRectangle = shapeCollections?.AxisAlignedRectangles.Where(aar => aar.Name == "HydroSpawnPoint").FirstOrDefault();
+            var locationPosition = locationRectangle.Position + HelsinkiMap.Position;
+
+            hydro.Position = locationPosition;
+            hydro.IsValidLocation = true;
+            hydro.OnBuild = CallHydroBuilt;
+            hydro.OnDestroy = CallHydroDestroyed;
+        }
+
+        private void CallHydroBuilt()
+        {
+            BuildBarInstance.SetHydroIsEnabled(false);
+            BuildBarInstance.HydroButtonClick -= BuildBarInstanceOnHydroButtonClick;
+        }
+
+        private void CallHydroDestroyed()
+        {
+            BuildBarInstance.SetHydroIsEnabled(true);
+            BuildBarInstance.HydroButtonClick += BuildBarInstanceOnHydroButtonClick;
         }
 
         /// <summary>

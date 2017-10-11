@@ -67,9 +67,6 @@
     <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.Generated.Event.cs">
-      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnergyProducer.cs" />
     <Compile Include="Entities\BaseEntities\BaseEnergyProducer.Generated.cs">
       <DependentUpon>BaseEnergyProducer.cs</DependentUpon>
@@ -83,9 +80,6 @@
       <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
-      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BaseEntities\BasePlayerProjectile.Generated.Event.cs">
       <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseStructure.cs" />
@@ -121,6 +115,10 @@
     <Compile Include="Entities\Enemies\SlimeAlien.cs" />
     <Compile Include="Entities\Enemies\SlimeAlien.Generated.cs">
       <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Enemies\SmallSlime.cs" />
+    <Compile Include="Entities\Enemies\SmallSlime.Generated.cs">
+      <DependentUpon>SmallSlime.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
@@ -209,6 +207,7 @@
     <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\ShieldGeneratorFactory.Generated.cs" />
     <Compile Include="Factories\SlimeAlienFactory.Generated.cs" />
+    <Compile Include="Factories\SmallSlimeFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
     <Compile Include="Factories\TallLaserFactory.Generated.cs" />
     <Compile Include="Factories\TallLaserProjectileFactory.Generated.cs" />
@@ -871,85 +870,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font25arial black_o1.fnt">
+    <None Include="content\gumproject\fontcache\font50moire extrabold_o2.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font25Arial Black_o1</Name>
+      <Name>Font50Moire ExtraBold_o2</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font25arial black_o1_0.png">
+    <None Include="content\gumproject\fontcache\font50moire extrabold_o2_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font25Arial Black_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font27arial black_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font27Arial Black_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font27arial black_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font27Arial Black_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial black.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial Black</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial black_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial Black_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1_1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2_1</Name>
+      <Name>Font50Moire ExtraBold_o2_0</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1108,9 +1035,7 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\globalcontent\music\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

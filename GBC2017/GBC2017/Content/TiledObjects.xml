@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <objecttype name="BasicAlien">
-    <property name="MaximumHealth" type="float" default="10" />
+    <property name="MaximumHealth" type="float" default="25" />
     <property name="Speed" type="float" default="125" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" default="15" />
-    <property name="RangedAttackDamage" type="float" default="10" />
+    <property name="RangedAttackDamage" type="float" default="5" />
     <property name="ProjectileSpeed" type="float" default="500" />
     <property name="SecondsBetweenRangedAttack" type="float" default="2" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
-    <property name="MineralsRewardedWhenKilled" type="float" default="25" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="10" />
     <property name="DisplayName" type="string" default="Basic Alien" />
     <property name="IsMeleeAttacker" type="bool" default="false" />
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="300" />
-    <property name="IsFlying" type="bool" />
+    <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
@@ -70,6 +70,25 @@
     <property name="DisplayName" type="string" default="Slime" />
     <property name="IsMeleeAttacker" type="bool" default="true" />
     <property name="MeleeAttackRadius" type="float" default="64" />
+    <property name="RangedAttackRadius" type="float" default="0" />
+    <property name="IsFlying" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="false" />
+    <property name="SpriteInstanceCurrentChainName" type="string" />
+    <property name="IsJumper" type="bool" default="true" />
+  </objecttype>
+  <objecttype name="SmallSlime">
+    <property name="MaximumHealth" type="float" default="15" />
+    <property name="Speed" type="float" default="250" />
+    <property name="IsRangedAttacker" type="bool" default="false" />
+    <property name="MeleeAttackDamage" type="float" default="3" />
+    <property name="RangedAttackDamage" type="float" default="0" />
+    <property name="ProjectileSpeed" type="float" default="0" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="0" />
+    <property name="SecondsBetweenMeleeAttack" type="float" default="0.5" />
+    <property name="MineralsRewardedWhenKilled" type="float" default="5" />
+    <property name="DisplayName" type="string" default="Small Slime" />
+    <property name="IsMeleeAttacker" type="bool" default="true" />
+    <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="0" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
@@ -144,7 +163,7 @@
     <property name="MaximumHealth" type="float" default="50" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
-    <property name="DisplayName" type="string" default="Hydro Generator" />
+    <property name="DisplayName" type="string" default="Hydro" />
     <property name="HasLightSource" type="bool" default="false" />
   </objecttype>
   <objecttype name="SolarPanels">
@@ -170,9 +189,9 @@
     <property name="airDensity" type="float" default="1.225" />
   </objecttype>
   <objecttype name="Home">
-    <property name="MaximumHealth" type="float" default="100" />
-    <property name="InternalBatteryMaxStorage" type="int" default="200" />
-    <property name="BaseMineralsStorage" type="float" default="300" />
+    <property name="MaximumHealth" type="float" default="150" />
+    <property name="InternalBatteryMaxStorage" type="int" default="500" />
+    <property name="BaseMineralsStorage" type="float" default="1000" />
     <property name="EnergyBuildCost" type="float" default="0" />
     <property name="MineralsBuildCost" type="float" default="0" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />

@@ -101,7 +101,14 @@ namespace GBC2017.Entities.BaseEntities
 	        }
         }
 
-	    protected virtual void HandleImpact()
+	    public void HandleImpact()
+	    {
+            CurrentState = VariableState.Impact;
+	        Velocity = Vector3.Zero;
+            CustomHandleImpact();
+	    }
+
+	    protected virtual void CustomHandleImpact()
 	    {
 	        
 	    }

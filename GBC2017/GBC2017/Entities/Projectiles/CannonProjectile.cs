@@ -29,7 +29,7 @@ namespace GBC2017.Entities.Projectiles
 		    circleRadius = CircleInstance.Radius;
 		}
 
-	    protected override void HandleImpact()
+	    protected  override void CustomHandleImpact()
 	    {
             
 	        RotationX = 0;

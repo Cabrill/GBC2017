@@ -5,10 +5,12 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Glue.StateInterpolation;
 using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using StateInterpolationPlugin;
 
 namespace GBC2017.Entities.Projectiles
 {
@@ -36,7 +38,13 @@ namespace GBC2017.Entities.Projectiles
 	        }
 	    }
 
-        private void CustomActivity()
+	    protected override void CustomHandleImpact()
+	    {
+	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength;
+	        LightOrShadowSprite.Tween("Alpha", 0, duration, InterpolationType.Exponential, Easing.Out);
+	    }
+
+	    private void CustomActivity()
 		{
 
 

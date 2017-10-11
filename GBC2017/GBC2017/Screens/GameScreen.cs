@@ -18,6 +18,7 @@ using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Projectiles;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GameClasses;
@@ -94,9 +95,7 @@ namespace GBC2017.Screens
 
             var createAHome = HomeFactory.CreateNew(WorldLayer);
 
-            FindValidLocationFor(createAHome);
-            createAHome.CurrentState = BaseStructure.VariableState.Built;
-            createAHome.IsBeingPlaced = false;
+            GetHomeLocationFromTileMap(createAHome);
 
             InitializeManagers();
 
@@ -204,6 +203,9 @@ namespace GBC2017.Screens
 
             SlimeAlienFactory.EntitySpawned +=
                 slimealien => slimealien.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            SmallSlimeFactory.EntitySpawned +=
+                slimealien => slimealien.AddSpritesToLayers(LightLayer, InfoLayer);
         }
 
         private void SetCollisionVisibility()
@@ -222,7 +224,6 @@ namespace GBC2017.Screens
 
         void LoadTiledMap()
         {
-            //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
             HelsinkiMap.AddToManagers(WorldLayer);
             HelsinkiMap.Z = -10;
             HelsinkiMap.MapLayers[2].RelativeZ = 14;
@@ -244,9 +245,6 @@ namespace GBC2017.Screens
 
             HelsinkiMap.RemoveFromManagersOneWay();
             HelsinkiMap.AddToManagers(WorldLayer);
-
-
-            //PlayAreaPolygon.Position = new Vector3(PlayAreaPolygon.X - HelsinkiMap.Width/2, PlayAreaPolygon.Y + HelsinkiMap.Height/2, PlayAreaPolygon.Z);
 
             ShapeManager.AddPolygon(PlayAreaPolygon);
             ShapeManager.AddToLayer(PlayAreaPolygon, HUDLayer);
@@ -315,15 +313,21 @@ namespace GBC2017.Screens
                         .ShapeManager.AutomaticallyUpdatedShapes);
                 string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
 
-                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
                 FlatRedBall.Debugging.Debugger.Write(combinedInfo);
-            }
-            FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
-            FlatRedBall.Debugging.Debugger.TextRed = 0f;
-            FlatRedBall.Debugging.Debugger.TextGreen = 0f;
-            FlatRedBall.Debugging.Debugger.TextBlue = 0f;
 
-            //FlatRedBall.Debugging.Debugger.Write(currentLevelDateTime.AddHours(City.Instance.UtcOffset));
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
+                FlatRedBall.Debugging.Debugger.TextRed = 0f;
+                FlatRedBall.Debugging.Debugger.TextGreen = 0f;
+                FlatRedBall.Debugging.Debugger.TextBlue = 0f;
+
+                FlatRedBall.Graphics.Renderer.RecordRenderBreaks = true;
+                var renderBreaks = FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList != null
+                    ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
+                    : 0;
+                FlatRedBall.Debugging.Debugger.Write(renderBreaks);
+
+            }
         }
 
         private void UpdateGameTime()
@@ -440,7 +444,7 @@ namespace GBC2017.Screens
 
 	            if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
 	            {
-	                projectile.Destroy();
+	                projectile.HandleImpact();
 	            }
 	            else
 	            {
@@ -457,7 +461,7 @@ namespace GBC2017.Screens
 	                                .CollideAgainst(projectile.CircleInstance))
 	                        {
 	                            shieldGenerator.HitShieldWith(projectile);
-	                            projectile.CurrentState = BaseEnemyProjectile.VariableState.Impact;
+	                            projectile.HandleImpact();
 	                            continue;
 	                        }
 	                    }
@@ -465,8 +469,8 @@ namespace GBC2017.Screens
 	                    if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
 	                    {
 	                        structure.GetHitBy(projectile);
-	                        projectile.CurrentState = BaseEnemyProjectile.VariableState.Impact;
-	                    }
+	                        projectile.HandleImpact();
+                        }
 
 	                }
 	            }
@@ -501,8 +505,8 @@ namespace GBC2017.Screens
 	                    if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
 	                    enemy.GetHitBy(projectile);
-	                    projectile.CurrentState = BasePlayerProjectile.VariableState.Impact;
-	                }
+	                    projectile.HandleImpact();
+                    }
 	            }
 	        }
 	    }
@@ -543,14 +547,14 @@ namespace GBC2017.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = SmallSlimeFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
-                newAlien.PlaceOnLeftSide();
+	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+                newAlien.PlaceOnRightSide();
 	        }
 
         }
@@ -605,7 +609,7 @@ namespace GBC2017.Screens
 
 	                if (structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
 	                {
-	                    GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
+                        if (!(structureBeingBuilt is HydroGenerator)) GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
 	                }
 	            }
 	            else //Not building, user is possibly selecting an object

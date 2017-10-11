@@ -164,10 +164,6 @@
       <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.cs</Link>
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Generated.Event.cs">
-      <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.Event.cs</Link>
-      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnergyProducer.cs">
       <Link>Entities\BaseEntities\BaseEnergyProducer.cs</Link>
     </Compile>
@@ -191,10 +187,6 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
       <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.cs</Link>
-      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.Event.cs">
-      <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.Event.cs</Link>
       <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseStructure.cs">
@@ -253,6 +245,20 @@
     <Compile Include="..\..\GBC2017\Entities\Enemies\SlimeAlien.Generated.cs">
       <Link>Entities\Enemies\SlimeAlien.Generated.cs</Link>
       <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SlimeAlienCopy.cs">
+      <Link>Entities\Enemies\SlimeAlienCopy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SlimeAlienCopy.Generated.cs">
+      <Link>Entities\Enemies\SlimeAlienCopy.Generated.cs</Link>
+      <DependentUpon>SlimeAlienCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SmallSlime.cs">
+      <Link>Entities\Enemies\SmallSlime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SmallSlime.Generated.cs">
+      <Link>Entities\Enemies\SmallSlime.Generated.cs</Link>
+      <DependentUpon>SmallSlime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.cs">
       <Link>Entities\GraphicalElements\Checkmark.cs</Link>
@@ -422,8 +428,14 @@
     <Compile Include="..\..\GBC2017\Factories\ShieldGeneratorFactory.Generated.cs">
       <Link>Factories\ShieldGeneratorFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\Factories\SlimeAlienCopyFactory.Generated.cs">
+      <Link>Factories\SlimeAlienCopyFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\SlimeAlienFactory.Generated.cs">
       <Link>Factories\SlimeAlienFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Factories\SmallSlimeFactory.Generated.cs">
+      <Link>Factories\SmallSlimeFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
       <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
@@ -1457,6 +1469,14 @@
       <Name>font27arial_o1_0</Name>
       <Link>Assets\content\gumproject\fontcache\font27arial_o1_0.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27moire extrabold_o1.fnt">
+      <Name>font27moire extrabold_o1</Name>
+      <Link>Assets\content\gumproject\fontcache\font27moire extrabold_o1.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27moire extrabold_o1_0.png">
+      <Name>font27moire extrabold_o1_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font27moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black.fnt">
       <Name>font36arial black</Name>
       <Link>Assets\content\gumproject\fontcache\font36arial black.fnt</Link>
@@ -1501,6 +1521,14 @@
       <Name>font36century gothic_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36century gothic_0.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold.fnt">
+      <Name>font36moire extrabold</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_0.png">
+      <Name>font36moire extrabold_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_0.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1.fnt">
       <Name>font36moire extrabold_o1</Name>
       <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1.fnt</Link>
@@ -1508,6 +1536,82 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
       <Name>font36moire extrabold_o1_0</Name>
       <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o2.fnt">
+      <Name>font36moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o2_0.png">
+      <Name>font36moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2.fnt">
+      <Name>font50moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2_0.png">
+      <Name>font50moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2.fnt">
+      <Name>font51moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2_0.png">
+      <Name>font51moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2_1.png">
+      <Name>font51moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2.fnt">
+      <Name>font52moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2_0.png">
+      <Name>font52moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2_1.png">
+      <Name>font52moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2.fnt">
+      <Name>font54moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2_0.png">
+      <Name>font54moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2_1.png">
+      <Name>font54moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2.fnt">
+      <Name>font56moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2_0.png">
+      <Name>font56moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2_1.png">
+      <Name>font56moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2_1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2.fnt">
+      <Name>font60moire extrabold_o2</Name>
+      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2.fnt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2_0.png">
+      <Name>font60moire extrabold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2_0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2_1.png">
+      <Name>font60moire extrabold_o2_1</Name>
+      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2_1.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial.fnt">
       <Name>font72arial</Name>

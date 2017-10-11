@@ -13,21 +13,21 @@ using Microsoft.Xna.Framework;
 
 namespace GBC2017.Entities.Enemies
 {
-	public partial class SlimeAlien
+	public partial class SmallSlime
 	{
-	    private const float maxJumpVelocity = 100f;
+	    private const float maxJumpVelocity = 300f;
 
-        /// <summary>
-        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-        /// added to managers will not have this method called.
-        /// </summary>
-		private void CustomInitialize()
-        {
-            Altitude = 0;
-            GravityDrag = -400f;
-            CurrentJumpState = Jump.NotJumping;
-        }
+	    /// <summary>
+	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+	    /// added to managers will not have this method called.
+	    /// </summary>
+	    private void CustomInitialize()
+	    {
+	        Altitude = 0;
+	        GravityDrag = -400f;
+	        CurrentJumpState = Jump.NotJumping;
+	    }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
 	    {
@@ -40,11 +40,11 @@ namespace GBC2017.Entities.Enemies
 	        }
 	    }
 
-        private void CustomActivity()
-		{
+	    private void CustomActivity()
+	    {
 
 
-		}
+	    }
 
 	    protected override void NavigateToTargetStructure()
 	    {
@@ -53,7 +53,7 @@ namespace GBC2017.Entities.Enemies
 	            CurrentJumpState = Jump.Landing;
 	            Velocity = Vector3.Zero;
 	        }
-            else if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
+	        else if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
 	        {
 	            if (_targetStructureForNavigation != null)
 	            {
@@ -61,7 +61,7 @@ namespace GBC2017.Entities.Enemies
 	            }
 	            else
 	            {
-                    CurrentJumpState = Jump.NotJumping;
+	                CurrentJumpState = Jump.NotJumping;
 	                CurrentActionState = Action.Standing;
 	            }
 	        }
@@ -78,17 +78,17 @@ namespace GBC2017.Entities.Enemies
 
 	                var distanceToTravel = (_targetStructureForNavigation.AxisAlignedRectangleInstance.Width / 2) * Math.Abs(direction.X) +
 	                                       (_targetStructureForNavigation.AxisAlignedRectangleInstance.Height / 2) * Math.Abs(direction.Y) +
-	                                       _currentDistanceToNavigationTarget - MeleeAttackRadius/2;
+	                                       _currentDistanceToNavigationTarget - MeleeAttackRadius / 2;
 
-                    var timeToTravel = distanceToTravel / Speed;
+	                var timeToTravel = distanceToTravel / Speed;
 	                var neededAltitudeVelocity = (-GravityDrag * timeToTravel) / timeToTravel;
 
 	                AltitudeVelocity = Math.Min(maxJumpVelocity, neededAltitudeVelocity);
 	                Altitude = AltitudeVelocity * TimeManager.SecondDifference;
 
-                    Velocity = direction * Speed;
+	                Velocity = direction * Speed;
 
-                    CurrentJumpState = Jump.InAir;
+	                CurrentJumpState = Jump.InAir;
 
 	                CurrentDirectionState =
 	                    (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
@@ -99,17 +99,17 @@ namespace GBC2017.Entities.Enemies
 	                CurrentActionState = Action.Standing;
 	            }
 	        }
-        }
+	    }
 
-        private void CustomDestroy()
-        {
+	    private void CustomDestroy()
+	    {
 
-        }
+	    }
 
-        private static void CustomLoadStaticContent(string contentManagerName)
-        {
+	    private static void CustomLoadStaticContent(string contentManagerName)
+	    {
 
 
-        }
-	}
+	    }
+    }
 }
