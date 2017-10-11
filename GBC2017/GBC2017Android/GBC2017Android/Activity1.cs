@@ -27,11 +27,8 @@ namespace GBC2017
     {
         static SystemUiFlags f =
             SystemUiFlags.LayoutStable
-            | SystemUiFlags.LayoutHideNavigation
             | SystemUiFlags.LayoutFullscreen
-            | SystemUiFlags.HideNavigation
-            | SystemUiFlags.Fullscreen
-            | SystemUiFlags.ImmersiveSticky;
+            | SystemUiFlags.Fullscreen;
 
         SignInButton signInButton;
         Button signOutButton;
@@ -232,15 +229,15 @@ namespace GBC2017
             base.OnResume();
             CrashManager.Register(this, GetString(Resource.String.hockey_app_id));
 
-            //if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
-            //{
-            //    Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
-            //}
-            //else
-            //{
-            //    Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
-            //    ActionBar?.Hide();
-            //}
+            if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
+            {
+                Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+            }
+            else
+            {
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
+                ActionBar?.Hide();
+            }
         }
 
         private void HandleGenericMotion(object sender, View.GenericMotionEventArgs e)

@@ -51,6 +51,7 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EnableProguard>false</EnableProguard>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HockeySDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -246,13 +247,6 @@
       <Link>Entities\Enemies\SlimeAlien.Generated.cs</Link>
       <DependentUpon>SlimeAlien.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\gbc2017\Entities\Enemies\SlimeAlienCopy.cs">
-      <Link>Entities\Enemies\SlimeAlienCopy.cs</Link>
-    </Compile>
-    <Compile Include="..\..\gbc2017\Entities\Enemies\SlimeAlienCopy.Generated.cs">
-      <Link>Entities\Enemies\SlimeAlienCopy.Generated.cs</Link>
-      <DependentUpon>SlimeAlienCopy.cs</DependentUpon>
-    </Compile>
     <Compile Include="..\..\gbc2017\Entities\Enemies\SmallSlime.cs">
       <Link>Entities\Enemies\SmallSlime.cs</Link>
     </Compile>
@@ -427,9 +421,6 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\ShieldGeneratorFactory.Generated.cs">
       <Link>Factories\ShieldGeneratorFactory.Generated.cs</Link>
-    </Compile>
-    <Compile Include="..\..\gbc2017\Factories\SlimeAlienCopyFactory.Generated.cs">
-      <Link>Factories\SlimeAlienCopyFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\SlimeAlienFactory.Generated.cs">
       <Link>Factories\SlimeAlienFactory.Generated.cs</Link>
@@ -1437,114 +1428,6 @@
       <Name>font18arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic.fnt">
-      <Name>font18century gothic</Name>
-      <Link>Assets\content\gumproject\fontcache\font18century gothic.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic_0.png">
-      <Name>font18century gothic_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font18century gothic_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1.fnt">
-      <Name>font25arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font25arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1_0.png">
-      <Name>font25arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font25arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1.fnt">
-      <Name>font27arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1_0.png">
-      <Name>font27arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1.fnt">
-      <Name>font27arial_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1_0.png">
-      <Name>font27arial_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27moire extrabold_o1.fnt">
-      <Name>font27moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font27moire extrabold_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27moire extrabold_o1_0.png">
-      <Name>font27moire extrabold_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font27moire extrabold_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black.fnt">
-      <Name>font36arial black</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_0.png">
-      <Name>font36arial black_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1.fnt">
-      <Name>font36arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_0.png">
-      <Name>font36arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_1.png">
-      <Name>font36arial black_o1_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial.fnt">
-      <Name>font36arial</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_0.png">
-      <Name>font36arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1.fnt">
-      <Name>font36arial_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1_0.png">
-      <Name>font36arial_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic.fnt">
-      <Name>font36century gothic</Name>
-      <Link>Assets\content\gumproject\fontcache\font36century gothic.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic_0.png">
-      <Name>font36century gothic_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36century gothic_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold.fnt">
-      <Name>font36moire extrabold</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_0.png">
-      <Name>font36moire extrabold_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1.fnt">
-      <Name>font36moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
-      <Name>font36moire extrabold_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o2.fnt">
-      <Name>font36moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o2_0.png">
-      <Name>font36moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2.fnt">
       <Name>font50moire extrabold_o2</Name>
       <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2.fnt</Link>
@@ -1552,118 +1435,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2_0.png">
       <Name>font50moire extrabold_o2_0</Name>
       <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2.fnt">
-      <Name>font51moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2_0.png">
-      <Name>font51moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font51moire extrabold_o2_1.png">
-      <Name>font51moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font51moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2.fnt">
-      <Name>font52moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2_0.png">
-      <Name>font52moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font52moire extrabold_o2_1.png">
-      <Name>font52moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font52moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2.fnt">
-      <Name>font54moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2_0.png">
-      <Name>font54moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font54moire extrabold_o2_1.png">
-      <Name>font54moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font54moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2.fnt">
-      <Name>font56moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2_0.png">
-      <Name>font56moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font56moire extrabold_o2_1.png">
-      <Name>font56moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font56moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2.fnt">
-      <Name>font60moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2_0.png">
-      <Name>font60moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font60moire extrabold_o2_1.png">
-      <Name>font60moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font60moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial.fnt">
-      <Name>font72arial</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_0.png">
-      <Name>font72arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_1.png">
-      <Name>font72arial_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_2.png">
-      <Name>font72arial_2</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_2.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold.fnt">
-      <Name>font72moire extrabold</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_0.png">
-      <Name>font72moire extrabold_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_1.png">
-      <Name>font72moire extrabold_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1.fnt">
-      <Name>font72moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_0.png">
-      <Name>font72moire extrabold_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_1.png">
-      <Name>font72moire extrabold_o1_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2.fnt">
-      <Name>font72moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_0.png">
-      <Name>font72moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_1.png">
-      <Name>font72moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_1.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumproject.gumx">
       <Name>gumproject</Name>
