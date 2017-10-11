@@ -65,7 +65,7 @@
     <property name="RangedAttackDamage" type="float" />
     <property name="ProjectileSpeed" type="float" />
     <property name="SecondsBetweenRangedAttack" type="float" />
-    <property name="SecondsBetweenMeleeAttack" type="float" default="1" />
+    <property name="SecondsBetweenMeleeAttack" type="float" default="1.5" />
     <property name="MineralsRewardedWhenKilled" type="float" default="20" />
     <property name="DisplayName" type="string" default="Slime" />
     <property name="IsMeleeAttacker" type="bool" default="true" />

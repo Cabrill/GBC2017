@@ -144,8 +144,12 @@ namespace GBC2017.Screens
 
         private void InitializeBaseEntities()
         {
+            var maxY = Camera.Main.OrthogonalHeight * 0.8f - Camera.Main.OrthogonalHeight / 2;
+            BaseStructure.Initialize(maxY);
+            BaseEnemyProjectile.Initialize(maxY);
+            BasePlayerProjectile.Initialize(maxY);
             BaseCombatStructure.Initialize(AllEnemiesList);
-            BaseEnemy.Initialize(AlienSpawnLeftRectangle, AlienSpawnRightRectangle, AllStructuresList);
+            BaseEnemy.Initialize(AlienSpawnLeftRectangle, AlienSpawnRightRectangle, AllStructuresList, maxY);
         }
 
         private void InitializeFactories()

@@ -29,20 +29,14 @@ namespace GBC2017.Entities.Structures.Combat
 
 	    protected override void SetAnimationFromAimRotation()
 	    {
-	        if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex)
+	        SpriteInstance.UpdateToCurrentAnimationFrame();
+	        if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
 	        {
-                SpriteInstance.UpdateToCurrentAnimationFrame();
-	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
-	            _lastFrameChain = SpriteInstance.CurrentChainName;
-
-	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	            {
-	                SpriteInstance.RelativeX *= SpriteInstance.TextureScale;
-	                SpriteInstance.RelativeY *= SpriteInstance.TextureScale;
-	            }
-	            SpriteInstance.RelativeY += _spriteRelativeY;
+	            SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	            SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	        }
-	    }
+	        SpriteInstance.RelativeY += _spriteRelativeY;
+        }
 
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {

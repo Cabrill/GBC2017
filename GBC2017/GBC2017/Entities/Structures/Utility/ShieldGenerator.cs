@@ -17,7 +17,7 @@ namespace GBC2017.Entities.Structures.Utility
 {
 	public partial class ShieldGenerator
 	{
-	    private float _shieldSpriteScale;
+	    private float? _startingShieldSpriteScale;
 	    private float CurrentShieldHealth;
 	    private double _lastRegenerationTime;
 	    private float _startingAlpha;
@@ -44,12 +44,27 @@ namespace GBC2017.Entities.Structures.Utility
             LightSpriteInstance.Visible = false;
 
             AfterIsBeingPlacedSet += ShieldGenerator_AfterIsBeingPlacedSet;
-            _shieldSpriteScale = ShieldSpriteInstance.TextureScale;
+            _startingShieldSpriteScale = ShieldSpriteInstance.TextureScale;
             _lastRegenerationTime = TimeManager.CurrentTime;
             _startingAlpha = ShieldSpriteInstance.Alpha;
         }
 
-        private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
+
+	    protected override void UpdateScale()
+	    {
+	        base.UpdateScale();
+	        if (_startingShieldSpriteScale.HasValue)
+	        {
+	            ShieldSpriteInstance.TextureScale = _currentScale * _startingShieldSpriteScale.Value;
+
+	            ShieldSpriteInstance.RelativeY = ShieldSpriteInstance.Height / 5;
+	            LightSpriteInstance.RelativeY = LightSpriteInstance.Height / 5;
+
+	            RefreshPolygon();
+	        }
+	    }
+
+	    private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
         {
             PolygonShieldInstance.Visible = IsBeingPlaced;
             ShieldSpriteInstance.Visible = !IsBeingPlaced;
@@ -71,14 +86,14 @@ namespace GBC2017.Entities.Structures.Utility
 
 	        var polygonFirstPoints = new List<Point>();
 
-	        var leftPoint = new Point(ShieldSpriteInstance.X - leftMost, ShieldSpriteInstance.Y);
-	        var topLeftPoint = new Point(ShieldSpriteInstance.X - leftMost * .8f, ShieldSpriteInstance.Y + topMost * 0.7f);
-	        var topPoint = new Point(ShieldSpriteInstance.X, ShieldSpriteInstance.Y + topMost);
-	        var topRightPoint = new Point(ShieldSpriteInstance.X + rightMost * .8f, ShieldSpriteInstance.Y + topMost * 0.7f);
-	        var rightPoint = new Point(ShieldSpriteInstance.X + rightMost, ShieldSpriteInstance.Y);
-	        var bottomRightPoint = new Point(ShieldSpriteInstance.X + rightMost * 0.8f, ShieldSpriteInstance.Y - bottomMost * 0.7f);
-	        var bottomPoint = new Point(ShieldSpriteInstance.X, ShieldSpriteInstance.Y - bottomMost);
-	        var bottomLeftPoint = new Point(ShieldSpriteInstance.X - leftMost * 0.8f, ShieldSpriteInstance.Y - bottomMost * 0.7f);
+	        var leftPoint = new Point( - leftMost, 0);
+	        var topLeftPoint = new Point( - leftMost * .8f, topMost * 0.7f);
+	        var topPoint = new Point(0, topMost);
+	        var topRightPoint = new Point( rightMost * .8f, topMost * 0.7f);
+	        var rightPoint = new Point(rightMost, 0);
+	        var bottomRightPoint = new Point(rightMost * 0.8f, -bottomMost * 0.7f);
+	        var bottomPoint = new Point(0, - bottomMost);
+	        var bottomLeftPoint = new Point(- leftMost * 0.8f, - bottomMost * 0.7f);
 
 	        polygonFirstPoints.Add(leftPoint);
 	        polygonFirstPoints.Add(topLeftPoint);
@@ -90,6 +105,7 @@ namespace GBC2017.Entities.Structures.Utility
 	        polygonFirstPoints.Add(bottomLeftPoint);
 	        polygonFirstPoints.Add(leftPoint);
 
+            PolygonShieldInstance.SetRelativeFromAbsolute();
 	        PolygonShieldInstance.Points = polygonFirstPoints;
         }
 
@@ -237,17 +253,17 @@ namespace GBC2017.Entities.Structures.Utility
 
 	    private void HandleShieldSizePositionSet(float newposition)
 	    {
-	        ShieldSpriteInstance.TextureScale = newposition * _shieldSpriteScale;
+	        ShieldSpriteInstance.TextureScale = newposition * _startingShieldSpriteScale.Value * _currentScale;
 	        ShieldSpriteInstance.Alpha = newposition * _startingAlpha;
 	        
-	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f;
+	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f * _currentScale;
 	        LightSpriteInstance.Alpha = newposition * _startingAlpha;
         }
 
 	    private void PopShield()
         {
             const float secondsToPop = 1f;
-	        ShieldSpriteInstance.TextureScale = _shieldSpriteScale;
+	        ShieldSpriteInstance.TextureScale = _startingShieldSpriteScale.Value * _currentScale;
             ShieldSpriteInstance.Alpha = _startingAlpha;
 
             if (_lastShieldSizeTweener != null && _lastShieldSizeTweener.Running)

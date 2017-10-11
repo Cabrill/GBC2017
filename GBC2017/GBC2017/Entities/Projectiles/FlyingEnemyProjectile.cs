@@ -33,7 +33,7 @@ namespace GBC2017.Entities.Projectiles
 
 	    protected override void CustomHandleImpact()
         {
-	        SpriteInstance.TextureScale = 2f;
+	        SpriteInstance.TextureScale = 2f * _currentScale;
 	    }
 
         public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

@@ -16,6 +16,10 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 	    private bool _hasSetSpriteColors;
 	    private SpriteList _waterDrops;
 
+	    private float? _startingLargeWheelScale;
+	    private float _startingSmallWheelScale;
+	    private float _startingInnerWheelScale;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -33,9 +37,25 @@ namespace GBC2017.Entities.Structures.EnergyProducers
                 emitter.LayerToEmitOn = LayerProvidedByContainer;
                 emitter.SecondFrequency = 0.05f;
             }
+
+
+            _startingLargeWheelScale = LargeWheelSprite.TextureScale;
+            _startingSmallWheelScale = SmallWheelSprite.TextureScale;
+            _startingInnerWheelScale = InnerCircleSprite.TextureScale;
         }
 
-		private void CustomActivity()
+	    protected override void UpdateScale()
+	    {
+	        base.UpdateScale();
+	        if (_startingLargeWheelScale.HasValue)
+	        {
+	            LargeWheelSprite.TextureScale = _startingLargeWheelScale.Value * _currentScale;
+	            SmallWheelSprite.TextureScale = _startingSmallWheelScale * _currentScale;
+	            InnerCircleSprite.TextureScale = _startingInnerWheelScale * _currentScale;
+	        }
+	    }
+
+        private void CustomActivity()
 		{
 		    if (IsBeingPlaced)
 		    {

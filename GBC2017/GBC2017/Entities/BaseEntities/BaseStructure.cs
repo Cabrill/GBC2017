@@ -25,7 +25,14 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseStructure
 	{
-	    public Action OnBuild;
+	    private static float _maximumY;
+	    protected float _currentScale;
+	    private float _startingScale;
+	    private float _startingLightSpriteScale;
+        private float _startingRectangleScaleX;
+	    private float _startingRectangleScaleY;
+
+        public Action OnBuild;
 	    public Action OnDestroy;
 
         public double BatteryLevel { get; protected set; }
@@ -52,12 +59,17 @@ namespace GBC2017.Entities.BaseEntities
 
 	    protected float _spriteRelativeY;
 
-	    /// <summary>
-	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-	    /// added to managers will not have this method called.
-	    /// </summary>
-	    private void CustomInitialize()
+	    public static void Initialize(float maximumY)
+	    {
+	        _maximumY = maximumY;
+        }
+
+        /// <summary>
+        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+        /// added to managers will not have this method called.
+        /// </summary>
+        private void CustomInitialize()
 	    {
 #if DEBUG
 	        if (DebugVariables.ShowDebugShapes)
@@ -70,7 +82,12 @@ namespace GBC2017.Entities.BaseEntities
 	            AxisAlignedRectangleInstance.Visible = false;
 	        }
 
-	        HealthRemaining = MaximumHealth;
+	        _startingScale = SpriteInstance.TextureScale;
+	        _startingLightSpriteScale = LightSpriteInstance.TextureScale;
+            _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
+	        _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
+
+            HealthRemaining = MaximumHealth;
 	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
 	        PlacementSound = GlobalContent.Structure_Placed.CreateInstance();
 
@@ -82,19 +99,21 @@ namespace GBC2017.Entities.BaseEntities
 
 	        _lastUsageUpdate = TimeManager.CurrentTime;
 
-	        _spriteRelativeY = GetSpriteRelativeY();
-
-            SpriteInstance.RelativeY = _spriteRelativeY;
-	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
-	    }
+	        CalculateScale();
+	        UpdateScale();
+	        UpdateAnimation();
+        }
 
 	    private void CustomActivity()
 	    {
-	        UpdateAnimation();
+            UpdateAnimation();
 
             if (IsBeingPlaced)
 		    {
-		        if (IsValidLocation)
+		        CalculateScale();
+		        UpdateScale();
+
+                if (IsValidLocation)
 		        {
 #if DEBUG
 		            if (DebugVariables.IgnoreStructureBuildCost)
@@ -176,9 +195,26 @@ namespace GBC2017.Entities.BaseEntities
             }
 		}
 
+	    private void CalculateScale()
+	    {
+	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+        }
+
+        protected virtual void UpdateScale()
+	    {
+            SpriteInstance.TextureScale = _startingScale * _currentScale;
+	        LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
+            AxisAlignedRectangleInstance.ScaleX = _startingRectangleScaleX * _currentScale;
+	        AxisAlignedRectangleInstance.ScaleY = _startingRectangleScaleY * _currentScale;
+
+	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
+
+	        _spriteRelativeY = GetSpriteRelativeY();
+        }
+
 	    private void UpdateAnimation()
 	    {
-	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+            if (!SpriteInstance.Animate || SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
 	        {
 	            SpriteInstance.RelativeY = _spriteRelativeY;
 	        }

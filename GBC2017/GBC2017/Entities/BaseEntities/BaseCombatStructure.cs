@@ -25,32 +25,38 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance attackSound;
 	    private float _aimRotation;
 	    protected float _shotAltitude = 1f;
+	    private float? _startingRangeRadius;
 
-	    protected int _lastFrameIndex;
-	    protected string _lastFrameChain;
+	    /// <summary>
+	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+	    /// added to managers will not have this method called.
+	    /// </summary>
+	    private void CustomInitialize()
+	    {
+	        RangeCircleInstance.Visible = true;
+	        LastFiredTime = TimeManager.CurrentTime;
 
-        /// <summary>
-        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-        /// added to managers will not have this method called.
-        /// </summary>
-		private void CustomInitialize()
-		{
-		    RangeCircleInstance.Visible = true;
-		    LastFiredTime = TimeManager.CurrentTime;
-
-            AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
-
-		    _lastFrameIndex = -1;
-		    _lastFrameChain = "";
-        }
+	        AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
+	        _startingRangeRadius = RangedRadius;
+	    }
 
 	    public static void Initialize(PositionedObjectList<BaseEnemy> potentialTargets)
 	    {
 	        _potentialTargetList = potentialTargets;
 	    }
 
-		private void CustomActivity()
+	    protected override void UpdateScale()
+	    {
+            base.UpdateScale();
+	        if (_startingRangeRadius.HasValue)
+	        {
+	            //RangedRadius = _startingRangeRadius * _currentScale;
+	            RangeCircleInstance.Radius = _startingRangeRadius.Value * _currentScale;
+	        }
+	    }
+
+        private void CustomActivity()
 		{
             if (IsBeingPlaced == false)
             {
@@ -184,19 +190,14 @@ namespace GBC2017.Entities.BaseEntities
 
 	        SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
 
-	        if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
-	        {
-	            SpriteInstance.UpdateToCurrentAnimationFrame();
-                _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
-	            _lastFrameChain = SpriteInstance.CurrentChainName;
 
-	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	            {
-	                SpriteInstance.RelativeX *= SpriteInstance.TextureScale;
-	                SpriteInstance.RelativeY *= SpriteInstance.TextureScale;
-	            }
-	            SpriteInstance.RelativeY += _spriteRelativeY;
+	        SpriteInstance.UpdateToCurrentAnimationFrame();
+	        if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
+	        {
+	            SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	            SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	        }
+	        SpriteInstance.RelativeY += _spriteRelativeY;
         }
 
 	    private Vector3 GetProjectilePositioning(float? angle = null)

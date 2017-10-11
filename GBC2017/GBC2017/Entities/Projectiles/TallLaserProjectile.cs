@@ -35,13 +35,13 @@ namespace GBC2017.Entities.Projectiles
 	    protected override void CustomHandleImpact()
         {
 	        RotationZ = FlatRedBallServices.Random.Between(-4, 4);
-	        LightOrShadowSprite.TextureScale = 2f;
+	        LightOrShadowSprite.TextureScale = 2f * _currentScale;
 	        LightOrShadowSprite.Tween(HandleTweenerUpdate, 2f, 0f, SpriteInstance.AnimationChains["Impact"].TotalLength, InterpolationType.Exponential, Easing.Out).Start();
 	    }
 
 	    private void HandleTweenerUpdate(float newPosition)
 	    {
-	        LightOrShadowSprite.TextureScale = newPosition;
+	        LightOrShadowSprite.TextureScale = newPosition * _currentScale;
 	    }
 
 

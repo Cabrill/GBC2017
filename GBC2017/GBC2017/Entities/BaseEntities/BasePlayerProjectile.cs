@@ -16,7 +16,13 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BasePlayerProjectile
 	{
-	    private int groundHitCounter = 0;
+	    private static float _maximumY;
+	    protected float _currentScale;
+	    private float _startingSpriteScale;
+	    private float _startingLightScale;
+	    private float _startingCircleRadius;
+
+        private int groundHitCounter = 0;
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
 	    public float GravityDrag { get; set; } = -100f;
@@ -30,6 +36,11 @@ namespace GBC2017.Entities.BaseEntities
 	    protected SoundEffectInstance HitTargetSound;
 	    private bool _spritedAddedToLayers = false;
 	    public bool ShouldBeDestroyed;
+
+	    public static void Initialize(float maximumY)
+	    {
+	        _maximumY = maximumY;
+        }
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -50,17 +61,36 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 
             //These have to be set here, because the object is pooled (reused)
+
+		    _startingShadowWidth = LightOrShadowSprite.Width;
+		    _startingShadowHeight = LightOrShadowSprite.Height;
+		    _startingShadowAlpha = LightOrShadowSprite.Alpha;
             _hitTheGround = false;
-		    _startingPosition = null;
+
 		    ShouldBeDestroyed = false;
 		    Visible = true;
 		    LightOrShadowSprite.Position = Position;
             CurrentState = VariableState.Flying;
 		}
 
-		private void CustomActivity()
-		{
-		    UpdateAnimation();
+	    private void CalculateScale()
+	    {
+	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	    }
+
+	    protected virtual void UpdateScale()
+	    {
+	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
+	    }
+
+	    private void CustomActivity()
+	    {
+	        if (CurrentState != VariableState.Impact)
+	        {
+	            CalculateScale();
+	            UpdateScale();
+	        }
 
             if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
 		    {
@@ -78,20 +108,12 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 		    else if (CurrentState != VariableState.Impact)
             {
-                if (!_startingPosition.HasValue)
-		        {
-		            _startingPosition = Position;
-		            _startingShadowWidth = LightOrShadowSprite.Width;
-		            _startingShadowHeight = LightOrShadowSprite.Height;
-		            _startingShadowAlpha = LightOrShadowSprite.Alpha;
-		        }
-
 		        var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
-		        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / distanceAtWhichToGrow), 0, 1);
+		        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
 
-                LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow;
-		        LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow;
-		        LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
+                LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
+		        LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
+		        LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow * _currentScale;
 
                 _hitTheGround = Altitude <= 0;
 
@@ -113,7 +135,7 @@ namespace GBC2017.Entities.BaseEntities
 
             if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
 	        {
-	            SpriteInstance.RelativeY = Altitude + SpriteInstance.CurrentChain[0].RelativeY;
+	            SpriteInstance.RelativeY = Altitude * _currentScale + SpriteInstance.CurrentChain[0].RelativeY;
 	        }
 	        else
 	        {
@@ -124,7 +146,7 @@ namespace GBC2017.Entities.BaseEntities
 	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	            }
-	            SpriteInstance.RelativeY += Altitude;
+	            SpriteInstance.RelativeY += Altitude * _currentScale;
 	        }
         }
 

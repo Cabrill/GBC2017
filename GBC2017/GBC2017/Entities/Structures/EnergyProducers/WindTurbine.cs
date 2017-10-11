@@ -18,6 +18,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
     {
         private float _lastWindEffectiveness;
         private bool _hasSetTurbineSprite;
+        private float? _startingTurbineScale;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -28,6 +29,17 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         {
             EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
             TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
+            _startingTurbineScale = TurbineSprite.TextureScale;
+        }
+
+        protected override void UpdateScale()
+        {
+            base.UpdateScale();
+            if (_startingTurbineScale.HasValue)
+            {
+                TurbineSprite.TextureScale = _startingTurbineScale.Value * _currentScale;
+                TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
+            }
         }
 
         private void CustomActivity()

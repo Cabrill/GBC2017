@@ -35,7 +35,7 @@ namespace GBC2017.Entities.Projectiles
 	        RotationX = 0;
 	        RotationY = 0;
 	        RotationZ = 0;
-            SpriteInstance.TextureScale = 2f;
+            SpriteInstance.TextureScale = 2f * _currentScale;
 
 	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 
@@ -52,8 +52,8 @@ namespace GBC2017.Entities.Projectiles
 
 	    private void HandleLightGrowUpdate(float newPosition)
 	    {
-	        LightOrShadowSprite.TextureScale = newPosition;
-	        CircleInstance.Radius = circleRadius * newPosition*2f;
+	        LightOrShadowSprite.TextureScale = newPosition * _currentScale;
+	        CircleInstance.Radius = circleRadius * newPosition*2f * _currentScale;
 	    }
 
         private void CustomActivity()

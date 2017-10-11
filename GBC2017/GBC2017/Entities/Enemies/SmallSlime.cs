@@ -15,7 +15,7 @@ namespace GBC2017.Entities.Enemies
 {
 	public partial class SmallSlime
 	{
-	    private const float maxJumpVelocity = 300f;
+	    private const float maxJumpVelocity = 200f;
 
 	    /// <summary>
 	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -86,7 +86,7 @@ namespace GBC2017.Entities.Enemies
 	                AltitudeVelocity = Math.Min(maxJumpVelocity, neededAltitudeVelocity);
 	                Altitude = AltitudeVelocity * TimeManager.SecondDifference;
 
-	                Velocity = direction * Speed;
+	                Velocity = direction * Speed * _currentScale;
 
 	                CurrentJumpState = Jump.InAir;
 

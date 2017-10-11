@@ -101,7 +101,7 @@ namespace GBC2017.Entities.BaseEntities
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
 
-                Velocity = direction * Speed;
+                Velocity = direction * Speed * _currentScale;
 
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =

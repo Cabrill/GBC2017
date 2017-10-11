@@ -25,7 +25,13 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseEnemy
 	{
-	    public event Action<BaseEnemy> OnDeath;
+	    private static float _maximumY;
+	    protected float _currentScale;
+	    private float _startingSpriteScale;
+	    private float _startingLightScale;
+        private float _startingCircleRadius;
+
+        public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
 	    protected float AltitudeVelocity { get; set; }
 	    protected float GravityDrag { get; set; } = -100f;
@@ -78,26 +84,29 @@ namespace GBC2017.Entities.BaseEntities
 
 		    _lastRangeAttackTime = TimeManager.CurrentTime;
 		    _lastMeleeAttackTime = TimeManager.CurrentTime;
+		    _startingSpriteScale = SpriteInstance.TextureScale;
+		    _startingLightScale = LightSprite.TextureScale;
 
             HealthRemaining = MaximumHealth;
 		    _healthBarWidth = SpriteInstance.Width;
             _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
-		    _lastFrameIndex = -1;
-		    _lastFrameChain = "";
-		    _spriteRelativeY = GetSpriteRelativeY();
-		    SpriteInstance.RelativeY += _spriteRelativeY;
+
+		    CalculateScale();
+            UpdateScale();
+            UpdateAnimation();
 
 		    Altitude = 0f;
 		    AltitudeVelocity = 0f;
 		    GravityDrag = 0f;
 		}
 
-	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList)
+	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList, float maximumY)
 	    {
 	        _leftSpawnArea = left;
 	        _rightSpawnArea = right;
 	        _potentialTargetList = potentialTargetList;
-	    }
+	        _maximumY = maximumY;
+        }
 
 		private void CustomActivity()
 		{
@@ -125,11 +134,27 @@ namespace GBC2017.Entities.BaseEntities
 		        NavigationActivity();
 		    }
 
+		    CalculateScale();
+            UpdateScale();
 		    UpdateAnimation();
             UpdateHealthBar();
         }
 
-	    private void UpdateAnimation()
+	    private void CalculateScale()
+	    {
+	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	    }
+
+        protected virtual void UpdateScale()
+	    {
+	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
+	        LightSprite.TextureScale = _startingLightScale * _currentScale;
+
+            _spriteRelativeY = GetSpriteRelativeY();
+	    }
+
+        private void UpdateAnimation()
 	    {
 	        if (Altitude > 0 && (!IsFlying || IsDead))
 	        {
@@ -153,7 +178,7 @@ namespace GBC2017.Entities.BaseEntities
 	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
 	        {
 	            SpriteInstance.RelativeX = SpriteInstance.CurrentChain[0].RelativeX * (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-                SpriteInstance.RelativeY = Altitude + SpriteInstance.CurrentChain[0].RelativeY + _spriteRelativeY;
+                SpriteInstance.RelativeY = Altitude * _currentScale + SpriteInstance.CurrentChain[0].RelativeY + _spriteRelativeY;
 	        }
 	        else
 	        {
@@ -164,13 +189,13 @@ namespace GBC2017.Entities.BaseEntities
 	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	            }
-	            SpriteInstance.RelativeY += Altitude + _spriteRelativeY;
+	            SpriteInstance.RelativeY += Altitude*_currentScale + _spriteRelativeY;
 	        }
 
-	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / 800), 0, 1);
+	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (800*_currentScale)), 0, 1);
 
-	        ShadowSprite.Width = _startingShadowWidth * pctLightShadow;
-	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow;
+	        ShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
+	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
 	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
         }
 
