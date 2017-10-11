@@ -62,17 +62,12 @@ namespace GBC2017.GameClasses.BaseClasses
         /// Creates enemies equal to the energy amount
         /// </summary>
         /// <param name="energyAmount">Amount of energy to spend in creating enemies</param>
-        public void CreateEnemiesFromEnergy()
+        private void CreateEnemiesFromEnergy()
         {
-            var minimumCostOfAnEnemy = GameFormulas.Instance.MinimumEnergyCostForAnEnemy;
-            var energyAvailable = EnergyToSpend;
+            if (!(EnergyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)) return;
 
-            if (energyAvailable >= minimumCostOfAnEnemy)
-            {
-                var newEnemy = FlyingEnemyFactory.CreateNew(_layerForEnemies);
-                newEnemy.PlaceOnRightSide();
-                EnergyToSpend -= GameFormulas.Instance.EnergyRatingForEnemy(newEnemy);
-            }
+            var newEnemy = GameFormulas.Instance.StrongestAffordableEnemy(ref EnergyToSpend, _layerForEnemies);
+            newEnemy?.PlaceOnRightSide();
         }
 
         public void Update(DateTime currentDateTime)

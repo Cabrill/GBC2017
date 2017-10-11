@@ -837,6 +837,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs">
       <Link>GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\LoadingScreenGumRuntime.Generated.cs">
+      <Link>GumRuntimes\LoadingScreenGumRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\MainMenuGumRuntime.Generated.cs">
       <Link>GumRuntimes\MainMenuGumRuntime.Generated.cs</Link>
     </Compile>
@@ -1562,6 +1565,10 @@
       <Name>gumproject</Name>
       <Link>Assets\content\gumproject\gumproject.gumx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\justwindmill.png">
+      <Name>justwindmill</Name>
+      <Link>Assets\content\gumproject\justwindmill.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\gamescreengum.gusx">
       <Name>gamescreengum</Name>
       <Link>Assets\content\gumproject\screens\gamescreengum.gusx</Link>
@@ -1569,6 +1576,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\levelselectscreengum.gusx">
       <Name>levelselectscreengum</Name>
       <Link>Assets\content\gumproject\screens\levelselectscreengum.gusx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\loadingscreengum.gusx">
+      <Name>loadingscreengum</Name>
+      <Link>Assets\content\gumproject\screens\loadingscreengum.gusx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\mainmenugum.gusx">
       <Name>mainmenugum</Name>

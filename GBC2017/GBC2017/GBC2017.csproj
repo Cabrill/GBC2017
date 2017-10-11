@@ -364,6 +364,7 @@
     <Compile Include="GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
@@ -886,6 +887,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font27Arial Black_o1_0</Name>
     </None>
+    <None Include="content\gumproject\fontcache\font36arial black.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial Black</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font36arial black_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font36Arial Black_0</Name>
+    </None>
     <None Include="content\gumproject\fontcache\font36arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font36Arial</Name>
@@ -946,6 +955,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
     </None>
+    <None Include="content\gumproject\justwindmill.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>JustWindmill</Name>
+    </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameScreenGum</Name>
@@ -953,6 +966,10 @@
     <None Include="content\gumproject\screens\levelselectscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LevelSelectScreenGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\loadingscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LoadingScreenGum</Name>
     </None>
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

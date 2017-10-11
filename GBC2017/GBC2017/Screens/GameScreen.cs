@@ -543,7 +543,7 @@ namespace GBC2017.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 

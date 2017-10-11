@@ -43,16 +43,16 @@
     <property name="Speed" type="float" default="125" />
     <property name="IsRangedAttacker" type="bool" default="false" />
     <property name="MeleeAttackDamage" type="float" default="5" />
-    <property name="RangedAttackDamage" type="float" default="10" />
-    <property name="ProjectileSpeed" type="float" default="300" />
-    <property name="SecondsBetweenRangedAttack" type="float" default="2" />
+    <property name="RangedAttackDamage" type="float" default="0" />
+    <property name="ProjectileSpeed" type="float" default="0" />
+    <property name="SecondsBetweenRangedAttack" type="float" default="0" />
     <property name="SecondsBetweenMeleeAttack" type="float" default="0.8" />
     <property name="MineralsRewardedWhenKilled" type="float" default="25" />
     <property name="DisplayName" type="string" default="Basic Alien" />
     <property name="IsMeleeAttacker" type="bool" default="true" />
     <property name="MeleeAttackRadius" type="float" default="32" />
     <property name="RangedAttackRadius" type="float" default="16" />
-    <property name="IsFlying" type="bool" />
+    <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="false" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
@@ -107,7 +107,7 @@
     <property name="AttackDamage" type="float" default="50" />
     <property name="SecondsBetweenFiring" type="float" default="3" />
     <property name="EnergyCostToFire" type="float" default="100" />
-    <property name="RangedRadius" type="float" default="200" />
+    <property name="RangedRadius" type="float" default="300" />
     <property name="ProjectileSpeed" type="float" default="200" />
   </objecttype>
   <objecttype name="LaserTurret">

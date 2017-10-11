@@ -86,6 +86,10 @@ namespace GBC2017.Entities.BaseEntities
 		    _lastFrameChain = "";
 		    _spriteRelativeY = GetSpriteRelativeY();
 		    SpriteInstance.RelativeY += _spriteRelativeY;
+
+		    Altitude = 0f;
+		    AltitudeVelocity = 0f;
+		    GravityDrag = 0f;
 		}
 
 	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList)

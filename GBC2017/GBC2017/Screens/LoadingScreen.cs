@@ -21,15 +21,20 @@ namespace GBC2017.Screens
 
 		void CustomInitialize()
 		{
-
-
+            LoadingScreenGumRuntime.SpinTurbineAnimation.Play();
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-
-
-		}
+		    if (this.AsyncLoadingState == FlatRedBall.Screens.AsyncLoadingState.NotStarted)
+		    {
+		        StartAsyncLoad(typeof(GameScreen).FullName);
+		    }
+		    else if (this.AsyncLoadingState == FlatRedBall.Screens.AsyncLoadingState.Done)
+		    {
+		        IsActivityFinished = true;
+		    }
+        }
 
 		void CustomDestroy()
 		{

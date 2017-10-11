@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using FlatRedBall.Graphics;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Enemies;
 using GBC2017.Entities.Structures.Combat;
+using GBC2017.Factories;
 
 namespace GBC2017.GameClasses
 {
@@ -54,6 +56,10 @@ namespace GBC2017.GameClasses
 
         public const int RealSecondsPerGameHour = 8;
         public float MinimumEnergyCostForAnEnemy;
+        public float EnergyCostOfBasicAlien;
+        public float EnergyCostOfFlyingEnemy;
+        public float EnergyCostOfSlimeAlien;
+        public float EnergyCostOfMeleeAlien;
 
         #endregion
 
@@ -81,16 +87,31 @@ namespace GBC2017.GameClasses
             BaseEnergyPerHitPoint = baseEnergyPerAttack / baseDamage;
             BaseCombatStructureRange = basicTower.RangedRadius;
             BaseProjectileSpeed = basicTower.ProjectileSpeed;
+            basicTower.Destroy();
 
             //Instantiate an instance of the base enemy, and read it's stats
             var basicEnemy = new BasicAlien();
             BaseEnemyMovementSpeed = basicEnemy.Speed;
 
-            MinimumEnergyCostForAnEnemy = EnergyRatingForEnemy(basicEnemy);
-
-            //Destroy the objects we used for analysis
+            EnergyCostOfBasicAlien = EnergyRatingForEnemy(basicEnemy);
             basicEnemy.Destroy();
-            basicTower.Destroy();
+
+            var slime = new SlimeAlien();
+            EnergyCostOfSlimeAlien = EnergyRatingForEnemy(slime);
+            slime.Destroy();
+
+            var flying = new FlyingEnemy();
+            EnergyCostOfFlyingEnemy = EnergyRatingForEnemy(flying);
+            flying.Destroy();
+
+            var melee = new MeleeAlien();
+            EnergyCostOfMeleeAlien = EnergyRatingForEnemy(melee);
+            melee.Destroy();
+
+            MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfBasicAlien, float.MaxValue);
+            MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfSlimeAlien, MinimumEnergyCostForAnEnemy);
+            MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfFlyingEnemy, MinimumEnergyCostForAnEnemy);
+            MinimumEnergyCostForAnEnemy = Math.Min(EnergyCostOfMeleeAlien, MinimumEnergyCostForAnEnemy);
         }
         #endregion
 
@@ -161,6 +182,29 @@ namespace GBC2017.GameClasses
             //var dps = damage * rangeModifier * perSecondModifier;
 
             return life;// + dps;
+        }
+
+        public BaseEnemy StrongestAffordableEnemy(ref float energyAmount, Layer layerToPutEnemyOn)
+        {
+            var energyToSpend = 0f;
+            energyToSpend = EnergyCostOfBasicAlien < energyAmount ? EnergyCostOfBasicAlien : energyToSpend;
+            energyToSpend = EnergyCostOfFlyingEnemy < energyAmount ? EnergyCostOfFlyingEnemy : energyToSpend;
+            energyToSpend = EnergyCostOfMeleeAlien < energyAmount ? EnergyCostOfMeleeAlien : energyToSpend;
+            energyToSpend = EnergyCostOfSlimeAlien < energyAmount ? EnergyCostOfSlimeAlien : energyToSpend;
+
+            if (energyToSpend == 0)
+            {
+                return null;
+            }
+
+            energyAmount -= energyToSpend;
+
+            if (energyToSpend == EnergyCostOfBasicAlien) return BasicAlienFactory.CreateNew(layerToPutEnemyOn);
+            if (energyToSpend == EnergyCostOfFlyingEnemy) return FlyingEnemyFactory.CreateNew(layerToPutEnemyOn);
+            if (energyToSpend == EnergyCostOfMeleeAlien) return MeleeAlienFactory.CreateNew(layerToPutEnemyOn);
+            if (energyToSpend == EnergyCostOfSlimeAlien) return SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
+
+            return null;
         }
         #endregion
     }

@@ -374,11 +374,36 @@
       </ReferencedFiles>
     </ScreenSave>
     <ScreenSave>
+      <Properties>
+        <PropertySave>
+          <Name>IsLoadingScreen</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Tags>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
       <Name>Screens\LoadingScreen</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/LoadingScreenGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/LoadingScreenGum.gusx</SourceFile>
+          <SourceName>this (GBC2017.GumRuntimes.LoadingScreenGumRuntime)</SourceName>
+          <InstanceName>LoadingScreenGumRuntime</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
     </ScreenSave>
     <ScreenSave>
       <Tags>
@@ -3627,7 +3652,7 @@
           </Properties>
           <Name>RangedAttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3639,7 +3664,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3651,7 +3676,7 @@
           </Properties>
           <Name>SecondsBetweenRangedAttack</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3735,6 +3760,7 @@
           </Properties>
           <Name>IsFlying</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3814,7 +3840,7 @@
           <CustomProperty>
             <Type>bool</Type>
             <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -6208,7 +6234,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
