@@ -13,7 +13,7 @@
       <TopCoordinate>576</TopCoordinate>
       <BottomCoordinate>671</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-56.5</RelativeY>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -23,7 +23,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1951</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-50</RelativeY>
+      <RelativeY>-20</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -33,7 +33,7 @@
       <TopCoordinate>754</TopCoordinate>
       <BottomCoordinate>866</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-44</RelativeY>
+      <RelativeY>-14</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -43,7 +43,7 @@
       <TopCoordinate>1334</TopCoordinate>
       <BottomCoordinate>1447</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-36.5</RelativeY>
+      <RelativeY>-3.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -53,7 +53,7 @@
       <TopCoordinate>754</TopCoordinate>
       <BottomCoordinate>866</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-44</RelativeY>
+      <RelativeY>-14</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -63,7 +63,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1951</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-50</RelativeY>
+      <RelativeY>-20</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -73,7 +73,7 @@
       <TopCoordinate>576</TopCoordinate>
       <BottomCoordinate>671</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-56.5</RelativeY>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -86,7 +86,7 @@
       <TopCoordinate>576</TopCoordinate>
       <BottomCoordinate>671</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-56.5</RelativeY>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -96,7 +96,7 @@
       <TopCoordinate>1060</TopCoordinate>
       <BottomCoordinate>1145</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-61.5</RelativeY>
+      <RelativeY>-31.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -106,7 +106,7 @@
       <TopCoordinate>1555</TopCoordinate>
       <BottomCoordinate>1635</BottomCoordinate>
       <RelativeX>-17</RelativeX>
-      <RelativeY>-64</RelativeY>
+      <RelativeY>-34</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -116,7 +116,7 @@
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>77</BottomCoordinate>
       <RelativeX>-15</RelativeX>
-      <RelativeY>-65.5</RelativeY>
+      <RelativeY>-35.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -126,7 +126,7 @@
       <TopCoordinate>79</TopCoordinate>
       <BottomCoordinate>151</BottomCoordinate>
       <RelativeX>-14</RelativeX>
-      <RelativeY>-67</RelativeY>
+      <RelativeY>-37</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -136,7 +136,7 @@
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>77</BottomCoordinate>
       <RelativeX>-15</RelativeX>
-      <RelativeY>-65.5</RelativeY>
+      <RelativeY>-35.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -146,7 +146,7 @@
       <TopCoordinate>1555</TopCoordinate>
       <BottomCoordinate>1635</BottomCoordinate>
       <RelativeX>-17</RelativeX>
-      <RelativeY>-64</RelativeY>
+      <RelativeY>-34</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -156,7 +156,7 @@
       <TopCoordinate>1060</TopCoordinate>
       <BottomCoordinate>1145</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-61.5</RelativeY>
+      <RelativeY>-31.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -169,7 +169,7 @@
       <TopCoordinate>576</TopCoordinate>
       <BottomCoordinate>671</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-56.5</RelativeY>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -179,7 +179,7 @@
       <TopCoordinate>1060</TopCoordinate>
       <BottomCoordinate>1145</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-61.5</RelativeY>
+      <RelativeY>-31.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -189,7 +189,7 @@
       <TopCoordinate>1555</TopCoordinate>
       <BottomCoordinate>1635</BottomCoordinate>
       <RelativeX>-17</RelativeX>
-      <RelativeY>-64</RelativeY>
+      <RelativeY>-34</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -199,7 +199,7 @@
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>77</BottomCoordinate>
       <RelativeX>-15</RelativeX>
-      <RelativeY>-65.5</RelativeY>
+      <RelativeY>-35.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -209,7 +209,7 @@
       <TopCoordinate>79</TopCoordinate>
       <BottomCoordinate>151</BottomCoordinate>
       <RelativeX>-14</RelativeX>
-      <RelativeY>-67</RelativeY>
+      <RelativeY>-37</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -219,7 +219,7 @@
       <TopCoordinate>1722</TopCoordinate>
       <BottomCoordinate>1791</BottomCoordinate>
       <RelativeX>-14</RelativeX>
-      <RelativeY>-69.5</RelativeY>
+      <RelativeY>-39.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -229,7 +229,7 @@
       <TopCoordinate>1334</TopCoordinate>
       <BottomCoordinate>1400</BottomCoordinate>
       <RelativeX>-15</RelativeX>
-      <RelativeY>-71</RelativeY>
+      <RelativeY>-41</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -239,7 +239,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1917</BottomCoordinate>
       <RelativeX>-15</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -252,7 +252,7 @@
       <TopCoordinate>1454</TopCoordinate>
       <BottomCoordinate>1543</BottomCoordinate>
       <RelativeX>-35</RelativeX>
-      <RelativeY>-59</RelativeY>
+      <RelativeY>-29</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -262,7 +262,7 @@
       <TopCoordinate>1247</TopCoordinate>
       <BottomCoordinate>1321</BottomCoordinate>
       <RelativeX>-39</RelativeX>
-      <RelativeY>-66</RelativeY>
+      <RelativeY>-36</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -272,7 +272,7 @@
       <TopCoordinate>673</TopCoordinate>
       <BottomCoordinate>745</BottomCoordinate>
       <RelativeX>-39</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -282,7 +282,7 @@
       <TopCoordinate>873</TopCoordinate>
       <BottomCoordinate>944</BottomCoordinate>
       <RelativeX>-39</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -292,7 +292,7 @@
       <TopCoordinate>673</TopCoordinate>
       <BottomCoordinate>745</BottomCoordinate>
       <RelativeX>-39</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -302,7 +302,7 @@
       <TopCoordinate>1247</TopCoordinate>
       <BottomCoordinate>1321</BottomCoordinate>
       <RelativeX>-39</RelativeX>
-      <RelativeY>-66</RelativeY>
+      <RelativeY>-36</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -312,7 +312,7 @@
       <TopCoordinate>1454</TopCoordinate>
       <BottomCoordinate>1543</BottomCoordinate>
       <RelativeX>-35</RelativeX>
-      <RelativeY>-59</RelativeY>
+      <RelativeY>-29</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -322,7 +322,7 @@
       <TopCoordinate>1316</TopCoordinate>
       <BottomCoordinate>1452</BottomCoordinate>
       <RelativeX>-5</RelativeX>
-      <RelativeY>-35</RelativeY>
+      <RelativeY>-2</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -332,7 +332,7 @@
       <TopCoordinate>1495</TopCoordinate>
       <BottomCoordinate>1638</BottomCoordinate>
       <RelativeX>3</RelativeX>
-      <RelativeY>-31</RelativeY>
+      <RelativeY>-1</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -342,7 +342,7 @@
       <TopCoordinate>804</TopCoordinate>
       <BottomCoordinate>934</BottomCoordinate>
       <RelativeX>14</RelativeX>
-      <RelativeY>-38</RelativeY>
+      <RelativeY>-5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -352,7 +352,7 @@
       <TopCoordinate>382</TopCoordinate>
       <BottomCoordinate>484</BottomCoordinate>
       <RelativeX>31</RelativeX>
-      <RelativeY>-52</RelativeY>
+      <RelativeY>-22</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -362,7 +362,7 @@
       <TopCoordinate>486</TopCoordinate>
       <BottomCoordinate>556</BottomCoordinate>
       <RelativeX>39</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -375,7 +375,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1919</BottomCoordinate>
       <RelativeX>36</RelativeX>
-      <RelativeY>-70</RelativeY>
+      <RelativeY>-40</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -385,7 +385,7 @@
       <TopCoordinate>486</TopCoordinate>
       <BottomCoordinate>556</BottomCoordinate>
       <RelativeX>39</RelativeX>
-      <RelativeY>-68</RelativeY>
+      <RelativeY>-38</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -395,7 +395,7 @@
       <TopCoordinate>382</TopCoordinate>
       <BottomCoordinate>484</BottomCoordinate>
       <RelativeX>31</RelativeX>
-      <RelativeY>-52</RelativeY>
+      <RelativeY>-22</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -405,7 +405,7 @@
       <TopCoordinate>804</TopCoordinate>
       <BottomCoordinate>934</BottomCoordinate>
       <RelativeX>14</RelativeX>
-      <RelativeY>-38</RelativeY>
+      <RelativeY>-5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -415,7 +415,7 @@
       <TopCoordinate>1495</TopCoordinate>
       <BottomCoordinate>1638</BottomCoordinate>
       <RelativeX>3</RelativeX>
-      <RelativeY>-31</RelativeY>
+      <RelativeY>-1</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -425,7 +425,7 @@
       <TopCoordinate>1316</TopCoordinate>
       <BottomCoordinate>1452</BottomCoordinate>
       <RelativeX>-5</RelativeX>
-      <RelativeY>-35</RelativeY>
+      <RelativeY>-2</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -435,7 +435,7 @@
       <TopCoordinate>1555</TopCoordinate>
       <BottomCoordinate>1669</BottomCoordinate>
       <RelativeX>-24</RelativeX>
-      <RelativeY>-46</RelativeY>
+      <RelativeY>-16</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -448,7 +448,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1951</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-50</RelativeY>
+      <RelativeY>-20</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -458,7 +458,7 @@
       <TopCoordinate>576</TopCoordinate>
       <BottomCoordinate>671</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-56.5</RelativeY>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -468,7 +468,7 @@
       <TopCoordinate>1847</TopCoordinate>
       <BottomCoordinate>1951</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-50</RelativeY>
+      <RelativeY>-20</RelativeY>
     </Frame>
     <Frame>
       <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
@@ -478,7 +478,86 @@
       <TopCoordinate>754</TopCoordinate>
       <BottomCoordinate>866</BottomCoordinate>
       <RelativeX>-18</RelativeX>
-      <RelativeY>-44</RelativeY>
+      <RelativeY>-14</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>PreparingJump</Name>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1800</LeftCoordinate>
+      <RightCoordinate>1920</RightCoordinate>
+      <TopCoordinate>576</TopCoordinate>
+      <BottomCoordinate>671</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-26.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>362</LeftCoordinate>
+      <RightCoordinate>482</RightCoordinate>
+      <TopCoordinate>1847</TopCoordinate>
+      <BottomCoordinate>1951</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-20</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1716</LeftCoordinate>
+      <RightCoordinate>1834</RightCoordinate>
+      <TopCoordinate>754</TopCoordinate>
+      <BottomCoordinate>866</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-14</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>InAir</Name>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>1</FrameLength>
+      <LeftCoordinate>1300</LeftCoordinate>
+      <RightCoordinate>1418</RightCoordinate>
+      <TopCoordinate>1334</TopCoordinate>
+      <BottomCoordinate>1447</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-3.5</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Landing</Name>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1716</LeftCoordinate>
+      <RightCoordinate>1834</RightCoordinate>
+      <TopCoordinate>754</TopCoordinate>
+      <BottomCoordinate>866</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-14</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>362</LeftCoordinate>
+      <RightCoordinate>482</RightCoordinate>
+      <TopCoordinate>1847</TopCoordinate>
+      <BottomCoordinate>1951</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-20</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>../../../../Content/globalcontent/animation_sheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>1800</LeftCoordinate>
+      <RightCoordinate>1920</RightCoordinate>
+      <TopCoordinate>576</TopCoordinate>
+      <BottomCoordinate>671</BottomCoordinate>
+      <RelativeX>-18</RelativeX>
+      <RelativeY>-26.5</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

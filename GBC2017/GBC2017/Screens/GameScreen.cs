@@ -201,6 +201,9 @@ namespace GBC2017.Screens
 
             FlyingEnemyFactory.EntitySpawned +=
                 flyingalien => flyingalien.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            SlimeAlienFactory.EntitySpawned +=
+                slimealien => slimealien.AddSpritesToLayers(LightLayer, InfoLayer);
         }
 
         private void SetCollisionVisibility()
@@ -408,7 +411,7 @@ namespace GBC2017.Screens
 	                    var otherEnemy = AllEnemiesList[j - 1];
 	                    if (enemy.IsFlying == otherEnemy.IsFlying)
 	                    {
-	                        enemy.CollideAgainstBounce(otherEnemy.CircleInstance, thisMass: 1, otherMass: 1,
+	                        enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, thisMass: 1, otherMass: 1,
 	                            elasticity: 0.1f);
 	                    }
 	                }
@@ -419,7 +422,7 @@ namespace GBC2017.Screens
 	                    for (var j = validStructures.Count(); j > 0; j--)
 	                    {
 	                        var structure = validStructures[j - 1];
-	                        enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
 	                            elasticity: 0.1f);
 	                    }
 	                }
@@ -540,7 +543,7 @@ namespace GBC2017.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
+	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 

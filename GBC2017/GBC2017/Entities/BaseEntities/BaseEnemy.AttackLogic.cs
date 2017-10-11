@@ -128,22 +128,25 @@ namespace GBC2017.Entities.BaseEntities
 
         private void MeleeAttackActivity()
         {
-            if (IsHurt && SpriteInstance.JustCycled)
+            if (!IsJumper || Altitude == 0)
             {
-                CurrentActionState = Action.Standing;
-            }
-            else if (CurrentActionState == Action.StartMeleeAttack && SpriteInstance.JustCycled)
-            {
-                if (_currentAttackTarget != null) DealMeleeDamage();
-                CurrentActionState = Action.FinishMeleeAttack;
-            }
-            else if (CurrentActionState == Action.FinishMeleeAttack && SpriteInstance.JustCycled)
-            {
-                CurrentActionState = Action.Standing;
-            }
-            else
-            {
-                SharedAttackActivity();
+                if (IsHurt && SpriteInstance.JustCycled)
+                {
+                    CurrentActionState = Action.Standing;
+                }
+                else if (CurrentActionState == Action.StartMeleeAttack && SpriteInstance.JustCycled)
+                {
+                    if (_currentAttackTarget != null) DealMeleeDamage();
+                    CurrentActionState = Action.FinishMeleeAttack;
+                }
+                else if (CurrentActionState == Action.FinishMeleeAttack && SpriteInstance.JustCycled)
+                {
+                    CurrentActionState = Action.Standing;
+                }
+                else
+                {
+                    SharedAttackActivity();
+                }
             }
         }
 

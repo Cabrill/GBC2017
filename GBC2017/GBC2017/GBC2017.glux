@@ -853,6 +853,7 @@
           </Properties>
           <Name>SpriteInstanceCurrentChainName</Name>
           <Type>string</Type>
+          <SetByDerived>true</SetByDerived>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
           <CreatesEvent>true</CreatesEvent>
@@ -1034,6 +1035,18 @@
           <SetByDerived>true</SetByDerived>
           <SourceObject>LightSprite</SourceObject>
           <SourceObjectProperty>Visible</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -2648,7 +2661,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2920,6 +2933,30 @@
             </PropertySave>
           </Properties>
           <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
@@ -3321,6 +3358,30 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -3688,6 +3749,30 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -3900,6 +3985,48 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>InAir</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>InAir</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Landing</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Landing</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>PreparingJump</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>PreparingJump</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>NotJumping</Name>
+            </StateSave>
+          </States>
+          <Name>Jump</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
       <CustomVariables>
         <CustomVariable>
           <Properties>
@@ -3940,6 +4067,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3951,6 +4079,7 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3962,6 +4091,7 @@
           </Properties>
           <Name>IsRangedAttacker</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3973,6 +4103,7 @@
           </Properties>
           <Name>MeleeAttackDamage</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4017,6 +4148,7 @@
           </Properties>
           <Name>SecondsBetweenMeleeAttack</Name>
           <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4028,7 +4160,7 @@
           </Properties>
           <Name>MineralsRewardedWhenKilled</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">20</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4040,7 +4172,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Not Set</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Slime</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4052,7 +4184,7 @@
           </Properties>
           <Name>IsMeleeAttacker</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4064,7 +4196,7 @@
           </Properties>
           <Name>MeleeAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">64</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4076,7 +4208,7 @@
           </Properties>
           <Name>RangedAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4101,6 +4233,30 @@
           <Name>HasLightSource</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -4143,7 +4299,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>36</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -4191,6 +4347,21 @@
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>45</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>100</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -5360,6 +5531,11 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>5</ValueAsFloat>
@@ -5398,11 +5574,6 @@
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -8901,6 +9072,12 @@
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
     <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Name>globalcontent/Music/anttisinstrumentals_hjappiermjusic.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>

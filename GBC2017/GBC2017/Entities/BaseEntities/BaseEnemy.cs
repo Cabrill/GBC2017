@@ -27,6 +27,8 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
+	    protected float AltitudeVelocity { get; set; }
+	    protected float GravityDrag { get; set; } = -100f;
 
         private static AxisAlignedRectangle _leftSpawnArea;
 	    private static AxisAlignedRectangle _rightSpawnArea;
@@ -36,7 +38,6 @@ namespace GBC2017.Entities.BaseEntities
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
 	    private int _currentNumberOfPotentialTargets;
-	    private float _relativeYOffset;
 	    private int _lastFrameIndex;
 	    private string _lastFrameChain;
 
@@ -44,7 +45,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    private float _spriteRelativeY;
+	    protected float _spriteRelativeY;
 
         protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
@@ -81,12 +82,11 @@ namespace GBC2017.Entities.BaseEntities
             HealthRemaining = MaximumHealth;
 		    _healthBarWidth = SpriteInstance.Width;
             _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
-		    _relativeYOffset = SpriteInstance.Height / 2;
-		    SpriteInstance.RelativeY += _relativeYOffset;
 		    _lastFrameIndex = -1;
 		    _lastFrameChain = "";
 		    _spriteRelativeY = GetSpriteRelativeY();
-        }
+		    SpriteInstance.RelativeY += _spriteRelativeY;
+		}
 
 	    public static void Initialize(AxisAlignedRectangle left, AxisAlignedRectangle right, PositionedObjectList<BaseStructure> potentialTargetList)
 	    {
@@ -127,7 +127,17 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void UpdateAnimation()
 	    {
-	        if (!_startingPosition.HasValue)
+	        if (Altitude > 0 && (!IsFlying || IsDead))
+	        {
+	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
+	        }
+	        else
+	        {
+	            AltitudeVelocity = 0;
+	        }
+	        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
+
+            if (!_startingPosition.HasValue)
 	        {
 	            _startingPosition = Position;
 	            _startingShadowWidth = ShadowSprite.Width;
@@ -135,20 +145,23 @@ namespace GBC2017.Entities.BaseEntities
 	            _startingShadowAlpha = ShadowSprite.Alpha;
 	        }
 
-            if (SpriteInstance.CurrentFrameIndex != _lastFrameIndex || SpriteInstance.CurrentChainName != _lastFrameChain)
-	        {
-	            _lastFrameIndex = SpriteInstance.CurrentFrameIndex;
-	            _lastFrameChain = SpriteInstance.CurrentChainName;
 
+	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            SpriteInstance.RelativeX = SpriteInstance.CurrentChain[0].RelativeX * (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+                SpriteInstance.RelativeY = Altitude + SpriteInstance.CurrentChain[0].RelativeY + _spriteRelativeY;
+	        }
+	        else
+	        {
+                SpriteInstance.UpdateToCurrentAnimationFrame();
+                
 	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
 	            {
 	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
 	            }
-	            SpriteInstance.RelativeY += SpriteInstance.Height/2;
-
-	            SpriteInstance.RelativeY += Altitude;
-            }
+	            SpriteInstance.RelativeY += Altitude + _spriteRelativeY;
+	        }
 
 	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / 800), 0, 1);
 
