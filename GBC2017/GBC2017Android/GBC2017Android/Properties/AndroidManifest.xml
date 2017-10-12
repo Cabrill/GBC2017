@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="8" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.08">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="9" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.09">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25" />
 	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
 	<uses-permission android:name="android.permission.INTERNET" />
@@ -11,5 +11,5 @@
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
-	<application android:label="GBC2017 Final Round" android:icon="@drawable/Icon"></application>
+	<application android:label="PowerCraft" android:icon="@drawable/Icon"></application>
 </manifest>

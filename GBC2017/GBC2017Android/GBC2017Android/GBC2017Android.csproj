@@ -41,6 +41,9 @@
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <Debugger>Xamarin</Debugger>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -52,6 +55,9 @@
     <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EnableProguard>false</EnableProguard>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HockeySDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -1088,6 +1094,18 @@
     <AndroidResource Include="Resources\Layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\greenalien.xnb">
+      <Name>greenalien</Name>
+      <Link>Assets\content\entities\enemies\basicalien\greenalien.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\allassetssheet.xnb">
+      <Name>AllAssetsSheet</Name>
+      <Link>Assets\content\globalcontent\allassetssheet.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\animation_sheet.xnb">
+      <Name>animation_sheet</Name>
+      <Link>Assets\content\globalcontent\animation_sheet.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a">
       <Name>anttisinstrumentals_hjappiermjusic</Name>
       <Link>Assets\content\globalcontent\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
@@ -1176,9 +1194,69 @@
       <Name>TallLaser_Shoot</Name>
       <Link>Assets\content\globalcontent\sounds\talllaser_shoot.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\starry_sky.xnb">
+      <Name>starry_sky</Name>
+      <Link>Assets\content\globalcontent\starry_sky.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font18arial_0.xnb">
+      <Name>Font18Arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\justwindmill.xnb">
+      <Name>JustWindmill</Name>
+      <Link>Assets\content\gumproject\justwindmill.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomcenter.xnb">
+      <Name>Red_bottomCenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomcenter.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomleft.xnb">
+      <Name>Red_bottomLeft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomleft.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomright.xnb">
+      <Name>Red_bottomRight</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomright.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_center.xnb">
+      <Name>Red_center</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_center.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_left.xnb">
+      <Name>Red_left</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_left.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_right.xnb">
+      <Name>Red_right</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_right.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topcenter.xnb">
+      <Name>Red_topCenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topcenter.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topleft.xnb">
+      <Name>Red_topLeft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topleft.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topright.xnb">
+      <Name>Red_topRight</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_ground.xnb">
+      <Name>helsinki_ground</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_trees.xnb">
+      <Name>helsinki_trees</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_trees.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_water.xnb">
+      <Name>helsinki_water</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_water.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
       <Name>Alien_Hit_Ground</Name>
@@ -1268,10 +1346,6 @@
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\basicalien\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\greenalien.png">
-      <Name>greenalien</Name>
-      <Link>Assets\content\entities\enemies\basicalien\greenalien.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\flyingenemy\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\flyingenemy\animationchainlistfile.achx</Link>
@@ -1332,25 +1406,9 @@
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
-      <Name>wind_turbine</Name>
-      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
-      <Name>allassetssheet</Name>
-      <Link>Assets\content\globalcontent\allassetssheet.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\animation_sheet.png">
-      <Name>animation_sheet</Name>
-      <Link>Assets\content\globalcontent\animation_sheet.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\font50moireextrabold.fnt">
       <Name>font50moireextrabold</Name>
       <Link>Assets\content\globalcontent\font50moireextrabold.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
-      <Name>starry_sky</Name>
-      <Link>Assets\content\globalcontent\starry_sky.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
       <Name>buildbar</Name>
@@ -1428,25 +1486,9 @@
       <Name>font18arial</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial.fnt</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18arial_0.png">
-      <Name>font18arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font18arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2.fnt">
-      <Name>font50moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font50moire extrabold_o2_0.png">
-      <Name>font50moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumproject.gumx">
       <Name>gumproject</Name>
       <Link>Assets\content\gumproject\gumproject.gumx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\justwindmill.png">
-      <Name>justwindmill</Name>
-      <Link>Assets\content\gumproject\justwindmill.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\gamescreengum.gusx">
       <Name>gamescreengum</Name>
@@ -1492,42 +1534,6 @@
       <Name>sprite</Name>
       <Link>Assets\content\gumproject\standards\sprite.gutx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomcenter.png">
-      <Name>red_bottomcenter</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomcenter.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomleft.png">
-      <Name>red_bottomleft</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomleft.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomright.png">
-      <Name>red_bottomright</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomright.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_center.png">
-      <Name>red_center</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_center.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_left.png">
-      <Name>red_left</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_left.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_right.png">
-      <Name>red_right</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_right.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topcenter.png">
-      <Name>red_topcenter</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topcenter.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topleft.png">
-      <Name>red_topleft</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topleft.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topright.png">
-      <Name>red_topright</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topright.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\text.gutx">
       <Name>text</Name>
       <Link>Assets\content\gumproject\standards\text.gutx</Link>
@@ -1535,18 +1541,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinkimap.tmx">
       <Name>helsinkimap</Name>
       <Link>Assets\content\screens\gamescreen\levels\helsinkimap.tmx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_ground.png">
-      <Name>helsinki_ground</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_ground.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_trees.png">
-      <Name>helsinki_trees</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_trees.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_water.png">
-      <Name>helsinki_water</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>

@@ -486,6 +486,21 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\greenalien.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>greenalien</Name>
+      <Link>content\entities\enemies\basicalien\greenalien.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\allassetssheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AllAssetsSheet</Name>
+      <Link>content\globalcontent\allassetssheet.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\animation_sheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>animation_sheet</Name>
+      <Link>content\globalcontent\animation_sheet.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\globalcontent\music\anttisinstrumentals_hjappiermjusic.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>anttisinstrumentals_hjappiermjusic</Name>
@@ -596,10 +611,105 @@
       <Name>TallLaser_Shoot</Name>
       <Link>content\globalcontent\sounds\talllaser_shoot.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\starry_sky.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>starry_sky</Name>
+      <Link>content\globalcontent\starry_sky.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font18arial_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_0</Name>
+      <Link>content\gumproject\fontcache\font18arial_0.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font18arial_o2_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_o2_0</Name>
+      <Link>content\gumproject\fontcache\font18arial_o2_0.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50arial_o2_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Arial_o2_0</Name>
+      <Link>content\gumproject\fontcache\font50arial_o2_0.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50arial_o2_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Arial_o2_1</Name>
+      <Link>content\gumproject\fontcache\font50arial_o2_1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50moire extrabold_o2_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Moire ExtraBold_o2_0</Name>
+      <Link>content\gumproject\fontcache\font50moire extrabold_o2_0.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\justwindmill.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>JustWindmill</Name>
+      <Link>content\gumproject\justwindmill.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomcenter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomCenter</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomcenter.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomleft.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomLeft</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomleft.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomright.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomRight</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomright.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_center.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_center</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_center.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_left.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_left</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_left.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_right.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_right</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_right.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topcenter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topCenter</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topcenter.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topleft.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topLeft</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topleft.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topright.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topRight</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_ground</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_trees.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_trees</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_trees.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_water.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_water</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_water.xnb</Link>
     </None>
     <None Include="..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -710,10 +820,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\enemies\basicalien\greenalien.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>greenalien</Name>
-    </None>
     <None Include="content\entities\enemies\flyingenemy\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -778,21 +884,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wind_turbine</Name>
     </None>
-    <None Include="content\globalcontent\allassetssheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>AllAssetsSheet</Name>
-    </None>
-    <None Include="content\globalcontent\animation_sheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>animation_sheet</Name>
-    </None>
     <None Include="content\globalcontent\font50moireextrabold.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50MoireExtraBold</Name>
-    </None>
-    <None Include="content\globalcontent\starry_sky.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>starry_sky</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -870,25 +964,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font18arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font18Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font50moire extrabold_o2.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font50Moire ExtraBold_o2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font50moire extrabold_o2_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font50Moire ExtraBold_o2_0</Name>
-    </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
-    </None>
-    <None Include="content\gumproject\justwindmill.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>JustWindmill</Name>
     </None>
     <None Include="content\gumproject\screens\gamescreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -934,42 +1012,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Sprite</Name>
     </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomcenter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomCenter</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomleft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomLeft</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomright.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomRight</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_center.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_center</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_left</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_right</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topcenter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topCenter</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topleft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topLeft</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topright.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topRight</Name>
-    </None>
     <None Include="content\gumproject\standards\text.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Text</Name>
@@ -977,18 +1019,6 @@
     <None Include="content\screens\gamescreen\levels\helsinkimap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>HelsinkiMap</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_ground.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_ground</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_trees.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_trees</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_water.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_water</Name>
     </None>
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

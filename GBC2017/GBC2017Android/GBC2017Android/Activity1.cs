@@ -15,7 +15,7 @@ using Android.Gms.Common;
 
 namespace GBC2017
 {
-    [Activity(Label = "GBC2017"
+    [Activity(Label = "PowerCraft"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
