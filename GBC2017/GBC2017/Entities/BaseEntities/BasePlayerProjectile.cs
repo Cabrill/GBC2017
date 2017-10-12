@@ -195,7 +195,8 @@ namespace GBC2017.Entities.BaseEntities
 	            {
 	                LayerProvidedByContainer.Remove(LightOrShadowSprite);
 	                SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
-	            }
+	                SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
+                }
 
 	            LayerProvidedByContainer.Remove(CircleInstance);
 	            ShapeManager.AddToLayer(CircleInstance, hudLayer);

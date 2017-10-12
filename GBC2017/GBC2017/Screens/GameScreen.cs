@@ -437,9 +437,9 @@ namespace GBC2017.Screens
 	                for (var j = i- 1; j > 0; j--)
 	                {
 	                    var otherEnemy = AllEnemiesList[j - 1];
-	                    if (enemy.IsFlying == otherEnemy.IsFlying)
+	                    if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 & otherEnemy.IsJumper && otherEnemy.Altitude > 0))
 	                    {
-	                        enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, thisMass: 1, otherMass: 1,
+	                        enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
 	                            elasticity: 0.1f);
 	                    }
 	                }
@@ -577,7 +577,7 @@ namespace GBC2017.Screens
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
-	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 

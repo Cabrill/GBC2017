@@ -98,8 +98,9 @@ namespace GBC2017.Entities.BaseEntities
 	        _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
 
 	        _lastUsageUpdate = TimeManager.CurrentTime;
+	        _spriteRelativeY = GetSpriteRelativeY();
 
-	        CalculateScale();
+            CalculateScale();
 	        UpdateScale();
 	        UpdateAnimation();
         }
@@ -168,7 +169,7 @@ namespace GBC2017.Entities.BaseEntities
                     {
                         _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
                         _energyBar.X = (X-Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Y = (Y + _spriteRelativeY*2 - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Y = (Y + _spriteRelativeY*2*_currentScale - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
                         _energyBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
                         _energyBar.Height = AxisAlignedRectangleInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
                         _energyBar.Visible = true;
@@ -183,7 +184,7 @@ namespace GBC2017.Entities.BaseEntities
                 {
                     _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
                     _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Y = (Y + _spriteRelativeY*2 + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Y = (Y + _spriteRelativeY*2*_currentScale + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
                     _healthBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
                     _healthBar.Height = AxisAlignedRectangleInstance.Width / 5* CameraZoomManager.GumCoordOffset;
                     _healthBar.Visible = true;
@@ -203,31 +204,30 @@ namespace GBC2017.Entities.BaseEntities
         protected virtual void UpdateScale()
 	    {
             SpriteInstance.TextureScale = _startingScale * _currentScale;
-	        LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
+	        if (HasLightSource) LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
+
             AxisAlignedRectangleInstance.ScaleX = _startingRectangleScaleX * _currentScale;
 	        AxisAlignedRectangleInstance.ScaleY = _startingRectangleScaleY * _currentScale;
 
 	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
-
-	        _spriteRelativeY = GetSpriteRelativeY();
         }
 
 	    private void UpdateAnimation()
 	    {
-            if (!SpriteInstance.Animate || SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
-	        {
-	            SpriteInstance.RelativeY = _spriteRelativeY;
-	        }
+            if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+            {
+                SpriteInstance.RelativeY = _spriteRelativeY * _currentScale;
+            }
 	        else
 	        {
 	            SpriteInstance.UpdateToCurrentAnimationFrame();
 
-	            if (SpriteInstance.UseAnimationRelativePosition)
+                if (SpriteInstance.UseAnimationRelativePosition)
 	            {
-	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeX *=  (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	                SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	            }
-	            SpriteInstance.RelativeY += _spriteRelativeY;
+	            SpriteInstance.RelativeY += _spriteRelativeY * _currentScale;
 	        }
 	    }
 
@@ -377,6 +377,12 @@ namespace GBC2017.Entities.BaseEntities
 
 	        LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
+
+	        if (HasLightSource)
+	        {
+	            LayerProvidedByContainer.Remove(LightSpriteInstance);
+	            FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+            }
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
 

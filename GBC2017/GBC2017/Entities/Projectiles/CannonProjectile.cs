@@ -37,24 +37,25 @@ namespace GBC2017.Entities.Projectiles
 	        RotationY = 0;
 	        RotationZ = 0;
             SpriteInstance.TextureScale = 2f * _currentScale;
+	        LightOrShadowSprite.Alpha = 1f;
 
-	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
-
-            LightOrShadowSprite.Tween(HandleLightGrowUpdate, 0, 2f, duration,
+            var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
+	        
+            LightOrShadowSprite.Tween(HandleLightGrowUpdate, 0, 4f, duration,
 	            InterpolationType.Elastic, Easing.Out);
 
-	        this.Call(() => FadeOut(duration)).After(duration);
+	        this.Call(() => FadeOut(0.25f)).After(duration);
+	    }
+
+	    private void HandleLightGrowUpdate(float newPosition)
+	    {
+	        LightOrShadowSprite.TextureScale = newPosition * _currentScale;
+	        CircleInstance.Radius = circleRadius * newPosition * _currentScale;
 	    }
 
 	    private void FadeOut(float duration)
 	    {
 	        LightOrShadowSprite.Tween("Alpha", 0, duration, InterpolationType.Exponential, Easing.Out);
-        }
-
-	    private void HandleLightGrowUpdate(float newPosition)
-	    {
-	        LightOrShadowSprite.TextureScale = newPosition * _currentScale;
-	        CircleInstance.Radius = circleRadius * newPosition*2f * _currentScale;
 	    }
 
         private void CustomActivity()

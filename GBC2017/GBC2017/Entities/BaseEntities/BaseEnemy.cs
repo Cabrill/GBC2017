@@ -51,7 +51,9 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
-	    protected float _spriteRelativeY;
+	    private float _startingRangedRadius;
+	    private float _startingMeleeRadius;
+        protected float _spriteRelativeY;
 
         protected SoundEffectInstance rangedChargeSound;
 	    protected SoundEffectInstance rangedAttackSound;
@@ -87,12 +89,18 @@ namespace GBC2017.Entities.BaseEntities
 		    _startingSpriteScale = SpriteInstance.TextureScale;
 		    _startingLightScale = LightSprite.TextureScale;
 		    _startingCircleRadius = CircleInstance.Radius;
+		    _startingShadowWidth = ShadowSprite.Width;
+		    _startingShadowHeight = ShadowSprite.Height;
+		    _startingShadowAlpha = ShadowSprite.Alpha;
+		    _startingRangedRadius = RangedAttackRadius;
+	        _startingMeleeRadius = MeleeAttackRadius;
 
             HealthRemaining = MaximumHealth;
 		    _healthBarWidth = SpriteInstance.Width;
             _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
+		    _spriteRelativeY = GetSpriteRelativeY();
 
-		    CalculateScale();
+            CalculateScale();
             UpdateScale();
             UpdateAnimation();
 
@@ -135,7 +143,7 @@ namespace GBC2017.Entities.BaseEntities
 		        NavigationActivity();
 		    }
 
-		    CalculateScale();
+            CalculateScale();
             UpdateScale();
 		    UpdateAnimation();
             UpdateHealthBar();
@@ -150,9 +158,10 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
 	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
-	        LightSprite.TextureScale = _startingLightScale * _currentScale;
-
-            _spriteRelativeY = GetSpriteRelativeY();
+	        
+            if (HasLightSource) LightSprite.TextureScale = _startingLightScale * _currentScale;
+            if (IsRangedAttacker) RangedAttackRadiusCircleInstance.Radius = _startingRangedRadius * _currentScale;
+	        if (IsMeleeAttacker) MeleeAttackRadiusCircleInstance.Radius = _startingMeleeRadius * _currentScale;
 	    }
 
         private void UpdateAnimation()
@@ -167,19 +176,10 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
 
-            if (!_startingPosition.HasValue)
-	        {
-	            _startingPosition = Position;
-	            _startingShadowWidth = ShadowSprite.Width;
-	            _startingShadowHeight = ShadowSprite.Height;
-	            _startingShadowAlpha = ShadowSprite.Alpha;
-	        }
-
-
 	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
 	        {
 	            SpriteInstance.RelativeX = SpriteInstance.CurrentChain[0].RelativeX * (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-                SpriteInstance.RelativeY = Altitude * _currentScale + SpriteInstance.CurrentChain[0].RelativeY + _spriteRelativeY;
+                SpriteInstance.RelativeY = (Altitude+ _spriteRelativeY) * _currentScale  + SpriteInstance.CurrentChain[0].RelativeY * SpriteInstance.TextureScale;
 	        }
 	        else
 	        {
@@ -187,10 +187,10 @@ namespace GBC2017.Entities.BaseEntities
                 
 	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
 	            {
-	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
+	                SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	                SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	            }
-	            SpriteInstance.RelativeY += Altitude*_currentScale + _spriteRelativeY;
+	            SpriteInstance.RelativeY += (Altitude + _spriteRelativeY) * _currentScale;
 	        }
 
 	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (800*_currentScale)), 0, 1);
@@ -206,7 +206,7 @@ namespace GBC2017.Entities.BaseEntities
 	        {
 	            _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
 	            _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-	            _healthBar.Y = (Y + _spriteRelativeY + Altitude - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+	            _healthBar.Y = (Y + (_spriteRelativeY + Altitude) * _currentScale - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Width = _healthBarWidth * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Height = _healthBarWidth / 5 * CameraZoomManager.GumCoordOffset;
 	            _healthBar.Visible = true;
@@ -275,11 +275,11 @@ namespace GBC2017.Entities.BaseEntities
             }
 	    }
 
-	    /// <summary>
-	    /// Allows the child combat structure to generate a projectile of its own type
-	    /// </summary>
-	    /// <returns>The projectile to be fired by the </returns>
-	    protected virtual BaseEnemyProjectile CreateProjectile()
+        /// <summary>
+        /// Allows the child combat structure to generate a projectile of its own type
+        /// </summary>
+        /// <returns>The projectile to be fired by the </returns>
+        protected virtual BaseEnemyProjectile CreateProjectile()
 	    {
 	        return new BaseEnemyProjectile();
 	    }

@@ -236,11 +236,26 @@ namespace GBC2017.Entities.BaseEntities
 
             newProjectile.Position = GetProjectilePositioning(angle);
             newProjectile.Velocity = direction * newProjectile.Speed;
+            newProjectile.AltitudeVelocity = CalculateProjectileAltitudeVelocity(newProjectile);
             newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity) - MathHelper.ToRadians(90);
 
             PlayAttackSound();
 
             _lastRangeAttackTime = TimeManager.CurrentTime;
+        }
+
+        private float CalculateProjectileAltitudeVelocity(BaseEnemyProjectile projectile)
+        {
+            if (_currentAttackTarget == null) return 0f;
+
+            var targetPosition = _currentAttackTarget.AxisAlignedRectangleInstance.Position;
+            var targetDistance = Vector3.Distance(projectile.CircleInstance.Position, targetPosition);
+            var timeToTravel = targetDistance / projectile.Speed;
+
+            var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel))) /
+                                   -timeToTravel;
+
+            return altitudeVelocity;
         }
 
         #endregion

@@ -76,12 +76,7 @@ namespace GBC2017.Entities.Enemies
 	                    (float)-Math.Sin(angle), 0);
 	                direction.Normalize();
 
-	                var distanceToTravel = (_targetStructureForNavigation.AxisAlignedRectangleInstance.Width / 2) * Math.Abs(direction.X) +
-	                                       (_targetStructureForNavigation.AxisAlignedRectangleInstance.Height / 2) * Math.Abs(direction.Y) +
-	                                       _currentDistanceToNavigationTarget - MeleeAttackRadius / 2;
-
-	                var timeToTravel = distanceToTravel / Speed;
-	                var neededAltitudeVelocity = (-GravityDrag * timeToTravel) / timeToTravel;
+	                var neededAltitudeVelocity = CalculateJumpAltitudeVelocity();
 
 	                AltitudeVelocity = Math.Min(maxJumpVelocity, neededAltitudeVelocity);
 	                Altitude = AltitudeVelocity * TimeManager.SecondDifference;
@@ -101,7 +96,7 @@ namespace GBC2017.Entities.Enemies
 	        }
 	    }
 
-	    private void CustomDestroy()
+        private void CustomDestroy()
 	    {
 
 	    }

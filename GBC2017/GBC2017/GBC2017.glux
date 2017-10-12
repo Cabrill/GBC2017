@@ -2741,7 +2741,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -3412,7 +3412,7 @@
           </Properties>
           <Name>RangedAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">350</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5336,12 +5336,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Red</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>0.2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Green</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -5352,6 +5352,11 @@
             <Type>bool</Type>
             <Member>ParentRotationChangesPosition</Member>
             <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>0</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -9179,7 +9184,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>

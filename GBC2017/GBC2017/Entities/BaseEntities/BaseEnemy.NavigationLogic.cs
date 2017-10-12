@@ -114,6 +114,20 @@ namespace GBC2017.Entities.BaseEntities
             }
         }
 
+        protected float CalculateJumpAltitudeVelocity()
+        {
+            if (_targetStructureForNavigation == null) return 0f;
+
+            var targetPosition = _targetStructureForNavigation.AxisAlignedRectangleInstance.Position;
+            var targetDistance = Vector3.Distance(CircleInstance.Position, targetPosition);
+            var timeToTravel = targetDistance / Speed;
+
+            var altitudeVelocity = (0.5f * (GravityDrag * (timeToTravel * timeToTravel))) /
+                                   -timeToTravel;
+
+            return altitudeVelocity;
+        }
+
         private void StopMovement()
         {
             Velocity = Vector3.Zero;

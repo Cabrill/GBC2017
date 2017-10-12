@@ -56,7 +56,6 @@ namespace GBC2017.Entities.Structures.Utility
 	        if (_startingShieldSpriteScale.HasValue)
 	        {
 	            ShieldSpriteInstance.TextureScale = _currentScale * _startingShieldSpriteScale.Value;
-
 	            ShieldSpriteInstance.RelativeY = ShieldSpriteInstance.Height / 5;
 	            LightSpriteInstance.RelativeY = LightSpriteInstance.Height / 5;
 
@@ -256,7 +255,7 @@ namespace GBC2017.Entities.Structures.Utility
 	        ShieldSpriteInstance.TextureScale = newposition * _startingShieldSpriteScale.Value * _currentScale;
 	        ShieldSpriteInstance.Alpha = newposition * _startingAlpha;
 	        
-	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f * _currentScale;
+	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f;
 	        LightSpriteInstance.Alpha = newposition * _startingAlpha;
         }
 
@@ -291,8 +290,7 @@ namespace GBC2017.Entities.Structures.Utility
 	    {
 	        base.AddSpritesToLayers(darknessLayer, hudLayer);
 
-	        LayerProvidedByContainer.Remove(LightSpriteInstance);
-	        SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	        SpriteManager.AddToLayer(ShieldSpriteInstance, darknessLayer);
 
             LayerProvidedByContainer.Remove(PolygonShieldInstance);
             ShapeManager.AddToLayer(PolygonShieldInstance, hudLayer);
