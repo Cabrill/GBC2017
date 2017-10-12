@@ -82,6 +82,9 @@ namespace GBC2017.Entities.BaseEntities
 	            AxisAlignedRectangleInstance.Visible = false;
 	        }
 
+	        LightSpriteInstance.Width = SpriteInstance.Width;
+	        LightSpriteInstance.Height = LightSpriteInstance.Width / 4;
+
 	        _startingScale = SpriteInstance.TextureScale;
 	        _startingLightSpriteScale = LightSpriteInstance.TextureScale;
             _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
@@ -204,12 +207,18 @@ namespace GBC2017.Entities.BaseEntities
         protected virtual void UpdateScale()
 	    {
             SpriteInstance.TextureScale = _startingScale * _currentScale;
-	        if (HasLightSource) LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
 
             AxisAlignedRectangleInstance.ScaleX = _startingRectangleScaleX * _currentScale;
 	        AxisAlignedRectangleInstance.ScaleY = _startingRectangleScaleY * _currentScale;
 
 	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
+
+	        if (HasLightSource)
+	        {
+	            //LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
+	            LightSpriteInstance.Width = SpriteInstance.Width;
+	            LightSpriteInstance.Height = AxisAlignedRectangleInstance.Height;
+	        }
         }
 
 	    private void UpdateAnimation()
