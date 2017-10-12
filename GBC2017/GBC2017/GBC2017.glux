@@ -9277,28 +9277,8 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1422</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RightTexturePixel</Member>
-            <ValueAsFloat>1695</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TopTexturePixel</Member>
-            <ValueAsFloat>1839</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.05</ValueAsFloat>
+            <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -9333,7 +9313,17 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Alpha</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Idle</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />

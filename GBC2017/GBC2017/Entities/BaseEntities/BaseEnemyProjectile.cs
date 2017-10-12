@@ -185,14 +185,15 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (!_spritedAddedToLayers)
 	        {
+
+	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
+	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
 	            if (HasLightSource)
-	            {
-	                LayerProvidedByContainer.Remove(LightOrShadowSprite);
-	                SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
-                    SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
+                { 
+	                SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
 	            }
 
-	            LayerProvidedByContainer.Remove(CircleInstance);
+	        LayerProvidedByContainer.Remove(CircleInstance);
 	            ShapeManager.AddToLayer(CircleInstance, hudLayer);
 
 	            _spritedAddedToLayers = true;

@@ -378,11 +378,9 @@ namespace GBC2017.Entities.BaseEntities
 	        LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
 
-	        if (HasLightSource)
-	        {
-	            LayerProvidedByContainer.Remove(LightSpriteInstance);
-	            FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
-            }
+	        LayerProvidedByContainer.Remove(LightSpriteInstance);
+            FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+            
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
 

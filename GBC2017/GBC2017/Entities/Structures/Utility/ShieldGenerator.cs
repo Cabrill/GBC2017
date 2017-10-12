@@ -21,6 +21,7 @@ namespace GBC2017.Entities.Structures.Utility
 	    private float CurrentShieldHealth;
 	    private double _lastRegenerationTime;
 	    private float _startingAlpha;
+	    private float _startingLightAlpha;
 	    public bool ShieldIsUp;
 	    private bool _shieldWasUp;
 
@@ -47,6 +48,7 @@ namespace GBC2017.Entities.Structures.Utility
             _startingShieldSpriteScale = ShieldSpriteInstance.TextureScale;
             _lastRegenerationTime = TimeManager.CurrentTime;
             _startingAlpha = ShieldSpriteInstance.Alpha;
+            _startingLightAlpha = LightSpriteInstance.Alpha;
         }
 
 
@@ -65,6 +67,7 @@ namespace GBC2017.Entities.Structures.Utility
 
 	    private void ShieldGenerator_AfterIsBeingPlacedSet(object sender, EventArgs e)
         {
+            
             PolygonShieldInstance.Visible = IsBeingPlaced;
             ShieldSpriteInstance.Visible = !IsBeingPlaced;
 
@@ -104,7 +107,6 @@ namespace GBC2017.Entities.Structures.Utility
 	        polygonFirstPoints.Add(bottomLeftPoint);
 	        polygonFirstPoints.Add(leftPoint);
 
-            PolygonShieldInstance.SetRelativeFromAbsolute();
 	        PolygonShieldInstance.Points = polygonFirstPoints;
         }
 
@@ -142,7 +144,7 @@ namespace GBC2017.Entities.Structures.Utility
                     CurrentShieldHealth >= MaximumShieldHealth * RequiredEnergyPercentToRaiseShields;
 
                 if (ShieldIsUp)
-	            {
+                {
 	                if (!_shieldWasUp)
 	                {
 	                    GrowShield();
@@ -154,6 +156,11 @@ namespace GBC2017.Entities.Structures.Utility
                     PopShield();
                 }
 	            _lastRegenerationTime = TimeManager.CurrentTime;
+            }
+
+	        if (ShieldIsUp)
+	        {
+	            LightSpriteInstance.RelativeY = ShieldSpriteInstance.RelativeY;
             }
 	    }
 
@@ -255,8 +262,8 @@ namespace GBC2017.Entities.Structures.Utility
 	        ShieldSpriteInstance.TextureScale = newposition * _startingShieldSpriteScale.Value * _currentScale;
 	        ShieldSpriteInstance.Alpha = newposition * _startingAlpha;
 	        
-	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale * 1.01f;
-	        LightSpriteInstance.Alpha = newposition * _startingAlpha;
+	        LightSpriteInstance.TextureScale = ShieldSpriteInstance.TextureScale;
+	        LightSpriteInstance.Alpha = newposition * _startingLightAlpha;
         }
 
 	    private void PopShield()
@@ -264,6 +271,7 @@ namespace GBC2017.Entities.Structures.Utility
             const float secondsToPop = 1f;
 	        ShieldSpriteInstance.TextureScale = _startingShieldSpriteScale.Value * _currentScale;
             ShieldSpriteInstance.Alpha = _startingAlpha;
+            LightSpriteInstance.Alpha = _startingLightAlpha;
 
             if (_lastShieldSizeTweener != null && _lastShieldSizeTweener.Running)
             {
@@ -290,11 +298,8 @@ namespace GBC2017.Entities.Structures.Utility
 	    {
 	        base.AddSpritesToLayers(darknessLayer, hudLayer);
 
-	        SpriteManager.AddToLayer(ShieldSpriteInstance, darknessLayer);
-
             LayerProvidedByContainer.Remove(PolygonShieldInstance);
             ShapeManager.AddToLayer(PolygonShieldInstance, hudLayer);
-
 	    }
 
         private void CustomDestroy()

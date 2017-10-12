@@ -311,9 +311,13 @@ namespace GBC2017.Entities.BaseEntities
 	        if (LayerProvidedByContainer != null)
 	        {
 	            LayerProvidedByContainer.Remove(CircleInstance);
+                LayerProvidedByContainer.Remove(LightSprite);
             }
-	        
-	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+
+            if (HasLightSource) FlatRedBall.SpriteManager.AddToLayer(LightSprite, darknessLayer);
+
+
+            ShapeManager.AddToLayer(CircleInstance, hudLayer);
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
 
