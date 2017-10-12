@@ -17,6 +17,11 @@ namespace GBC2017.Entities.Enemies
 	{
 	    private const float maxJumpVelocity = 100f;
 
+	    private const float _lightPulseDuration = 2;
+	    private const float _lightPulseAmount = 0.5f;
+	    private float _currentLightPulse = 0;
+	    private int _pulseMod = 1;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -43,8 +48,14 @@ namespace GBC2017.Entities.Enemies
         private void CustomActivity()
 		{
 
-
-		}
+		    _currentLightPulse += TimeManager.SecondDifference * _pulseMod;
+		    if (_currentLightPulse >= _lightPulseDuration || _currentLightPulse <= 0)
+		    {
+		        _pulseMod *= -1;
+		    }
+		    LightSprite.TextureScale *= _lightPulseAmount + (_currentLightPulse / _lightPulseDuration) * _lightPulseAmount;
+		    LightSprite.RelativeY = SpriteInstance.RelativeY - 20 *SpriteInstance.TextureScale;
+        }
 
 	    protected override void NavigateToTargetStructure()
 	    {

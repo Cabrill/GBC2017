@@ -53,7 +53,7 @@
     <property name="MeleeAttackRadius" type="float" default="32" />
     <property name="RangedAttackRadius" type="float" default="16" />
     <property name="IsFlying" type="bool" default="false" />
-    <property name="HasLightSource" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="false" />
   </objecttype>
@@ -72,7 +72,7 @@
     <property name="MeleeAttackRadius" type="float" default="64" />
     <property name="RangedAttackRadius" type="float" default="0" />
     <property name="IsFlying" type="bool" default="false" />
-    <property name="HasLightSource" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="true" />
   </objecttype>
@@ -91,7 +91,7 @@
     <property name="MeleeAttackRadius" type="float" default="16" />
     <property name="RangedAttackRadius" type="float" default="0" />
     <property name="IsFlying" type="bool" default="false" />
-    <property name="HasLightSource" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
     <property name="SpriteInstanceCurrentChainName" type="string" />
     <property name="IsJumper" type="bool" default="true" />
   </objecttype>

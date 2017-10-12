@@ -198,6 +198,12 @@ namespace GBC2017.Entities.BaseEntities
 	        ShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
 	        ShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
 	        ShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
+
+	        if (HasLightSource)
+	        {
+	            LightSprite.TextureScale = _startingLightScale * _currentScale;
+	            LightSprite.RelativeY = SpriteInstance.RelativeY;
+	        }
         }
 
 	    private void UpdateHealthBar()

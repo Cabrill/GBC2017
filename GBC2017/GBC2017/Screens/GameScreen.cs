@@ -581,6 +581,24 @@ namespace GBC2017.Screens
                 newAlien.PlaceOnRightSide();
 	        }
 
+	        if (InputManager.Keyboard.KeyPushed(Keys.C))
+	        {
+	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.V))
+	        {
+	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.B))
+	        {
+	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
+	        }
+
         }
         #endif
 
