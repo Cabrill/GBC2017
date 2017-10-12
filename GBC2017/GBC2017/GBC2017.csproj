@@ -786,6 +786,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>animation_sheet</Name>
     </None>
+    <None Include="content\globalcontent\font50moireextrabold.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50MoireExtraBold</Name>
+    </None>
     <None Include="content\globalcontent\starry_sky.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>starry_sky</Name>

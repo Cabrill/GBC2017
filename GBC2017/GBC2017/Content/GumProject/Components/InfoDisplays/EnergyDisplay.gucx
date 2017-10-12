@@ -178,6 +178,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyDecreaseText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EnergyDecreaseText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -244,6 +251,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>EnergyDecreaseText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyDecreaseText.Width</Name>
       <Value xsi:type="xsd:float">33</Value>
@@ -259,6 +272,13 @@
       <Type>int</Type>
       <Name>EnergyEqualsText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyEqualsText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -322,6 +342,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>EnergyEqualsText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyEqualsText.Width</Name>
       <Value xsi:type="xsd:float">1</Value>
@@ -337,6 +363,13 @@
       <Type>int</Type>
       <Name>EnergyIncreaseText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyIncreaseText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -406,6 +439,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>EnergyIncreaseText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyIncreaseText.Width</Name>
       <Value xsi:type="xsd:float">33</Value>
@@ -421,6 +460,13 @@
       <Type>int</Type>
       <Name>EnergyNetText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyNetText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -493,6 +539,12 @@
       <Type>string</Type>
       <Name>EnergyNetText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyNetText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

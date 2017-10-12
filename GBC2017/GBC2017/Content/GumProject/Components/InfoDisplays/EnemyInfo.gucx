@@ -228,6 +228,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>HealthText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>HealthText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -280,6 +287,12 @@
       <Name>HealthText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
       <ExposedAsName>EnemyHealth</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HealthText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -430,6 +443,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MeleeText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MeleeText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -485,6 +505,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MeleeText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>VerticalAlignment</Type>
       <Name>MeleeText.VerticalAlignment</Name>
       <Value xsi:type="xsd:int">1</Value>
@@ -530,6 +556,13 @@
       <Type>DimensionUnitType</Type>
       <Name>NameContainer.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>NameText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -585,6 +618,12 @@
       <Name>NameText.Text</Name>
       <Value xsi:type="xsd:string">Enemy</Value>
       <ExposedAsName>EnemyName</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>NameText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -756,6 +795,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>RangedText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>RangedText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -808,6 +854,12 @@
       <Name>RangedText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
       <ExposedAsName>EnemyRanged</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>RangedText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

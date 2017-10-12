@@ -212,6 +212,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsDecreaseText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MineralsDecreaseText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -272,6 +279,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MineralsDecreaseText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsDecreaseText.Width</Name>
       <Value xsi:type="xsd:float">33</Value>
@@ -287,6 +300,13 @@
       <Type>int</Type>
       <Name>MineralsEqualsText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsEqualsText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -350,6 +370,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MineralsEqualsText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsEqualsText.Width</Name>
       <Value xsi:type="xsd:float">1</Value>
@@ -365,6 +391,13 @@
       <Type>int</Type>
       <Name>MineralsIncreaseText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsIncreaseText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -428,6 +461,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>MineralsIncreaseText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MineralsIncreaseText.Width</Name>
       <Value xsi:type="xsd:float">33</Value>
@@ -443,6 +482,13 @@
       <Type>int</Type>
       <Name>MineralsNetText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsNetText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -509,6 +555,12 @@
       <Type>string</Type>
       <Name>MineralsNetText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsNetText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

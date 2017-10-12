@@ -67,6 +67,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>IncreaseAmount.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>IncreaseAmount.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -125,6 +132,12 @@
       <Name>IncreaseAmount.Text</Name>
       <Value xsi:type="xsd:string">+1</Value>
       <ExposedAsName>AmountOfIncrease</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>IncreaseAmount.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

@@ -1344,6 +1344,10 @@
       <Name>animation_sheet</Name>
       <Link>Assets\content\globalcontent\animation_sheet.png</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\font50moireextrabold.fnt">
+      <Name>font50moireextrabold</Name>
+      <Link>Assets\content\globalcontent\font50moireextrabold.fnt</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
       <Name>starry_sky</Name>
       <Link>Assets\content\globalcontent\starry_sky.png</Link>
