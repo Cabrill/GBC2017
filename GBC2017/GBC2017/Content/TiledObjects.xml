@@ -97,7 +97,7 @@
   </objecttype>
   <objecttype name="CannonProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
   <objecttype name="FlyingEnemyProjectile">
     <property name="DamageInflicted" type="float" />
@@ -113,7 +113,7 @@
   </objecttype>
   <objecttype name="TallLaserProjectile">
     <property name="DamageInflicted" type="float" />
-    <property name="HasLightSource" type="bool" default="false" />
+    <property name="HasLightSource" type="bool" default="true" />
   </objecttype>
   <objecttype name="Cannon">
     <property name="EnergyBuildCost" type="float" default="50" />

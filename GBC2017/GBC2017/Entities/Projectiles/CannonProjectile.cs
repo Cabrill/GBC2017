@@ -38,7 +38,7 @@ namespace GBC2017.Entities.Projectiles
 	        RotationZ = 0;
             SpriteInstance.TextureScale = 2f * _currentScale;
 	        LightOrShadowSprite.Alpha = 1f;
-
+            
             var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 	        
             LightOrShadowSprite.Tween(HandleLightGrowUpdate, 0, 4f, duration,

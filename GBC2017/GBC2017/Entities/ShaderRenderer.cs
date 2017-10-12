@@ -204,8 +204,13 @@ namespace GBC2017.Entities
 
             //Then subtract darkness where light sources are at
             spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, new Color(DarknessAlpha, DarknessAlpha, DarknessAlpha, DarknessAlpha));
+            spriteBatch.Draw(DarknessTexture, destinationRectangle, new Color(1, 1, 1, DarknessAlpha*2));
             spriteBatch.End();
+
+            //using (Stream stream = System.IO.File.Create("result.png"))
+            //{
+            //    RenderTargetInstance.SaveAsPng(stream, destinationRectangle.Width, destinationRectangle.Height);
+            //}
         }
     }
 }

@@ -22,6 +22,8 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingLightScale;
 	    private float _startingCircleRadius;
 
+	    protected Layer _darknessLayer;
+
         private int groundHitCounter = 0;
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
@@ -202,6 +204,8 @@ namespace GBC2017.Entities.BaseEntities
 	            ShapeManager.AddToLayer(CircleInstance, hudLayer);
 
 	            _spritedAddedToLayers = true;
+	            _darknessLayer = darknessLayer;
+
 	        }
 	    }
 

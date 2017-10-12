@@ -30,7 +30,7 @@ namespace GBC2017.Entities.BaseEntities
         private Vector3? _startingPosition;
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
-	    private float _startingShadowAlpha;
+	    protected float _startingShadowAlpha;
 	    protected SoundEffectInstance HitGroundSound;
 	    protected SoundEffectInstance HitTargetSound;
         private bool _spritedAddedToLayers = false;
@@ -120,9 +120,9 @@ namespace GBC2017.Entities.BaseEntities
 	            _hitTheGround = Altitude <= 0;
 
                 if (_hitTheGround)
-	            {
-	                CurrentState = VariableState.Impact;
-	                PlayHitGroundSound();
+                {
+                    HandleImpact();
+                    PlayHitGroundSound();
 	            }
 	        }
         }
