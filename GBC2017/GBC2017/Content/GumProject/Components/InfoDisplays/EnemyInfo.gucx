@@ -170,7 +170,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>HealthSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -385,7 +385,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MeleeSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -737,7 +737,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>RangedSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

@@ -23,8 +23,8 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
         {
-            if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.Laser_Ground.CreateInstance();
-            if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = GlobalContent.Laser_Hit.CreateInstance();
+            if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Laser_Ground.CreateInstance();
+            if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = Laser_Hit.CreateInstance();
         }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

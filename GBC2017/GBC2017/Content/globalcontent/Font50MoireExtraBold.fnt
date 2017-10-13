@@ -1,6 +1,6 @@
 info face="Moire ExtraBold" size=-50 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=2
 common lineHeight=61 base=48 scaleW=512 scaleH=256 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
-page id=0 file="AllAssetsSheet.png"
+page id=0 file="../Screens/GameScreen/AllAssetsSheet.png"
 chars count=95
 char id=32   x=2034   y=659   width=7     height=5     xoffset=-3    yoffset=58    xadvance=13    page=0  chnl=15
 char id=33   x=1836   y=665   width=16    height=40    xoffset=1     yoffset=10    xadvance=17    page=0  chnl=15

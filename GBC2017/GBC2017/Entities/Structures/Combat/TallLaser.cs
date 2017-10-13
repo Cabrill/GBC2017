@@ -23,7 +23,7 @@ namespace GBC2017.Entities.Structures.Combat
         /// </summary>
 		private void CustomInitialize()
         {
-            attackSound = GlobalContent.TallLaser_Shoot.CreateInstance();
+            attackSound = TallLaser_Shoot.CreateInstance();
             _shotAltitude = 150f;
         }
 

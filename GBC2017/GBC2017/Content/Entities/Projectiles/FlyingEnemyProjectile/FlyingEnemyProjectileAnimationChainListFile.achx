@@ -6,7 +6,7 @@
   <AnimationChain>
     <Name>Shot</Name>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>317</LeftCoordinate>
       <RightCoordinate>381</RightCoordinate>
@@ -14,7 +14,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>381</LeftCoordinate>
       <RightCoordinate>445</RightCoordinate>
@@ -22,7 +22,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>445</LeftCoordinate>
       <RightCoordinate>509</RightCoordinate>
@@ -30,7 +30,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>509</LeftCoordinate>
       <RightCoordinate>573</RightCoordinate>
@@ -38,7 +38,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>573</LeftCoordinate>
       <RightCoordinate>637</RightCoordinate>
@@ -46,7 +46,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>637</LeftCoordinate>
       <RightCoordinate>701</RightCoordinate>
@@ -54,7 +54,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>701</LeftCoordinate>
       <RightCoordinate>765</RightCoordinate>
@@ -62,7 +62,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>765</LeftCoordinate>
       <RightCoordinate>829</RightCoordinate>
@@ -70,7 +70,7 @@
       <BottomCoordinate>559</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>829</LeftCoordinate>
       <RightCoordinate>893</RightCoordinate>
@@ -81,7 +81,7 @@
   <AnimationChain>
     <Name>Impact</Name>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.01</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>64</RightCoordinate>
@@ -89,7 +89,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.011</FrameLength>
       <LeftCoordinate>64</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
@@ -97,7 +97,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.012</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
       <RightCoordinate>192</RightCoordinate>
@@ -105,7 +105,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.013</FrameLength>
       <LeftCoordinate>192</LeftCoordinate>
       <RightCoordinate>256</RightCoordinate>
@@ -113,7 +113,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.014</FrameLength>
       <LeftCoordinate>256</LeftCoordinate>
       <RightCoordinate>320</RightCoordinate>
@@ -121,7 +121,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.015</FrameLength>
       <LeftCoordinate>320</LeftCoordinate>
       <RightCoordinate>384</RightCoordinate>
@@ -129,7 +129,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.016</FrameLength>
       <LeftCoordinate>384</LeftCoordinate>
       <RightCoordinate>448</RightCoordinate>
@@ -137,7 +137,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.017</FrameLength>
       <LeftCoordinate>448</LeftCoordinate>
       <RightCoordinate>512</RightCoordinate>
@@ -145,7 +145,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.018</FrameLength>
       <LeftCoordinate>512</LeftCoordinate>
       <RightCoordinate>576</RightCoordinate>
@@ -153,7 +153,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.019</FrameLength>
       <LeftCoordinate>576</LeftCoordinate>
       <RightCoordinate>640</RightCoordinate>
@@ -161,7 +161,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.02</FrameLength>
       <LeftCoordinate>640</LeftCoordinate>
       <RightCoordinate>704</RightCoordinate>
@@ -169,7 +169,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.025</FrameLength>
       <LeftCoordinate>704</LeftCoordinate>
       <RightCoordinate>768</RightCoordinate>
@@ -177,7 +177,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.03</FrameLength>
       <LeftCoordinate>768</LeftCoordinate>
       <RightCoordinate>832</RightCoordinate>
@@ -185,7 +185,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.04</FrameLength>
       <LeftCoordinate>832</LeftCoordinate>
       <RightCoordinate>896</RightCoordinate>
@@ -193,7 +193,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.05</FrameLength>
       <LeftCoordinate>896</LeftCoordinate>
       <RightCoordinate>960</RightCoordinate>
@@ -201,7 +201,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.06</FrameLength>
       <LeftCoordinate>960</LeftCoordinate>
       <RightCoordinate>1024</RightCoordinate>
@@ -209,7 +209,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.07</FrameLength>
       <LeftCoordinate>1024</LeftCoordinate>
       <RightCoordinate>1088</RightCoordinate>
@@ -217,7 +217,7 @@
       <BottomCoordinate>1632</BottomCoordinate>
     </Frame>
     <Frame>
-      <TextureName>../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.08</FrameLength>
       <LeftCoordinate>1088</LeftCoordinate>
       <RightCoordinate>1152</RightCoordinate>

@@ -23,8 +23,8 @@ namespace GBC2017.Entities.Enemies
         /// </summary>
 		private void CustomInitialize()
 		{
-		    rangedAttackSound = GlobalContent.Flying_Shoot.CreateInstance();
-		    rangedChargeSound = GlobalContent.Flying_Powerup.CreateInstance();
+		    rangedAttackSound = Flying_Shoot.CreateInstance();
+		    rangedChargeSound = Flying_Powerup.CreateInstance();
 		    Altitude = 300f;
 		    _spriteRelativeY -= 30;
 

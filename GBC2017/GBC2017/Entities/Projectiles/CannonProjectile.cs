@@ -24,7 +24,7 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.Cannon_Hit.CreateInstance();
+		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = Cannon_Hit.CreateInstance();
 		    HitTargetSound = HitGroundSound;
 		    circleRadius = CircleInstance.Radius;
 

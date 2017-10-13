@@ -66,7 +66,7 @@
       <Animate>true</Animate>
       <AnimationChains>WaterDropAnimationChain.achx</AnimationChains>
       <CurrentChainName>WaterDrop1</CurrentChainName>
-      <Texture>../../../../globalcontent/AllAssetsSheet.png</Texture>
+      <Texture>../../../../Screens/GameScreen/AllAssetsSheet.png</Texture>
     </EmissionSettings>
     <BoundedEmission>false</BoundedEmission>
     <Name>WaterDrop1Emitter</Name>
@@ -149,7 +149,7 @@
       <Animate>true</Animate>
       <AnimationChains>WaterDropAnimationChain.achx</AnimationChains>
       <CurrentChainName>WaterDrop2</CurrentChainName>
-      <Texture>../../../../globalcontent/AllAssetsSheet.png</Texture>
+      <Texture>../../../../Screens/GameScreen/AllAssetsSheet.png</Texture>
     </EmissionSettings>
     <BoundedEmission>false</BoundedEmission>
     <Name>WaterDrop2Emitter</Name>

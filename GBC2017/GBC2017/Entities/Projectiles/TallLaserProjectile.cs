@@ -22,8 +22,8 @@ namespace GBC2017.Entities.Projectiles
         /// </summary>
 		private void CustomInitialize()
 		{
-		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = GlobalContent.TallLaser_Hit.CreateInstance();
-		    if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = GlobalContent.TallLaser_Hit.CreateInstance();
+		    if (HitGroundSound == null || HitGroundSound.IsDisposed) HitGroundSound = TallLaser_Hit.CreateInstance();
+		    if (HitTargetSound == null || HitTargetSound.IsDisposed) HitTargetSound = TallLaser_Hit.CreateInstance();
         }
 
         private void CustomActivity()

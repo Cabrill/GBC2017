@@ -22,7 +22,7 @@ namespace GBC2017.Entities.Structures.Combat
         /// </summary>
 		private void CustomInitialize()
         {
-            attackSound = GlobalContent.Cannon_Shoot.CreateInstance();
+            attackSound = Cannon_Shoot.CreateInstance();
             _shotAltitude = 20f;
         }
 

@@ -74,7 +74,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>DawnDuskSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -193,7 +193,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MoonSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -295,7 +295,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>SkyHazeSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -494,7 +494,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>StarrySkySprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/starry_sky.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/starry_sky.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -602,7 +602,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>SunSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

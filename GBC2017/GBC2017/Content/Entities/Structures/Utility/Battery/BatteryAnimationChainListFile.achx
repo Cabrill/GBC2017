@@ -6,7 +6,7 @@
   <AnimationChain>
     <Name>Idle</Name>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1654</LeftCoordinate>
       <RightCoordinate>1792</RightCoordinate>
@@ -16,7 +16,7 @@
       <RelativeY>-19</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1518</LeftCoordinate>
       <RightCoordinate>1656</RightCoordinate>
@@ -26,7 +26,7 @@
       <RelativeY>-17</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1440</LeftCoordinate>
       <RightCoordinate>1578</RightCoordinate>
@@ -36,7 +36,7 @@
       <RelativeY>-10</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>738</LeftCoordinate>
       <RightCoordinate>876</RightCoordinate>
@@ -46,7 +46,7 @@
       <RelativeY>-1.5</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>410</LeftCoordinate>
       <RightCoordinate>548</RightCoordinate>
@@ -56,7 +56,7 @@
       <RelativeY>5.5</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>222</LeftCoordinate>
       <RightCoordinate>360</RightCoordinate>
@@ -66,7 +66,7 @@
       <RelativeY>8</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>598</LeftCoordinate>
       <RightCoordinate>736</RightCoordinate>
@@ -76,7 +76,7 @@
       <RelativeY>8</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1104</LeftCoordinate>
       <RightCoordinate>1242</RightCoordinate>
@@ -86,7 +86,7 @@
       <RelativeY>8</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>598</LeftCoordinate>
       <RightCoordinate>736</RightCoordinate>
@@ -96,7 +96,7 @@
       <RelativeY>8</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>222</LeftCoordinate>
       <RightCoordinate>360</RightCoordinate>
@@ -106,7 +106,7 @@
       <RelativeY>8</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>410</LeftCoordinate>
       <RightCoordinate>548</RightCoordinate>
@@ -116,7 +116,7 @@
       <RelativeY>5.5</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>738</LeftCoordinate>
       <RightCoordinate>876</RightCoordinate>
@@ -126,7 +126,7 @@
       <RelativeY>-1.5</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1440</LeftCoordinate>
       <RightCoordinate>1578</RightCoordinate>
@@ -136,7 +136,7 @@
       <RelativeY>-10</RelativeY>
     </Frame>
     <Frame>
-      <TextureName>../../../../globalcontent/animation_sheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/animation_sheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>1518</LeftCoordinate>
       <RightCoordinate>1656</RightCoordinate>
