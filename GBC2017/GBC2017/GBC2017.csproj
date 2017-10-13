@@ -636,11 +636,6 @@
       <Name>Font50Arial_o2_1</Name>
       <Link>content\gumproject\fontcache\font50arial_o2_1.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50moire extrabold_o2_0.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font50Moire ExtraBold_o2_0</Name>
-      <Link>content\gumproject\fontcache\font50moire extrabold_o2_0.xnb</Link>
-    </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\justwindmill.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>JustWindmill</Name>

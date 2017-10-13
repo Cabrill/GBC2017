@@ -29,13 +29,7 @@ namespace GBC2017.Entities.Structures.Combat
 
 	    protected override void SetAnimationFromAimRotation()
 	    {
-	        SpriteInstance.UpdateToCurrentAnimationFrame();
-	        if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	        {
-	            SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	            SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	        }
-	        SpriteInstance.RelativeY += _spriteRelativeY;
+	        //Tall lasers don't react to rotation since they're constantly spinning
         }
 
 	    protected override BasePlayerProjectile CreateNewProjectile()

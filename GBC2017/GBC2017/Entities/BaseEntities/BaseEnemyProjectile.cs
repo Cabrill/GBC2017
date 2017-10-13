@@ -86,46 +86,48 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomActivity()
 	    {
-	        if (CurrentState != VariableState.Impact)
-	        {
-	            CalculateScale();
-                UpdateScale();
-	        }
-
-	        UpdateAnimation();
-
             if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
 	        {
 	            Visible = false;
                 SpriteInstance.Animate = false;
 	            ShouldBeDestroyed = true;
 	        }
+            else if (CurrentState != VariableState.Impact)
+            {
+                CalculateScale();
+                UpdateScale();
+            }
 
 	        if (ShouldBeDestroyed)
 	        {
-	            if ((HitGroundSound == null || HitGroundSound.State == SoundState.Stopped) && (HitTargetSound == null || HitTargetSound.State == SoundState.Stopped))
+	            if ((HitGroundSound == null || HitGroundSound.State == SoundState.Stopped) &&
+	                (HitTargetSound == null || HitTargetSound.State == SoundState.Stopped))
 	            {
 	                Destroy();
-                }
-	        }
-	        else if (CurrentState != VariableState.Impact)
-	        {
-	            var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
-	            var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
-
-	            LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
-	            LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
-	            LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
-
-	            _hitTheGround = Altitude <= 0;
-
-                if (_hitTheGround)
-                {
-                    HandleImpact();
-                    PlayHitGroundSound();
 	            }
 	        }
-        }
+	        else
+	        {
+	            UpdateAnimation();
+                if (CurrentState != VariableState.Impact)
+	            {
+	                var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
+	                var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
+
+	                LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
+	                LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
+	                LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow;
+
+	                _hitTheGround = Altitude <= 0;
+
+	                if (_hitTheGround)
+	                {
+	                    HandleImpact();
+	                    PlayHitGroundSound();
+	                }
+	            }
+	        }
+	    }
 
 	    public void HandleImpact()
 	    {

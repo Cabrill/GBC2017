@@ -76,7 +76,7 @@ namespace GBC2017.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = new HelsinkiLevel(WorldLayer);
+            CurrentLevel = new HelsinkiLevel(AllEnemiesList, WorldLayer);
             currentLevelDateTime = CurrentLevel.StartTime;
             InsolationFormulas.Instance.SetCityAndDate(CurrentLevel.City, currentLevelDateTime);
 
@@ -422,11 +422,11 @@ namespace GBC2017.Screens
 
     private void EnemyStatusActivity()
 	    {
-	        var validStructures = AllStructuresList.Where(s => !s.IsBeingPlaced && !s.IsDestroyed).ToArray();
-
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
+	            if (enemy.IsDead) continue;
+
 	            if (!PlayAreaPolygon.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
@@ -437,7 +437,10 @@ namespace GBC2017.Screens
 	                for (var j = i- 1; j > 0; j--)
 	                {
 	                    var otherEnemy = AllEnemiesList[j - 1];
-	                    if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 & otherEnemy.IsJumper && otherEnemy.Altitude > 0))
+
+	                    if (otherEnemy.IsDead) continue;
+
+	                    if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
 	                    {
 	                        enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
 	                            elasticity: 0.1f);
@@ -445,14 +448,15 @@ namespace GBC2017.Screens
 	                }
 
                     //Collide enemies against buildings
-	                if (!enemy.IsFlying)
+	                if (enemy.IsFlying) continue;
+
+	                for (var j = AllStructuresList.Count(); j > 0; j--)
 	                {
-	                    for (var j = validStructures.Count(); j > 0; j--)
-	                    {
-	                        var structure = validStructures[j - 1];
-	                        enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
-	                            elasticity: 0.1f);
-	                    }
+	                    var structure = AllStructuresList[j - 1];
+	                    if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
+
+	                    enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.1f);
 	                }
 	            }
 	        }
@@ -466,37 +470,30 @@ namespace GBC2017.Screens
 	            if (projectile.ShouldBeDestroyed ||
 	                projectile.CurrentState != BaseEnemyProjectile.VariableState.Flying) continue;
 
-	            if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
+	           for (var e = AllStructuresList.Count; e > 0; e--)
 	            {
-	                projectile.HandleImpact();
-	            }
-	            else
-	            {
-	                for (var e = AllStructuresList.Count; e > 0; e--)
+	                var structure = AllStructuresList[e - 1];
+	                if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
+
+	                if (structure is ShieldGenerator)
 	                {
-	                    var structure = AllStructuresList[e - 1];
-	                    if (structure.CurrentState != BaseStructure.VariableState.Built) continue;
+	                    var shieldGenerator = structure as ShieldGenerator;
 
-	                    if (structure is ShieldGenerator)
+	                    if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
+	                            .CollideAgainst(projectile.CircleInstance))
 	                    {
-	                        var shieldGenerator = structure as ShieldGenerator;
-
-	                        if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
-	                                .CollideAgainst(projectile.CircleInstance))
-	                        {
-	                            shieldGenerator.HitShieldWith(projectile);
-	                            projectile.HandleImpact();
-	                            continue;
-	                        }
-	                    }
-
-	                    if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
-	                    {
-	                        structure.GetHitBy(projectile);
+	                        shieldGenerator.HitShieldWith(projectile);
 	                        projectile.HandleImpact();
-                        }
-
+	                        continue;
+	                    }
 	                }
+
+	                if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
+	                {
+	                    structure.GetHitBy(projectile);
+	                    projectile.HandleImpact();
+                    }
+
 	            }
 	        }
         }
@@ -516,7 +513,7 @@ namespace GBC2017.Screens
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
-	                    if (!projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, 1, 0f, 0f)) continue;
+	                    if (!projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, 2, 0f, 0f)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                }
@@ -526,7 +523,8 @@ namespace GBC2017.Screens
 	                for (var e = AllEnemiesList.Count; e > 0; e--)
 	                {
 	                    var enemy = AllEnemiesList[e - 1];
-	                    if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
+
+	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
 
 	                    enemy.GetHitBy(projectile);
 	                    projectile.HandleImpact();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Graphics;
+using GBC2017.Entities.BaseEntities;
 using GBC2017.GameClasses.BaseClasses;
 using GBC2017.GameClasses.Cities;
 using GBC2017.GameClasses.Interfaces;
@@ -18,7 +19,7 @@ namespace GBC2017.GameClasses.Levels
         public override float AvgDailyEnergyUsage => 3.45f;
         public override float WaterFlowRate => 5f;
 
-        public HelsinkiLevel(Layer layerForEnemies) : base(layerForEnemies)
+        public HelsinkiLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies) : base(enemyList, layerForEnemies)
         {
             
         }

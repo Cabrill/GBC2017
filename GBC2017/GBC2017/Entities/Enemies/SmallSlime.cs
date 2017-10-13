@@ -100,8 +100,8 @@ namespace GBC2017.Entities.Enemies
 	            }
 	            else
 	            {
-	                CurrentActionState = Action.Standing;
-	            }
+	                CurrentJumpState = Jump.Landing;
+                }
 	        }
 	    }
 

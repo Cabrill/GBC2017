@@ -12,19 +12,16 @@ namespace GBC2017.Entities.BaseEntities
     public partial class BaseEnemy
     {
         #region Propertie and fields
+        private BaseStructure _currentAttackTarget;
+
+        private double _lastRangeAttackTime;
+        private double _lastMeleeAttackTime;
 
         private bool IsAttacking => CurrentActionState == Action.StartMeleeAttack ||
                                     CurrentActionState == Action.FinishMeleeAttack ||
                                     CurrentActionState == Action.StartRangedAttack ||
                                     CurrentActionState == Action.FinishRangedAttack ||
                                     (CurrentActionState == Action.RangedAim && _currentAttackTarget != null && TargetIsInAttackRange(_currentAttackTarget));
-
-
-        private BaseStructure _currentAttackTarget;
-        private int _lastNumberOfAvailableTargets;
-
-        private double _lastRangeAttackTime;
-        private double _lastMeleeAttackTime;
 
         private bool AttackIsAvailable => IsRangedAttacker
             ? TimeManager.SecondsSince(_lastRangeAttackTime) > SecondsBetweenRangedAttack
@@ -44,19 +41,32 @@ namespace GBC2017.Entities.BaseEntities
             }
             else if (_potentialTargetList != null && _potentialTargetList.Count > 0)
             {
-                _currentAttackTarget =
-                    _potentialTargetList.Where(pt =>
-                            pt.CurrentState == BaseStructure.VariableState.Built &&
-                            pt.IsDestroyed == false &&
-                            TargetIsInAttackRange(pt))
-                        .OrderBy(pt => Vector3.Distance(Position, pt.Position)
-                        ).FirstOrDefault();
+                var minDistance = float.MaxValue;
+                BaseStructure potentialTarget = null;
+
+                foreach (var target in _potentialTargetList)
+                {
+                    if (target.CurrentState != BaseStructure.VariableState.Built || target.IsDestroyed) continue;
+
+                    var distanceToTarget = Vector3.Distance(Position, target.Position);
+
+                    if (distanceToTarget >= minDistance) continue;
+
+                    var isInRange = distanceToTarget < (IsMeleeAttacker ? MeleeAttackRadius : RangedAttackRadius);
+
+                    if (!isInRange) continue;
+
+                    minDistance = distanceToTarget;
+                    potentialTarget = target;
+                }
+
+                _currentAttackTarget = potentialTarget;
             }
         }
 
         private void SharedAttackActivity()
         {
-            if (_lastNumberOfAvailableTargets != _currentNumberOfPotentialTargets || (_currentAttackTarget != null && (_currentAttackTarget.IsDestroyed || !TargetIsInAttackRange(_currentAttackTarget))))
+            if (_lastNumberOfPotentialTargets != _currentNumberOfPotentialTargets || (_currentAttackTarget != null && (_currentAttackTarget.IsDestroyed || !TargetIsInAttackRange(_currentAttackTarget))))
             {
                 _currentAttackTarget = null;
             }
@@ -81,7 +91,7 @@ namespace GBC2017.Entities.BaseEntities
         {
             if (_currentAttackTarget == null) return;
 
-            StopMovement();
+            Velocity = Vector3.Zero;
 
             CurrentDirectionState = (Position.X < _currentAttackTarget.Position.X ?
                 Direction.MovingRight :

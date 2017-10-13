@@ -216,12 +216,12 @@ namespace GBC2017.Entities.BaseEntities
 	        if (HasLightSource)
 	        {
 	            //LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
-	            LightSpriteInstance.Width = SpriteInstance.Width;
+	            LightSpriteInstance.Width = SpriteInstance.Width*1.5f;
 	            LightSpriteInstance.Height = AxisAlignedRectangleInstance.Height;
 	        }
         }
 
-	    private void UpdateAnimation()
+	    protected void UpdateAnimation()
 	    {
             if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
             {

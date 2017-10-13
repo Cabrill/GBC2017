@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Graphics;
+using GBC2017.Entities.BaseEntities;
 using GBC2017.Factories;
 using GBC2017.GameClasses.Interfaces;
 
@@ -20,12 +21,13 @@ namespace GBC2017.GameClasses.BaseClasses
 
         public abstract float WaterFlowRate { get; }
 
-    private DateTime _lastEnemyWave;
+        private DateTime _lastEnemyWave;
         private Layer _layerForEnemies;
         private int _wavesSent;
         private int _wavesToEaseIntoDifficulty = 48;
+        protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
-        protected BaseLevel(Layer layerForEnemies)
+        protected BaseLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies)
         {
             this._layerForEnemies = layerForEnemies;
             _wavesSent = 0;
@@ -42,7 +44,7 @@ namespace GBC2017.GameClasses.BaseClasses
         {
             if (EndTime != DateTime.MaxValue)
             {
-                return currentDateTime >= EndTime;
+                return currentDateTime >= EndTime && _enemyList.Count == 0;
             }
             return false;
         }
@@ -74,15 +76,22 @@ namespace GBC2017.GameClasses.BaseClasses
         {
             if (currentDateTime > _lastEnemyWave && currentDateTime.Hour != _lastEnemyWave.Hour)
             {
-                var wavesModifier = 1f;
-                if (_wavesSent < _wavesToEaseIntoDifficulty)
-                {
-                    wavesModifier = (float)_wavesSent / _wavesToEaseIntoDifficulty;
-                }
+                var energyToSpend = 0f;
 
-                var energyToSpend = wavesModifier *
-                    GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour,
-                        AvgDailyEnergyUsage);
+                //Don't increment energy after time limit is reached, just spend what's already available
+                if (currentDateTime <= EndTime)
+                {
+
+                    var wavesModifier = 1f;
+                    if (_wavesSent < _wavesToEaseIntoDifficulty)
+                    {
+                        wavesModifier = (float) _wavesSent / _wavesToEaseIntoDifficulty;
+                    }
+
+                    energyToSpend = wavesModifier *
+                                    GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour,
+                                        AvgDailyEnergyUsage);
+                }
 
                 EnergyToSpend += energyToSpend;
 

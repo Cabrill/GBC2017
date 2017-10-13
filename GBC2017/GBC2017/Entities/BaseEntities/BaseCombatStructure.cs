@@ -191,13 +191,7 @@ namespace GBC2017.Entities.BaseEntities
 	        SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
 
 
-	        SpriteInstance.UpdateToCurrentAnimationFrame();
-	        if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	        {
-	            SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	            SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	        }
-	        SpriteInstance.RelativeY += _spriteRelativeY;
+	        UpdateAnimation();
         }
 
 	    private Vector3 GetProjectilePositioning(float? angle = null)
@@ -257,10 +251,10 @@ namespace GBC2017.Entities.BaseEntities
 
 	        var targetPosition = targetEnemy.CircleInstance.Position;
 	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
+
 	        var timeToTravel = targetDistance / ProjectileSpeed;
 
 	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
-
 	        var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel) - altitudeDifference)) /
 	                               -timeToTravel;
 

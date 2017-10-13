@@ -59,7 +59,7 @@ namespace GBC2017.Entities.BaseEntities
             if (shouldUpdateNavigation)
             {
 
-                if (_lastNumberOfAvailableTargets != _currentNumberOfPotentialTargets || _targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
+                if (_lastNumberOfPotentialTargets != _currentNumberOfPotentialTargets || _targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
                 {
                     ChooseStructureForNavigation();
                 }
@@ -79,15 +79,24 @@ namespace GBC2017.Entities.BaseEntities
 
         private void ChooseStructureForNavigation()
         {
-            if (_potentialTargetList != null && _potentialTargetList.Count > 0)
+            if (_potentialTargetList == null || _potentialTargetList.Count <= 0) return;
+
+            var minDistance = float.MaxValue;
+            BaseStructure potentialTarget = null;
+
+            foreach (var target in _potentialTargetList)
             {
-                _targetStructureForNavigation =
-                    _potentialTargetList.Where(pt =>
-                            pt.CurrentState == BaseStructure.VariableState.Built &&
-                            pt.IsDestroyed == false)
-                        .OrderBy(pt => Vector3.Distance(Position, pt.Position)
-                        ).FirstOrDefault();
+                if (target.CurrentState != BaseStructure.VariableState.Built || target.IsDestroyed) continue;
+
+                var distanceToTarget = Vector3.Distance(Position, target.Position);
+
+                if (distanceToTarget >= minDistance) continue;
+                    
+                minDistance = distanceToTarget;
+                potentialTarget = target;
             }
+
+            _targetStructureForNavigation = potentialTarget;
         }
 
         protected virtual void NavigateToTargetStructure()
@@ -127,12 +136,6 @@ namespace GBC2017.Entities.BaseEntities
 
             return altitudeVelocity;
         }
-
-        private void StopMovement()
-        {
-            Velocity = Vector3.Zero;
-        }
-
         #endregion
     }
 }

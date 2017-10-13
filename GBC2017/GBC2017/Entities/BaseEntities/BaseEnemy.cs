@@ -27,9 +27,7 @@ namespace GBC2017.Entities.BaseEntities
 	{
 	    private static float _maximumY;
 	    protected float _currentScale;
-	    private float _startingSpriteScale;
-	    private float _startingLightScale;
-        private float _startingCircleRadius;
+
 
         public event Action<BaseEnemy> OnDeath;
 	    public float Altitude { get; protected set; }
@@ -38,13 +36,16 @@ namespace GBC2017.Entities.BaseEntities
 
         private static AxisAlignedRectangle _leftSpawnArea;
 	    private static AxisAlignedRectangle _rightSpawnArea;
-        private static PositionedObjectList<BaseStructure> _potentialTargetList;
 
-	    public float HealthRemaining { get; private set; }
+        private static PositionedObjectList<BaseStructure> _potentialTargetList;
+	    private int _currentNumberOfPotentialTargets;
+	    private int _lastNumberOfPotentialTargets;
+
+        public float HealthRemaining { get; private set; }
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
-	    private int _currentNumberOfPotentialTargets;
-	    private int _lastFrameIndex;
+
+        private int _lastFrameIndex;
 	    private string _lastFrameChain;
 
 	    private Vector3? _startingPosition;
@@ -53,6 +54,10 @@ namespace GBC2017.Entities.BaseEntities
 	    private float _startingShadowAlpha;
 	    private float _startingRangedRadius;
 	    private float _startingMeleeRadius;
+	    private float _startingSpriteScale;
+	    private float _startingLightScale;
+	    private float _startingCircleRadius;
+
         protected float _spriteRelativeY;
 
         protected SoundEffectInstance rangedChargeSound;
@@ -147,7 +152,9 @@ namespace GBC2017.Entities.BaseEntities
             UpdateScale();
 		    UpdateAnimation();
             UpdateHealthBar();
-        }
+
+		    _lastNumberOfPotentialTargets = _currentNumberOfPotentialTargets;
+		}
 
 	    private void CalculateScale()
 	    {
@@ -257,14 +264,14 @@ namespace GBC2017.Entities.BaseEntities
 	                if (rangedChargeSound != null && !rangedChargeSound.IsDisposed && rangedChargeSound.State == SoundState.Playing) rangedChargeSound.Stop();
 	            }
 
-	            StopMovement();
+	            Velocity = Vector3.Zero;
                 CurrentActionState = Action.Hurt;
 	        }
 	    }
 
 	    private void PerformDeath()
 	    {
-	        StopMovement();
+	        Velocity = Vector3.Zero;
 
             if (CurrentActionState != Action.Dying)
 	        {

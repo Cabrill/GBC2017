@@ -92,20 +92,17 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CustomActivity()
 	    {
-	        if (CurrentState != VariableState.Impact)
+	        if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
+	        {
+	            Visible = false;
+	            SpriteInstance.Animate = false;
+	            ShouldBeDestroyed = true;
+	        }
+            else if (CurrentState != VariableState.Impact)
 	        {
 	            CalculateScale();
 	            UpdateScale();
 	        }
-
-	        UpdateAnimation();
-
-            if (CurrentState == VariableState.Impact && SpriteInstance.JustCycled)
-		    {
-		        Visible = false;
-		        SpriteInstance.Animate = false;
-		        ShouldBeDestroyed = true;
-		    }
 
             if (ShouldBeDestroyed)
 		    {
@@ -114,23 +111,27 @@ namespace GBC2017.Entities.BaseEntities
 		            Destroy();
 		        }
 		    }
-		    else if (CurrentState != VariableState.Impact)
+            else
             {
-		        var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
-		        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
+                UpdateAnimation();
+                if (CurrentState != VariableState.Impact)
+                {
+                    var distanceAtWhichToGrow = HasLightSource ? 200 : 400;
+                    var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (distanceAtWhichToGrow * _currentScale)), 0, 1);
 
-                LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
-		        LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
-		        LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow * _currentScale;
+                    LightOrShadowSprite.Width = _startingShadowWidth * pctLightShadow * _currentScale;
+                    LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
+                    LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow * _currentScale;
 
-                _hitTheGround = Altitude <= 0;
+                    _hitTheGround = Altitude <= 0;
 
-		        if (_hitTheGround)
-		        {
-		            PlayHitGroundSound();
-		            HandleImpact();
-		        }
-		    }
+                    if (_hitTheGround)
+                    {
+                        HandleImpact();
+                        PlayHitGroundSound();
+                    }
+                }
+            }
 		}
 
 	    private void UpdateAnimation()
