@@ -1079,6 +1079,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

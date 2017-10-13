@@ -27,7 +27,7 @@ namespace GBC2017.Screens
 		void CustomActivity(bool firstTimeCalled)
 		{
             //Currently MonoGame does not allow asynchronously loading :(  Have to directly load screen after showing this one for 1 frame
-            if (!firstTimeCalled) MoveToScreen(typeof(GameScreen));
+            if (HasDrawBeenCalled) MoveToScreen(typeof(GameScreen));
 		    //if (this.AsyncLoadingState == FlatRedBall.Screens.AsyncLoadingState.NotStarted)
 		    //{
 		    //    StartAsyncLoad(typeof(GameScreen).FullName);

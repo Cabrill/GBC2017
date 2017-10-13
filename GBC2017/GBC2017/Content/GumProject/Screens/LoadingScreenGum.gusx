@@ -101,13 +101,13 @@
     <Variable>
       <Type>float</Type>
       <Name>TextInstance.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">2.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.Green</Name>
-      <Value xsi:type="xsd:int">252</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -137,7 +137,7 @@
     <Variable>
       <Type>int</Type>
       <Name>TextInstance.Red</Name>
-      <Value xsi:type="xsd:int">124</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
