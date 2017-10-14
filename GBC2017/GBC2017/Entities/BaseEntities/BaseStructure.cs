@@ -25,7 +25,17 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BaseStructure
 	{
-	    public double BatteryLevel { get; protected set; }
+	    private static float _maximumY;
+	    protected float _currentScale;
+	    private float _startingScale;
+	    private float _startingLightSpriteScale;
+        private float _startingRectangleScaleX;
+	    private float _startingRectangleScaleY;
+
+        public Action OnBuild;
+	    public Action OnDestroy;
+
+        public double BatteryLevel { get; protected set; }
 	    public bool HasSufficientEnergy { get; private set; }
 	    public bool IsDestroyed => HealthRemaining <= 0;
 
@@ -45,14 +55,21 @@ namespace GBC2017.Entities.BaseEntities
 	    private ResourceBarRuntime _energyBar;
 	    private ResourceBarRuntime _healthBar;
 
-        protected SoundEffect PlacementSound;
+        protected SoundEffectInstance PlacementSound;
 
-	    /// <summary>
-	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-	    /// added to managers will not have this method called.
-	    /// </summary>
-	    private void CustomInitialize()
+	    protected float _spriteRelativeY;
+
+	    public static void Initialize(float maximumY)
+	    {
+	        _maximumY = maximumY;
+        }
+
+        /// <summary>
+        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+        /// added to managers will not have this method called.
+        /// </summary>
+        private void CustomInitialize()
 	    {
 #if DEBUG
 	        if (DebugVariables.ShowDebugShapes)
@@ -65,9 +82,17 @@ namespace GBC2017.Entities.BaseEntities
 	            AxisAlignedRectangleInstance.Visible = false;
 	        }
 
-	        HealthRemaining = MaximumHealth;
+	        LightSpriteInstance.Width = SpriteInstance.Width;
+	        LightSpriteInstance.Height = LightSpriteInstance.Width / 4;
+
+	        _startingScale = SpriteInstance.TextureScale;
+	        _startingLightSpriteScale = LightSpriteInstance.TextureScale;
+            _startingRectangleScaleX = AxisAlignedRectangleInstance.ScaleX;
+	        _startingRectangleScaleY = AxisAlignedRectangleInstance.ScaleY;
+
+            HealthRemaining = MaximumHealth;
 	        BatteryLevel = 0.6f * InternalBatteryMaxStorage;
-	        PlacementSound = Structure_Placed;
+	        PlacementSound = Structure_Placed.CreateInstance();
 
 	        if (HasInternalBattery)
 	        {
@@ -76,24 +101,33 @@ namespace GBC2017.Entities.BaseEntities
 	        _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
 
 	        _lastUsageUpdate = TimeManager.CurrentTime;
+	        _spriteRelativeY = GetSpriteRelativeY();
 
-	        SpriteInstance.RelativeY = SpriteInstance.Height / 2;
-	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
-	    }
+            CalculateScale();
+	        UpdateScale();
+	        UpdateAnimation();
+        }
 
 	    private void CustomActivity()
 	    {
+            UpdateAnimation();
+
             if (IsBeingPlaced)
 		    {
+		        CalculateScale();
+		        UpdateScale();
+
+                if (IsValidLocation)
+		        {
 #if DEBUG
-		        if (DebugVariables.IgnoreStructureBuildCost)
-		        {
-		            CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
-                } else
+		            if (DebugVariables.IgnoreStructureBuildCost)
+		            {
+		                CurrentState = VariableState.ValidLocation;
+                        CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
+		            }
+		            else
 #endif
-		        if (IsValidLocation)
-		        {
-		            if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
+                    if (EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost))
 		            {
 		                CurrentState = VariableState.ValidLocation;
 		                CheckmarkInstance.CurrentState = Checkmark.VariableState.Enabled;
@@ -138,9 +172,9 @@ namespace GBC2017.Entities.BaseEntities
                     {
                         _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
                         _energyBar.X = (X-Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Y = (Y + SpriteInstance.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Height = SpriteInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Y = (Y + _spriteRelativeY*2*_currentScale - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
+                        _energyBar.Height = AxisAlignedRectangleInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
                         _energyBar.Visible = true;
                     }
                     else
@@ -153,9 +187,9 @@ namespace GBC2017.Entities.BaseEntities
                 {
                     _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
                     _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Y = (Y + SpriteInstance.Height + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Width = SpriteInstance.Width * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Height = SpriteInstance.Width / 5* CameraZoomManager.GumCoordOffset;
+                    _healthBar.Y = (Y + _spriteRelativeY*2*_currentScale + _healthBar.Height - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
+                    _healthBar.Height = AxisAlignedRectangleInstance.Width / 5* CameraZoomManager.GumCoordOffset;
                     _healthBar.Visible = true;
                 }
                 else
@@ -165,7 +199,48 @@ namespace GBC2017.Entities.BaseEntities
             }
 		}
 
-	    private void BuildStructure()
+	    private void CalculateScale()
+	    {
+	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+        }
+
+        protected virtual void UpdateScale()
+	    {
+            SpriteInstance.TextureScale = _startingScale * _currentScale;
+
+            AxisAlignedRectangleInstance.ScaleX = _startingRectangleScaleX * _currentScale;
+	        AxisAlignedRectangleInstance.ScaleY = _startingRectangleScaleY * _currentScale;
+
+	        AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
+
+	        if (HasLightSource)
+	        {
+	            //LightSpriteInstance.TextureScale = _startingLightSpriteScale * _currentScale;
+	            LightSpriteInstance.Width = SpriteInstance.Width*1.5f;
+	            LightSpriteInstance.Height = AxisAlignedRectangleInstance.Height;
+	        }
+        }
+
+	    protected void UpdateAnimation()
+	    {
+            if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+            {
+                SpriteInstance.RelativeY = _spriteRelativeY * _currentScale;
+            }
+	        else
+	        {
+	            SpriteInstance.UpdateToCurrentAnimationFrame();
+
+                if (SpriteInstance.UseAnimationRelativePosition)
+	            {
+	                SpriteInstance.RelativeX *=  (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	                SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	            }
+	            SpriteInstance.RelativeY += _spriteRelativeY * _currentScale;
+	        }
+	    }
+
+        private void BuildStructure()
 	    {
 	        var shouldBuild = EnergyManager.CanAfford(EnergyBuildCost) && MineralsManager.CanAfford(MineralsBuildCost);
 
@@ -176,8 +251,18 @@ namespace GBC2017.Entities.BaseEntities
 
                 IsBeingPlaced = false;
 	            CurrentState = VariableState.Built;
-	            PlacementSound.Play();
+	            PlayPlacementSound();
+                OnBuild?.Invoke();
 	        }
+	    }
+
+	    private void PlayPlacementSound()
+	    {
+	        try
+	        {
+	            PlacementSound.Play();
+            }
+	        catch (Exception){}
 	    }
 
 	    public void TakeMeleeDamage(BaseEnemy enemy)
@@ -193,8 +278,9 @@ namespace GBC2017.Entities.BaseEntities
 	    public void GetHitBy(BaseEnemyProjectile projectile)
 	    {
 	        HealthRemaining -= projectile.DamageInflicted;
+	        projectile.PlayHitTargetSound();
 
-	        if (IsDestroyed)
+            if (IsDestroyed)
 	        {
 	            PerformDestruction();
 	        }
@@ -221,13 +307,41 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	    }
 
+	    private float GetSpriteRelativeY()
+	    {
+	        if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
+	        {
+	            return SpriteInstance.Height / 2;
+	        }
+	        else
+	        {
+	            var maxHeight = 0f;
+	            foreach (var frame in SpriteInstance.CurrentChain)
+	            {
+	                maxHeight = Math.Max(maxHeight, (frame.BottomCoordinate - frame.TopCoordinate) * frame.Texture.Height * SpriteInstance.TextureScale);
+	            }
+	            return maxHeight / 2;
+	        }
+	    }
+
 	    private void PerformDestruction()
 	    {
-	        Destroy();
+	        OnDestroy?.Invoke();
+
+            Destroy();
 	    }
 
         private void CustomDestroy()
 		{
+		    if (PlacementSound != null && !PlacementSound.IsDisposed)
+		    {
+		        if (PlacementSound.State != SoundState.Stopped)
+		        {
+		            PlacementSound.Stop(true);
+		        }
+		        PlacementSound.Dispose();
+		    }
+
 		    _energyBar?.Destroy();
 		    _healthBar.Destroy();
         }
@@ -272,6 +386,10 @@ namespace GBC2017.Entities.BaseEntities
 
 	        LayerProvidedByContainer.Remove(SpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(SpriteInstance, hudLayer);
+
+	        LayerProvidedByContainer.Remove(LightSpriteInstance);
+            FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+            
 
 	        var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
 

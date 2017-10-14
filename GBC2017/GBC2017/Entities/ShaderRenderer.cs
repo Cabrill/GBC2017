@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using FlatRedBall;
 using FlatRedBall.Input;
@@ -174,36 +175,42 @@ namespace GBC2017.Entities
                 destinationRectangle.Y -= RenderingLibrary.SystemManagers.Default.Renderer.GraphicsDevice.Viewport.Y;
             }
 
-            var darknessColor = new Color(0, 0, 0, DarknessAlpha);
-            var blendState = new BlendState
-            {
-                AlphaSourceBlend = Blend.DestinationColor,
-                ColorSourceBlend = Blend.DestinationColor,
-                AlphaDestinationBlend = Blend.Zero,
-                ColorDestinationBlend = Blend.InverseSourceAlpha,
-                ColorBlendFunction = BlendFunction.Add
-            };
-
             FlatRedBallServices.GraphicsDevice.SetRenderTarget(RenderTargetInstance);
+            FlatRedBallServices.GraphicsDevice.Clear(new Color(0, 0, 0, 0));
+
+            var darknessColor = new Color(0, 0, 0, DarknessAlpha);
 
             //First draw the objects as blackness
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
+            spriteBatch.Begin(SpriteSortMode.Immediate);
             spriteBatch.Draw(WorldTexture, destinationRectangle, darknessColor);
             spriteBatch.End();
 
-            blendState = new BlendState
+            //using (Stream stream = System.IO.File.Create("worldtexture.png"))
+            //{
+            //    RenderTargetInstance.SaveAsPng(stream, destinationRectangle.Width, destinationRectangle.Height);
+            //}
+
+            var blendState = new BlendState
             {
-                AlphaSourceBlend = Blend.DestinationAlpha,
-                ColorSourceBlend = Blend.DestinationAlpha,
-                AlphaDestinationBlend = Blend.InverseSourceColor,
-                ColorDestinationBlend = Blend.InverseSourceAlpha,
-                ColorBlendFunction = BlendFunction.Add
+                AlphaBlendFunction = BlendFunction.ReverseSubtract,
+                AlphaSourceBlend = Blend.One,
+                AlphaDestinationBlend = Blend.One,
             };
 
+            //using (Stream stream = System.IO.File.Create("DarknessTexture.png"))
+            //{
+            //    DarknessTexture.SaveAsPng(stream, destinationRectangle.Width, destinationRectangle.Height);
+            //}
+
             //Then subtract darkness where light sources are at
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullNone);
-            spriteBatch.Draw(DarknessTexture, destinationRectangle, Color.White);
+            spriteBatch.Begin(SpriteSortMode.Immediate, blendState);
+            spriteBatch.Draw(DarknessTexture, destinationRectangle, new Color(1, 1, 1, DarknessAlpha*2));
             spriteBatch.End();
+
+            //using (Stream stream = System.IO.File.Create("result.png"))
+            //{
+            //    RenderTargetInstance.SaveAsPng(stream, destinationRectangle.Width, destinationRectangle.Height);
+            //}
         }
     }
 }

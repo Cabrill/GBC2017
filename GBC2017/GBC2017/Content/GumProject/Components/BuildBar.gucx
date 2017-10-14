@@ -41,6 +41,36 @@
     </Variable>
     <Variable>
       <Type>string</Type>
+      <Name>CannonButton.ButtonText</Name>
+      <Value xsi:type="xsd:string">Laser</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>CannonButton.Parent</Name>
+      <Value xsi:type="xsd:string">CombatButtons</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>StructureTypeState</Type>
+      <Name>CannonButton.StructureTypeState</Name>
+      <Value xsi:type="xsd:string">Combat</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CannonButton.X</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CannonButton.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
       <Name>CarbonTreeButton.ButtonText</Name>
       <Value xsi:type="xsd:string">CarbonTree</Value>
       <SetsValue>true</SetsValue>
@@ -136,6 +166,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>CombatButtons.Children Layout</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>CombatButtons.HasEvents</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -169,6 +205,12 @@
       <Type>DimensionUnitType</Type>
       <Name>CombatButtons.Width Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>CombatButtons.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -477,6 +519,36 @@
     <Variable>
       <Type>State</Type>
       <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TallLaserButton.ButtonText</Name>
+      <Value xsi:type="xsd:string">Laser</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TallLaserButton.Parent</Name>
+      <Value xsi:type="xsd:string">CombatButtons</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>StructureTypeState</Type>
+      <Name>TallLaserButton.StructureTypeState</Name>
+      <Value xsi:type="xsd:string">Combat</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TallLaserButton.X</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>TallLaserButton.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -993,6 +1065,14 @@
   </Instance>
   <Instance>
     <Name>ShieldGeneratorButton</Name>
+    <BaseType>BuildButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CannonButton</Name>
+    <BaseType>BuildButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>TallLaserButton</Name>
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Behaviors />

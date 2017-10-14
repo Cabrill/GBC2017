@@ -44,33 +44,58 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Name>globalcontent/treeline.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
           <Name>Screens/GameScreen/Levels/HelsinkiMap.tmx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.TileGraphics.LayeredTileMap</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/Levels/helsinki_ground.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/Levels/helsinki_trees.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/GameScreen/Levels/helsinki_water.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/Music/anttisinstrumentals_hjappiermjusic.mp3</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
+          <RuntimeType>Microsoft.Xna.Framework.Media.Song</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -129,7 +154,7 @@
           <CustomProperty>
             <Type>SortType</Type>
             <Member>SortType</Member>
-            <ValueAsInt>4</ValueAsInt>
+            <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -301,6 +326,8 @@
           <InstanceName>PlayAreaPolygon</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <Instantiate>false</Instantiate>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -327,6 +354,8 @@
           <InstanceName>AlienSpawnLeftRectangle</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <Instantiate>false</Instantiate>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -353,10 +382,13 @@
           <InstanceName>AlienSpawnRightRectangle</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
+          <Instantiate>false</Instantiate>
+          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <UseGlobalContent>true</UseGlobalContent>
     </ScreenSave>
     <ScreenSave>
       <Tags>
@@ -374,11 +406,37 @@
       </ReferencedFiles>
     </ScreenSave>
     <ScreenSave>
+      <Properties>
+        <PropertySave>
+          <Name>IsLoadingScreen</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Tags>
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <NextScreen>Screens\GameScreen</NextScreen>
       <Name>Screens\LoadingScreen</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/LoadingScreenGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/LoadingScreenGum.gusx</SourceFile>
+          <SourceName>this (GBC2017.GumRuntimes.LoadingScreenGumRuntime)</SourceName>
+          <InstanceName>LoadingScreenGumRuntime</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
     </ScreenSave>
     <ScreenSave>
       <Tags>
@@ -577,6 +635,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
+          <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -588,6 +647,8 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -662,7 +723,25 @@
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn />
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -714,10 +793,10 @@
                 <InstructionSave>
                   <Type>String</Type>
                   <Member>SpriteInstanceCurrentChainName</Member>
-                  <ValueAsString>MeleeAttack</ValueAsString>
+                  <ValueAsString>StartMeleeAttack</ValueAsString>
                 </InstructionSave>
               </InstructionSaves>
-              <Name>MeleeAttack</Name>
+              <Name>StartMeleeAttack</Name>
             </StateSave>
             <StateSave>
               <InstructionSaves>
@@ -758,6 +837,16 @@
                 </InstructionSave>
               </InstructionSaves>
               <Name>Standing</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>FinishMeleeAttack</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>FinishMeleeAttack</Name>
             </StateSave>
           </States>
           <Name>Action</Name>
@@ -843,6 +932,7 @@
           </Properties>
           <Name>SpriteInstanceCurrentChainName</Name>
           <Type>string</Type>
+          <SetByDerived>true</SetByDerived>
           <SourceObject>SpriteInstance</SourceObject>
           <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
           <CreatesEvent>true</CreatesEvent>
@@ -1006,7 +1096,7 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>HasLightSource</Name>
+          <Name>IsFlying</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <SetByDerived>true</SetByDerived>
@@ -1018,7 +1108,21 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsFlying</Name>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <SetByDerived>true</SetByDerived>
+          <SourceObject>LightSprite</SourceObject>
+          <SourceObjectProperty>Visible</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <SetByDerived>true</SetByDerived>
@@ -1030,6 +1134,11 @@
       <Name>Entities\BaseEntities\BaseEnemy</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
@@ -1076,7 +1185,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>shadow</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -1141,27 +1270,85 @@
           <IncludeInIClickable>false</IncludeInIClickable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/shadow.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/animation_sheet.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/animation_sheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
       <Events>
         <EventResponseSave>
           <EventName>AfterSpriteInstanceCurrentChainNameSet</EventName>
@@ -1188,7 +1375,7 @@
             <InstructionSave>
               <Type>String</Type>
               <Member>SpriteInstanceCurrentChainName</Member>
-              <ValueAsString>Flying</ValueAsString>
+              <ValueAsString>Shot</ValueAsString>
             </InstructionSave>
           </InstructionSaves>
           <Name>Flying</Name>
@@ -1260,6 +1447,7 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1285,17 +1473,6 @@
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <SetByDerived>true</SetByDerived>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Altitude</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
-        </CustomVariable>
       </CustomVariables>
       <BaseEntity />
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -1311,12 +1488,17 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>&lt;NONE&gt;</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -1349,6 +1531,11 @@
             <Type>float</Type>
             <Member>Radius</Member>
             <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>PaleVioletRed</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1453,24 +1640,19 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/shadow.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Projectiles/laser_bullet.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -1597,6 +1779,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -1645,7 +1828,24 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -1776,6 +1976,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -1823,7 +2024,24 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -1839,7 +2057,13 @@
       <Source>GLUE</Source>
       <States>
         <StateSave>
-          <InstructionSaves />
+          <InstructionSaves>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>SpriteInstanceCurrentChainName</Member>
+              <ValueAsString>Shot</ValueAsString>
+            </InstructionSave>
+          </InstructionSaves>
           <Name>Flying</Name>
         </StateSave>
         <StateSave>
@@ -1848,6 +2072,11 @@
               <Type>Single</Type>
               <Member>Speed</Member>
               <ValueAsFloat>0</ValueAsFloat>
+            </InstructionSave>
+            <InstructionSave>
+              <Type>String</Type>
+              <Member>SpriteInstanceCurrentChainName</Member>
+              <ValueAsString>Impact</ValueAsString>
             </InstructionSave>
           </InstructionSaves>
           <Name>Impact</Name>
@@ -1904,6 +2133,7 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1921,13 +2151,13 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
+              <ValueAsString>string</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>Altitude</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
-          <SetByDerived>true</SetByDerived>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity />
@@ -1942,9 +2172,19 @@
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -2050,7 +2290,7 @@
           <CustomProperty>
             <Type>Color</Type>
             <Member>Color</Member>
-            <ValueAsString>LimeGreen</ValueAsString>
+            <ValueAsString>Red</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -2086,18 +2326,19 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/shadow.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -2382,8 +2623,10 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <SetByDerived>true</SetByDerived>
+          <SourceObject>LightSpriteInstance</SourceObject>
+          <SourceObjectProperty>Visible</SourceObjectProperty>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -2392,6 +2635,11 @@
       <Name>Entities\BaseEntities\BaseStructure</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
@@ -2480,6 +2728,62 @@
           <IncludeInICollidable>false</IncludeInICollidable>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.25</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <SetByDerived>true</SetByDerived>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -2489,18 +2793,37 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Structure_Placed.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/animation_sheet.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Structures/Structure_Placed.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
       <Events>
         <EventResponseSave>
           <EventName>AfterIsValidLocationSet</EventName>
@@ -2589,7 +2912,7 @@
           </Properties>
           <Name>ShowDebugShapes</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <IsShared>true</IsShared>
         </CustomVariable>
         <CustomVariable>
@@ -2624,6 +2947,18 @@
             </PropertySave>
           </Properties>
           <Name>ShowPerformanceStats</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>TurretsAimAtMouse</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <IsShared>true</IsShared>
@@ -2684,7 +3019,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -2732,7 +3067,7 @@
           </Properties>
           <Name>RangedAttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -2744,7 +3079,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -2779,7 +3114,7 @@
           </Properties>
           <Name>MineralsRewardedWhenKilled</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">25</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -2837,7 +3172,7 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>HasLightSource</Name>
+          <Name>IsFlying</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
@@ -2849,8 +3184,33 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsFlying</Name>
+          <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -2942,7 +3302,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>shadow</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -2976,9 +3356,56 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Entities/Enemies/BasicAlien/greenalien.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
@@ -2997,7 +3424,7 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Alien_Powerup.wav</Name>
+          <Name>Entities/Enemies/BasicAlien/Alien_Powerup.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -3009,13 +3436,14 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Alien_Shoot.wav</Name>
+          <Name>Entities/Enemies/BasicAlien/Alien_Shoot.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -3211,19 +3639,7 @@
           </Properties>
           <Name>RangedAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">350</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>HasLightSource</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3236,6 +3652,42 @@
           <Name>IsFlying</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3282,7 +3734,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>72</ValueAsFloat>
+            <ValueAsFloat>28</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -3302,12 +3754,47 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>shadow</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>75</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -3318,6 +3805,72 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
@@ -3336,7 +3889,7 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Flying_Shoot.wav</Name>
+          <Name>Entities/Enemies/FlyingEnemy/Flying_Powerup.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -3348,13 +3901,14 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Flying_Powerup.wav</Name>
+          <Name>Entities/Enemies/FlyingEnemy/Flying_Shoot.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -3456,7 +4010,7 @@
           </Properties>
           <Name>RangedAttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3468,7 +4022,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3480,7 +4034,7 @@
           </Properties>
           <Name>SecondsBetweenRangedAttack</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3562,7 +4116,7 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>HasLightSource</Name>
+          <Name>IsFlying</Name>
           <Type>bool</Type>
           <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
@@ -3574,8 +4128,33 @@
               <ValueAsString>bool</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>IsFlying</Name>
+          <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -3619,7 +4198,7 @@
           <CustomProperty>
             <Type>bool</Type>
             <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -3639,7 +4218,7 @@
           <CustomProperty>
             <Type>ColorOperation</Type>
             <Member>ColorOperation</Member>
-            <ValueAsInt>1</ValueAsInt>
+            <ValueAsInt>4</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -3654,7 +4233,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -3687,7 +4266,6 @@
           <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
-          <AddToManagers>false</AddToManagers>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInIClickable>false</IncludeInIClickable>
           <DefinedByBase>true</DefinedByBase>
@@ -3695,9 +4273,34 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>shadow</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -3731,9 +4334,91 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0.1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.4</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Entities/Enemies/BasicAlien/greenalien.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
@@ -3752,37 +4437,1052 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Alien_Powerup.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>globalcontent/Sounds/Alien_Shoot.wav</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Properties>
-            <PropertySave>
-              <Name>UseContentPipeline</Name>
-              <ValueAsBool>true</ValueAsBool>
-            </PropertySave>
-          </Properties>
-          <Name>globalcontent/Sounds/alien_melee.wav</Name>
+          <Name>Entities/Enemies/BasicAlien/alien_melee.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>InAir</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>InAir</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Landing</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Landing</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>PreparingJump</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>PreparingJump</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>NotJumping</Name>
+            </StateSave>
+          </States>
+          <Name>Jump</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaximumHealth</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsRangedAttacker</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MeleeAttackDamage</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedAttackDamage</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenRangedAttack</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenMeleeAttack</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1.5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsRewardedWhenKilled</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">20</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Slime</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsMeleeAttacker</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MeleeAttackRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">64</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedAttackRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsFlying</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Enemies\SlimeAlien</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>SlimeAlienAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Standing</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>IgnoreAnimationChainTextureFlip</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>36</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>100</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>45</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>0</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>ShadowSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Enemies/SlimeAlien/SlimeAlienAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Hit.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Jump.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Land.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>InAir</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>InAir</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Landing</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Landing</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>PreparingJump</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>PreparingJump</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves />
+              <Name>NotJumping</Name>
+            </StateSave>
+          </States>
+          <Name>Jump</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaximumHealth</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Speed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">250</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsRangedAttacker</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MeleeAttackDamage</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedAttackDamage</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenRangedAttack</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenMeleeAttack</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsRewardedWhenKilled</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Small Slime</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsMeleeAttacker</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MeleeAttackRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedAttackRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsFlying</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+          <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>IsJumper</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseEnemy</BaseEntity>
+      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Enemies\SmallSlime</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>SlimeAlienAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Standing</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>IgnoreAnimationChainTextureFlip</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>9</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>334</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>396</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>158</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>220</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>25</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>11</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>ShadowSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.075</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Enemies/SlimeAlien/SlimeAlienAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Hit.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Jump.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Enemies/SlimeAlien/Slime_Land.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -3873,32 +5573,32 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>checkmark_x</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>404</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
+            <ValueAsFloat>468</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>30</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
+            <ValueAsFloat>92</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -3912,12 +5612,19 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/GraphicalElements/checkmark_x.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -3973,32 +5680,32 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>checkmark_x</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
+            <ValueAsFloat>468</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>512</ValueAsFloat>
+            <ValueAsFloat>532</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>29</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
+            <ValueAsFloat>92</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4012,12 +5719,303 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/GraphicalElements/checkmark_x.png</Name>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Screens/GameScreen/AllAssetsSheet.png</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DamageInflicted</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Projectiles\CannonProjectile</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>CannonProjectileAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Shot</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>Red</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.35</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightOrShadowSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+            <string>Alpha</string>
+            <string>AlphaRate</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>AnimationChain</SourceClassType>
+          <InstanceName>AnimationChainInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Projectiles/CannonProjectile/CannonProjectileAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Projectiles/CannonProjectile/Cannon_Hit.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -4122,6 +6120,16 @@
             <Member>TextureScale</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>FlyingEnemyProjectileAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Shot</ValueAsString>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
@@ -4202,7 +6210,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Red</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.4</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4212,7 +6220,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -4250,19 +6263,38 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
+          <Name>Entities/Projectiles/FlyingEnemyProjectile/FlyingEnemyProjectileAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
           <Properties>
             <PropertySave>
               <Name>UseContentPipeline</Name>
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Flying_Hit_Ground.wav</Name>
+          <Name>Entities/Projectiles/FlyingEnemyProjectile/Flying_Hit_Ground.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Projectiles/FlyingEnemyProjectile/Flying_Hit_Target.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -4330,18 +6362,6 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Altitude</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -4367,12 +6387,22 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>laser_bullet</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.15</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>LaserTurretProjectileAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Shot</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -4478,11 +6508,6 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
-            <Type>Texture2D</Type>
-            <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
             <ValueAsFloat>1792</ValueAsFloat>
@@ -4570,9 +6595,9 @@
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Projectiles/laser_bullet.png</Name>
+          <Name>Entities/Projectiles/LaserTurretProjectile/LaserTurretProjectileAnimationChainListFile.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
@@ -4582,7 +6607,7 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Laser_Hit.wav</Name>
+          <Name>Entities/Projectiles/LaserTurretProjectile/Laser_Ground.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4594,15 +6619,9 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Laser_Ground.wav</Name>
+          <Name>Entities/Projectiles/LaserTurretProjectile/Laser_Hit.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -4676,18 +6695,6 @@
           <SetByDerived>true</SetByDerived>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Altitude</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
-          <SetByDerived>true</SetByDerived>
-        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnemyProjectile</BaseEntity>
       <ImplementsIVisible>true</ImplementsIVisible>
@@ -4703,7 +6710,7 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>alien_fire</ValueAsString>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4728,7 +6735,32 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Shot</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -4839,7 +6871,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -4854,7 +6886,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Red</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.6</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4864,7 +6896,263 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Alpha</Member>
             <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightOrShadowSprite</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+            <string>Alpha</string>
+            <string>AlphaRate</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Projectiles/RangedEnemyProjectile/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Projectiles/RangedEnemyProjectile/Alien_Hit_Ground.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DamageInflicted</Name>
+          <Type>float</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BasePlayerProjectile</BaseEntity>
+      <ImplementsIVisible>true</ImplementsIVisible>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Projectiles\TallLaserProjectile</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>TallLaserProjectileAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Shot</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>4</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>1</ValueAsInt>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>32</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>6.420382</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>-2.7515924</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>AllAssetsSheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>1792</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>2048</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0.3</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0.6</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>BlendOperation</Type>
@@ -4904,16 +7192,52 @@
           </VariablesToReset>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Color</Type>
+            <Member>Color</Member>
+            <ValueAsString>LimeGreen</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>ParentRotationChangesPosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <AddToManagers>false</AddToManagers>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>AnimationChain</SourceClassType>
+          <InstanceName>AnimationChainInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Projectiles/alien_fire.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>Entities/Projectiles/RangedEnemyProjectile/AnimationChainListFile.achx</Name>
+          <Name>Entities/Projectiles/TallLaserProjectile/TallLaserProjectileAnimationChainListFile.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
@@ -4925,19 +7249,14 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Alien_Hit_Ground.wav</Name>
+          <Name>Entities/Projectiles/TallLaserProjectile/TallLaser_Hit.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
-        <ReferencedFileSave>
-          <Name>globalcontent/AllAssetsSheet.png</Name>
-          <IsSharedStatic>true</IsSharedStatic>
-          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
-          <ProjectsToExcludeFrom />
-        </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -4968,6 +7287,290 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">150</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaximumHealth</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyRequiredPerSecond</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InternalBatteryMaxStorage</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Cannon</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AttackDamage</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenFiring</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyCostToFire</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Structures\Combat\Cannon</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>CannonAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Turn</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>48</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/Combat/Cannon/CannonAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Structures/Combat/Cannon/Cannon_Shoot.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -5021,7 +7624,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5045,7 +7648,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5057,7 +7660,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">33</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5081,7 +7684,7 @@
           </Properties>
           <Name>ProjectileSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5093,7 +7696,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5117,7 +7720,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">800</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5153,6 +7756,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -5166,17 +7770,17 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>animation_sheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.35</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
             <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -5230,8 +7834,30 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/Combat/LaserTurret/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
         <ReferencedFileSave>
           <Properties>
             <PropertySave>
@@ -5239,19 +7865,297 @@
               <ValueAsBool>true</ValueAsBool>
             </PropertySave>
           </Properties>
-          <Name>globalcontent/Sounds/Laser_Shoot.wav</Name>
+          <Name>Entities/Structures/Combat/LaserTurret/Laser_Shoot.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MineralsBuildCost</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaximumHealth</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyRequiredPerSecond</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InternalBatteryMaxStorage</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">400</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>DisplayName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Shock Tower</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>AttackDamage</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsBetweenFiring</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EnergyCostToFire</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RangedRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">600</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ProjectileSpeed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\Structures\Combat\TallLaser</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>Texture2D</Type>
+            <Member>Texture</Member>
+            <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>TallLaserAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Turn</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
         <ReferencedFileSave>
-          <Name>Entities/Structures/Combat/LaserTurret/AnimationChainListFile.achx</Name>
+          <Name>Entities/Structures/Combat/TallLaser/TallLaserAnimationChainListFile.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <Name>Entities/Structures/Combat/TallLaser/TallLaser_Shoot.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -5359,7 +8263,7 @@
           </Properties>
           <Name>DisplayName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Hydro Generator</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Hydro</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5371,8 +8275,52 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>bladeArea</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>waterVelocity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>efficiency</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>waterDensity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -5628,6 +8576,7 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -5748,17 +8697,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>HasLightSource</Name>
-          <Type>bool</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>int</ValueAsString>
             </PropertySave>
           </Properties>
@@ -5776,6 +8714,18 @@
           <Name>PanelEfficiencyRating</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -5849,6 +8799,7 @@
         </NamedObjectSave>
       </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -5969,17 +8920,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>HasLightSource</Name>
-          <Type>bool</Type>
-          <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -5997,6 +8937,18 @@
           <Name>airDensity</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">1.225</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HasLightSource</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -6132,6 +9084,7 @@
         </NamedObjectSave>
       </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -6185,7 +9138,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6197,7 +9150,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">200</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -6209,7 +9162,7 @@
           </Properties>
           <Name>BaseMineralsStorage</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">1000</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -6279,6 +9232,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -6356,8 +9310,25 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -6483,6 +9454,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -6521,7 +9493,17 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>BatteryAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Idle</ValueAsString>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -6542,7 +9524,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>32</ValueAsFloat>
+            <ValueAsFloat>48</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -6555,8 +9537,33 @@
           <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>LightSpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <DefinedByBase>true</DefinedByBase>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
       </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/Utility/Battery/BatteryAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -6688,6 +9695,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -6726,6 +9734,16 @@
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>CarbonTreeAnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Idle</ValueAsString>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
@@ -6759,7 +9777,16 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Structures/Utility/CarbonTree/CarbonTreeAnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>
@@ -6918,6 +9945,7 @@
           </Properties>
           <Name>HasLightSource</Name>
           <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -7008,7 +10036,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -7101,28 +10129,18 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1422</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>RightTexturePixel</Member>
-            <ValueAsFloat>1695</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>TopTexturePixel</Member>
-            <ValueAsFloat>1839</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>2048</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.05</ValueAsFloat>
+            <ValueAsFloat>1.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Idle</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -7137,12 +10155,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Red</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Green</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
+            <ValueAsFloat>0.3</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -7152,7 +10170,7 @@
           <CustomProperty>
             <Type>BlendOperation</Type>
             <Member>BlendOperation</Member>
-            <ValueAsInt>0</ValueAsInt>
+            <ValueAsInt>1</ValueAsInt>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -7168,6 +10186,7 @@
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IncludeInICollidable>false</IncludeInICollidable>
           <IncludeInIClickable>false</IncludeInIClickable>
+          <DefinedByBase>true</DefinedByBase>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -7180,174 +10199,13 @@
         </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
     </EntitySave>
   </Entities>
   <GlobalFiles>
     <ReferencedFileSave>
       <Name>GumProject/GumProject.gumx</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>Entities/Enemies/BasicAlien/greenalien.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Alien_Powerup.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Alien_Shoot.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Laser_Ground.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Laser_Hit.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Laser_Shoot.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Structure_Placed.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Alien_Hit_Ground.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>globalcontent/AllAssetsSheet.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>globalcontent/starry_sky.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/alien_melee.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>Entities/Structures/ShieldGenerator/shield_generator.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Name>globalcontent/animation_sheet.png</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Flying_Shoot.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Flying_Powerup.wav</Name>
-      <IsSharedStatic>true</IsSharedStatic>
-      <HasPublicProperty>true</HasPublicProperty>
-      <ProjectsToExcludeFrom />
-    </ReferencedFileSave>
-    <ReferencedFileSave>
-      <Properties>
-        <PropertySave>
-          <Name>UseContentPipeline</Name>
-          <ValueAsBool>true</ValueAsBool>
-        </PropertySave>
-      </Properties>
-      <Name>globalcontent/Sounds/Flying_Hit_Ground.wav</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
@@ -7360,7 +10218,7 @@
   <SyncedProjects>
     <string>../GBC2017Android/GBC2017Android/GBC2017Android.csproj</string>
   </SyncedProjects>
-  <StartUpScreen>Screens\GameScreen</StartUpScreen>
+  <StartUpScreen>Screens\LoadingScreen</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
@@ -7420,7 +10278,7 @@
     <SupportLandscape>true</SupportLandscape>
     <SupportPortrait>false</SupportPortrait>
     <RunInFullScreen>false</RunInFullScreen>
-    <AllowWindowResizing>true</AllowWindowResizing>
+    <AllowWindowResizing>false</AllowWindowResizing>
     <Scale>50</Scale>
     <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
   </DisplaySettings>

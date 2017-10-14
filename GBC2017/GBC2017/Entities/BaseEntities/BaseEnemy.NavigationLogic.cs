@@ -12,8 +12,9 @@ namespace GBC2017.Entities.BaseEntities
     {
         #region Properties and fields
 
-        private BaseStructure _targetStructureForNavigation;
+        protected BaseStructure _targetStructureForNavigation;
         private float _lastDistanceToNavigationTarget;
+        protected float _currentDistanceToNavigationTarget;
 
         #endregion
 
@@ -22,8 +23,8 @@ namespace GBC2017.Entities.BaseEntities
         {
             X = _leftSpawnArea.Left;
             Y = FlatRedBallServices.Random.Between(_leftSpawnArea.Bottom + CircleInstance.Radius, _leftSpawnArea.Top - CircleInstance.Radius);
-
-            NavigateToTargetStructure();
+            CurrentActionState = Action.Running;
+            CurrentDirectionState = Direction.MovingRight;
         }
 
         public void PlaceOnRightSide()
@@ -31,7 +32,8 @@ namespace GBC2017.Entities.BaseEntities
             X = _rightSpawnArea.Right;
             Y = FlatRedBallServices.Random.Between(_rightSpawnArea.Bottom + CircleInstance.Radius, _rightSpawnArea.Top - CircleInstance.Radius);
 
-            NavigateToTargetStructure();
+            CurrentActionState = Action.Running;
+            CurrentDirectionState = Direction.MovingLeft;
         }
 
         #endregion
@@ -40,63 +42,67 @@ namespace GBC2017.Entities.BaseEntities
 
         private void NavigationActivity()
         {
-            var currentDistanceToTargetNavigation = float.MaxValue;
+            _currentDistanceToNavigationTarget = float.MaxValue;
 
             if (_targetStructureForNavigation != null && !_targetStructureForNavigation.IsDestroyed)
             {
-                currentDistanceToTargetNavigation =
+                _currentDistanceToNavigationTarget =
                     Vector3.Distance(Position, _targetStructureForNavigation.Position);
             }
 
-            var shouldUpdateNavigation = (CurrentActionState == Action.Running && currentDistanceToTargetNavigation > _lastDistanceToNavigationTarget) ||
-                                          _targetStructureForNavigation == null || 
-                                          _targetStructureForNavigation.IsDestroyed || 
-                                          !TargetIsInAttackRange(_targetStructureForNavigation);
+            var shouldUpdateNavigation = IsJumper || 
+                (CurrentActionState == Action.Running && _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget) ||                           
+                _targetStructureForNavigation == null || 
+                _targetStructureForNavigation.IsDestroyed || 
+                !TargetIsInAttackRange(_targetStructureForNavigation);
 
             if (shouldUpdateNavigation)
             {
 
-                if (_lastNumberOfAvailableTargets != _currentNumberOfPotentialTargets || _targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
+                if (_lastNumberOfPotentialTargets != _currentNumberOfPotentialTargets || _targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
                 {
                     ChooseStructureForNavigation();
                 }
 
                 if (_targetStructureForNavigation != null)
                 {
-                    shouldUpdateNavigation = currentDistanceToTargetNavigation > _lastDistanceToNavigationTarget ||
-                                             Velocity.Equals(Vector3.Zero);
+                    shouldUpdateNavigation = IsJumper || _currentDistanceToNavigationTarget > _lastDistanceToNavigationTarget || Velocity.Equals(Vector3.Zero);
                     if (shouldUpdateNavigation)
                     {
                         NavigateToTargetStructure();
+                        _currentDistanceToNavigationTarget = Vector3.Distance(Position, _targetStructureForNavigation.Position);
                     }
                 }
             }
-            _lastDistanceToNavigationTarget = currentDistanceToTargetNavigation;
+            _lastDistanceToNavigationTarget = _currentDistanceToNavigationTarget;
         }
 
         private void ChooseStructureForNavigation()
         {
-            if (_potentialTargetList != null && _potentialTargetList.Count > 0)
+            if (_potentialTargetList == null || _potentialTargetList.Count <= 0) return;
+
+            var minDistance = float.MaxValue;
+            BaseStructure potentialTarget = null;
+
+            foreach (var target in _potentialTargetList)
             {
-                _targetStructureForNavigation =
-                    _potentialTargetList.Where(pt =>
-                            pt.CurrentState == BaseStructure.VariableState.Built &&
-                            pt.IsDestroyed == false)
-                        .OrderBy(pt => Vector3.Distance(Position, pt.Position)
-                        ).FirstOrDefault();
+                if (target.CurrentState != BaseStructure.VariableState.Built || target.IsDestroyed) continue;
+
+                var distanceToTarget = Vector3.Distance(Position, target.Position);
+
+                if (distanceToTarget >= minDistance) continue;
+                    
+                minDistance = distanceToTarget;
+                potentialTarget = target;
             }
+
+            _targetStructureForNavigation = potentialTarget;
         }
 
-        private void NavigateToTargetStructure()
+        protected virtual void NavigateToTargetStructure()
         {
-            if (_targetStructureForNavigation == null || _targetStructureForNavigation.IsDestroyed)
-            {
-                ChooseStructureForNavigation();
-            }
             if (_targetStructureForNavigation != null)
             {
-                _lastDistanceToNavigationTarget = Vector3.Distance(Position, _targetStructureForNavigation.Position);
-
                 var angle = (float)Math.Atan2(Y - _targetStructureForNavigation.Position.Y,
                     X - _targetStructureForNavigation.Position.X);
                 var direction = new Vector3(
@@ -104,7 +110,7 @@ namespace GBC2017.Entities.BaseEntities
                     (float)-Math.Sin(angle), 0);
                 direction.Normalize();
 
-                Velocity = direction * Speed;
+                Velocity = direction * Speed * _currentScale;
 
                 CurrentActionState = Action.Running;
                 CurrentDirectionState =
@@ -117,11 +123,19 @@ namespace GBC2017.Entities.BaseEntities
             }
         }
 
-        private void StopMovement()
+        protected float CalculateJumpAltitudeVelocity()
         {
-            Velocity = Vector3.Zero;
-        }
+            if (_targetStructureForNavigation == null) return 0f;
 
+            var targetPosition = _targetStructureForNavigation.AxisAlignedRectangleInstance.Position;
+            var targetDistance = Vector3.Distance(CircleInstance.Position, targetPosition);
+            var timeToTravel = targetDistance / Speed;
+
+            var altitudeVelocity = (0.5f * (GravityDrag * (timeToTravel * timeToTravel))) /
+                                   -timeToTravel;
+
+            return altitudeVelocity;
+        }
         #endregion
     }
 }

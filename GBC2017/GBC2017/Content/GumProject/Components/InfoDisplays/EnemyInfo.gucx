@@ -170,7 +170,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>HealthSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -228,15 +228,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>HealthText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HealthText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HealthText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>HealthText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -258,6 +271,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>HealthText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>HealthText.Parent</Name>
       <Value xsi:type="xsd:string">HealthContainer</Value>
@@ -268,6 +287,12 @@
       <Name>HealthText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
       <ExposedAsName>EnemyHealth</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>HealthText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -360,7 +385,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MeleeSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -418,15 +443,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MeleeText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>MeleeText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>MeleeText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MeleeText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -448,6 +486,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>MeleeText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MeleeText.Parent</Name>
       <Value xsi:type="xsd:string">MeleeContainer</Value>
@@ -458,6 +502,12 @@
       <Name>MeleeText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
       <ExposedAsName>EnemyMelee</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MeleeText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -509,15 +559,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>NameText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>NameText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>NameText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>NameText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -541,7 +604,7 @@
     <Variable>
       <Type>int</Type>
       <Name>NameText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -555,6 +618,12 @@
       <Name>NameText.Text</Name>
       <Value xsi:type="xsd:string">Enemy</Value>
       <ExposedAsName>EnemyName</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>NameText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -668,7 +737,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>RangedSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -726,15 +795,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>RangedText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>RangedText.Font</Name>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>RangedText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>RangedText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -756,6 +838,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>int</Type>
+      <Name>RangedText.OutlineThickness</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>RangedText.Parent</Name>
       <Value xsi:type="xsd:string">RangedContainer</Value>
@@ -766,6 +854,12 @@
       <Name>RangedText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
       <ExposedAsName>EnemyRanged</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>RangedText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

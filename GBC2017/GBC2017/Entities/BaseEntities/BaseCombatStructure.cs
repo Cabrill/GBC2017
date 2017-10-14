@@ -21,32 +21,49 @@ namespace GBC2017.Entities.BaseEntities
 	public partial class BaseCombatStructure
 	{
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
-	    private BaseEnemy targetEnemy;
+	    protected BaseEnemy targetEnemy;
 	    protected SoundEffectInstance attackSound;
 	    private float _aimRotation;
+	    protected float _shotAltitude = 1f;
+	    private float? _startingRangeRadius;
 
-        /// <summary>
-        /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
-        /// This method is called when the Entity is added to managers. Entities which are instantiated but not
-        /// added to managers will not have this method called.
-        /// </summary>
-		private void CustomInitialize()
-		{
-		    RangeCircleInstance.Visible = true;
-		    LastFiredTime = TimeManager.CurrentTime;
+	    /// <summary>
+	    /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
+	    /// This method is called when the Entity is added to managers. Entities which are instantiated but not
+	    /// added to managers will not have this method called.
+	    /// </summary>
+	    private void CustomInitialize()
+	    {
+	        RangeCircleInstance.Visible = true;
+	        LastFiredTime = TimeManager.CurrentTime;
 
-            AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
-		}
+	        AfterIsBeingPlacedSet += (not, used) => { RangeCircleInstance.Visible = false; };
+	        _startingRangeRadius = RangedRadius;
+	    }
 
 	    public static void Initialize(PositionedObjectList<BaseEnemy> potentialTargets)
 	    {
 	        _potentialTargetList = potentialTargets;
 	    }
 
-		private void CustomActivity()
+	    protected override void UpdateScale()
+	    {
+            base.UpdateScale();
+	        if (_startingRangeRadius.HasValue)
+	        {
+	            //RangedRadius = _startingRangeRadius * _currentScale;
+	            RangeCircleInstance.Radius = _startingRangeRadius.Value * _currentScale;
+	        }
+	    }
+
+        private void CustomActivity()
 		{
             if (IsBeingPlaced == false)
             {
+#if DEBUG
+                if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
+#endif
+
                 if (targetEnemy != null &&  (targetEnemy.IsDead || !RangeCircleInstance.CollideAgainst(targetEnemy.CircleInstance)))
 		        {
 		            targetEnemy = null;
@@ -70,10 +87,33 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 		}
 
+#if DEBUG
         /// <summary>
         /// Determines where the enemy will be, so it can shoot at it
         /// </summary>
-	    private void RotateToAim()
+        private void RotateToAimMouse()
+	    {
+	        //Gather information about the target
+	        var targetPositionX = FlatRedBall.Gui.GuiManager.Cursor.WorldXAt(1);
+	        var targetPositionY = FlatRedBall.Gui.GuiManager.Cursor.WorldYAt(1);
+
+	        var targetPosition = new Vector3(targetPositionX, targetPositionY, 1);
+
+	        var aimLocation = targetPosition;
+
+	        var angle = (float)Math.Atan2(Position.Y - aimLocation.Y, Position.X - aimLocation.X);
+
+	        _aimRotation = angle;
+
+	        SetAnimationFromAimRotation();
+	        PerformFiringActivity();
+	    }
+#endif
+
+        /// <summary>
+        /// Determines where the enemy will be, so it can shoot at it
+        /// </summary>
+        private void RotateToAim()
         {
             var startPosition = GetProjectilePositioning();
 
@@ -109,7 +149,7 @@ namespace GBC2017.Entities.BaseEntities
 	        _aimRotation = angle;
 	    }
 
-        private void SetAnimationFromAimRotation()
+        protected virtual void SetAnimationFromAimRotation()
 	    {
 	        var isolatedAim = _aimRotation % (2 * Math.PI);//A full circle is is 2*Pi
 
@@ -139,9 +179,20 @@ namespace GBC2017.Entities.BaseEntities
 	            else if (quadPercent > .35f) quadProgress = 1;
             }
 
+	        if (targetEnemy == null || !targetEnemy.IsFlying)
+	        {
+	            SpriteInstance.CurrentChainName = "Turn";
+	        }
+	        else
+	        {
+	            SpriteInstance.CurrentChainName = "UpTurn";
+            }
+
 	        SpriteInstance.CurrentFrameIndex = (aimQuad * 5) + quadProgress;
-	        SpriteInstance.RelativeX = SpriteInstance.FlipHorizontal ? 8 : -9;
-	    }
+
+
+	        UpdateAnimation();
+        }
 
 	    private Vector3 GetProjectilePositioning(float? angle = null)
 	    {
@@ -151,13 +202,13 @@ namespace GBC2017.Entities.BaseEntities
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-            return new Vector3(Position.X + 55f * direction.X, Position.Y + 30f + 25f*direction.Y, 0);
+            return new Vector3(Position.X + 55f * _currentScale * direction.X, Position.Y + 30f * _currentScale + 25f * _currentScale * direction.Y, 0);
 	    }
 
 	    private void ChooseTarget()
 	    {
 	        var localPotentialTarget =
-	            _potentialTargetList.FirstOrDefault(pt => pt.CircleInstance.CollideAgainst(RangeCircleInstance));
+	            _potentialTargetList.FirstOrDefault(pt => !pt.IsDead && pt.CircleInstance.CollideAgainst(RangeCircleInstance));
 
 	        if (localPotentialTarget != null)
 	        {
@@ -172,7 +223,6 @@ namespace GBC2017.Entities.BaseEntities
 	            var newProjectile = CreateNewProjectile();
                 newProjectile.DamageInflicted = AttackDamage;
                 newProjectile.Speed = ProjectileSpeed;
-                newProjectile.MaxRange = RangedRadius * 1.5f;
                 newProjectile.Position = Position;
 
                 var direction = new Vector3(
@@ -181,17 +231,43 @@ namespace GBC2017.Entities.BaseEntities
                 direction.Normalize();
                 newProjectile.Position = GetProjectilePositioning();
 
+                newProjectile.AltitudeVelocity = CalculateAltitudeVelocity(newProjectile);
+
                 newProjectile.Velocity = direction * newProjectile.Speed;
 
                 newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity);
 
-                if (attackSound != null && !attackSound.IsDisposed) attackSound.Play();
+                PlayFireSound();
 
                 LastFiredTime = TimeManager.CurrentTime;
                 BatteryLevel -= EnergyCostToFire;
                 _energyReceivedThisSecond += EnergyCostToFire;
             }
         }
+
+	    private float CalculateAltitudeVelocity(BasePlayerProjectile projectile)
+	    {
+	        if (targetEnemy == null) return 0f;
+
+	        var targetPosition = targetEnemy.CircleInstance.Position;
+	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
+
+	        var timeToTravel = targetDistance / ProjectileSpeed;
+
+	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
+	        var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel) - altitudeDifference)) /
+	                               -timeToTravel;
+
+            return altitudeVelocity;
+	    }
+
+	    private void PlayFireSound()
+	    {
+	        try
+	        {
+	            attackSound.Play();
+	        }catch (Exception){}
+	    }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {

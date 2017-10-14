@@ -97,7 +97,7 @@ namespace TMXGlueLib
 
         
         [XmlElement("layer", typeof(MapLayer))]
-        [XmlElement("imagelayer", typeof(mapImageLayer))]
+        [XmlElement("imagelayer", typeof(MapImageLayer))]
         [XmlElement("objectgroup", typeof(mapObjectgroup))]
         public List<AbstractMapLayer> MapLayers { get; set; }
 
@@ -112,7 +112,7 @@ namespace TMXGlueLib
         public List<mapObjectgroup> objectgroup => MapLayers.OfType<mapObjectgroup>().ToList();
 
         [XmlIgnore]
-        public List<mapImageLayer> ImageLayers => MapLayers.OfType<mapImageLayer>().ToList();
+        public List<MapImageLayer> ImageLayers => MapLayers.OfType<MapImageLayer>().ToList();
 
         /// <remarks/>
         [XmlAttribute()]
@@ -292,12 +292,13 @@ namespace TMXGlueLib
 #if !UWP
     [Serializable]
 #endif
-    public partial class mapImageLayer : AbstractMapLayer
+    public partial class MapImageLayer : AbstractMapLayer
     {
-        private mapImageLayerImage imageField;
+        private MapImageLayerImage imageField;
 
         private float _offsetX;
         private float _offsetY;
+        private float _opacity;
 
         List<property> mProperties = new List<property>();
 
@@ -331,7 +332,7 @@ namespace TMXGlueLib
 
         /// <remarks/>
         [XmlElement("image", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public mapImageLayerImage imageobject
+        public MapImageLayerImage ImageObject
         {
             get
             {
@@ -351,15 +352,23 @@ namespace TMXGlueLib
             set { _visibleAsInt = value; }
         }
 
+
+        [XmlAttribute("opacity")]
+        public float Opacity
+        {
+            get { return _opacity; }
+            set { _opacity = value; }
+        }
+
         [XmlAttribute("offsetx")]
-        public float offsetX
+        public float OffsetX
         {
             get { return _offsetX; }
             set { _offsetX = value; }
         }
 
         [XmlAttribute("offsety")]
-        public float offsetY
+        public float OffsetY
         {
             get { return _offsetY; }
             set { _offsetY = value; }
@@ -375,7 +384,7 @@ namespace TMXGlueLib
         }
     }
 
-    public partial class mapImageLayerImage
+    public partial class MapImageLayerImage
     {
         private string _source;
 
@@ -388,11 +397,11 @@ namespace TMXGlueLib
 
         /// <remarks/>
         [XmlAttributeAttribute(AttributeName = "width")]
-        public float width { get; set; }
+        public float Width { get; set; }
 
         /// <remarks/>
         [XmlAttributeAttribute(AttributeName = "height")]
-        public float height { get; set; }
+        public float Height { get; set; }
     }
 
 

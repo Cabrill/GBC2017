@@ -57,7 +57,7 @@ namespace GBC2017
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(GBC2017.Screens.GameScreen));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(GBC2017.Screens.LoadingScreen));
             global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug = true;
             base.Initialize();
         }

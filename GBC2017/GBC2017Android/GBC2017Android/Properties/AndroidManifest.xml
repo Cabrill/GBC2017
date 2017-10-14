@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="7" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.07">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="10" package="FRB.GBCFinalRound" android:installLocation="auto" android:versionName="0.10">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25" />
 	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-	<application android:label="GBC2017 Final Round" android:icon="@drawable/Icon">
+	<application android:label="PowerCraft" android:icon="@drawable/Icon">
 		<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/google_play_app_id" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 	</application>
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
-	<application android:label="GBC2017 Final Round" android:icon="@drawable/Icon"></application>
+	<application android:label="PowerCraft" android:icon="@drawable/Icon"></application>
 </manifest>

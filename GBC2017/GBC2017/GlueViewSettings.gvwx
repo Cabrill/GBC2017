@@ -77,7 +77,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -91,7 +91,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -217,7 +217,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -287,7 +287,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>1080</OrthogonalHeight>
+        <OrthogonalHeight>1440</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -476,6 +476,104 @@
         <AspectRatio>1.33333337</AspectRatio>
       </CameraSave>
       <ElementName>Entities\ShaderRenderer</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Structures\Combat\Cannon</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Structures\Combat\TallLaser</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>216.136246</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Projectiles\CannonProjectile</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Projectiles\TallLaserProjectile</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Enemies\SlimeAlien</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Screens\LoadingScreen</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\Enemies\SmallSlime</ElementName>
     </ElementCameraSave>
   </ElementCameraSaves>
   <CollapsedPlugins />

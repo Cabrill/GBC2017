@@ -6,7 +6,7 @@
   <AnimationChain>
     <Name>WaterDrop1</Name>
     <Frame>
-      <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>234</LeftCoordinate>
       <RightCoordinate>260</RightCoordinate>
@@ -17,7 +17,7 @@
   <AnimationChain>
     <Name>WaterDrop2</Name>
     <Frame>
-      <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>228</LeftCoordinate>
       <RightCoordinate>260</RightCoordinate>
@@ -28,7 +28,7 @@
   <AnimationChain>
     <Name>WaterDrop3</Name>
     <Frame>
-      <TextureName>../../../../globalcontent/AllAssetsSheet.png</TextureName>
+      <TextureName>../../../../Screens/GameScreen/AllAssetsSheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>231</LeftCoordinate>
       <RightCoordinate>260</RightCoordinate>

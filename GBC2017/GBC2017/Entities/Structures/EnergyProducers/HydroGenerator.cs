@@ -8,6 +8,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.StaticManagers;
 
 namespace GBC2017.Entities.Structures.EnergyProducers
 {
@@ -15,6 +16,10 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 	{
 	    private bool _hasSetSpriteColors;
 	    private SpriteList _waterDrops;
+
+	    private float? _startingLargeWheelScale;
+	    private float _startingSmallWheelScale;
+	    private float _startingInnerWheelScale;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -33,9 +38,25 @@ namespace GBC2017.Entities.Structures.EnergyProducers
                 emitter.LayerToEmitOn = LayerProvidedByContainer;
                 emitter.SecondFrequency = 0.05f;
             }
+
+
+            _startingLargeWheelScale = LargeWheelSprite.TextureScale;
+            _startingSmallWheelScale = SmallWheelSprite.TextureScale;
+            _startingInnerWheelScale = InnerCircleSprite.TextureScale;
         }
 
-		private void CustomActivity()
+	    protected override void UpdateScale()
+	    {
+	        base.UpdateScale();
+	        if (_startingLargeWheelScale.HasValue)
+	        {
+	            LargeWheelSprite.TextureScale = _startingLargeWheelScale.Value * _currentScale;
+	            SmallWheelSprite.TextureScale = _startingSmallWheelScale * _currentScale;
+	            InnerCircleSprite.TextureScale = _startingInnerWheelScale * _currentScale;
+	        }
+	    }
+
+        private void CustomActivity()
 		{
 		    if (IsBeingPlaced)
 		    {
@@ -82,8 +103,8 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		    {
 		        EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
-                LargeWheelSprite.RelativeRotationZVelocity = (float)-EffectiveEnergyProducedPerSecond;
-		        SmallWheelSprite.RelativeRotationZVelocity = (float)EffectiveEnergyProducedPerSecond;
+                LargeWheelSprite.RelativeRotationZVelocity = (float)-1;
+		        SmallWheelSprite.RelativeRotationZVelocity = (float)1;
 		        
 
 		        UpdateEmitters();
@@ -105,32 +126,24 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 	            emitter.TimedEmit(_waterDrops);
 	        }
 
+	        var minimumY = LargeWheelSprite.Y - LargeWheelSprite.Height/3;
 
-	        var waterDropDisappearsAtY = LargeWheelSprite.Position.Y - LargeWheelSprite.Height * FlatRedBallServices.Random.Between(0.4f, 0.6f);
-            var waterDropMaxDisappearAtY = LargeWheelSprite.Position.Y - LargeWheelSprite.Height * 0.6f;
-
-	        bool dropDestroyed = false;
-
-            for (int i = _waterDrops.Count; i > 0; i--)
+	        for (var i = _waterDrops.Count; i > 0; i--)
 	        {
-	            var waterDrop = _waterDrops[i - 1];
-	            if (!dropDestroyed && waterDrop.Y < waterDropDisappearsAtY)
+	            var waterdrop = _waterDrops[i - 1];
+	            if (waterdrop.Y < minimumY)
 	            {
-	                dropDestroyed = true;
-                    _waterDrops.RemoveAt(i-1);
-                    SpriteManager.RemoveSprite(waterDrop);
-                }
-                else if (waterDrop.Y < waterDropMaxDisappearAtY)
-	            {
-	                _waterDrops.RemoveAt(i - 1);
-	                SpriteManager.RemoveSprite(waterDrop);
-                }
+	                _waterDrops.RemoveAt(i-1);
+                    SpriteManager.RemoveSprite(waterdrop);
+	            }
 	        }
         }
 
 	    private double BaseEnergyPerSecond()
 	    {
-	        return 1;
+            var energyGeneratedPerSecInRealLife = efficiency * waterDensity * bladeArea * Math.Pow(WaterManager.waterVelocity, 3) / 2;
+            var energyGeneratedPerSecInGame = energyGeneratedPerSecInRealLife * 24 * 3600 / 300;
+	        return energyGeneratedPerSecInGame;
 	    }
 
 

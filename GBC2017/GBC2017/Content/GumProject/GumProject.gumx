@@ -17,6 +17,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>LoadingScreenGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>MainMenuGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>

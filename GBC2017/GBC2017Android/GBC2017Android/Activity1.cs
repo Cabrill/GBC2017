@@ -1,6 +1,7 @@
 #if ANDROID
 
 using System;
+using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
@@ -14,7 +15,7 @@ using Android.Gms.Common;
 
 namespace GBC2017
 {
-    [Activity(Label = "GBC2017"
+    [Activity(Label = "PowerCraft"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
@@ -24,6 +25,11 @@ namespace GBC2017
         , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden)]
     public class Activity1 : Microsoft.Xna.Framework.AndroidGameActivity
     {
+        static SystemUiFlags f =
+            SystemUiFlags.LayoutStable
+            | SystemUiFlags.LayoutFullscreen
+            | SystemUiFlags.Fullscreen;
+
         SignInButton signInButton;
         Button signOutButton;
         LinearLayout signInLayout;
@@ -40,10 +46,21 @@ namespace GBC2017
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            RenderOnUIThread = true;
+
             MetricsManager.Register(Application, GetString(Resource.String.hockey_app_id));
 
             RequestWindowFeature(WindowFeatures.NoTitle);
-            Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+
+            if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
+            {
+                Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+            }
+            else
+            {
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
+                ActionBar?.Hide();
+            }
 
             SetContentView(Resource.Layout.Main);
             InitializeGooglePlayServices();
@@ -211,6 +228,16 @@ namespace GBC2017
         {
             base.OnResume();
             CrashManager.Register(this, GetString(Resource.String.hockey_app_id));
+
+            if (Build.VERSION.SdkInt < BuildVersionCodes.JellyBean)
+            {
+                Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
+            }
+            else
+            {
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)f;
+                ActionBar?.Hide();
+            }
         }
 
         private void HandleGenericMotion(object sender, View.GenericMotionEventArgs e)

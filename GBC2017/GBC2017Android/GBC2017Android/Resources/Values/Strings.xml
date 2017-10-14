@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">FlatRedBallAndroidTemplate</string>
+    <string name="ApplicationName">PowerCraft</string>
     <string name="google_play_app_id">GooglePlayAppId</string>
     <string name="hockey_app_id">47686a419bd44c13990676d0e2e74437</string>
 </resources>

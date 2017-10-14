@@ -12,18 +12,16 @@ namespace GBC2017.Entities.BaseEntities
     public partial class BaseEnemy
     {
         #region Propertie and fields
-
-        private bool IsAttacking => CurrentActionState == Action.MeleeAttack ||
-                                    CurrentActionState == Action.StartRangedAttack ||
-                                    CurrentActionState == Action.FinishRangedAttack ||
-                                    (CurrentActionState == Action.RangedAim && _currentAttackTarget != null && TargetIsInAttackRange(_currentAttackTarget));
-
-
         private BaseStructure _currentAttackTarget;
-        private int _lastNumberOfAvailableTargets;
 
         private double _lastRangeAttackTime;
         private double _lastMeleeAttackTime;
+
+        private bool IsAttacking => CurrentActionState == Action.StartMeleeAttack ||
+                                    CurrentActionState == Action.FinishMeleeAttack ||
+                                    CurrentActionState == Action.StartRangedAttack ||
+                                    CurrentActionState == Action.FinishRangedAttack ||
+                                    (CurrentActionState == Action.RangedAim && _currentAttackTarget != null && TargetIsInAttackRange(_currentAttackTarget));
 
         private bool AttackIsAvailable => IsRangedAttacker
             ? TimeManager.SecondsSince(_lastRangeAttackTime) > SecondsBetweenRangedAttack
@@ -43,19 +41,32 @@ namespace GBC2017.Entities.BaseEntities
             }
             else if (_potentialTargetList != null && _potentialTargetList.Count > 0)
             {
-                _currentAttackTarget =
-                    _potentialTargetList.Where(pt =>
-                            pt.CurrentState == BaseStructure.VariableState.Built &&
-                            pt.IsDestroyed == false &&
-                            TargetIsInAttackRange(pt))
-                        .OrderBy(pt => Vector3.Distance(Position, pt.Position)
-                        ).FirstOrDefault();
+                var minDistance = float.MaxValue;
+                BaseStructure potentialTarget = null;
+
+                foreach (var target in _potentialTargetList)
+                {
+                    if (target.CurrentState != BaseStructure.VariableState.Built || target.IsDestroyed) continue;
+
+                    var distanceToTarget = Vector3.Distance(Position, target.Position);
+
+                    if (distanceToTarget >= minDistance) continue;
+
+                    var isInRange = distanceToTarget < (IsMeleeAttacker ? MeleeAttackRadius : RangedAttackRadius);
+
+                    if (!isInRange) continue;
+
+                    minDistance = distanceToTarget;
+                    potentialTarget = target;
+                }
+
+                _currentAttackTarget = potentialTarget;
             }
         }
 
         private void SharedAttackActivity()
         {
-            if (_lastNumberOfAvailableTargets != _currentNumberOfPotentialTargets || (_currentAttackTarget != null && (_currentAttackTarget.IsDestroyed || !TargetIsInAttackRange(_currentAttackTarget))))
+            if (_lastNumberOfPotentialTargets != _currentNumberOfPotentialTargets || (_currentAttackTarget != null && (_currentAttackTarget.IsDestroyed || !TargetIsInAttackRange(_currentAttackTarget))))
             {
                 _currentAttackTarget = null;
             }
@@ -80,7 +91,7 @@ namespace GBC2017.Entities.BaseEntities
         {
             if (_currentAttackTarget == null) return;
 
-            StopMovement();
+            Velocity = Vector3.Zero;
 
             CurrentDirectionState = (Position.X < _currentAttackTarget.Position.X ?
                 Direction.MovingRight :
@@ -89,11 +100,11 @@ namespace GBC2017.Entities.BaseEntities
             if (IsRangedAttacker && CurrentActionState != Action.StartRangedAttack)
             {
                 CurrentActionState = Action.StartRangedAttack;
-                this.Call(rangedChargeSound.Play).After(0.3f);
+                this.Call(PlayRangedChargeSound).After(0.3f);
             }
-            else if (IsMeleeAttacker && CurrentActionState != Action.MeleeAttack)
+            else if (IsMeleeAttacker && CurrentActionState != Action.StartMeleeAttack && CurrentActionState != Action.FinishMeleeAttack)
             {
-                CurrentActionState = Action.MeleeAttack;
+                CurrentActionState = Action.StartMeleeAttack;
             }
         }
 
@@ -111,28 +122,66 @@ namespace GBC2017.Entities.BaseEntities
             return false;
         }
 
+        private void PlayRangedChargeSound()
+        {
+            try
+            {
+                rangedChargeSound.Play();
+            }
+            catch (Exception){}
+
+        }
+
         #endregion
 
         #region Melee logic
 
         private void MeleeAttackActivity()
         {
-            if (CurrentActionState == Action.MeleeAttack && SpriteInstance.JustCycled)
+            if (!IsJumper || Altitude == 0)
             {
-                DealMeleeDamage();
-            }
-            else 
-            {
-                SharedAttackActivity();
+                if (IsHurt && SpriteInstance.JustCycled)
+                {
+                    CurrentActionState = Action.Standing;
+                }
+                else if (CurrentActionState == Action.StartMeleeAttack && SpriteInstance.JustCycled)
+                {
+                    if (_currentAttackTarget != null) DealMeleeDamage();
+                    CurrentActionState = Action.FinishMeleeAttack;
+                }
+                else if (CurrentActionState == Action.FinishMeleeAttack && SpriteInstance.JustCycled)
+                {
+                    CurrentActionState = Action.Standing;
+                }
+                else
+                {
+                    SharedAttackActivity();
+                }
             }
         }
 
         private void DealMeleeDamage()
         {
             _lastMeleeAttackTime = TimeManager.CurrentTime;
-            meleeAttackSound?.Play();
+            PlayAttackSound();
             _currentAttackTarget?.TakeMeleeDamage(this);
             CurrentActionState = Action.Standing;
+        }
+
+        private void PlayAttackSound()
+        {
+            try
+            {
+                if (IsMeleeAttacker)
+                {
+                    meleeAttackSound?.Play();
+                }
+                else if (IsRangedAttacker)
+                {
+                    rangedAttackSound?.Play();
+                }
+            }
+            catch (Exception) { }
         }
         #endregion
 
@@ -173,27 +222,50 @@ namespace GBC2017.Entities.BaseEntities
             }
         }
 
+        private Vector3 GetProjectilePositioning(float angle)
+        {
+            var direction = new Vector3(
+                (float)-Math.Cos(angle),
+                (float)-Math.Sin(angle), 0);
+            direction.Normalize();
+            return new Vector3(Position.X + 55f*_currentScale * direction.X, Position.Y + 30f * _currentScale + 25f * _currentScale * direction.Y, 0);
+        }
+
         private void FireProjectile()
         {
             var newProjectile = CreateProjectile();
-            newProjectile.Position = Position;
             newProjectile.Position.Y += CircleInstance.Radius * 1.5f;
             newProjectile.DamageInflicted = RangedAttackDamage;
             newProjectile.Speed = ProjectileSpeed;
-            newProjectile.MaxRange = RangedAttackRadius * 1.5f;
 
-            var angle = (float)Math.Atan2(newProjectile.Position.Y - _currentAttackTarget.Position.Y, newProjectile.Position.X - _currentAttackTarget.Position.X);
+            var angle = (float)Math.Atan2(Position.Y - _currentAttackTarget.Position.Y, Position.X - _currentAttackTarget.Position.X);
             var direction = new Vector3(
                 (float)-Math.Cos(angle),
                 (float)-Math.Sin(angle), 0);
             direction.Normalize();
 
+            newProjectile.Position = GetProjectilePositioning(angle);
             newProjectile.Velocity = direction * newProjectile.Speed;
+            newProjectile.AltitudeVelocity = CalculateProjectileAltitudeVelocity(newProjectile);
             newProjectile.RotationZ = (float)Math.Atan2(-newProjectile.XVelocity, newProjectile.YVelocity) - MathHelper.ToRadians(90);
 
-            if (rangedAttackSound != null && !rangedAttackSound.IsDisposed) rangedAttackSound.Play();
+            PlayAttackSound();
 
             _lastRangeAttackTime = TimeManager.CurrentTime;
+        }
+
+        private float CalculateProjectileAltitudeVelocity(BaseEnemyProjectile projectile)
+        {
+            if (_currentAttackTarget == null) return 0f;
+
+            var targetPosition = _currentAttackTarget.AxisAlignedRectangleInstance.Position;
+            var targetDistance = Vector3.Distance(projectile.CircleInstance.Position, targetPosition);
+            var timeToTravel = targetDistance / projectile.Speed;
+
+            var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel))) /
+                                   -timeToTravel;
+
+            return altitudeVelocity;
         }
 
         #endregion

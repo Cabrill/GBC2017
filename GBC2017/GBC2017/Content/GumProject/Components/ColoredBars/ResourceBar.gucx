@@ -16,6 +16,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>CapacityText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>CapacityText.Font</Name>
       <Value xsi:type="xsd:string">Moire ExtraBold</Value>
@@ -24,13 +31,13 @@
     <Variable>
       <Type>float</Type>
       <Name>CapacityText.Font Scale</Name>
-      <Value xsi:type="xsd:float">0.5</Value>
+      <Value xsi:type="xsd:float">0.8</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>CapacityText.FontSize</Name>
-      <Value xsi:type="xsd:int">72</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -79,7 +86,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>CapacityText.UseCustomFont</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -176,7 +183,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FillEndSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -247,7 +254,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FillMiddleSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -354,7 +361,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FillStartSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -451,7 +458,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FrameEndSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -512,7 +519,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FrameMiddleSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -573,7 +580,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>FrameStartSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -703,7 +710,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>HighlightSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -770,7 +777,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>HighlightSprite1.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -837,7 +844,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>HighlightSprite2.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -903,7 +910,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>ShadeEndSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -969,7 +976,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>ShadeMiddleSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1035,7 +1042,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>ShadeStartSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

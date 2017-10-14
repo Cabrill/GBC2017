@@ -18,6 +18,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
     {
         private float _lastWindEffectiveness;
         private bool _hasSetTurbineSprite;
+        private float? _startingTurbineScale;
 
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -26,15 +27,24 @@ namespace GBC2017.Entities.Structures.EnergyProducers
         /// </summary>
 		private void CustomInitialize()
         {
-            EffectiveEnergyProducedPerSecond = 25f *
-                                               BaseEnergyPerSecond();
+            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
             TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
+            _startingTurbineScale = TurbineSprite.TextureScale;
+        }
+
+        protected override void UpdateScale()
+        {
+            base.UpdateScale();
+            if (_startingTurbineScale.HasValue)
+            {
+                TurbineSprite.TextureScale = _startingTurbineScale.Value * _currentScale;
+                TurbineSprite.RelativeY = SpriteInstance.Height * 0.95f;
+            }
         }
 
         private void CustomActivity()
         {
-            EffectiveEnergyProducedPerSecond = 0.25f *
-                                               BaseEnergyPerSecond();
+            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
             if (IsBeingPlaced)
             {
@@ -75,7 +85,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private double BaseEnergyPerSecond()
         {
-            double wattRealTime = 8 * Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
+            double wattRealTime =  Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
             double wattInGame = wattRealTime * 24 * 3600 / 300;
             return wattInGame;
         }

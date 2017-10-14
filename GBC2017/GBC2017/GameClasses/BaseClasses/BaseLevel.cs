@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Graphics;
+using GBC2017.Entities.BaseEntities;
 using GBC2017.Factories;
 using GBC2017.GameClasses.Interfaces;
 
@@ -13,20 +14,25 @@ namespace GBC2017.GameClasses.BaseClasses
     {
         public abstract ICity City { get; }
         public abstract DateTime StartTime { get; }
-        public abstract DateTime EndTime { get; }
+        public abstract DateTime EndTime { get; } 
         public abstract float AvgDailyEnergyUsage { get; }
+
+        protected float EnergyToSpend;
 
         public abstract float WaterFlowRate { get; }
 
-    private DateTime _lastEnemyWave;
+        private DateTime _lastEnemyWave;
         private Layer _layerForEnemies;
         private int _wavesSent;
-        private int _wavesToEaseIntoDifficulty = 24;
+        private int _wavesToEaseIntoDifficulty = 48;
+        protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
 
-        protected BaseLevel(Layer layerForEnemies)
+        protected BaseLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies)
         {
             this._layerForEnemies = layerForEnemies;
             _wavesSent = 0;
+            EnergyToSpend = 0;
+            _enemyList = enemyList;
         }
 
         /// <summary>
@@ -39,7 +45,7 @@ namespace GBC2017.GameClasses.BaseClasses
         {
             if (EndTime != DateTime.MaxValue)
             {
-                return currentDateTime >= EndTime;
+                return currentDateTime >= EndTime && _enemyList.Count == 0;
             }
             return false;
         }
@@ -59,38 +65,42 @@ namespace GBC2017.GameClasses.BaseClasses
         /// Creates enemies equal to the energy amount
         /// </summary>
         /// <param name="energyAmount">Amount of energy to spend in creating enemies</param>
-        public void CreateEnemiesFromEnergy(float energyAmount)
+        private void CreateEnemiesFromEnergy()
         {
-            var minimumCostOfAnEnemy = GameFormulas.Instance.MinimumEnergyCostForAnEnemy;
-            var energyAvailable = energyAmount;
+            if (!(EnergyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)) return;
 
-            while (energyAvailable >= minimumCostOfAnEnemy)
-            {
-                var newEnemy = FlyingEnemyFactory.CreateNew(_layerForEnemies);
-                newEnemy.PlaceOnRightSide();
-                energyAvailable -= GameFormulas.Instance.EnergyRatingForEnemy(newEnemy);
-            }
+            var newEnemy = GameFormulas.Instance.StrongestAffordableEnemy(ref EnergyToSpend, _layerForEnemies);
+            newEnemy?.PlaceOnRightSide();
         }
 
         public void Update(DateTime currentDateTime)
         {
             if (currentDateTime > _lastEnemyWave && currentDateTime.Hour != _lastEnemyWave.Hour)
             {
-                var wavesModifier = 1f;
-                if (_wavesSent < _wavesToEaseIntoDifficulty)
+                var energyToSpend = 0f;
+
+                //Don't increment energy after time limit is reached, just spend what's already available
+                if (currentDateTime <= EndTime)
                 {
-                    wavesModifier = (float)_wavesSent / _wavesToEaseIntoDifficulty;
+
+                    var wavesModifier = 1f;
+                    if (_wavesSent < _wavesToEaseIntoDifficulty)
+                    {
+                        wavesModifier = (float) _wavesSent / _wavesToEaseIntoDifficulty;
+                    }
+
+                    energyToSpend = wavesModifier *
+                                    GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour,
+                                        AvgDailyEnergyUsage);
                 }
 
-                var energyToSpend = wavesModifier *
-                    GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour,
-                        AvgDailyEnergyUsage);
-
-                CreateEnemiesFromEnergy(energyToSpend);
+                EnergyToSpend += energyToSpend;
 
                 _lastEnemyWave = currentDateTime;
                 _wavesSent++;
             }
+
+            CreateEnemiesFromEnergy();
         }
     }
 }

@@ -14,3 +14,5 @@ GBC2017/GBC2017Android/GBC2017Android/obj/
 Thumbs.db
 Assets/Placeholders/starry_sky.jpg
 GBC2017/GBC2017Android/packages/
+*.xnb
+*.mgcontent

@@ -190,10 +190,10 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>MeleeAttack</Name>
+    <Name>StartMeleeAttack</Name>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.3</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
       <TopCoordinate>1022</TopCoordinate>
@@ -201,11 +201,12 @@
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
+      <FrameLength>0.2</FrameLength>
       <LeftCoordinate>128</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
+      <RightCoordinate>268</RightCoordinate>
       <TopCoordinate>1022</TopCoordinate>
       <BottomCoordinate>1281</BottomCoordinate>
+      <RelativeX>6</RelativeX>
     </Frame>
     <Frame>
       <TextureName>greenalien.png</TextureName>
@@ -215,32 +216,6 @@
       <TopCoordinate>1022</TopCoordinate>
       <BottomCoordinate>1281</BottomCoordinate>
       <RelativeX>64</RelativeX>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>640</LeftCoordinate>
-      <RightCoordinate>896</RightCoordinate>
-      <TopCoordinate>1022</TopCoordinate>
-      <BottomCoordinate>1281</BottomCoordinate>
-      <RelativeX>64</RelativeX>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>384</LeftCoordinate>
-      <RightCoordinate>640</RightCoordinate>
-      <TopCoordinate>1022</TopCoordinate>
-      <BottomCoordinate>1281</BottomCoordinate>
-      <RelativeX>64</RelativeX>
-    </Frame>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>128</LeftCoordinate>
-      <RightCoordinate>256</RightCoordinate>
-      <TopCoordinate>1022</TopCoordinate>
-      <BottomCoordinate>1281</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -381,23 +356,49 @@
     <Frame>
       <TextureName>greenalien.png</TextureName>
       <FrameLength>0.05</FrameLength>
-      <LeftCoordinate>512</LeftCoordinate>
-      <RightCoordinate>640</RightCoordinate>
-      <TopCoordinate>1280</TopCoordinate>
-      <BottomCoordinate>1537</BottomCoordinate>
-      <RelativeX>8</RelativeX>
-    </Frame>
-  </AnimationChain>
-  <AnimationChain>
-    <Name>Standing</Name>
-    <Frame>
-      <TextureName>greenalien.png</TextureName>
-      <FrameLength>0.05</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>128</RightCoordinate>
       <TopCoordinate>512</TopCoordinate>
       <BottomCoordinate>769</BottomCoordinate>
       <RelativeX>8</RelativeX>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>FinishMeleeAttack</Name>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.5</FrameLength>
+      <LeftCoordinate>640</LeftCoordinate>
+      <RightCoordinate>896</RightCoordinate>
+      <TopCoordinate>1022</TopCoordinate>
+      <BottomCoordinate>1281</BottomCoordinate>
+      <RelativeX>64</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>384</LeftCoordinate>
+      <RightCoordinate>640</RightCoordinate>
+      <TopCoordinate>1022</TopCoordinate>
+      <BottomCoordinate>1281</BottomCoordinate>
+      <RelativeX>64</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>268</RightCoordinate>
+      <TopCoordinate>1022</TopCoordinate>
+      <BottomCoordinate>1281</BottomCoordinate>
+      <RelativeX>6</RelativeX>
+    </Frame>
+    <Frame>
+      <TextureName>greenalien.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>128</RightCoordinate>
+      <TopCoordinate>1022</TopCoordinate>
+      <BottomCoordinate>1281</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

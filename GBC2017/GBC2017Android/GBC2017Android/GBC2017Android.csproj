@@ -41,6 +41,9 @@
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <Debugger>Xamarin</Debugger>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -51,6 +54,10 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EnableProguard>false</EnableProguard>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HockeySDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -120,9 +127,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\GBC2017\DataTypes\TileMapInfo.Generated.cs">
-      <Link>DataTypes\TileMapInfo.Generated.cs</Link>
-    </Compile>
+    <Compile Include="..\..\GBC2017\DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseCombatStructure.cs">
       <Link>Entities\BaseEntities\BaseCombatStructure.cs</Link>
     </Compile>
@@ -156,6 +161,10 @@
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.cs">
       <Link>Entities\BaseEntities\BaseEnemyProjectile.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Event.cs">
+      <Link>Entities\BaseEntities\BaseEnemyProjectile.Event.cs</Link>
+      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
       <Link>Entities\BaseEntities\BaseEnemyProjectile.Generated.cs</Link>
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
@@ -176,6 +185,10 @@
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.cs">
       <Link>Entities\BaseEntities\BasePlayerProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Event.cs">
+      <Link>Entities\BaseEntities\BasePlayerProjectile.Event.cs</Link>
+      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
       <Link>Entities\BaseEntities\BasePlayerProjectile.Generated.cs</Link>
@@ -231,6 +244,20 @@
       <Link>Entities\Enemies\MeleeAlien.Generated.cs</Link>
       <DependentUpon>MeleeAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\SlimeAlien.cs">
+      <Link>Entities\Enemies\SlimeAlien.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Enemies\SlimeAlien.Generated.cs">
+      <Link>Entities\Enemies\SlimeAlien.Generated.cs</Link>
+      <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SmallSlime.cs">
+      <Link>Entities\Enemies\SmallSlime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Entities\Enemies\SmallSlime.Generated.cs">
+      <Link>Entities\Enemies\SmallSlime.Generated.cs</Link>
+      <DependentUpon>SmallSlime.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\Checkmark.cs">
       <Link>Entities\GraphicalElements\Checkmark.cs</Link>
     </Compile>
@@ -244,6 +271,13 @@
     <Compile Include="..\..\GBC2017\Entities\GraphicalElements\XCancel.Generated.cs">
       <Link>Entities\GraphicalElements\XCancel.Generated.cs</Link>
       <DependentUpon>XCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\CannonProjectile.cs">
+      <Link>Entities\Projectiles\CannonProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\CannonProjectile.Generated.cs">
+      <Link>Entities\Projectiles\CannonProjectile.Generated.cs</Link>
+      <DependentUpon>CannonProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Projectiles\FlyingEnemyProjectile.cs">
       <Link>Entities\Projectiles\FlyingEnemyProjectile.cs</Link>
@@ -266,6 +300,13 @@
       <Link>Entities\Projectiles\RangedEnemyProjectile.Generated.cs</Link>
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\TallLaserProjectile.cs">
+      <Link>Entities\Projectiles\TallLaserProjectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Projectiles\TallLaserProjectile.Generated.cs">
+      <Link>Entities\Projectiles\TallLaserProjectile.Generated.cs</Link>
+      <DependentUpon>TallLaserProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\ShaderRenderer.cs">
       <Link>Entities\ShaderRenderer.cs</Link>
     </Compile>
@@ -273,12 +314,26 @@
       <Link>Entities\ShaderRenderer.Generated.cs</Link>
       <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\Cannon.cs">
+      <Link>Entities\Structures\Combat\Cannon.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\Cannon.Generated.cs">
+      <Link>Entities\Structures\Combat\Cannon.Generated.cs</Link>
+      <DependentUpon>Cannon.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.cs">
       <Link>Entities\Structures\Combat\LaserTurret.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\Combat\LaserTurret.Generated.cs">
       <Link>Entities\Structures\Combat\LaserTurret.Generated.cs</Link>
       <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\TallLaser.cs">
+      <Link>Entities\Structures\Combat\TallLaser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Entities\Structures\Combat\TallLaser.Generated.cs">
+      <Link>Entities\Structures\Combat\TallLaser.Generated.cs</Link>
+      <DependentUpon>TallLaser.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\Entities\Structures\EnergyProducers\HydroGenerator.cs">
       <Link>Entities\Structures\EnergyProducers\HydroGenerator.cs</Link>
@@ -335,6 +390,12 @@
     <Compile Include="..\..\GBC2017\Factories\BatteryFactory.Generated.cs">
       <Link>Factories\BatteryFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\CannonFactory.Generated.cs">
+      <Link>Factories\CannonFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\CannonProjectileFactory.Generated.cs">
+      <Link>Factories\CannonProjectileFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\CarbonTreeFactory.Generated.cs">
       <Link>Factories\CarbonTreeFactory.Generated.cs</Link>
     </Compile>
@@ -365,8 +426,20 @@
     <Compile Include="..\..\GBC2017\Factories\ShieldGeneratorFactory.Generated.cs">
       <Link>Factories\ShieldGeneratorFactory.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\Factories\SlimeAlienFactory.Generated.cs">
+      <Link>Factories\SlimeAlienFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\Factories\SmallSlimeFactory.Generated.cs">
+      <Link>Factories\SmallSlimeFactory.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\Factories\SolarPanelsFactory.Generated.cs">
       <Link>Factories\SolarPanelsFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\TallLaserFactory.Generated.cs">
+      <Link>Factories\TallLaserFactory.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\Factories\TallLaserProjectileFactory.Generated.cs">
+      <Link>Factories\TallLaserProjectileFactory.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Factories\WindTurbineFactory.Generated.cs">
       <Link>Factories\WindTurbineFactory.Generated.cs</Link>
@@ -397,9 +470,6 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\Levels\HelsinkiLevel.cs">
       <Link>GameClasses\Levels\HelsinkiLevel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\GBC2017\GameClasses\LevelWave.cs">
-      <Link>GameClasses\LevelWave.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\SunTimes.cs">
       <Link>GameClasses\SunTimes.cs</Link>
@@ -774,6 +844,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs">
       <Link>GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\LoadingScreenGumRuntime.Generated.cs">
+      <Link>GumRuntimes\LoadingScreenGumRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\MainMenuGumRuntime.Generated.cs">
       <Link>GumRuntimes\MainMenuGumRuntime.Generated.cs</Link>
     </Compile>
@@ -1006,6 +1079,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -1016,92 +1090,208 @@
     <None Include="Libraries\Android\Debug\MonoGame.Framework.dll" />
     <None Include="Libraries\Android\Debug\OpenTK.dll" />
     <None Include="Resources\AboutResources.txt" />
+    <AndroidResource Include="Resources\Layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
-      <Name>Alien_Hit_Ground</Name>
-      <Link>Assets\content\globalcontent\sounds\alien_hit_ground.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_melee.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\alien_melee.xnb">
       <Name>alien_melee</Name>
-      <Link>Assets\content\globalcontent\sounds\alien_melee.xnb</Link>
+      <Link>Assets\content\entities\enemies\basicalien\alien_melee.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\alien_powerup.xnb">
       <Name>Alien_Powerup</Name>
-      <Link>Assets\content\globalcontent\sounds\alien_powerup.xnb</Link>
+      <Link>Assets\content\entities\enemies\basicalien\alien_powerup.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\alien_shoot.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\alien_shoot.xnb">
       <Name>Alien_Shoot</Name>
-      <Link>Assets\content\globalcontent\sounds\alien_shoot.xnb</Link>
+      <Link>Assets\content\entities\enemies\basicalien\alien_shoot.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\greenalien.xnb">
+      <Name>greenalien</Name>
+      <Link>Assets\content\entities\enemies\basicalien\greenalien.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\flyingenemy\flying_powerup.xnb">
+      <Name>Flying_Powerup</Name>
+      <Link>Assets\content\entities\enemies\flyingenemy\flying_powerup.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\flyingenemy\flying_shoot.xnb">
+      <Name>Flying_Shoot</Name>
+      <Link>Assets\content\entities\enemies\flyingenemy\flying_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\slimealien\slime_hit.xnb">
+      <Name>Slime_Hit</Name>
+      <Link>Assets\content\entities\enemies\slimealien\slime_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\slimealien\slime_jump.xnb">
+      <Name>Slime_Jump</Name>
+      <Link>Assets\content\entities\enemies\slimealien\slime_jump.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\slimealien\slime_land.xnb">
+      <Name>Slime_Land</Name>
+      <Link>Assets\content\entities\enemies\slimealien\slime_land.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\cannonprojectile\cannon_hit.xnb">
+      <Name>Cannon_Hit</Name>
+      <Link>Assets\content\entities\projectiles\cannonprojectile\cannon_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb">
       <Name>Flying_Hit_Ground</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+      <Link>Assets\content\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
-      <Name>Flying_hurt</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_hurt.xnb</Link>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb">
+      <Name>Flying_Hit_Target</Name>
+      <Link>Assets\content\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
-      <Name>Flying_powerup</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_powerup.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\flying_shoot.xnb">
-      <Name>flying_shoot</Name>
-      <Link>Assets\content\globalcontent\sounds\flying_shoot.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\laserturretprojectile\laser_ground.xnb">
       <Name>Laser_Ground</Name>
-      <Link>Assets\content\globalcontent\sounds\laser_ground.xnb</Link>
+      <Link>Assets\content\entities\projectiles\laserturretprojectile\laser_ground.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_hit.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\laserturretprojectile\laser_hit.xnb">
       <Name>Laser_Hit</Name>
-      <Link>Assets\content\globalcontent\sounds\laser_hit.xnb</Link>
+      <Link>Assets\content\entities\projectiles\laserturretprojectile\laser_hit.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\laser_shoot.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb">
+      <Name>Alien_Hit_Ground</Name>
+      <Link>Assets\content\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\projectiles\talllaserprojectile\talllaser_hit.xnb">
+      <Name>TallLaser_Hit</Name>
+      <Link>Assets\content\entities\projectiles\talllaserprojectile\talllaser_hit.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\combat\cannon\cannon_shoot.xnb">
+      <Name>Cannon_Shoot</Name>
+      <Link>Assets\content\entities\structures\combat\cannon\cannon_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\combat\laserturret\laser_shoot.xnb">
       <Name>Laser_Shoot</Name>
-      <Link>Assets\content\globalcontent\sounds\laser_shoot.xnb</Link>
+      <Link>Assets\content\entities\structures\combat\laserturret\laser_shoot.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\globalcontent\sounds\structure_placed.xnb" />
-    <AndroidAsset Include="..\..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\combat\talllaser\talllaser_shoot.xnb">
+      <Name>TallLaser_Shoot</Name>
+      <Link>Assets\content\entities\structures\combat\talllaser\talllaser_shoot.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\structure_placed.xnb">
+      <Name>Structure_Placed</Name>
+      <Link>Assets\content\entities\structures\structure_placed.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\justwindmill.xnb">
+      <Name>JustWindmill</Name>
+      <Link>Assets\content\gumproject\justwindmill.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomcenter.xnb">
+      <Name>Red_bottomCenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomcenter.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomleft.xnb">
+      <Name>Red_bottomLeft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomleft.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_bottomright.xnb">
+      <Name>Red_bottomRight</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomright.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_center.xnb">
+      <Name>Red_center</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_center.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_left.xnb">
+      <Name>Red_left</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_left.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_right.xnb">
+      <Name>Red_right</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_right.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topcenter.xnb">
+      <Name>Red_topCenter</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topcenter.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topleft.xnb">
+      <Name>Red_topLeft</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topleft.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\red_topright.xnb">
+      <Name>Red_topRight</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\allassetssheet.xnb">
+      <Name>AllAssetsSheet</Name>
+      <Link>Assets\content\screens\gamescreen\allassetssheet.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\animation_sheet.xnb">
+      <Name>animation_sheet</Name>
+      <Link>Assets\content\screens\gamescreen\animation_sheet.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\effects\darknessshader.xnb">
       <Name>darknessshader</Name>
       <Link>Assets\content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_ground.xnb">
+      <Name>helsinki_ground</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_ground.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_trees.xnb">
+      <Name>helsinki_trees</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_trees.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_water.xnb">
+      <Name>helsinki_water</Name>
+      <Link>Assets\content\screens\gamescreen\levels\helsinki_water.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\starry_sky.xnb">
+      <Name>starry_sky</Name>
+      <Link>Assets\content\screens\gamescreen\starry_sky.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\basicalien\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\basicalien\greenalien.png">
-      <Name>greenalien</Name>
-      <Link>Assets\content\entities\enemies\basicalien\greenalien.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\flyingenemy\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\enemies\flyingenemy\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\graphicalelements\checkmark_x.png">
-      <Name>checkmark_x</Name>
-      <Link>Assets\content\entities\graphicalelements\checkmark_x.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx">
+      <Name>slimealienanimationchainlistfile</Name>
+      <Link>Assets\content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\alien_fire.png">
-      <Name>alien_fire</Name>
-      <Link>Assets\content\entities\projectiles\alien_fire.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
+      <Name>cannonprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\laser_bullet.png">
-      <Name>laser_bullet</Name>
-      <Link>Assets\content\entities\projectiles\laser_bullet.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx">
+      <Name>flyingenemyprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx">
+      <Name>laserturretprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\shadow.png">
-      <Name>shadow</Name>
-      <Link>Assets\content\entities\shadow.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx">
+      <Name>talllaserprojectileanimationchainlistfile</Name>
+      <Link>Assets\content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
+      <Name>cannonanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\laserturret\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\combat\laserturret\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx">
+      <Name>talllaseranimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <Name>emitterlistfile</Name>
@@ -1111,33 +1301,21 @@
       <Name>waterdropanimationchain</Name>
       <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\shieldgenerator\shield_generator.png">
-      <Name>shield_generator</Name>
-      <Link>Assets\content\entities\structures\shieldgenerator\shield_generator.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
+      <Name>batteryanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\utility\battery\batteryanimationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx">
+      <Name>carbontreeanimationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <Name>animationchainlistfile</Name>
       <Link>Assets\content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
-      <Name>wind_turbine</Name>
-      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\allassetssheet.png">
-      <Name>allassetssheet</Name>
-      <Link>Assets\content\globalcontent\allassetssheet.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\animation_sheet.png">
-      <Name>animation_sheet</Name>
-      <Link>Assets\content\globalcontent\animation_sheet.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\starry_sky.png">
-      <Name>starry_sky</Name>
-      <Link>Assets\content\globalcontent\starry_sky.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\treeline.png">
-      <Name>treeline</Name>
-      <Link>Assets\content\globalcontent\treeline.png</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\globalcontent\font50moireextrabold.fnt">
+      <Name>font50moireextrabold</Name>
+      <Link>Assets\content\globalcontent\font50moireextrabold.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\buildbar.gucx">
       <Name>buildbar</Name>
@@ -1215,146 +1393,6 @@
       <Name>font18arial</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial.fnt</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18arial_0.png">
-      <Name>font18arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font18arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic.fnt">
-      <Name>font18century gothic</Name>
-      <Link>Assets\content\gumproject\fontcache\font18century gothic.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font18century gothic_0.png">
-      <Name>font18century gothic_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font18century gothic_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1.fnt">
-      <Name>font25arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font25arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font25arial black_o1_0.png">
-      <Name>font25arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font25arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1.fnt">
-      <Name>font27arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial black_o1_0.png">
-      <Name>font27arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1.fnt">
-      <Name>font27arial_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font27arial_o1_0.png">
-      <Name>font27arial_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font27arial_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black.fnt">
-      <Name>font36arial black</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_0.png">
-      <Name>font36arial black_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1.fnt">
-      <Name>font36arial black_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_0.png">
-      <Name>font36arial black_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial black_o1_1.png">
-      <Name>font36arial black_o1_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial black_o1_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial.fnt">
-      <Name>font36arial</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_0.png">
-      <Name>font36arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1.fnt">
-      <Name>font36arial_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36arial_o1_0.png">
-      <Name>font36arial_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36arial_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic.fnt">
-      <Name>font36century gothic</Name>
-      <Link>Assets\content\gumproject\fontcache\font36century gothic.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36century gothic_0.png">
-      <Name>font36century gothic_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36century gothic_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1.fnt">
-      <Name>font36moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font36moire extrabold_o1_0.png">
-      <Name>font36moire extrabold_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font36moire extrabold_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial.fnt">
-      <Name>font72arial</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_0.png">
-      <Name>font72arial_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_1.png">
-      <Name>font72arial_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72arial_2.png">
-      <Name>font72arial_2</Name>
-      <Link>Assets\content\gumproject\fontcache\font72arial_2.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold.fnt">
-      <Name>font72moire extrabold</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_0.png">
-      <Name>font72moire extrabold_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_1.png">
-      <Name>font72moire extrabold_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1.fnt">
-      <Name>font72moire extrabold_o1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_0.png">
-      <Name>font72moire extrabold_o1_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o1_1.png">
-      <Name>font72moire extrabold_o1_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o1_1.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2.fnt">
-      <Name>font72moire extrabold_o2</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2.fnt</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_0.png">
-      <Name>font72moire extrabold_o2_0</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_0.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font72moire extrabold_o2_1.png">
-      <Name>font72moire extrabold_o2_1</Name>
-      <Link>Assets\content\gumproject\fontcache\font72moire extrabold_o2_1.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\gumproject.gumx">
       <Name>gumproject</Name>
       <Link>Assets\content\gumproject\gumproject.gumx</Link>
@@ -1366,6 +1404,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\levelselectscreengum.gusx">
       <Name>levelselectscreengum</Name>
       <Link>Assets\content\gumproject\screens\levelselectscreengum.gusx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\loadingscreengum.gusx">
+      <Name>loadingscreengum</Name>
+      <Link>Assets\content\gumproject\screens\loadingscreengum.gusx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\screens\mainmenugum.gusx">
       <Name>mainmenugum</Name>
@@ -1399,42 +1441,6 @@
       <Name>sprite</Name>
       <Link>Assets\content\gumproject\standards\sprite.gutx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomcenter.png">
-      <Name>red_bottomcenter</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomcenter.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomleft.png">
-      <Name>red_bottomleft</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomleft.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_bottomright.png">
-      <Name>red_bottomright</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_bottomright.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_center.png">
-      <Name>red_center</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_center.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_left.png">
-      <Name>red_left</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_left.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_right.png">
-      <Name>red_right</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_right.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topcenter.png">
-      <Name>red_topcenter</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topcenter.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topleft.png">
-      <Name>red_topleft</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topleft.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\standardgraphics\red_topright.png">
-      <Name>red_topright</Name>
-      <Link>Assets\content\gumproject\standards\standardgraphics\red_topright.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\standards\text.gutx">
       <Name>text</Name>
       <Link>Assets\content\gumproject\standards\text.gutx</Link>
@@ -1443,26 +1449,29 @@
       <Name>helsinkimap</Name>
       <Link>Assets\content\screens\gamescreen\levels\helsinkimap.tmx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_ground.png">
-      <Name>helsinki_ground</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_ground.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_trees.png">
-      <Name>helsinki_trees</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_trees.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\helsinki_water.png">
-      <Name>helsinki_water</Name>
-      <Link>Assets\content\screens\gamescreen\levels\helsinki_water.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\ground_tiles.png">
-      <Name>ground_tiles</Name>
-      <Link>Assets\content\screens\gamescreen\levels\tilesets\ground_tiles.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\screens\gamescreen\levels\tilesets\waterflow.png">
-      <Name>waterflow</Name>
-      <Link>Assets\content\screens\gamescreen\levels\tilesets\waterflow.png</Link>
-    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\content\content\globalcontent\" />
+    <Folder Include="Assets\content\entities\graphicalelements\" />
+    <Folder Include="Assets\content\entities\structures\battery\" />
+    <Folder Include="Assets\content\entities\structures\home\" />
+    <Folder Include="Assets\content\entities\structures\laserturret\" />
+    <Folder Include="Assets\content\entities\structures\shieldgenerator\" />
+    <Folder Include="Assets\content\entities\structures\solarpanels\" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\content\defaultfonttexture.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1476,18 +1485,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
-    <AndroidResource Include="Resources\Drawable\Splash.png" />
-    <AndroidResource Include="Resources\Values\Strings.xml" />
-    <AndroidResource Include="Resources\Values\Styles.xml" />
-    <AndroidResource Include="Resources\Layout\Main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameClasses\BaseClasses\" />
-  </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

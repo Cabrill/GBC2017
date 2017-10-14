@@ -6,6 +6,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Audio;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
@@ -15,7 +16,9 @@ using FlatRedBall.Localization;
 using FlatRedBall.Math;
 using GBC2017.Entities;
 using GBC2017.Entities.BaseEntities;
+using GBC2017.Entities.Projectiles;
 using GBC2017.Entities.Structures;
+using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Factories;
 using GBC2017.GameClasses;
@@ -37,80 +40,80 @@ using Camera = FlatRedBall.Camera;
 
 namespace GBC2017.Screens
 {
-	public partial class GameScreen
-	{
+    public partial class GameScreen
+    {
         #region Properties and Fields
+
         private enum GameMode
-	    {
-	        Normal,
-	        Building,
-	        Inspecting
-	    };
+        {
+            Normal,
+            Building,
+            Inspecting
+        };
 
-	    private BaseLevel CurrentLevel;
-	    private DateTime currentLevelDateTime;
+        private BaseLevel CurrentLevel;
+        private DateTime currentLevelDateTime;
 
-	    private GameMode CurrentGameMode = GameMode.Normal;
-	    private bool GameHasStarted;
+        private GameMode CurrentGameMode = GameMode.Normal;
+        private bool GameHasStarted;
         private PositionedObject selectedObject;
 
-	    private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
-	    
+        private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
+
 
         #endregion
 
         #region Initialization
+
         void CustomInitialize()
-		{
-            #if WINDOWS || DESKTOP_GL
+        {
+#if WINDOWS || DESKTOP_GL
             FlatRedBallServices.IsWindowsCursorVisible = true;
-            #endif
+#endif
 
             FlatRedBallServices.GraphicsOptions.TextureFilter = TextureFilter.Point;
 
-		    resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
+            resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-		    CurrentLevel = new HelsinkiLevel(WorldLayer);
-		    currentLevelDateTime = CurrentLevel.StartTime;
+            CurrentLevel = new HelsinkiLevel(AllEnemiesList, WorldLayer);
+            currentLevelDateTime = CurrentLevel.StartTime;
             InsolationFormulas.Instance.SetCityAndDate(CurrentLevel.City, currentLevelDateTime);
 
-		    LoadTiledMap();
+            LoadTiledMap();
 
             InitializeFactories();
-		    InitializeBaseEntities();
+            InitializeBaseEntities();
 
             CameraZoomManager.Initialize();
-		    AdjustLayerOrthoValues();
-		    InitializeShaders();
+            AdjustLayerOrthoValues();
+            InitializeShaders();
             SetCollisionVisibility();
-            
+
             SetInfoBarControls();
             SetBuildButtonControls();
 
-		    var createAHome = HomeFactory.CreateNew(WorldLayer);
+            var createAHome = HomeFactory.CreateNew(WorldLayer);
 
-		    FindValidLocationFor(createAHome);
-		    createAHome.CurrentState = BaseStructure.VariableState.Built;
-		    createAHome.IsBeingPlaced = false;
+            GetHomeLocationFromTileMap(createAHome);
 
-		    InitializeManagers();
+            InitializeManagers();
 
             GameHasStarted = false;
-		    HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+            HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
         }
 
 
 
-	    private void InitializeShaders()
-	    {
+        private void InitializeShaders()
+        {
             WorldLayer.RenderTarget = WorldRenderTarget;
-	        LightLayer.RenderTarget = DarknessRenderTarget;
-	        BackgroundLayer.RenderTarget = BackgroundRenderTarget;
+            LightLayer.RenderTarget = DarknessRenderTarget;
+            BackgroundLayer.RenderTarget = BackgroundRenderTarget;
 
             ShaderRendererInstance.WorldTexture = WorldRenderTarget;
             ShaderRendererInstance.DarknessTexture = DarknessRenderTarget;
-	        ShaderRendererInstance.BackgroundTexture = BackgroundRenderTarget;
+            ShaderRendererInstance.BackgroundTexture = BackgroundRenderTarget;
             //ShaderRendererInstance.Effect = darknessshader;
             ShaderRendererInstance.Viewer = Camera.Main;
 
@@ -118,130 +121,186 @@ namespace GBC2017.Screens
         }
 
         private void AdjustLayerOrthoValues()
-	    {
-	        //BackgroundLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        //BackgroundLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
-
+        {
             WorldLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        WorldLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+            WorldLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
 
             LightLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        LightLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+            LightLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
 
-	        ShaderOutputLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        ShaderOutputLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+            ShaderOutputLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+            ShaderOutputLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
 
-	        InfoLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
-	        InfoLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
+            InfoLayer.LayerCameraSettings.OrthogonalWidth = Camera.Main.OrthogonalWidth;
+            InfoLayer.LayerCameraSettings.OrthogonalHeight = Camera.Main.OrthogonalHeight;
         }
 
-	    private void InitializeManagers()
-	    {
-	        EnergyManager.Initialize(AllStructuresList);
-	        MineralsManager.Initialize(AllStructuresList);
-	        SunlightManager.Initialize(HorizonBoxInstance);
+        private void InitializeManagers()
+        {
+            EnergyManager.Initialize(AllStructuresList);
+            MineralsManager.Initialize(AllStructuresList);
+            SunlightManager.Initialize(HorizonBoxInstance);
         }
 
         private void InitializeBaseEntities()
-	    {
-	        BaseCombatStructure.Initialize(AllEnemiesList);
-	        BaseEnemy.Initialize(AlienSpawnLeftRectangle, AlienSpawnRightRectangle, AllStructuresList);
+        {
+            var maxY = Camera.Main.OrthogonalHeight * 0.8f - Camera.Main.OrthogonalHeight / 2;
+            BaseStructure.Initialize(maxY);
+            BaseEnemyProjectile.Initialize(maxY);
+            BasePlayerProjectile.Initialize(maxY);
+            BaseCombatStructure.Initialize(AllEnemiesList);
+            BaseEnemy.Initialize(AlienSpawnLeftRectangle, AlienSpawnRightRectangle, AllStructuresList, maxY);
         }
 
-	    private void InitializeFactories()
-	    {
-	        HomeFactory.EntitySpawned +=
-	            home => home.AddSpritesToLayers(LightLayer, InfoLayer);
+        private void InitializeFactories()
+        {
+            HomeFactory.EntitySpawned +=
+                home => home.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        LaserTurretProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+            LaserTurretProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        RangedEnemyProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+            CannonProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        FlyingEnemyProjectileFactory.EntitySpawned +=
-	            projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+            TallLaserProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            RangedEnemyProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            FlyingEnemyProjectileFactory.EntitySpawned +=
+                projectile => projectile.AddSpritesToLayers(LightLayer, InfoLayer);
 
             LaserTurretFactory.EntitySpawned +=
-	            turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
+                turrent => turrent.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        ShieldGeneratorFactory.EntitySpawned +=
-	            shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, InfoLayer);
+            CannonFactory.EntitySpawned +=
+                cannon => cannon.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        SolarPanelsFactory.EntitySpawned +=
-	            solarpanel => solarpanel.AddSpritesToLayers(LightLayer, InfoLayer);
+            TallLaserFactory.EntitySpawned +=
+                laser => laser.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        WindTurbineFactory.EntitySpawned +=
-	            windturbine => windturbine.AddSpritesToLayers(LightLayer, InfoLayer);
+            ShieldGeneratorFactory.EntitySpawned +=
+                shieldgenerator => shieldgenerator.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        BatteryFactory.EntitySpawned +=
-	            battery => battery.AddSpritesToLayers(LightLayer, InfoLayer);
+            SolarPanelsFactory.EntitySpawned +=
+                solarpanel => solarpanel.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        CarbonTreeFactory.EntitySpawned +=
-	            carbontree => carbontree.AddSpritesToLayers(LightLayer, InfoLayer);
+            WindTurbineFactory.EntitySpawned +=
+                windturbine => windturbine.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        BasicAlienFactory.EntitySpawned +=
-	            basicalien => basicalien.AddSpritesToLayers(LightLayer, InfoLayer);
+            BatteryFactory.EntitySpawned +=
+                battery => battery.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        MeleeAlienFactory.EntitySpawned +=
-	            meleealien => meleealien.AddSpritesToLayers(LightLayer, InfoLayer);
+            CarbonTreeFactory.EntitySpawned +=
+                carbontree => carbontree.AddSpritesToLayers(LightLayer, InfoLayer);
 
-	        FlyingEnemyFactory.EntitySpawned +=
-	            flyingalien => flyingalien.AddSpritesToLayers(LightLayer, InfoLayer);
+            BasicAlienFactory.EntitySpawned +=
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
+
+            MeleeAlienFactory.EntitySpawned +=
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
+
+            FlyingEnemyFactory.EntitySpawned +=
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
+
+            SlimeAlienFactory.EntitySpawned +=
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
+
+            SmallSlimeFactory.EntitySpawned +=
+                alien =>
+                {
+                    alien.AddSpritesToLayers(LightLayer, InfoLayer);
+                    alien.OnDeath += CreateResourceNotification;
+                };
         }
 
-	    private void SetCollisionVisibility()
-	    {
-            #if DEBUG
-	        if (DebugVariables.ShowDebugShapes)
-	        {
-	            PlayAreaPolygon.Visible = true;
-	        }
-	        else
-            #endif
-	        {
-	            PlayAreaPolygon.Visible = false;
-	        }
+        private void SetCollisionVisibility()
+        {
+#if DEBUG
+            if (DebugVariables.ShowDebugShapes)
+            {
+                PlayAreaPolygon.Visible = true;
+            }
+            else
+#endif
+            {
+                PlayAreaPolygon.Visible = false;
+            }
         }
 
-	    void LoadTiledMap()
-	    {
-	        //justgrass = FlatRedBall.TileGraphics.LayeredTileMap.FromTiledMapSave("content/screens/gamescreen/levels/justgrass.tmx", ContentManagerName);
+        void LoadTiledMap()
+        {
             HelsinkiMap.AddToManagers(WorldLayer);
-	        HelsinkiMap.Z = -10;
-	        HelsinkiMap.MapLayers[2].RelativeZ = 20;
+            HelsinkiMap.Z = -10;
+            HelsinkiMap.MapLayers[2].RelativeZ = 14;
+
+            PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
+
+            AlienSpawnLeftRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[0];
+            AlienSpawnRightRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[1];
+
+            PlayAreaPolygon.AttachTo(HelsinkiMap, true);
+            AlienSpawnLeftRectangle.AttachTo(HelsinkiMap, true);
+            AlienSpawnRightRectangle.AttachTo(HelsinkiMap, true);
 
             //This centers the map in the middle of the screen
             HelsinkiMap.Position.X = -HelsinkiMap.Width / 2;
 
             //This positions the map between the info bar and build button bar
-	        HelsinkiMap.Position.Y = HelsinkiMap.Height/2;
+            HelsinkiMap.Position.Y = HelsinkiMap.Height / 2;
 
-	        HelsinkiMap.RemoveFromManagersOneWay();
-	        HelsinkiMap.AddToManagers(WorldLayer);
+            HelsinkiMap.RemoveFromManagersOneWay();
+            HelsinkiMap.AddToManagers(WorldLayer);
 
-	        PlayAreaPolygon = HelsinkiMap.ShapeCollections[0].Polygons[0];
-	        AlienSpawnLeftRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[0];
-	        AlienSpawnRightRectangle = HelsinkiMap.ShapeCollections[0].AxisAlignedRectangles[1];
+            ShapeManager.AddPolygon(PlayAreaPolygon);
+            ShapeManager.AddToLayer(PlayAreaPolygon, HUDLayer);
+
+
+            //AlienSpawnLeftRectangle.Position = new Vector3(AlienSpawnLeftRectangle.X - HelsinkiMap.Width / 2, AlienSpawnLeftRectangle.Y + HelsinkiMap.Height / 2, AlienSpawnLeftRectangle.Z);
+            ShapeManager.AddToLayer(AlienSpawnLeftRectangle, HUDLayer);
+
+
+            //AlienSpawnRightRectangle.Position = new Vector3(AlienSpawnRightRectangle.X - HelsinkiMap.Width / 2, AlienSpawnRightRectangle.Y + HelsinkiMap.Height / 2, AlienSpawnRightRectangle.Z);
+            ShapeManager.AddToLayer(AlienSpawnRightRectangle, HUDLayer);
         }
-#endregion
+
+        #endregion
 
         #region Activity
-        void CustomActivity(bool firstTimeCalled)
-		{
 
-            #if DEBUG
+        void CustomActivity(bool firstTimeCalled)
+        {
+
+#if DEBUG
             HandleDebugInput();
-		    ShowDebugInfo();
-            #endif
+            ShowDebugInfo();
+#endif
 
             UpdateGameModeActivity();
 
-		    HandleTouchActivity();
-		    SelectedItemActivity();
-		    BuildingStatusActivity();
+            HandleTouchActivity();
+            SelectedItemActivity();
+            BuildingStatusActivity();
 
-            
+
 
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
@@ -258,107 +317,146 @@ namespace GBC2017.Screens
                 SunlightManager.UpdateConditions();
 
                 EnemyStatusActivity();
-		        PlayerProjectileActivity();
-		        EnemyProjectileActivity();
-		    }
+                PlayerProjectileActivity();
+                EnemyProjectileActivity();
+            }
 
-		    EnergyManager.Update(!GameHasStarted);
-		    MineralsManager.Update(!GameHasStarted);
-		    InfoBarInstance.Update();
+            EnergyManager.Update(!GameHasStarted);
+            MineralsManager.Update(!GameHasStarted);
+            InfoBarInstance.Update();
         }
 
-	    private void ShowDebugInfo()
-	    {
-	        if (DebugVariables.ShowPerformanceStats)
-	        {
-	            string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();
-	            string entityBreakdown = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedEntityInformation();
-	            string shapeBreakdown =
-	                FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedBreakdownFromList(FlatRedBall.Math.Geometry
-	                    .ShapeManager.AutomaticallyUpdatedShapes);
-	            string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
+        private void ShowDebugInfo()
+        {
+            if (DebugVariables.ShowPerformanceStats)
+            {
+                string allUpdatedInfo = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedObjectInformation();
+                string entityBreakdown = FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedEntityInformation();
+                string shapeBreakdown =
+                    FlatRedBall.Debugging.Debugger.GetAutomaticallyUpdatedBreakdownFromList(FlatRedBall.Math.Geometry
+                        .ShapeManager.AutomaticallyUpdatedShapes);
+                string combinedInfo = $"{allUpdatedInfo}\n{shapeBreakdown}\n{entityBreakdown}";
 
-	            FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
-	            FlatRedBall.Debugging.Debugger.Write(combinedInfo);
-	        }
-	        FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
-	        FlatRedBall.Debugging.Debugger.TextRed = 0f;
-            FlatRedBall.Debugging.Debugger.TextGreen = 0f;
-	        FlatRedBall.Debugging.Debugger.TextBlue = 0f;
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.TopLeft;
+                FlatRedBall.Debugging.Debugger.Write(combinedInfo);
 
-            //FlatRedBall.Debugging.Debugger.Write(currentLevelDateTime.AddHours(City.Instance.UtcOffset));
+                FlatRedBall.Debugging.Debugger.TextCorner = FlatRedBall.Debugging.Debugger.Corner.BottomLeft;
+                FlatRedBall.Debugging.Debugger.TextRed = 0f;
+                FlatRedBall.Debugging.Debugger.TextGreen = 0f;
+                FlatRedBall.Debugging.Debugger.TextBlue = 0f;
+
+                FlatRedBall.Graphics.Renderer.RecordRenderBreaks = true;
+                var renderBreaks = FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList != null
+                    ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
+                    : 0;
+                FlatRedBall.Debugging.Debugger.Write(renderBreaks);
+
+            }
         }
-        
-	    private void UpdateGameTime()
-	    {
-	        var addSeconds = TimeManager.SecondDifference * 60 * GameFormulas.RealSecondsPerGameHour;
-	        currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
+
+        private void UpdateGameTime()
+        {
+            var addSeconds = TimeManager.SecondDifference * 60 * GameFormulas.RealSecondsPerGameHour;
+            currentLevelDateTime = currentLevelDateTime.AddSeconds(addSeconds);
         }
 
-	    private void SelectedItemActivity()
-	    {
-	        if (selectedObject == null)
-	        {
-	            EnemyInfoInstance.Hide();
-	            StructureInfoInstance.Hide();
-	            return;
-	        }
+        private void SelectedItemActivity()
+        {
+            if (selectedObject == null)
+            {
+                EnemyInfoInstance.Hide();
+                StructureInfoInstance.Hide();
+                return;
+            }
 
-	        if (selectedObject is BaseStructure)
-	        {
+            if (selectedObject is BaseStructure)
+            {
                 EnemyInfoInstance.Hide();
                 StructureInfoInstance.Show((BaseStructure) selectedObject);
-	        }
-	        if (selectedObject is BaseEnemy)
-	        {
+            }
+            if (selectedObject is BaseEnemy)
+            {
                 StructureInfoInstance.Hide();
                 EnemyInfoInstance.Show((BaseEnemy) selectedObject);
-	        }
-	    }
-
-	    private void UpdateGameModeActivity()
-	    {
-	        if (!AllStructuresList.Any(s => s is Home))
-	        {
-                RestartScreen(false);
-	        }
-
-	        if (AllStructuresList.Any(s => s.IsBeingPlaced))
-	        {
-	            CurrentGameMode = GameMode.Building;
-	        }
-            else if (selectedObject != null)
-            { 
-	            CurrentGameMode = GameMode.Inspecting;
             }
-	        else
-	        {
-	            CurrentGameMode = GameMode.Normal;
-	        }
-	    }
+        }
 
-	    private void EnemyStatusActivity()
+        private void UpdateGameModeActivity()
+        {
+            
+            if (CurrentLevel.HasReachedDefeat(currentLevelDateTime) || (!AllStructuresList.Any(s => s is Home)))
+            {
+                LevelFailed();
+            }
+            else if (CurrentLevel.HasReachedVictory(currentLevelDateTime))
+            {
+                LevelVictory();
+            }
+
+            if (AllStructuresList.Any(s => s.IsBeingPlaced))
+            {
+                CurrentGameMode = GameMode.Building;
+            }
+            else if (selectedObject != null)
+            {
+                CurrentGameMode = GameMode.Inspecting;
+            }
+            else
+            {
+                CurrentGameMode = GameMode.Normal;
+            }
+        }
+
+        private void LevelFailed()
+        {
+            AudioManager.StopSong();
+            RestartScreen(false);
+        }
+
+        private void LevelVictory()
+        {
+            AudioManager.StopSong();
+            RestartScreen(false);
+        }
+    
+
+    private void EnemyStatusActivity()
 	    {
-	        var validStructures = AllStructuresList.Where(s => !s.IsBeingPlaced && !s.IsDestroyed).ToArray();
-
 	        for (var i = AllEnemiesList.Count; i > 0; i--)
 	        {
 	            var enemy = AllEnemiesList[i-1];
+	            if (enemy.IsDead) continue;
+
 	            if (!PlayAreaPolygon.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
 	            }
 	            else
 	            {
+                    //Colide enemies against others
 	                for (var j = i- 1; j > 0; j--)
 	                {
 	                    var otherEnemy = AllEnemiesList[j - 1];
-	                    enemy.CollideAgainstBounce(otherEnemy.CircleInstance, thisMass:1, otherMass:1, elasticity:0.1f);
+
+	                    if (otherEnemy.IsDead) continue;
+
+	                    if (enemy.IsFlying == otherEnemy.IsFlying || (enemy.IsJumper && otherEnemy.IsJumper && enemy.Altitude > 0 && otherEnemy.IsJumper && otherEnemy.Altitude > 0))
+	                    {
+	                        enemy.CircleInstance.CollideAgainstBounce(otherEnemy.CircleInstance, enemy.SpriteInstance.Width, otherEnemy.SpriteInstance.Width,
+	                            elasticity: 0.1f);
+	                    }
 	                }
-	                for (var j = validStructures.Count(); j > 0; j--)
+
+                    //Collide enemies against buildings
+	                if (enemy.IsFlying) continue;
+
+	                for (var j = AllStructuresList.Count(); j > 0; j--)
 	                {
-	                    var structure = validStructures[j - 1];
-	                    enemy.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f, elasticity: 0.1f);
+	                    var structure = AllStructuresList[j - 1];
+	                    if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
+
+	                    enemy.CircleInstance.CollideAgainstBounce(structure.AxisAlignedRectangleInstance, thisMass: 0f, otherMass: 1f,
+	                        elasticity: 0.1f);
 	                }
 	            }
 	        }
@@ -369,40 +467,33 @@ namespace GBC2017.Screens
 	        for (var i = EnemyProjectileList.Count; i > 0; i--)
 	        {
 	            var projectile = EnemyProjectileList[i - 1];
-	            if (!projectile.ShouldBeDestroyed)
+	            if (projectile.ShouldBeDestroyed ||
+	                projectile.CurrentState != BaseEnemyProjectile.VariableState.Flying) continue;
+
+	           for (var e = AllStructuresList.Count; e > 0; e--)
 	            {
-	                if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
+	                var structure = AllStructuresList[e - 1];
+	                if (structure.IsBeingPlaced || structure.IsDestroyed) continue;
+
+	                if (structure is ShieldGenerator)
 	                {
-	                    projectile.Destroy();
-	                }
-	                else
-	                {
-	                    for (var e = AllStructuresList.Count; e > 0; e--)
+	                    var shieldGenerator = structure as ShieldGenerator;
+
+	                    if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
+	                            .CollideAgainst(projectile.CircleInstance))
 	                    {
-	                        var structure = AllStructuresList[e - 1];
-	                        if (structure.CurrentState != BaseStructure.VariableState.Built) continue;
-
-	                        if (structure is ShieldGenerator)
-	                        {
-	                            var shieldGenerator = structure as ShieldGenerator;
-
-	                            if (shieldGenerator.ShieldIsUp && shieldGenerator.PolygonShieldInstance
-	                                    .CollideAgainst(projectile.CircleInstance))
-	                            {
-	                                shieldGenerator.HitShieldWith(projectile);
-	                                projectile.ShouldBeDestroyed = true;
-	                                continue;
-	                            }
-	                        }
-
-	                        if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
-	                        {
-	                            structure.GetHitBy(projectile);
-	                            projectile.ShouldBeDestroyed = true;
-	                        }
-
+	                        shieldGenerator.HitShieldWith(projectile);
+	                        projectile.HandleImpact();
+	                        continue;
 	                    }
 	                }
+
+	                if (projectile.CircleInstance.CollideAgainst(structure.AxisAlignedRectangleInstance))
+	                {
+	                    structure.GetHitBy(projectile);
+	                    projectile.HandleImpact();
+                    }
+
 	            }
 	        }
         }
@@ -412,23 +503,32 @@ namespace GBC2017.Screens
 	        for (var i = PlayerProjectileList.Count; i > 0; i--)
 	        {
 	            var projectile = PlayerProjectileList[i-1];
-	            if (!projectile.ShouldBeDestroyed)
-	            {
-	                if (!PlayAreaPolygon.IsPointInside(projectile.X, projectile.Y))
-	                {
-	                    projectile.Destroy();
-	                }
-	                else
-	                {
-	                    for (var e = AllEnemiesList.Count; e > 0; e--)
-	                    {
-	                        var enemy = AllEnemiesList[e - 1];
-	                        if (!projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
+	            if (projectile.ShouldBeDestroyed) continue;
 
-	                        enemy.GetHitBy(projectile);
-	                        projectile.ShouldBeDestroyed = true;
-	                    }
+	            if (projectile.CurrentState != BasePlayerProjectile.VariableState.Flying &&
+	                !(projectile is CannonProjectile)) continue;
+
+	            if (projectile.CurrentState == BasePlayerProjectile.VariableState.Impact)
+	            {
+	                for (var e = AllEnemiesList.Count; e > 0; e--)
+	                {
+	                    var enemy = AllEnemiesList[e - 1];
+	                    if (!projectile.CircleInstance.CollideAgainstBounce(enemy.CircleInstance, 2, 0f, 0f)) continue;
+
+	                    enemy.GetHitBy(projectile);
 	                }
+                }
+	            else
+	            {
+	                for (var e = AllEnemiesList.Count; e > 0; e--)
+	                {
+	                    var enemy = AllEnemiesList[e - 1];
+
+	                    if (enemy.IsDead || !projectile.CircleInstance.CollideAgainst(enemy.CircleInstance)) continue;
+
+	                    enemy.GetHitBy(projectile);
+	                    projectile.HandleImpact();
+                    }
 	            }
 	        }
 	    }
@@ -469,14 +569,32 @@ namespace GBC2017.Screens
 
             if (InputManager.Keyboard.KeyPushed(Keys.X))
 	        {
-	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
+	            var newAlien = SmallSlimeFactory.CreateNew(WorldLayer);
                 newAlien.PlaceOnRightSide();
 	        }
 
 	        if (InputManager.Keyboard.KeyPushed(Keys.Z))
 	        {
 	            var newAlien = BasicAlienFactory.CreateNew(WorldLayer);
-                newAlien.PlaceOnLeftSide();
+                newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.C))
+	        {
+	            var newAlien = SlimeAlienFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.V))
+	        {
+	            var newAlien = FlyingEnemyFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.B))
+	        {
+	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
+	            newAlien.PlaceOnRightSide();
 	        }
 
         }
@@ -531,7 +649,7 @@ namespace GBC2017.Screens
 
 	                if (structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
 	                {
-	                    GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
+                        if (!(structureBeingBuilt is HydroGenerator)) GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
 	                }
 	            }
 	            else //Not building, user is possibly selecting an object
@@ -575,9 +693,7 @@ namespace GBC2017.Screens
 	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
 	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
-                //TODO:  This needs to be fixed
-                //&& PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
+	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced && PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
 
 	            if (shouldAllowDrag)
 	            {
@@ -602,6 +718,7 @@ namespace GBC2017.Screens
 	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
 	        };
 	        notification.AddToManagers();
+            notification.MoveToLayer(HUDLayerGum);
             resourceIncreaseNotificationList.Add(notification);
         }
         #endregion
@@ -616,7 +733,9 @@ namespace GBC2017.Screens
 		            notification.Destroy();
 		        }
 		    }
-		    PlayAreaPolygon.RemoveSelfFromListsBelongingTo();
+            ShapeManager.Remove(PlayAreaPolygon);
+		    ShapeManager.Remove(AlienSpawnLeftRectangle);
+		    ShapeManager.Remove(AlienSpawnRightRectangle);
 		}
 #endregion
 

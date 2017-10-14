@@ -26,7 +26,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>BackgroundSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -253,7 +253,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>EnergyChangeSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -340,21 +340,28 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyChangeText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EnergyChangeText.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeText.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeText.FontSize</Name>
-      <Value xsi:type="xsd:int">27</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -372,7 +379,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyChangeText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -385,6 +392,12 @@
       <Type>string</Type>
       <Name>EnergyChangeText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyChangeText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -487,7 +500,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>EnergySprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -569,21 +582,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>EnergyText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>EnergyText.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyText.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>EnergyText.FontSize</Name>
-      <Value xsi:type="xsd:int">27</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -601,7 +621,7 @@
     <Variable>
       <Type>int</Type>
       <Name>EnergyText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -615,6 +635,12 @@
       <Name>EnergyText.Text</Name>
       <Value xsi:type="xsd:string">900</Value>
       <ExposedAsName>EnergyCost</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>EnergyText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -791,7 +817,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MineralsChangeSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -873,21 +899,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsChangeText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MineralsChangeText.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeText.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeText.FontSize</Name>
-      <Value xsi:type="xsd:int">27</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -905,7 +938,7 @@
     <Variable>
       <Type>int</Type>
       <Name>MineralsChangeText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -918,6 +951,12 @@
       <Type>string</Type>
       <Name>MineralsChangeText.Text</Name>
       <Value xsi:type="xsd:string">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsChangeText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -984,7 +1023,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>MineralsSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1066,21 +1105,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>MineralsText.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>MineralsText.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>MineralsText.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>MineralsText.FontSize</Name>
-      <Value xsi:type="xsd:int">27</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1098,7 +1144,7 @@
     <Variable>
       <Type>int</Type>
       <Name>MineralsText.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1112,6 +1158,12 @@
       <Name>MineralsText.Text</Name>
       <Value xsi:type="xsd:string">600</Value>
       <ExposedAsName>MineralsCost</ExposedAsName>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MineralsText.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1251,21 +1303,28 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>StructureName.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>StructureName.Font</Name>
-      <Value xsi:type="xsd:string">Arial Black</Value>
+      <Value xsi:type="xsd:string">Moire ExtraBold</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>StructureName.Font Scale</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.55</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>int</Type>
       <Name>StructureName.FontSize</Name>
-      <Value xsi:type="xsd:int">25</Value>
+      <Value xsi:type="xsd:int">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1289,7 +1348,7 @@
     <Variable>
       <Type>int</Type>
       <Name>StructureName.OutlineThickness</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1302,6 +1361,12 @@
       <Type>string</Type>
       <Name>StructureName.Text</Name>
       <Value xsi:type="xsd:string" />
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>StructureName.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1493,7 +1558,7 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>TopBackgroundSprite.SourceFile</Name>
-      <Value xsi:type="xsd:string">../globalcontent/AllAssetsSheet.png</Value>
+      <Value xsi:type="xsd:string">../Screens/GameScreen/AllAssetsSheet.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

@@ -61,6 +61,9 @@
       <DependentUpon>BaseEnemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.cs" />
+    <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.Event.cs">
+      <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BaseEnemyProjectile.Generated.cs">
       <DependentUpon>BaseEnemyProjectile.cs</DependentUpon>
     </Compile>
@@ -73,6 +76,9 @@
       <DependentUpon>BaseMineralsProducer.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BaseEntities\BasePlayerProjectile.cs" />
+    <Compile Include="Entities\BaseEntities\BasePlayerProjectile.Event.cs">
+      <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BaseEntities\BasePlayerProjectile.Generated.cs">
       <DependentUpon>BasePlayerProjectile.cs</DependentUpon>
     </Compile>
@@ -106,6 +112,14 @@
     <Compile Include="Entities\Enemies\MeleeAlien.Generated.cs">
       <DependentUpon>MeleeAlien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Enemies\SlimeAlien.cs" />
+    <Compile Include="Entities\Enemies\SlimeAlien.Generated.cs">
+      <DependentUpon>SlimeAlien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Enemies\SmallSlime.cs" />
+    <Compile Include="Entities\Enemies\SmallSlime.Generated.cs">
+      <DependentUpon>SmallSlime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GraphicalElements\Checkmark.cs" />
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
       <DependentUpon>Checkmark.cs</DependentUpon>
@@ -113,6 +127,10 @@
     <Compile Include="Entities\GraphicalElements\XCancel.cs" />
     <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
       <DependentUpon>XCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Projectiles\CannonProjectile.cs" />
+    <Compile Include="Entities\Projectiles\CannonProjectile.Generated.cs">
+      <DependentUpon>CannonProjectile.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.cs" />
     <Compile Include="Entities\Projectiles\FlyingEnemyProjectile.Generated.cs">
@@ -126,13 +144,25 @@
     <Compile Include="Entities\Projectiles\RangedEnemyProjectile.Generated.cs">
       <DependentUpon>RangedEnemyProjectile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Projectiles\TallLaserProjectile.cs" />
+    <Compile Include="Entities\Projectiles\TallLaserProjectile.Generated.cs">
+      <DependentUpon>TallLaserProjectile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ShaderRenderer.cs" />
     <Compile Include="Entities\ShaderRenderer.Generated.cs">
       <DependentUpon>ShaderRenderer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Structures\Combat\Cannon.cs" />
+    <Compile Include="Entities\Structures\Combat\Cannon.Generated.cs">
+      <DependentUpon>Cannon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Structures\Combat\LaserTurret.cs" />
     <Compile Include="Entities\Structures\Combat\LaserTurret.Generated.cs">
       <DependentUpon>LaserTurret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Structures\Combat\TallLaser.cs" />
+    <Compile Include="Entities\Structures\Combat\TallLaser.Generated.cs">
+      <DependentUpon>TallLaser.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.cs" />
     <Compile Include="Entities\Structures\EnergyProducers\HydroGenerator.Generated.cs">
@@ -162,6 +192,8 @@
     <Compile Include="Entities\Structures\Utility\ShieldGenerator.Generated.cs">
       <DependentUpon>ShieldGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\CannonFactory.Generated.cs" />
+    <Compile Include="Factories\CannonProjectileFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyFactory.Generated.cs" />
     <Compile Include="Factories\FlyingEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\HydroGeneratorFactory.Generated.cs" />
@@ -174,7 +206,11 @@
     <Compile Include="Factories\LaserTurretProjectileFactory.Generated.cs" />
     <Compile Include="Factories\RangedEnemyProjectileFactory.Generated.cs" />
     <Compile Include="Factories\ShieldGeneratorFactory.Generated.cs" />
+    <Compile Include="Factories\SlimeAlienFactory.Generated.cs" />
+    <Compile Include="Factories\SmallSlimeFactory.Generated.cs" />
     <Compile Include="Factories\SolarPanelsFactory.Generated.cs" />
+    <Compile Include="Factories\TallLaserFactory.Generated.cs" />
+    <Compile Include="Factories\TallLaserProjectileFactory.Generated.cs" />
     <Compile Include="Factories\WindTurbineFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -327,6 +363,7 @@
     <Compile Include="GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
@@ -345,6 +382,7 @@
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="StaticManagers\CameraZoomManager.cs" />
+    <Compile Include="StaticManagers\WaterManager.cs" />
     <Compile Include="StaticManagers\EnergyManager.cs" />
     <Compile Include="StaticManagers\MineralsManager.cs" />
     <Compile Include="Screens\GameScreen.BuildButtons.cs">
@@ -449,106 +487,389 @@
     <Content Include="libSDL2-2.0.0.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\builtxnbs\globalcontent\sounds\alien_hit_ground.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Alien_Hit_Ground</Name>
-      <Link>content\globalcontent\sounds\alien_hit_ground.xnb</Link>
-    </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\alien_melee.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\alien_melee.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>alien_melee</Name>
-      <Link>content\globalcontent\sounds\alien_melee.xnb</Link>
+      <Link>content\entities\enemies\basicalien\alien_melee.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\alien_powerup.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\alien_powerup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Alien_Powerup</Name>
-      <Link>content\globalcontent\sounds\alien_powerup.xnb</Link>
+      <Link>content\entities\enemies\basicalien\alien_powerup.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\alien_shoot.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\alien_shoot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Alien_Shoot</Name>
-      <Link>content\globalcontent\sounds\alien_shoot.xnb</Link>
+      <Link>content\entities\enemies\basicalien\alien_shoot.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\flying_hit_ground.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\greenalien.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>greenalien</Name>
+      <Link>content\entities\enemies\basicalien\greenalien.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\flyingenemy\flying_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Powerup</Name>
+      <Link>content\entities\enemies\flyingenemy\flying_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\flyingenemy\flying_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Shoot</Name>
+      <Link>content\entities\enemies\flyingenemy\flying_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\slimealien\slime_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Hit</Name>
+      <Link>content\entities\enemies\slimealien\slime_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\slimealien\slime_jump.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Jump</Name>
+      <Link>content\entities\enemies\slimealien\slime_jump.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\slimealien\slime_land.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Land</Name>
+      <Link>content\entities\enemies\slimealien\slime_land.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\cannonprojectile\cannon_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Hit</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannon_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Flying_Hit_Ground</Name>
-      <Link>content\globalcontent\sounds\flying_hit_ground.xnb</Link>
+      <Link>content\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\flying_hurt.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Flying_hurt</Name>
-      <Link>content\globalcontent\sounds\flying_hurt.xnb</Link>
+      <Name>Flying_Hit_Target</Name>
+      <Link>content\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\flying_powerup.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Flying_powerup</Name>
-      <Link>content\globalcontent\sounds\flying_powerup.xnb</Link>
-    </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\flying_shoot.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>flying_shoot</Name>
-      <Link>content\globalcontent\sounds\flying_shoot.xnb</Link>
-    </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\laser_ground.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\laserturretprojectile\laser_ground.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Laser_Ground</Name>
-      <Link>content\globalcontent\sounds\laser_ground.xnb</Link>
+      <Link>content\entities\projectiles\laserturretprojectile\laser_ground.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\laser_hit.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\laserturretprojectile\laser_hit.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Laser_Hit</Name>
-      <Link>content\globalcontent\sounds\laser_hit.xnb</Link>
+      <Link>content\entities\projectiles\laserturretprojectile\laser_hit.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\laser_shoot.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Hit_Ground</Name>
+      <Link>content\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\projectiles\talllaserprojectile\talllaser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Hit</Name>
+      <Link>content\entities\projectiles\talllaserprojectile\talllaser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\combat\cannon\cannon_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Shoot</Name>
+      <Link>content\entities\structures\combat\cannon\cannon_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\combat\laserturret\laser_shoot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Laser_Shoot</Name>
-      <Link>content\globalcontent\sounds\laser_shoot.xnb</Link>
+      <Link>content\entities\structures\combat\laserturret\laser_shoot.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\globalcontent\sounds\structure_placed.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\structures\combat\talllaser\talllaser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Shoot</Name>
+      <Link>content\entities\structures\combat\talllaser\talllaser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\structure_placed.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Structure_Placed</Name>
-      <Link>content\globalcontent\sounds\structure_placed.xnb</Link>
+      <Link>content\entities\structures\structure_placed.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font18arial_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font18Arial_0</Name>
+      <Link>content\gumproject\fontcache\font18arial_0.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\justwindmill.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>JustWindmill</Name>
+      <Link>content\gumproject\justwindmill.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomcenter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomCenter</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomcenter.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomleft.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomLeft</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomleft.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomright.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_bottomRight</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_bottomright.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_center.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_center</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_center.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_left.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_left</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_left.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_right.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_right</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_right.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topcenter.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topCenter</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topcenter.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topleft.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topLeft</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topleft.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_topright.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Red_topRight</Name>
+      <Link>content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\allassetssheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AllAssetsSheet</Name>
+      <Link>content\screens\gamescreen\allassetssheet.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\animation_sheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>animation_sheet</Name>
+      <Link>content\screens\gamescreen\animation_sheet.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\effects\darknessshader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>darknessshader</Name>
+      <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_ground</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_trees.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_trees</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_trees.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\levels\helsinki_water.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_water</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_water.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\starry_sky.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>starry_sky</Name>
+      <Link>content\screens\gamescreen\starry_sky.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\basicalien\alien_melee.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>alien_melee</Name>
+      <Link>content\entities\enemies\basicalien\alien_melee.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\basicalien\alien_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Powerup</Name>
+      <Link>content\entities\enemies\basicalien\alien_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\basicalien\alien_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Shoot</Name>
+      <Link>content\entities\enemies\basicalien\alien_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\basicalien\greenalien.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>greenalien</Name>
+      <Link>content\entities\enemies\basicalien\greenalien.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\flyingenemy\flying_powerup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Powerup</Name>
+      <Link>content\entities\enemies\flyingenemy\flying_powerup.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\flyingenemy\flying_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Shoot</Name>
+      <Link>content\entities\enemies\flyingenemy\flying_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\slimealien\slime_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Hit</Name>
+      <Link>content\entities\enemies\slimealien\slime_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\slimealien\slime_jump.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Jump</Name>
+      <Link>content\entities\enemies\slimealien\slime_jump.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\enemies\slimealien\slime_land.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Slime_Land</Name>
+      <Link>content\entities\enemies\slimealien\slime_land.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\cannonprojectile\cannon_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Hit</Name>
+      <Link>content\entities\projectiles\cannonprojectile\cannon_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Hit_Ground</Name>
+      <Link>content\entities\projectiles\flyingenemyprojectile\flying_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Flying_Hit_Target</Name>
+      <Link>content\entities\projectiles\flyingenemyprojectile\flying_hit_target.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\laserturretprojectile\laser_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Ground</Name>
+      <Link>content\entities\projectiles\laserturretprojectile\laser_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\laserturretprojectile\laser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Hit</Name>
+      <Link>content\entities\projectiles\laserturretprojectile\laser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Alien_Hit_Ground</Name>
+      <Link>content\entities\projectiles\rangedenemyprojectile\alien_hit_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\projectiles\talllaserprojectile\talllaser_hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Hit</Name>
+      <Link>content\entities\projectiles\talllaserprojectile\talllaser_hit.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\structures\combat\cannon\cannon_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Cannon_Shoot</Name>
+      <Link>content\entities\structures\combat\cannon\cannon_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\structures\combat\laserturret\laser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Laser_Shoot</Name>
+      <Link>content\entities\structures\combat\laserturret\laser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\structures\combat\talllaser\talllaser_shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaser_Shoot</Name>
+      <Link>content\entities\structures\combat\talllaser\talllaser_shoot.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\entities\structures\structure_placed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Structure_Placed</Name>
+      <Link>content\entities\structures\structure_placed.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\allassetssheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AllAssetsSheet</Name>
+      <Link>content\screens\gamescreen\allassetssheet.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\animation_sheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>animation_sheet</Name>
+      <Link>content\screens\gamescreen\animation_sheet.xnb</Link>
     </None>
     <None Include="..\builtxnbs\screens\gamescreen\effects\darknessshader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>darknessshader</Name>
       <Link>content\screens\gamescreen\effects\darknessshader.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\screens\gamescreen\levels\helsinki_ground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_ground</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_ground.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\levels\helsinki_trees.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_trees</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_trees.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\levels\helsinki_water.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>helsinki_water</Name>
+      <Link>content\screens\gamescreen\levels\helsinki_water.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
+    </None>
     <None Include="content\entities\enemies\basicalien\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
-    </None>
-    <None Include="content\entities\enemies\basicalien\greenalien.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>greenalien</Name>
     </None>
     <None Include="content\entities\enemies\flyingenemy\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\graphicalelements\checkmark_x.png">
+    <None Include="content\entities\enemies\slimealien\slimealienanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>checkmark_x</Name>
+      <Name>SlimeAlienAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\alien_fire.png">
+    <None Include="content\entities\projectiles\cannonprojectile\cannonprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>alien_fire</Name>
+      <Name>CannonProjectileAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\projectiles\laser_bullet.png">
+    <None Include="content\entities\projectiles\flyingenemyprojectile\flyingenemyprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>laser_bullet</Name>
+      <Name>FlyingEnemyProjectileAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\projectiles\laserturretprojectile\laserturretprojectileanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LaserTurretProjectileAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\projectiles\rangedenemyprojectile\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\shadow.png">
+    <None Include="content\entities\projectiles\talllaserprojectile\talllaserprojectileanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>shadow</Name>
+      <Name>TallLaserProjectileAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\structures\combat\cannon\cannonanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CannonAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\combat\laserturret\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\structures\combat\talllaser\talllaseranimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>TallLaserAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -558,9 +879,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WaterDropAnimationChain</Name>
     </None>
-    <None Include="content\entities\structures\shieldgenerator\shield_generator.png">
+    <None Include="content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>shield_generator</Name>
+      <Name>BatteryAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\structures\utility\carbontree\carbontreeanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CarbonTreeAnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\utility\shieldgenerator\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -570,21 +895,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wind_turbine</Name>
     </None>
-    <None Include="content\globalcontent\allassetssheet.png">
+    <None Include="content\globalcontent\font50moireextrabold.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>AllAssetsSheet</Name>
-    </None>
-    <None Include="content\globalcontent\animation_sheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>animation_sheet</Name>
-    </None>
-    <None Include="content\globalcontent\starry_sky.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>starry_sky</Name>
-    </None>
-    <None Include="content\globalcontent\treeline.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>treeline</Name>
+      <Name>Font50MoireExtraBold</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -662,82 +975,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial</Name>
     </None>
-    <None Include="content\gumproject\fontcache\font18arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font18Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font25arial black_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font25Arial Black_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font25arial black_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font25Arial Black_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font27arial black_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font27Arial Black_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font27arial black_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font27Arial Black_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font36arial_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font36Arial_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72arial_2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Arial_2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o1_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o1_1</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2.fnt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2_0</Name>
-    </None>
-    <None Include="content\gumproject\fontcache\font72moire extrabold_o2_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Font72Moire ExtraBold_o2_1</Name>
-    </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GumProject</Name>
@@ -749,6 +986,10 @@
     <None Include="content\gumproject\screens\levelselectscreengum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>LevelSelectScreenGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\loadingscreengum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LoadingScreenGum</Name>
     </None>
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -782,42 +1023,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Sprite</Name>
     </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomcenter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomCenter</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomleft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomLeft</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_bottomright.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_bottomRight</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_center.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_center</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_left.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_left</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_right.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_right</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topcenter.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topCenter</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topleft.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topLeft</Name>
-    </None>
-    <None Include="content\gumproject\standards\standardgraphics\red_topright.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>Red_topRight</Name>
-    </None>
     <None Include="content\gumproject\standards\text.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Text</Name>
@@ -825,18 +1030,6 @@
     <None Include="content\screens\gamescreen\levels\helsinkimap.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>HelsinkiMap</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_ground.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_ground</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_trees.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_trees</Name>
-    </None>
-    <None Include="content\screens\gamescreen\levels\helsinki_water.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>helsinki_water</Name>
     </None>
     <None Include="x64\SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
