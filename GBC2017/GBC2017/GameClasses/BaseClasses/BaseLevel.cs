@@ -14,7 +14,7 @@ namespace GBC2017.GameClasses.BaseClasses
     {
         public abstract ICity City { get; }
         public abstract DateTime StartTime { get; }
-        public abstract DateTime EndTime { get; }
+        public abstract DateTime EndTime { get; } 
         public abstract float AvgDailyEnergyUsage { get; }
 
         protected float EnergyToSpend;
@@ -32,6 +32,7 @@ namespace GBC2017.GameClasses.BaseClasses
             this._layerForEnemies = layerForEnemies;
             _wavesSent = 0;
             EnergyToSpend = 0;
+            _enemyList = enemyList;
         }
 
         /// <summary>
