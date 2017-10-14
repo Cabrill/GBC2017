@@ -8,6 +8,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.StaticManagers;
 
 namespace GBC2017.Entities.Structures.EnergyProducers
 {
@@ -140,7 +141,9 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
 	    private double BaseEnergyPerSecond()
 	    {
-	        return 100;
+            var energyGeneratedPerSecInRealLife = efficiency * waterDensity * bladeArea * Math.Pow(WaterManager.waterVelocity, 3) / 2;
+            var energyGeneratedPerSecInGame = energyGeneratedPerSecInRealLife * 24 * 3600 / 300;
+	        return energyGeneratedPerSecInGame;
 	    }
 
 
