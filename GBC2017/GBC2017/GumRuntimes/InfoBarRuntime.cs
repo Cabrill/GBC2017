@@ -29,5 +29,10 @@ namespace GBC2017.GumRuntimes
         {
             MineralsDisplayInstance.UpdateDisplay(mineralsIncrease, mineralsDecrease, storedMinerals, maxStorage);
         }
+
+        public void Reset()
+        {
+            EnergyDisplayInstance.UpdateDisplay(0, 0, 1000, 1000);
+        }
     }
 }

@@ -383,16 +383,6 @@ namespace GBC2017.Screens
 
         private void UpdateGameModeActivity()
         {
-            
-            if (CurrentLevel.HasReachedDefeat(currentLevelDateTime) || (!AllStructuresList.Any(s => s is Home)))
-            {
-                LevelFailed();
-            }
-            else if (CurrentLevel.HasReachedVictory(currentLevelDateTime))
-            {
-                LevelVictory();
-            }
-
             if (AllStructuresList.Any(s => s.IsBeingPlaced))
             {
                 CurrentGameMode = GameMode.Building;
@@ -405,17 +395,47 @@ namespace GBC2017.Screens
             {
                 CurrentGameMode = GameMode.Normal;
             }
+
+            if (GameHasStarted)
+            {
+                if (CurrentLevel.HasReachedDefeat(currentLevelDateTime) || (!AllStructuresList.Any(s => s is Home)))
+                {
+                    LevelFailed();
+                }
+                else if (CurrentLevel.HasReachedVictory(currentLevelDateTime))
+                {
+                    LevelVictory();
+                }
+            }
         }
 
         private void LevelFailed()
         {
             AudioManager.StopSong();
-            RestartScreen(false);
+            defeat_sound.Play();
+            ShowGameEndDisplay(playerWon: false);
         }
 
         private void LevelVictory()
         {
             AudioManager.StopSong();
+            victory_sound.Play();
+            ShowGameEndDisplay(playerWon: true);
+        }
+
+        private void ShowGameEndDisplay(bool playerWon)
+        {
+            BuildBarInstance.Visible = false;
+            GameHasStarted = false;
+            EndGameDisplayInstance.RetryButtonClick += RestartLevel;
+            EndGameDisplayInstance.CurrentVictoryStatusState = playerWon ? EndGameDisplayRuntime.VictoryStatus.Win : EndGameDisplayRuntime.VictoryStatus.Lose;
+            EndGameDisplayInstance.Visible = true;
+        }
+
+        private void RestartLevel(IWindow window)
+        {
+            CameraZoomManager.Reset();
+            InfoBarInstance.Reset();
             RestartScreen(false);
         }
     

@@ -762,6 +762,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\EndGameDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\EndGameDisplayRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\GameScreenGumRuntime.Generated.cs">
       <Link>GumRuntimes\GameScreenGumRuntime.Generated.cs</Link>
     </Compile>
@@ -867,6 +870,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\TextRuntime.Generated.cs">
       <Link>GumRuntimes\TextRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\VictoryDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\VictoryDisplayRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Performance\IEntityFactory.Generated.cs">
       <Link>Performance\IEntityFactory.Generated.cs</Link>
@@ -981,6 +987,9 @@
     <Compile Include="..\..\GBC2017\StaticManagers\SunlightManager.cs">
       <Link>StaticManagers\SunlightManager.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\StaticManagers\WaterManager.cs">
+      <Link>StaticManagers\WaterManager.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\StaticManagers\WindManager.cs">
       <Link>StaticManagers\WindManager.cs</Link>
     </Compile>
@@ -1079,6 +1088,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\defeat_sound.xnb">
+      <Name>defeat_sound</Name>
+      <Link>Assets\content\screens\gamescreen\sounds\defeat_sound.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\victory_sound.xnb">
+      <Name>victory_sound</Name>
+      <Link>Assets\content\screens\gamescreen\sounds\victory_sound.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\winlose.xnb">
+      <Name>WinLose</Name>
+      <Link>Assets\content\screens\gamescreen\winlose.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
+      <Name>wind_turbine</Name>
+      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
+      <Name>endgamedisplay</Name>
+      <Link>Assets\content\gumproject\components\endgamedisplay.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
