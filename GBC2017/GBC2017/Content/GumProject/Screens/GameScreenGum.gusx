@@ -5,6 +5,12 @@
     <Name>Default</Name>
     <Variable>
       <Type>bool</Type>
+      <Name>EndGameDisplayInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
       <Name>EnemyInfoInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
@@ -81,5 +87,9 @@
   <Instance>
     <Name>StartButtonInstance</Name>
     <BaseType>Button</BaseType>
+  </Instance>
+  <Instance>
+    <Name>EndGameDisplayInstance</Name>
+    <BaseType>EndGameDisplay</BaseType>
   </Instance>
 </ScreenSave>

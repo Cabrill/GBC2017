@@ -165,6 +165,10 @@
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Hydro" />
     <property name="HasLightSource" type="bool" default="true" />
+    <property name="bladeArea" type="float" default="1" />
+    <property name="waterVelocity" type="float" default="20" />
+    <property name="efficiency" type="float" default="0.5" />
+    <property name="waterDensity" type="float" default="1000" />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="75" />
