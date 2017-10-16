@@ -5,6 +5,7 @@ using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
 using FlatRedBall.AI.Pathfinding;
+using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
@@ -38,7 +39,6 @@ namespace GBC2017.Entities.Structures.EnergyProducers
                 emitter.LayerToEmitOn = LayerProvidedByContainer;
                 emitter.SecondFrequency = 0.05f;
             }
-
 
             _startingLargeWheelScale = LargeWheelSprite.TextureScale;
             _startingSmallWheelScale = SmallWheelSprite.TextureScale;
@@ -153,6 +153,25 @@ namespace GBC2017.Entities.Structures.EnergyProducers
             var energyGeneratedPerSecInRealLife = efficiency * waterDensity * bladeArea * Math.Pow(WaterManager.waterVelocity, 3) / 2;
             var energyGeneratedPerSecInGame = energyGeneratedPerSecInRealLife * 24 * 3600 / 300;
 	        return energyGeneratedPerSecInGame;
+	    }
+
+	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
+	    {
+	        base.AddSpritesToLayers(darknessLayer, hudLayer);
+
+            LayerProvidedByContainer.Remove(LargeWheelSprite);
+	        LayerProvidedByContainer.Remove(SmallWheelSprite);
+	        LayerProvidedByContainer.Remove(InnerCircleSprite);
+
+            SpriteManager.AddToLayer(LargeWheelSprite, hudLayer);
+	        SpriteManager.AddToLayer(SmallWheelSprite, hudLayer);
+	        SpriteManager.AddToLayer(InnerCircleSprite, hudLayer);
+
+            if (HasLightSource)
+	        {
+	            //LayerProvidedByContainer.Remove(LightSpriteInstance);
+	            //SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
+	        }
 	    }
 
 

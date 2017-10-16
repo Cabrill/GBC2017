@@ -124,6 +124,10 @@
     <Compile Include="Entities\GraphicalElements\Checkmark.Generated.cs">
       <DependentUpon>Checkmark.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\GraphicalElements\ResourceBar.cs" />
+    <Compile Include="Entities\GraphicalElements\ResourceBar.Generated.cs">
+      <DependentUpon>ResourceBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\GraphicalElements\XCancel.cs" />
     <Compile Include="Entities\GraphicalElements\XCancel.Generated.cs">
       <DependentUpon>XCancel.cs</DependentUpon>

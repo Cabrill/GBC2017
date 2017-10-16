@@ -101,6 +101,8 @@ namespace GBC2017.Screens
 
             GameHasStarted = false;
             HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+
+            CreateNotificationPool();
         }
 
 
@@ -189,6 +191,9 @@ namespace GBC2017.Screens
 
             WindTurbineFactory.EntitySpawned +=
                 windturbine => windturbine.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            HydroGeneratorFactory.EntitySpawned +=
+                hydro => hydro.AddSpritesToLayers(LightLayer, InfoLayer);
 
             BatteryFactory.EntitySpawned +=
                 battery => battery.AddSpritesToLayers(LightLayer, InfoLayer);
@@ -299,7 +304,6 @@ namespace GBC2017.Screens
             HandleTouchActivity();
             SelectedItemActivity();
             BuildingStatusActivity();
-
 
 
             var gameplayOccuring = !IsPaused && GameHasStarted;
@@ -749,15 +753,28 @@ namespace GBC2017.Screens
 	    private void CreateResourceNotification(BaseEnemy enemy)
 	    {
 	        MineralsManager.DepositMinerals(enemy.MineralsRewardedWhenKilled);
-	        var notification = new ResourceIncreaseNotificationRuntime
+
+	        var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);
+
+	        if (notification != null)
 	        {
-	            X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset,
-	            Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset,
-	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
-	        };
-	        notification.AddToManagers();
-            notification.MoveToLayer(HUDLayerGum);
-            resourceIncreaseNotificationList.Add(notification);
+	            notification.X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
+	            notification.Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+	            notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
+                notification.Play();
+	        }
+        }
+
+        private void CreateNotificationPool()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var notification = new ResourceIncreaseNotificationRuntime();
+                notification.AddToManagers();
+                notification.MoveToLayer(HUDLayerGum);
+                notification.Visible = false;
+                resourceIncreaseNotificationList.Add(notification);
+            }
         }
         #endregion
 

@@ -207,12 +207,19 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void ChooseTarget()
 	    {
-	        var localPotentialTarget =
-	            _potentialTargetList.FirstOrDefault(pt => !pt.IsDead && pt.CircleInstance.CollideAgainst(RangeCircleInstance));
+	        BaseEnemy newTarget = null;
 
-	        if (localPotentialTarget != null)
+	        foreach (BaseEnemy pt in _potentialTargetList)
 	        {
-	            targetEnemy = localPotentialTarget;
+	            if (pt.IsDead) continue;
+	            if (!pt.CircleInstance.CollideAgainst(RangeCircleInstance)) continue;
+	            newTarget = pt;
+	            break;
+	        }
+
+	        if (newTarget != null)
+	        {
+	            targetEnemy = newTarget;
 	        }
 	    }
 

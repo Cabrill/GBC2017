@@ -54,9 +54,6 @@ namespace GBC2017.Entities.BaseEntities
 
         private Layer _hudLayer;
 
-        private ResourceBarRuntime _energyBar;
-        private ResourceBarRuntime _healthBar;
-
         protected SoundEffectInstance PlacementSound;
 
         protected float _spriteRelativeY;
@@ -96,14 +93,23 @@ namespace GBC2017.Entities.BaseEntities
             BatteryLevel = 0.6f * InternalBatteryMaxStorage;
             PlacementSound = Structure_Placed.CreateInstance();
 
-            if (HasInternalBattery)
-            {
-                _energyBar = CreateResourceBar(ResourceBarRuntime.BarType.Energy);
-            }
-            _healthBar = CreateResourceBar(ResourceBarRuntime.BarType.Health);
-
             _lastUsageUpdate = TimeManager.CurrentTime;
             _spriteRelativeY = GetSpriteRelativeY();
+
+            if (HasInternalBattery)
+            {
+                EnergyBar.SetRelativeY(SpriteInstance.Height);
+                EnergyBar.SetWidth(SpriteInstance.Width);
+                EnergyBar.Hide();
+            }
+            else
+            {
+                EnergyBar.Hide();
+            }
+
+            HealthBar.SetRelativeY(SpriteInstance.Height);
+            HealthBar.SetWidth(SpriteInstance.Width);
+            HealthBar.Hide();
 
             CalculateScale();
             UpdateScale();
@@ -172,33 +178,21 @@ namespace GBC2017.Entities.BaseEntities
                 {
                     if (BatteryLevel < InternalBatteryMaxStorage)
                     {
-                        _energyBar.UpdateBar(BatteryLevel, InternalBatteryMaxStorage, false);
-                        _energyBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Y = (Y + _spriteRelativeY * 2 * _currentScale - Camera.Main.Y) *
-                                       CameraZoomManager.GumCoordOffset;
-                        _energyBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Height = AxisAlignedRectangleInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
-                        _energyBar.Visible = true;
+                        EnergyBar.Update((float)(BatteryLevel/InternalBatteryMaxStorage));
                     }
                     else
                     {
-                        _energyBar.Visible = false;
+                        EnergyBar.Hide();
                     }
                 }
 
                 if (HealthRemaining < MaximumHealth)
                 {
-                    _healthBar.UpdateBar(HealthRemaining, MaximumHealth, false);
-                    _healthBar.X = (X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Y = (Y + _spriteRelativeY * 2 * _currentScale + _healthBar.Height - Camera.Main.Y) *
-                                   CameraZoomManager.GumCoordOffset;
-                    _healthBar.Width = AxisAlignedRectangleInstance.Width * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Height = AxisAlignedRectangleInstance.Width / 5 * CameraZoomManager.GumCoordOffset;
-                    _healthBar.Visible = true;
+                    HealthBar.Update(HealthRemaining/MaximumHealth);
                 }
                 else
                 {
-                    _healthBar.Visible = false;
+                    HealthBar.Hide();
                 }
             }
         }
@@ -223,6 +217,11 @@ namespace GBC2017.Entities.BaseEntities
                 LightSpriteInstance.Width = SpriteInstance.Width * 1.5f;
                 LightSpriteInstance.Height = AxisAlignedRectangleInstance.Height;
             }
+            HealthBar.SetWidth(SpriteInstance.Width);
+            EnergyBar.SetWidth(SpriteInstance.Width);
+
+            HealthBar.SetRelativeY(SpriteInstance.Height*0.75f);
+            EnergyBar.SetRelativeY(SpriteInstance.Height * 0.75f + HealthBar.Height*2);
         }
 
         protected void UpdateAnimation()
@@ -353,34 +352,12 @@ namespace GBC2017.Entities.BaseEntities
                 }
                 PlacementSound.Dispose();
             }
-
-            _energyBar?.Destroy();
-            _healthBar.Destroy();
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
 
 
-        }
-
-        private ResourceBarRuntime CreateResourceBar(ResourceBarRuntime.BarType barType)
-        {
-            var newBar = new ResourceBarRuntime
-            {
-                XUnits = GeneralUnitType.PixelsFromMiddle,
-                YUnits = GeneralUnitType.PixelsFromMiddleInverted,
-                XOrigin = HorizontalAlignment.Center,
-                YOrigin = VerticalAlignment.Top,
-                WidthUnits = DimensionUnitType.Absolute,
-                HeightUnits = DimensionUnitType.Absolute,
-                Width = SpriteInstance.Width,
-                Height = SpriteInstance.Width / 5,
-                CurrentBarTypeState = barType,
-                Visible = false
-            };
-            newBar.AddToManagers();
-            return newBar;
         }
 
         protected void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
@@ -402,16 +379,8 @@ namespace GBC2017.Entities.BaseEntities
             LayerProvidedByContainer.Remove(LightSpriteInstance);
             FlatRedBall.SpriteManager.AddToLayer(LightSpriteInstance, darknessLayer);
 
-
-            var frbLayer = GumIdb.AllGumLayersOnFrbLayer(hudLayer).FirstOrDefault();
-
-            if (HasInternalBattery)
-            {
-                frbLayer.Remove(_energyBar);
-                _energyBar.MoveToLayer(frbLayer);
-            }
-            frbLayer.Remove(_healthBar);
-            _healthBar.MoveToLayer(frbLayer);
+            HealthBar.MoveToLayer(hudLayer);
+            EnergyBar.MoveToLayer(hudLayer);
         }
 
         public void DestroyByRequest()
