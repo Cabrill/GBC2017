@@ -1100,6 +1100,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font18arial_0.xnb">
+      <Name>Font18Arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font50moire extrabold_o2_0.xnb">
+      <Name>Font50Moire ExtraBold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font50moire extrabold_o2_0.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\defeat_sound.xnb">
       <Name>defeat_sound</Name>
       <Link>Assets\content\screens\gamescreen\sounds\defeat_sound.xnb</Link>

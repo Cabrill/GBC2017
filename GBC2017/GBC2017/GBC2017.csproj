@@ -369,7 +369,6 @@
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs" />

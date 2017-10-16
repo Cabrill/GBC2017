@@ -18,7 +18,7 @@ namespace GBC2017.GumRuntimes
     {
         private BaseStructure structureShown;
 
-        public void CustomInitialize()
+        partial void CustomInitialize()
         {
             SwitchOnOffInstanceClick += OnSwitchOnOffInstanceClick;
             RepairButtonInstanceClick += OnRepairButtonInstanceClick;
@@ -103,7 +103,7 @@ namespace GBC2017.GumRuntimes
                 var home = structure as Home;
                 StructureMinerals = $"{home.MaxMineralsStorage}";
                 CurrentStoresMineralsState = StoresMinerals.True;
-                DestroyButtonInstanceEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Disabled;
+                DestroyButtonInstance.CurrentEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Disabled;
                 SwitchOnOffInstance.Visible = false;
             }
             else
