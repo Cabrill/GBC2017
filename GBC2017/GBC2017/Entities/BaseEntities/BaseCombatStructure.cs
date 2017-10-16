@@ -58,7 +58,7 @@ namespace GBC2017.Entities.BaseEntities
 
         private void CustomActivity()
 		{
-            if (IsBeingPlaced == false)
+            if (IsBeingPlaced == false && IsTurnedOn)
             {
 #if DEBUG
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();

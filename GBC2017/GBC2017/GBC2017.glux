@@ -3263,22 +3263,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>256</ValueAsFloat>
+            <ValueAsFloat>230</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>512</ValueAsFloat>
+            <ValueAsFloat>556</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>1024</ValueAsFloat>
+            <ValueAsFloat>768</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>

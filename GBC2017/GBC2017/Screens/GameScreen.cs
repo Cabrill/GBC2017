@@ -350,8 +350,8 @@ namespace GBC2017.Screens
                     ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
                     : 0;
                 FlatRedBall.Debugging.Debugger.Write(renderBreaks);
-
             }
+            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
         }
 
         private void UpdateGameTime()
@@ -369,15 +369,33 @@ namespace GBC2017.Screens
                 return;
             }
 
-            if (selectedObject is BaseStructure)
+            var objectAsStructure = selectedObject as BaseStructure;
+            var objectAsEnemy = selectedObject as BaseEnemy;
+
+            if (objectAsStructure != null)
             {
                 EnemyInfoInstance.Hide();
-                StructureInfoInstance.Show((BaseStructure) selectedObject);
+                if (!objectAsStructure.IsDestroyed)
+                {
+                    StructureInfoInstance.Show((BaseStructure) selectedObject);
+                }
+                else
+                {
+                    StructureInfoInstance.Hide();
+                }
+
             }
-            if (selectedObject is BaseEnemy)
+            else if (objectAsEnemy != null)
             {
                 StructureInfoInstance.Hide();
-                EnemyInfoInstance.Show((BaseEnemy) selectedObject);
+                if (!objectAsEnemy.IsDead)
+                {
+                    EnemyInfoInstance.Show(objectAsEnemy);
+                }
+                else
+                {
+                    EnemyInfoInstance.Hide();
+                }
             }
         }
 
@@ -661,7 +679,7 @@ namespace GBC2017.Screens
 
             //User just clicked/touched somewhere, and nothing is currently selected
             if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
-	            GuiManager.Cursor.ObjectGrabbed == null)
+	            GuiManager.Cursor.ObjectGrabbed == null && GuiManager.Cursor.WindowOver == null)
 	        {
 	            if (CurrentGameMode == GameMode.Building)
 	            {

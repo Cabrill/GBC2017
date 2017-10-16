@@ -52,7 +52,7 @@ namespace GBC2017.ResourceManagers
                     if (paySuccess.HasValue && paySuccess.Value) _mineralsDebt = 0;
                 }
 
-                var mineralsGenerator = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false &&  s.HasSufficientEnergy && s is BaseMineralsProducer).Cast<BaseMineralsProducer>();
+                var mineralsGenerator = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s.HasSufficientEnergy && s is BaseMineralsProducer).Cast<BaseMineralsProducer>();
                 var mineralsGeneratorArray = mineralsGenerator as BaseMineralsProducer[] ?? mineralsGenerator.ToArray();
                 MineralsIncrease = mineralsGeneratorArray.Sum(eg => eg.MineralsProducedPerSecond);
                 DepositMinerals(MineralsIncrease);

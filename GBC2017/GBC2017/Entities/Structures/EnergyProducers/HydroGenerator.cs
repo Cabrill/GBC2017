@@ -101,13 +101,22 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		    }
 		    else
 		    {
-		        EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
+		        if (IsTurnedOn)
+		        {
+		            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
-                LargeWheelSprite.RelativeRotationZVelocity = (float)-1;
-		        SmallWheelSprite.RelativeRotationZVelocity = (float)1;
-		        
+		            LargeWheelSprite.RelativeRotationZVelocity = (float) -1;
+		            SmallWheelSprite.RelativeRotationZVelocity = (float) 1;
 
-		        UpdateEmitters();
+
+		            UpdateEmitters();
+		        }
+		        else
+		        {
+		            EffectiveEnergyProducedPerSecond = 0;
+                    LargeWheelSprite.RelativeRotationZVelocity = 0;
+		            SmallWheelSprite.RelativeRotationZVelocity = 0;
+                }
 		    }
         }
 

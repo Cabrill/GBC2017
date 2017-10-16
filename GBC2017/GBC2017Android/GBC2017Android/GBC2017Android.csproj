@@ -859,8 +859,20 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\RectangleRuntime.Generated.cs">
       <Link>GumRuntimes\RectangleRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs">
       <Link>GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\SpriteRuntime.Generated.cs">
       <Link>GumRuntimes\SpriteRuntime.Generated.cs</Link>
@@ -1100,13 +1112,21 @@
       <Name>WinLose</Name>
       <Link>Assets\content\screens\gamescreen\winlose.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
-      <Name>wind_turbine</Name>
-      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>
       <Link>Assets\content\gumproject\components\endgamedisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\destroybutton.gucx">
+      <Name>destroybutton</Name>
+      <Link>Assets\content\gumproject\components\specificbuttons\destroybutton.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\repairbutton.gucx">
+      <Name>repairbutton</Name>
+      <Link>Assets\content\gumproject\components\specificbuttons\repairbutton.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\switchonoff.gucx">
+      <Name>switchonoff</Name>
+      <Link>Assets\content\gumproject\components\specificbuttons\switchonoff.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">

@@ -368,7 +368,11 @@
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
@@ -843,9 +847,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WindCondition</Name>
     </None>
+    <None Include="content\gumproject\components\specificbuttons\destroybutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>DestroyButton</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\repairbutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>RepairButton</Name>
+    </None>
     <None Include="content\gumproject\components\specificbuttons\settingsbutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SettingsButton</Name>
+    </None>
+    <None Include="content\gumproject\components\specificbuttons\switchonoff.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SwitchOnOff</Name>
     </None>
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

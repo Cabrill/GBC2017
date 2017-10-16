@@ -44,28 +44,36 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private void CustomActivity()
         {
-            EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
+            if (IsTurnedOn)
+            {
+                EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
 
-            if (IsBeingPlaced)
-            {
-                TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
-                TurbineSprite.Red = SpriteInstance.Red;
-                TurbineSprite.Green = SpriteInstance.Green;
-                TurbineSprite.Blue = SpriteInstance.Blue;
-            }
-            else if (!_hasSetTurbineSprite)
-            {
-                TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
-                TurbineSprite.Red = SpriteInstance.Red;
-                TurbineSprite.Green = SpriteInstance.Green;
-                TurbineSprite.Blue = SpriteInstance.Blue;
+                if (IsBeingPlaced)
+                {
+                    TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
+                    TurbineSprite.Red = SpriteInstance.Red;
+                    TurbineSprite.Green = SpriteInstance.Green;
+                    TurbineSprite.Blue = SpriteInstance.Blue;
+                }
+                else if (!_hasSetTurbineSprite)
+                {
+                    TurbineSprite.ColorOperation = SpriteInstance.ColorOperation;
+                    TurbineSprite.Red = SpriteInstance.Red;
+                    TurbineSprite.Green = SpriteInstance.Green;
+                    TurbineSprite.Blue = SpriteInstance.Blue;
 
-                _hasSetTurbineSprite = true;
+                    _hasSetTurbineSprite = true;
+                }
+                else if (_lastWindEffectiveness != WindManager.windSpeed)
+                {
+                    _lastWindEffectiveness = WindManager.windSpeed;
+                    TurbineSprite.RelativeRotationZVelocity = -WindManager.windSpeed;
+                }
             }
-            else if (_lastWindEffectiveness != WindManager.windSpeed)
+            else
             {
-                _lastWindEffectiveness = WindManager.windSpeed;
-                TurbineSprite.RelativeRotationZVelocity = -WindManager.windSpeed;
+                EffectiveEnergyProducedPerSecond = 0;
+                TurbineSprite.RelativeRotationZVelocity = 0;
             }
         }
 
