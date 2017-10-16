@@ -259,11 +259,11 @@ namespace GBC2017.Entities.BaseEntities
             if (_currentAttackTarget == null) return 0f;
 
             var targetPosition = _currentAttackTarget.AxisAlignedRectangleInstance.Position;
-            var targetDistance = Vector3.Distance(projectile.CircleInstance.Position, targetPosition);
+            var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
             var timeToTravel = targetDistance / projectile.Speed;
 
-            var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel))) /
-                                   -timeToTravel;
+            var altitudeDifference = - projectile.Altitude;
+            var altitudeVelocity = (altitudeDifference / timeToTravel) - ((projectile.GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
         }

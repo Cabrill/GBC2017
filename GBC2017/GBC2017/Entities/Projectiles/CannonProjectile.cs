@@ -41,21 +41,36 @@ namespace GBC2017.Entities.Projectiles
             
             var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
 	        
-            LightOrShadowSprite.Tween(HandleLightGrowUpdate, 0, 4f, duration,
+            this.Tween(HandleLightGrowUpdate, 0, 4f, duration,
 	            InterpolationType.Elastic, Easing.Out);
 
-	        this.Call(() => FadeOut(0.25f)).After(duration);
+	        this.Call(FadeOut).After(duration);
 	    }
 
 	    private void HandleLightGrowUpdate(float newPosition)
 	    {
-	        LightOrShadowSprite.TextureScale = newPosition * _currentScale;
+	        SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
+	        SpriteInstance.Alpha = newPosition/6;
+            LightOrShadowSprite.TextureScale = newPosition * _currentScale;
 	        CircleInstance.Radius = circleRadius * newPosition * _currentScale;
 	    }
 
-	    private void FadeOut(float duration)
+	    private void HandleShrinkUpdate(float newPosition)
 	    {
-	        LightOrShadowSprite.Tween("Alpha", 0, duration, InterpolationType.Exponential, Easing.Out);
+	        SpriteInstance.TextureScale = 2f * newPosition * _currentScale;
+	        SpriteInstance.Alpha = newPosition/4;
+            LightOrShadowSprite.TextureScale = newPosition * _currentScale;
+	        LightOrShadowSprite.Alpha = newPosition * _currentScale;
+            CircleInstance.Radius = circleRadius * newPosition * _currentScale;
+        }
+
+	    private void FadeOut()
+	    {
+	        var duration = SpriteInstance.AnimationChains["Impact"].TotalLength / 2;
+
+	        this.Tween(HandleShrinkUpdate, 4, 0f, duration,
+	            InterpolationType.Exponential, Easing.Out);
+
 	    }
 
         private void CustomActivity()

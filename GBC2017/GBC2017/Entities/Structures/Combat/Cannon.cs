@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Factories;
+using Microsoft.Xna.Framework;
 
 namespace GBC2017.Entities.Structures.Combat
 {
@@ -23,7 +24,7 @@ namespace GBC2017.Entities.Structures.Combat
 		private void CustomInitialize()
         {
             attackSound = Cannon_Shoot.CreateInstance();
-            _shotAltitude = 20f;
+            _shotAltitude = 35f;
         }
 
 		private void CustomActivity()
@@ -32,7 +33,22 @@ namespace GBC2017.Entities.Structures.Combat
 
 		}
 
-	    protected override BasePlayerProjectile CreateNewProjectile()
+	    /// <summary>
+	    /// Determines where the enemy will be, so it can shoot at it
+	    /// </summary>
+	    protected override void RotateToAim()
+	    {
+	        var startPosition = GetProjectilePositioning();
+
+	        //Gather information about the target
+	        var aimLocation = targetEnemy.CircleInstance.Position;
+
+	        var angle = (float)Math.Atan2(startPosition.Y - aimLocation.Y, startPosition.X - aimLocation.X);
+
+	        _aimRotation = angle;
+	    }
+
+        protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = CannonProjectileFactory.CreateNew(LayerProvidedByContainer);
 	        newProjectile.Altitude = _shotAltitude;

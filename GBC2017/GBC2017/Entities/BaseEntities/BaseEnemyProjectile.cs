@@ -74,10 +74,10 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CalculateScale()
 	    {
-	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
 	    }
 
-	    protected virtual void UpdateScale()
+        protected virtual void UpdateScale()
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
 	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;

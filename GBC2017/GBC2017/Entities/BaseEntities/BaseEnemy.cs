@@ -159,13 +159,14 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CalculateScale()
 	    {
-	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
 	    }
 
         protected virtual void UpdateScale()
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
-	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
+	        _spriteRelativeY = SpriteInstance.Height / 2;
+            CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	        HealthBar.SetWidth(SpriteInstance.Width);
 
             if (HasLightSource) LightSprite.TextureScale = _startingLightScale * _currentScale;

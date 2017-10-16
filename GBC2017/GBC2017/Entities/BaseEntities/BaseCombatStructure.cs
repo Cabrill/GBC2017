@@ -23,7 +23,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    protected BaseEnemy targetEnemy;
 	    protected SoundEffectInstance attackSound;
-	    private float _aimRotation;
+	    protected float _aimRotation;
 	    protected float _shotAltitude = 1f;
 	    private float? _startingRangeRadius;
 
@@ -79,7 +79,7 @@ namespace GBC2017.Entities.BaseEntities
 		            RotateToAim();
 		            SetAnimationFromAimRotation();
 
-                    if (BatteryLevel >= EnergyCostToFire)
+                    //if (BatteryLevel >= EnergyCostToFire)
 		            {
 		                PerformFiringActivity();
 		            }
@@ -113,7 +113,7 @@ namespace GBC2017.Entities.BaseEntities
         /// <summary>
         /// Determines where the enemy will be, so it can shoot at it
         /// </summary>
-        private void RotateToAim()
+        protected virtual void RotateToAim()
         {
             var startPosition = GetProjectilePositioning();
 
@@ -194,7 +194,7 @@ namespace GBC2017.Entities.BaseEntities
 	        UpdateAnimation();
         }
 
-	    private Vector3 GetProjectilePositioning(float? angle = null)
+	    protected Vector3 GetProjectilePositioning(float? angle = null)
 	    {
 	        if (!angle.HasValue) angle = _aimRotation;
 
@@ -256,14 +256,13 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (targetEnemy == null) return 0f;
 
-	        var targetPosition = targetEnemy.CircleInstance.Position;
+	        var targetPosition = targetEnemy.Position;
 	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
 
 	        var timeToTravel = targetDistance / ProjectileSpeed;
 
 	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
-	        var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel) - altitudeDifference)) /
-	                               -timeToTravel;
+	        var altitudeVelocity = (altitudeDifference / timeToTravel) - ((projectile.GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
 	    }

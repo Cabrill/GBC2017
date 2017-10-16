@@ -150,6 +150,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
 	    private double BaseEnergyPerSecond()
 	    {
+	        return 50f;
             var energyGeneratedPerSecInRealLife = efficiency * waterDensity * bladeArea * Math.Pow(WaterManager.waterVelocity, 3) / 2;
             var energyGeneratedPerSecInGame = energyGeneratedPerSecInRealLife * 24 * 3600 / 300;
 	        return energyGeneratedPerSecInGame;

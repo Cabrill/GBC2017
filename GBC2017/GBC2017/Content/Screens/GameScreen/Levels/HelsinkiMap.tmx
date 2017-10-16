@@ -19,7 +19,7 @@
   <image source="helsinki_trees.png" width="2560" height="1440"/>
  </imagelayer>
  <objectgroup name="BuildingSpawnPoints">
-  <object id="4" name="HomeSpawnPoint" x="1360.67" y="606.667"/>
+  <object id="4" name="HomeSpawnPoint" x="1360.67" y="675"/>
   <object id="5" name="HydroSpawnPoint" x="635" y="1023.33"/>
  </objectgroup>
  <imagelayer name="WaterImage">

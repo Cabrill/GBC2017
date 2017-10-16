@@ -2872,6 +2872,11 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>100</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>BarSpriteRed</Member>
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
@@ -2885,11 +2890,6 @@
             <Member>BarSpriteBlue</Member>
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>100</ValueAsFloat>
-          </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GraphicalElements\ResourceBar</SourceClassType>
           <InstanceName>HealthBar</InstanceName>
@@ -2898,6 +2898,11 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>75</ValueAsFloat>
+          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BarSpriteRed</Member>
@@ -2912,11 +2917,6 @@
             <Type>float</Type>
             <Member>BarSpriteBlue</Member>
             <ValueAsFloat>0.1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>75</ValueAsFloat>
           </CustomProperty>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\GraphicalElements\ResourceBar</SourceClassType>
@@ -3160,7 +3160,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3172,7 +3172,7 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">125</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3390,7 +3390,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>0.7</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -3442,7 +3442,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>32</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -3503,12 +3503,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>35</ValueAsFloat>
+            <ValueAsFloat>70</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>10</ValueAsFloat>
+            <ValueAsFloat>20</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -3701,7 +3701,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3772,7 +3772,7 @@
           </Properties>
           <Name>SecondsBetweenRangedAttack</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3843,7 +3843,7 @@
           </Properties>
           <Name>RangedAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">325</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -3909,7 +3909,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -3954,7 +3954,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>28</ValueAsFloat>
+            <ValueAsFloat>48</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -4018,12 +4018,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>75</ValueAsFloat>
+            <ValueAsFloat>125</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>25</ValueAsFloat>
+            <ValueAsFloat>50</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4092,7 +4092,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.2</ValueAsFloat>
+            <ValueAsFloat>0.4</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -4229,7 +4229,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">80</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4241,7 +4241,7 @@
           </Properties>
           <Name>Speed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">125</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">200</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4361,7 +4361,7 @@
           </Properties>
           <Name>MeleeAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">32</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">64</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4460,7 +4460,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>0.6</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -4542,7 +4542,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>32</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -4607,12 +4607,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>35</ValueAsFloat>
+            <ValueAsFloat>70</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>10</ValueAsFloat>
+            <ValueAsFloat>20</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -4681,7 +4681,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.3</ValueAsFloat>
+            <ValueAsFloat>2.6</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -4864,7 +4864,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5177,12 +5177,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>100</ValueAsFloat>
+            <ValueAsFloat>80</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>45</ValueAsFloat>
+            <ValueAsFloat>40</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -5452,7 +5452,7 @@
           </Properties>
           <Name>MaximumHealth</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5584,7 +5584,7 @@
           </Properties>
           <Name>MeleeAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">40</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5657,7 +5657,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -5704,7 +5704,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>9</ValueAsFloat>
+            <ValueAsFloat>24</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -5769,12 +5769,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>25</ValueAsFloat>
+            <ValueAsFloat>22</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>11</ValueAsFloat>
+            <ValueAsFloat>8</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -6239,6 +6239,11 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
             <Member>TextureScale</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
@@ -6272,11 +6277,6 @@
             <Member>Blue</Member>
             <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-2</ValueAsFloat>
-          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />
@@ -6289,18 +6289,13 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>ColorOperation</Type>
-            <Member>ColorOperation</Member>
-            <ValueAsInt>6</ValueAsInt>
+            <Member>Z</Member>
+            <ValueAsFloat>-1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Alpha</Member>
-            <ValueAsFloat>0.8</ValueAsFloat>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -6313,9 +6308,14 @@
             <ValueAsFloat>24</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>6</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
             <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>-1</ValueAsFloat>
+            <Member>Alpha</Member>
+            <ValueAsFloat>0.8</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
@@ -6549,6 +6549,14 @@
       <NamedObjects>
         <NamedObjectSave>
           <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>3.68967962</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>-9.224199</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>AllAssetsSheet</ValueAsString>
@@ -6556,7 +6564,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>1.25</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -6580,7 +6588,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>20</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>Color</Type>
@@ -6594,25 +6602,6 @@
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <DefinedByBase>true</DefinedByBase>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>32</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>32</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
@@ -6657,7 +6646,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.35</ValueAsFloat>
+            <ValueAsFloat>0.4</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -8077,7 +8066,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">200</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8089,7 +8078,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">150</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">250</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8161,7 +8150,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8173,7 +8162,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">300</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8226,7 +8215,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -8257,12 +8246,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>48</ValueAsFloat>
+            <ValueAsFloat>72</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -8366,7 +8355,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8378,7 +8367,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">25</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">50</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8390,7 +8379,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8474,7 +8463,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8517,7 +8506,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -8558,7 +8547,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -8710,7 +8699,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">400</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">600</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8746,7 +8735,7 @@
           </Properties>
           <Name>SecondsBetweenFiring</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8758,7 +8747,7 @@
           </Properties>
           <Name>EnergyCostToFire</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">400</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8811,7 +8800,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -8842,12 +8831,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>80</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -9372,7 +9361,7 @@
           </Properties>
           <Name>EnergyBuildCost</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">75</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">150</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9420,7 +9409,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">50</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9485,22 +9474,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>364</ValueAsFloat>
+            <ValueAsFloat>60</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>404</ValueAsFloat>
+            <ValueAsFloat>174</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>10</ValueAsFloat>
+            <ValueAsFloat>751</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>93</ValueAsFloat>
+            <ValueAsFloat>1007</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -9521,12 +9510,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>80</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -9993,22 +9982,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>228</ValueAsFloat>
+            <ValueAsFloat>512</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>304</ValueAsFloat>
+            <ValueAsFloat>1008</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>495</ValueAsFloat>
+            <ValueAsFloat>1483</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10034,12 +10023,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>228</ValueAsFloat>
+            <ValueAsFloat>500</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>72</ValueAsFloat>
+            <ValueAsFloat>150</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -10235,7 +10224,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>1</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -10261,12 +10250,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>48</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>48</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -10474,7 +10463,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -10500,12 +10489,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>64</ValueAsFloat>
+            <ValueAsFloat>128</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>48</ValueAsFloat>
+            <ValueAsFloat>96</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -10706,22 +10695,22 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>317</ValueAsFloat>
+            <ValueAsFloat>175</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>364</ValueAsFloat>
+            <ValueAsFloat>334</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>16</ValueAsFloat>
+            <ValueAsFloat>750</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>93</ValueAsFloat>
+            <ValueAsFloat>1006</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10741,12 +10730,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>48</ValueAsFloat>
+            <ValueAsFloat>112</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>32</ValueAsFloat>
+            <ValueAsFloat>64</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -10778,7 +10767,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.5</ValueAsFloat>
+            <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -10872,7 +10861,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1.5</ValueAsFloat>
+            <ValueAsFloat>2</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>

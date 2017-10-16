@@ -511,7 +511,7 @@
         <Y>0</Y>
         <Z>40</Z>
         <Orthogonal>true</Orthogonal>
-        <OrthogonalHeight>216.136246</OrthogonalHeight>
+        <OrthogonalHeight>183.139191</OrthogonalHeight>
         <OrthogonalWidth>-1</OrthogonalWidth>
         <NearClipPlane>1</NearClipPlane>
         <FarClipPlane>1000</FarClipPlane>
@@ -574,6 +574,20 @@
         <AspectRatio>1.33333337</AspectRatio>
       </CameraSave>
       <ElementName>Entities\Enemies\SmallSlime</ElementName>
+    </ElementCameraSave>
+    <ElementCameraSave>
+      <CameraSave>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>40</Z>
+        <Orthogonal>true</Orthogonal>
+        <OrthogonalHeight>1440</OrthogonalHeight>
+        <OrthogonalWidth>-1</OrthogonalWidth>
+        <NearClipPlane>1</NearClipPlane>
+        <FarClipPlane>1000</FarClipPlane>
+        <AspectRatio>1.33333337</AspectRatio>
+      </CameraSave>
+      <ElementName>Entities\GraphicalElements\ResourceBar</ElementName>
     </ElementCameraSave>
   </ElementCameraSaves>
   <CollapsedPlugins />
