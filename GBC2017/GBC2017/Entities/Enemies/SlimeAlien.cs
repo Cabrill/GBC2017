@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace GBC2017.Entities.Enemies
 {
@@ -22,6 +23,10 @@ namespace GBC2017.Entities.Enemies
 	    private float _currentLightPulse = 0;
 	    private int _pulseMod = 1;
 
+
+	    private SoundEffectInstance _jumpStart;
+	    private SoundEffectInstance _jumpLand;
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -32,6 +37,10 @@ namespace GBC2017.Entities.Enemies
             Altitude = 0;
             GravityDrag = -400f;
             CurrentJumpState = Jump.NotJumping;
+            meleeAttackSound = Slime_Hit.CreateInstance();
+
+            _jumpStart = Slime_Jump.CreateInstance();
+            _jumpLand = Slime_Land.CreateInstance();
         }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
@@ -63,7 +72,12 @@ namespace GBC2017.Entities.Enemies
 	        {
 	            CurrentJumpState = Jump.Landing;
 	            Velocity = Vector3.Zero;
-	        }
+	            try
+	            {
+	                _jumpLand.Play();
+	            }
+	            catch (Exception) { };
+            }
             else if (CurrentJumpState == Jump.NotJumping || (CurrentJumpState == Jump.Landing && SpriteInstance.JustCycled))
 	        {
 	            if (_targetStructureForNavigation != null)
@@ -96,7 +110,13 @@ namespace GBC2017.Entities.Enemies
 
                     CurrentJumpState = Jump.InAir;
 
-	                CurrentDirectionState =
+	                try
+	                {
+	                    _jumpStart.Play();
+	                }
+	                catch (Exception) { };
+
+                    CurrentDirectionState =
 	                    (Velocity.X > 0 ? Direction.MovingRight : Direction.MovingLeft);
 	                SpriteInstance.IgnoreAnimationChainTextureFlip = true;
 	            }
@@ -109,7 +129,14 @@ namespace GBC2017.Entities.Enemies
 
         private void CustomDestroy()
         {
-
+            if (_jumpStart != null && !_jumpStart.IsDisposed)
+            {
+                _jumpStart.Stop(true);
+            }
+            if (_jumpLand != null && !_jumpLand.IsDisposed)
+            {
+                _jumpLand.Stop(true);
+            }
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

@@ -24,7 +24,7 @@
     <property name="Speed" type="float" default="75" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" />
-    <property name="RangedAttackDamage" type="float" default="5" />
+    <property name="RangedAttackDamage" type="float" default="20" />
     <property name="ProjectileSpeed" type="float" default="200" />
     <property name="SecondsBetweenRangedAttack" type="float" default="6" />
     <property name="SecondsBetweenMeleeAttack" type="float" />

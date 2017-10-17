@@ -131,8 +131,7 @@ namespace GBC2017.Entities.BaseEntities
             var targetDistance = Vector3.Distance(CircleInstance.Position, targetPosition);
             var timeToTravel = targetDistance / Speed;
 
-            var altitudeVelocity = (0.5f * (GravityDrag * (timeToTravel * timeToTravel))) /
-                                   -timeToTravel;
+            var altitudeVelocity = - ((GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
         }
