@@ -1107,6 +1107,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\building_destroyed.xnb">
+      <Name>Building_Destroyed</Name>
+      <Link>Assets\content\entities\structures\building_destroyed.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font18arial_0.xnb">
       <Name>Font18Arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>

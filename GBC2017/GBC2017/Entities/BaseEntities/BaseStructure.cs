@@ -55,6 +55,7 @@ namespace GBC2017.Entities.BaseEntities
         private Layer _hudLayer;
 
         protected SoundEffectInstance PlacementSound;
+        protected SoundEffectInstance DestroyedSound;
 
         protected float _spriteRelativeY;
 
@@ -91,7 +92,9 @@ namespace GBC2017.Entities.BaseEntities
 
             HealthRemaining = MaximumHealth;
             BatteryLevel = 0.6f * InternalBatteryMaxStorage;
+
             PlacementSound = Structure_Placed.CreateInstance();
+            DestroyedSound = Building_Destroyed.CreateInstance();
 
             _lastUsageUpdate = TimeManager.CurrentTime;
             _spriteRelativeY = GetSpriteRelativeY();
@@ -287,7 +290,7 @@ namespace GBC2017.Entities.BaseEntities
         public void GetHitBy(BaseEnemyProjectile projectile)
         {
             HealthRemaining -= projectile.DamageInflicted;
-            projectile.PlayHitTargetSound();
+            projectile?.PlayHitTargetSound();
 
             if (IsDestroyed)
             {
@@ -337,6 +340,7 @@ namespace GBC2017.Entities.BaseEntities
 
         private void PerformDestruction()
         {
+            ;
             OnDestroy?.Invoke();
 
             Destroy();
@@ -348,6 +352,11 @@ namespace GBC2017.Entities.BaseEntities
             {
                 PlacementSound.Stop(true);
                 PlacementSound.Dispose();
+            }
+            if (DestroyedSound != null && !DestroyedSound.IsDisposed)
+            {
+                DestroyedSound.Stop(true);
+                DestroyedSound.Dispose();
             }
         }
 

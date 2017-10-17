@@ -575,6 +575,11 @@
       <Name>TallLaser_Hit</Name>
       <Link>content\entities\projectiles\talllaserprojectile\talllaser_hit.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\entities\structures\building_destroyed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Building_Destroyed</Name>
+      <Link>content\entities\structures\building_destroyed.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\entities\structures\combat\cannon\cannon_shoot.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Cannon_Shoot</Name>

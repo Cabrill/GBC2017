@@ -193,7 +193,7 @@ namespace GBC2017.Entities.BaseEntities
 	        UpdateAnimation();
         }
 
-	    protected Vector3 GetProjectilePositioning(float? angle = null)
+	    protected virtual Vector3 GetProjectilePositioning(float? angle = null)
 	    {
 	        if (!angle.HasValue) angle = _aimRotation;
 
@@ -201,8 +201,8 @@ namespace GBC2017.Entities.BaseEntities
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-            return new Vector3(Position.X + 55f * _currentScale * direction.X, Position.Y + 30f * _currentScale + 25f * _currentScale * direction.Y, 0);
-	    }
+	        return new Vector3(Position.X + AxisAlignedRectangleInstance.Width / 2 * direction.X, Position.Y + AxisAlignedRectangleInstance.Height * direction.Y, 0);
+        }
 
 	    private void ChooseTarget()
 	    {
