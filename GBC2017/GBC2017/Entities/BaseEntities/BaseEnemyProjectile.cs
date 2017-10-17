@@ -210,12 +210,12 @@ namespace GBC2017.Entities.BaseEntities
 		{
 		    if (HitGroundSound != null && !HitGroundSound.IsDisposed)
 		    {
-		        if (HitGroundSound.State != SoundState.Stopped) HitGroundSound.Stop(true);
+		        HitGroundSound.Stop(true);
                 HitGroundSound.Dispose();
 		    }
 		    if (HitTargetSound != null && !HitTargetSound.IsDisposed)
 		    {
-		        if (HitTargetSound.State != SoundState.Stopped) HitTargetSound.Stop(true);
+		        HitTargetSound.Stop(true);
 		        HitTargetSound.Dispose();
 		    }
         }

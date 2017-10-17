@@ -346,10 +346,7 @@ namespace GBC2017.Entities.BaseEntities
         {
             if (PlacementSound != null && !PlacementSound.IsDisposed)
             {
-                if (PlacementSound.State != SoundState.Stopped)
-                {
-                    PlacementSound.Stop(true);
-                }
+                PlacementSound.Stop(true);
                 PlacementSound.Dispose();
             }
         }

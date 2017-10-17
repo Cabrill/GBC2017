@@ -434,14 +434,22 @@ namespace GBC2017.Screens
         private void LevelFailed()
         {
             AudioManager.StopSong();
-            defeat_sound.Play();
+            try
+            {
+                defeat_sound.Play();
+            }
+            catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
         }
 
         private void LevelVictory()
         {
             AudioManager.StopSong();
-            victory_sound.Play();
+            try
+            {
+                victory_sound.Play();
+            }
+            catch (Exception) { };
             ShowGameEndDisplay(playerWon: true);
         }
 

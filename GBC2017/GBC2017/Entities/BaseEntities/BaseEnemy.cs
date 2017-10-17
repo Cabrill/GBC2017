@@ -290,6 +290,12 @@ namespace GBC2017.Entities.BaseEntities
 		        rangedChargeSound.Stop(true);
 		        rangedChargeSound.Dispose();
             }
+
+		    if (meleeAttackSound != null && !meleeAttackSound.IsDisposed)
+		    {
+		        meleeAttackSound.Stop(true);
+		        meleeAttackSound.Dispose();
+		    }
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

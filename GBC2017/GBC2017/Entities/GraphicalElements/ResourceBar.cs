@@ -50,7 +50,7 @@ namespace GBC2017.Entities.GraphicalElements
 	    {
 	        if (!FrameSprite.Visible) Show();
 
-	        BarSprite.Width = BackgroundSprite.Width * newPct;
+	        BarSprite.Width = Math.Max(0.001f,BackgroundSprite.Width * newPct);
 	        BarSprite.RelativeX = (BarSprite.Width - BackgroundSprite.Width)/2;
 	    }
 

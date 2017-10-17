@@ -51,7 +51,6 @@ namespace GBC2017.Entities.BaseEntities
             base.UpdateScale();
 	        if (_startingRangeRadius.HasValue)
 	        {
-	            //RangedRadius = _startingRangeRadius * _currentScale;
 	            RangeCircleInstance.Radius = _startingRangeRadius.Value * _currentScale;
 	        }
 	    }
@@ -79,7 +78,7 @@ namespace GBC2017.Entities.BaseEntities
 		            RotateToAim();
 		            SetAnimationFromAimRotation();
 
-                    //if (BatteryLevel >= EnergyCostToFire)
+                    if (BatteryLevel >= EnergyCostToFire)
 		            {
 		                PerformFiringActivity();
 		            }
@@ -296,7 +295,7 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (attackSound != null && !attackSound.IsDisposed)
 	        {
-	            if (attackSound.State != SoundState.Stopped) attackSound.Stop(true);
+	            attackSound.Stop(true);
 	            attackSound.Dispose();
 	        }
 	    }
