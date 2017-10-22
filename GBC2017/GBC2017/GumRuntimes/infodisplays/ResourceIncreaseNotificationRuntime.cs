@@ -26,7 +26,7 @@ namespace GBC2017.GumRuntimes
                 yield return toReturn;
             }
             {
-                var toReturn = new DelegateInstruction(() => Destroy())
+                var toReturn = new DelegateInstruction(() => Visible = false)
                 {
                     Target = target,
                     TimeToExecute = TimeManager.CurrentTime + 1
@@ -38,6 +38,12 @@ namespace GBC2017.GumRuntimes
         partial void CustomInitialize()
         {
             _floatUpAnimation = new FlatRedBall.Gum.Animation.GumAnimation(5, GetMoveInstructions);
+        }
+
+        public void Play()
+        {
+            CurrentFloatAnimationStatesState = FloatAnimationStates.FloatAnimationStart;
+            Visible = true;
             _floatUpAnimation.Play(this);
         }
     }

@@ -101,6 +101,8 @@ namespace GBC2017.Screens
 
             GameHasStarted = false;
             HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+
+            CreateNotificationPool();
         }
 
 
@@ -189,6 +191,9 @@ namespace GBC2017.Screens
 
             WindTurbineFactory.EntitySpawned +=
                 windturbine => windturbine.AddSpritesToLayers(LightLayer, InfoLayer);
+
+            HydroGeneratorFactory.EntitySpawned +=
+                hydro => hydro.AddSpritesToLayers(LightLayer, InfoLayer);
 
             BatteryFactory.EntitySpawned +=
                 battery => battery.AddSpritesToLayers(LightLayer, InfoLayer);
@@ -301,7 +306,6 @@ namespace GBC2017.Screens
             BuildingStatusActivity();
 
 
-
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
@@ -350,8 +354,8 @@ namespace GBC2017.Screens
                     ? FlatRedBall.Graphics.Renderer.LastFrameRenderBreakList.Count
                     : 0;
                 FlatRedBall.Debugging.Debugger.Write(renderBreaks);
-
             }
+            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
         }
 
         private void UpdateGameTime()
@@ -369,15 +373,33 @@ namespace GBC2017.Screens
                 return;
             }
 
-            if (selectedObject is BaseStructure)
+            var objectAsStructure = selectedObject as BaseStructure;
+            var objectAsEnemy = selectedObject as BaseEnemy;
+
+            if (objectAsStructure != null)
             {
                 EnemyInfoInstance.Hide();
-                StructureInfoInstance.Show((BaseStructure) selectedObject);
+                if (!objectAsStructure.IsDestroyed)
+                {
+                    StructureInfoInstance.Show((BaseStructure) selectedObject);
+                }
+                else
+                {
+                    StructureInfoInstance.Hide();
+                }
+
             }
-            if (selectedObject is BaseEnemy)
+            else if (objectAsEnemy != null)
             {
                 StructureInfoInstance.Hide();
-                EnemyInfoInstance.Show((BaseEnemy) selectedObject);
+                if (!objectAsEnemy.IsDead)
+                {
+                    EnemyInfoInstance.Show(objectAsEnemy);
+                }
+                else
+                {
+                    EnemyInfoInstance.Hide();
+                }
             }
         }
 
@@ -412,14 +434,22 @@ namespace GBC2017.Screens
         private void LevelFailed()
         {
             AudioManager.StopSong();
-            defeat_sound.Play();
+            try
+            {
+                defeat_sound.Play();
+            }
+            catch (Exception){};
             ShowGameEndDisplay(playerWon: false);
         }
 
         private void LevelVictory()
         {
             AudioManager.StopSong();
-            victory_sound.Play();
+            try
+            {
+                victory_sound.Play();
+            }
+            catch (Exception) { };
             ShowGameEndDisplay(playerWon: true);
         }
 
@@ -661,7 +691,7 @@ namespace GBC2017.Screens
 
             //User just clicked/touched somewhere, and nothing is currently selected
             if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
-	            GuiManager.Cursor.ObjectGrabbed == null)
+	            GuiManager.Cursor.ObjectGrabbed == null && GuiManager.Cursor.WindowOver == null)
 	        {
 	            if (CurrentGameMode == GameMode.Building)
 	            {
@@ -731,15 +761,28 @@ namespace GBC2017.Screens
 	    private void CreateResourceNotification(BaseEnemy enemy)
 	    {
 	        MineralsManager.DepositMinerals(enemy.MineralsRewardedWhenKilled);
-	        var notification = new ResourceIncreaseNotificationRuntime
+
+	        var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);
+
+	        if (notification != null)
 	        {
-	            X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset,
-	            Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset,
-	            AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled.ToString()}"
-	        };
-	        notification.AddToManagers();
-            notification.MoveToLayer(HUDLayerGum);
-            resourceIncreaseNotificationList.Add(notification);
+	            notification.X = (enemy.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
+	            notification.Y = (enemy.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+	            notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
+                notification.Play();
+	        }
+        }
+
+        private void CreateNotificationPool()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var notification = new ResourceIncreaseNotificationRuntime();
+                notification.AddToManagers();
+                notification.MoveToLayer(HUDLayerGum);
+                notification.Visible = false;
+                resourceIncreaseNotificationList.Add(notification);
+            }
         }
         #endregion
 

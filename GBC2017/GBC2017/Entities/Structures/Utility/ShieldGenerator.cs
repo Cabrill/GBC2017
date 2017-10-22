@@ -127,7 +127,7 @@ namespace GBC2017.Entities.Structures.Utility
 
 	    private void CustomActivity()
 	    {
-	        if (TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
+	        if (IsTurnedOn && TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
 	        {
 	            _shieldWasUp = ShieldIsUp;
 
@@ -157,6 +157,14 @@ namespace GBC2017.Entities.Structures.Utility
                 }
 	            _lastRegenerationTime = TimeManager.CurrentTime;
             }
+            else if (!IsTurnedOn)
+	        {
+	            if (ShieldIsUp)
+	            {
+	                ShieldIsUp = false;
+                    PopShield();
+	            }
+	        }
 
 	        if (ShieldIsUp)
 	        {

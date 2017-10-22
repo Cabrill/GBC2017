@@ -16,27 +16,24 @@ namespace GBC2017.Entities.BaseEntities
 {
 	public partial class BasePlayerProjectile
 	{
-	    private static float _maximumY;
-	    protected float _currentScale;
-	    private float _startingSpriteScale;
-	    private float _startingLightScale;
-	    private float _startingCircleRadius;
-
-	    protected Layer _darknessLayer;
-
-        private int groundHitCounter = 0;
 	    public float Altitude { get; set; }
 	    public float AltitudeVelocity { get; set; }
-	    public float GravityDrag { get; set; } = -100f;
-        private bool _hitTheGround;
 
-        private Vector3? _startingPosition;
+        private static float _maximumY;
+	    protected float _currentScale;
+
+	    private float? _startingSpriteScale;
+	    private float _startingLightScale;
+	    private float _startingCircleRadius;
 	    private float _startingShadowWidth;
 	    private float _startingShadowHeight;
 	    private float _startingShadowAlpha;
+
+        public float GravityDrag { get; set; } = -100f;
+
 	    protected SoundEffectInstance HitGroundSound;
 	    protected SoundEffectInstance HitTargetSound;
-	    private bool _spritedAddedToLayers = false;
+	    private bool _AddedToLayers = false;
 	    public bool ShouldBeDestroyed;
 
 	    public static void Initialize(float maximumY)
@@ -63,29 +60,29 @@ namespace GBC2017.Entities.BaseEntities
 		    }
 
             //These have to be set here, because the object is pooled (reused)
-
-		    _startingShadowWidth = LightOrShadowSprite.Width;
-		    _startingShadowHeight = LightOrShadowSprite.Height;
-		    _startingShadowAlpha = LightOrShadowSprite.Alpha;
-		    _startingCircleRadius = CircleInstance.Radius;
-		    _startingSpriteScale = SpriteInstance.TextureScale;
-
-            _hitTheGround = false;
+		    if (!_startingSpriteScale.HasValue)
+		    {
+		        _startingShadowWidth = LightOrShadowSprite.Width;
+		        _startingShadowHeight = LightOrShadowSprite.Height;
+		        _startingShadowAlpha = LightOrShadowSprite.Alpha;
+		        _startingCircleRadius = CircleInstance.Radius;
+		        _startingSpriteScale = SpriteInstance.TextureScale;
+		    }
 
 		    ShouldBeDestroyed = false;
 		    Visible = true;
-		    LightOrShadowSprite.Position = Position;
+
             CurrentState = VariableState.Flying;
 		}
 
 	    private void CalculateScale()
 	    {
-	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
 	    }
 
-	    protected virtual void UpdateScale()
+        protected virtual void UpdateScale()
 	    {
-	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+	        SpriteInstance.TextureScale = _startingSpriteScale.Value * _currentScale;
 	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
 	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	    }
@@ -123,7 +120,7 @@ namespace GBC2017.Entities.BaseEntities
                     LightOrShadowSprite.Height = _startingShadowHeight * pctLightShadow * _currentScale;
                     LightOrShadowSprite.Alpha = _startingShadowAlpha * pctLightShadow * _currentScale;
 
-                    _hitTheGround = Altitude <= 0;
+                    var _hitTheGround = Altitude <= 0;
 
                     if (_hitTheGround)
                     {
@@ -192,23 +189,26 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
-	        if (!_spritedAddedToLayers)
+	        if (LayerProvidedByContainer != null)
 	        {
+
 	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
-	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
-	            if (HasLightSource)
-	            {
-	                SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
-	            }
-
 	            LayerProvidedByContainer.Remove(CircleInstance);
-	            ShapeManager.AddToLayer(CircleInstance, hudLayer);
-
-	            _spritedAddedToLayers = true;
-	            _darknessLayer = darknessLayer;
-
 	        }
-	    }
+
+	        if (_AddedToLayers)
+	        {
+	            darknessLayer.Remove(LightOrShadowSprite);
+	            hudLayer.Remove(CircleInstance);
+	            if (HasLightSource) darknessLayer.Remove(SpriteInstance);
+	        }
+
+	        SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+	        if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
+
+	        _AddedToLayers = true;
+        }
 
         private void CustomDestroy()
 		{

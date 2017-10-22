@@ -26,7 +26,7 @@ namespace GBC2017.Entities.Structures.Combat
 		private void CustomInitialize()
         {
             attackSound = Laser_Shoot.CreateInstance();
-            _shotAltitude = 20f;
+            _shotAltitude = 100f;
         }
 
 		private void CustomActivity()
@@ -37,12 +37,17 @@ namespace GBC2017.Entities.Structures.Combat
 	    protected override BasePlayerProjectile CreateNewProjectile()
 	    {
 	        var newProjectile = LaserTurretProjectileFactory.CreateNew(LayerProvidedByContainer);
+	        _shotAltitude = 75f;
+	        if (SpriteInstance.CurrentChainName == "UpTurn")
+	        {
+	            _shotAltitude = 125f;
+	        }
 	        newProjectile.Altitude = _shotAltitude;
 
             return newProjectile;
 	    }
 
-	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
+        public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
 	        base.AddSpritesToLayers(darknessLayer, hudLayer);
 

@@ -59,6 +59,36 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>ButtonContainers.Height</Name>
+      <Value xsi:type="xsd:float">20</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ButtonContainers.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>ButtonContainers.Parent</Name>
+      <Value xsi:type="xsd:string">InfoContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>ButtonContainers.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ButtonContainers.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -68,6 +98,47 @@
       <Type>bool</Type>
       <Name>Clips Children</Name>
       <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>EnabledStatusState</Type>
+      <Name>DestroyButtonInstance.EnabledStatusState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DestroyButtonInstance.Height</Name>
+      <Value xsi:type="xsd:float">95</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>DestroyButtonInstance.Parent</Name>
+      <Value xsi:type="xsd:string">ButtonContainers</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>DestroyButtonInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>DestroyButtonInstance.X Units</Name>
+      <Value xsi:type="xsd:int">6</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DestroyButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">2.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>DestroyButtonInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -134,13 +205,13 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyChangeSprite.Width</Name>
-      <Value xsi:type="xsd:float">7</Value>
+      <Value xsi:type="xsd:float">58.334</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>EnergyChangeSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -280,7 +351,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">95</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -335,13 +406,13 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergySprite.Width</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">51.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>EnergySprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -354,6 +425,18 @@
       <Type>PositionUnitType</Type>
       <Name>EnergySprite.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergySprite.Y</Name>
+      <Value xsi:type="xsd:float">2.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergySprite.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -569,7 +652,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HealthSprite.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">60</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -624,25 +707,37 @@
     <Variable>
       <Type>float</Type>
       <Name>HealthSprite.Width</Name>
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>HealthSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>HealthSprite.X</Name>
-      <Value xsi:type="xsd:float">5</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>HealthSprite.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HealthSprite.Y</Name>
+      <Value xsi:type="xsd:float">20</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>HealthSprite.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -722,7 +817,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HealthText.Width</Name>
-      <Value xsi:type="xsd:float">70</Value>
+      <Value xsi:type="xsd:float">76</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -743,6 +838,42 @@
       <Name>Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
       <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>InfoContainer.Children Layout</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>InfoContainer.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>InfoContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>InfoContainer.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>InfoContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>InfoContainer.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -923,13 +1054,13 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsChangeSprite.Width</Name>
-      <Value xsi:type="xsd:float">7</Value>
+      <Value xsi:type="xsd:float">58.33</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>MineralsChangeSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -965,7 +1096,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">95</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1020,13 +1151,13 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralsSprite.Width</Name>
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">51.56</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>MineralsSprite.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1039,6 +1170,18 @@
       <Type>PositionUnitType</Type>
       <Name>MineralsSprite.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralsSprite.Y</Name>
+      <Value xsi:type="xsd:float">2.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralsSprite.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1296,6 +1439,59 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>EnabledStatusState</Type>
+      <Name>RepairButtonInstance.EnabledStatusState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RepairButtonInstance.Height</Name>
+      <Value xsi:type="xsd:float">95</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>RepairButtonInstance.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>RepairButtonInstance.Parent</Name>
+      <Value xsi:type="xsd:string">ButtonContainers</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>RepairButtonInstance.Width Units</Name>
+      <Value xsi:type="xsd:int">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RepairButtonInstance.X</Name>
+      <Value xsi:type="xsd:float">5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RepairButtonInstance.X Units</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>RepairButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">2.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>RepairButtonInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>ResourceChangeContainer.Children Layout</Name>
       <Value xsi:type="xsd:int">2</Value>
@@ -1350,7 +1546,7 @@
     <Variable>
       <Type>float</Type>
       <Name>StatsContainer.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1362,7 +1558,7 @@
     <Variable>
       <Type>string</Type>
       <Name>StatsContainer.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundRectangle</Value>
+      <Value xsi:type="xsd:string">InfoContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1387,6 +1583,53 @@
       <Type>StoresMinerals</Type>
       <Name>StoresMineralsState</Name>
       <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SwitchOnOffInstance.Height</Name>
+      <Value xsi:type="xsd:float">95</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>OnOffState</Type>
+      <Name>SwitchOnOffInstance.OnOffStateState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>SwitchOnOffInstance.Parent</Name>
+      <Value xsi:type="xsd:string">ButtonContainers</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SwitchOnOffInstance.X</Name>
+      <Value xsi:type="xsd:float">-5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>SwitchOnOffInstance.X Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>SwitchOnOffInstance.X Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>SwitchOnOffInstance.Y</Name>
+      <Value xsi:type="xsd:float">2.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>SwitchOnOffInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>bool</Type>
@@ -1717,6 +1960,10 @@
     </State>
   </Category>
   <Instance>
+    <Name>ButtonContainers</Name>
+    <BaseType>Container</BaseType>
+  </Instance>
+  <Instance>
     <Name>BackgroundRectangle</Name>
     <BaseType>ColoredRectangle</BaseType>
   </Instance>
@@ -1787,6 +2034,22 @@
   <Instance>
     <Name>EnergyChangeText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>InfoContainer</Name>
+    <BaseType>Container</BaseType>
+  </Instance>
+  <Instance>
+    <Name>RepairButtonInstance</Name>
+    <BaseType>specificbuttons/RepairButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>DestroyButtonInstance</Name>
+    <BaseType>specificbuttons/DestroyButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>SwitchOnOffInstance</Name>
+    <BaseType>specificbuttons/SwitchOnOff</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

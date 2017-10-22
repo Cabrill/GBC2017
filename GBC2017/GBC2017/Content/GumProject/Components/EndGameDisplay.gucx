@@ -298,13 +298,13 @@
       <Name>Lose</Name>
       <Variable>
         <Type>int</Type>
-        <Name>VictorySprite.Texture Top</Name>
+        <Name>VictorySprite.Texture Left</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
         <Type>int</Type>
-        <Name>VictorySprite.Texture Left</Name>
+        <Name>VictorySprite.Texture Top</Name>
         <Value xsi:type="xsd:int">0</Value>
         <SetsValue>true</SetsValue>
       </Variable>

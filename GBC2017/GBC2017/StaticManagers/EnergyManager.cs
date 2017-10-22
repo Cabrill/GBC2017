@@ -66,11 +66,11 @@ namespace GBC2017.ResourceManagers
                     }
                 }
 
-                var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
+                var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
                 EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EffectiveEnergyProducedPerSecond);
 
-                var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && !(s is Home)).Except(energyGeneratorArray);
+                var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && !(s is Home)).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
                 
                 var availableIncrease = EnergyIncrease - _energyBuildDebt;

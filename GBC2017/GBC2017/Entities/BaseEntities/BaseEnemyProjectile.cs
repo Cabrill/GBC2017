@@ -33,7 +33,7 @@ namespace GBC2017.Entities.BaseEntities
 	    protected float _startingShadowAlpha;
 	    protected SoundEffectInstance HitGroundSound;
 	    protected SoundEffectInstance HitTargetSound;
-        private bool _spritedAddedToLayers = false;
+        private bool _AddedToLayers = false;
 	    public bool ShouldBeDestroyed;
 
 	    public static void Initialize(float maximumY)
@@ -74,10 +74,10 @@ namespace GBC2017.Entities.BaseEntities
 
 	    private void CalculateScale()
 	    {
-	        _currentScale = 0.4f + (0.3f * (1 - Y / _maximumY));
+	        _currentScale = 0.3f + (0.4f * (1 - Y / _maximumY));
 	    }
 
-	    protected virtual void UpdateScale()
+        protected virtual void UpdateScale()
 	    {
 	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
 	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
@@ -185,33 +185,37 @@ namespace GBC2017.Entities.BaseEntities
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {
-	        if (!_spritedAddedToLayers)
-	        {
+	        if (LayerProvidedByContainer != null)
+            {
 
 	            LayerProvidedByContainer.Remove(LightOrShadowSprite);
-	            SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
-	            if (HasLightSource)
-                { 
-	                SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
-	            }
-
-	        LayerProvidedByContainer.Remove(CircleInstance);
-	            ShapeManager.AddToLayer(CircleInstance, hudLayer);
-
-	            _spritedAddedToLayers = true;
+                LayerProvidedByContainer.Remove(CircleInstance);
 	        }
-	    }
+
+	        if (_AddedToLayers)
+	        {
+	            darknessLayer.Remove(LightOrShadowSprite);
+                hudLayer.Remove(CircleInstance);
+                if (HasLightSource) darknessLayer.Remove(SpriteInstance);
+            }
+
+	        SpriteManager.AddToLayer(LightOrShadowSprite, darknessLayer);
+	        ShapeManager.AddToLayer(CircleInstance, hudLayer);
+            if (HasLightSource) SpriteManager.AddToLayer(SpriteInstance, darknessLayer);
+
+	        _AddedToLayers = true;
+        }
 
         private void CustomDestroy()
 		{
 		    if (HitGroundSound != null && !HitGroundSound.IsDisposed)
 		    {
-		        if (HitGroundSound.State != SoundState.Stopped) HitGroundSound.Stop(true);
+		        HitGroundSound.Stop(true);
                 HitGroundSound.Dispose();
 		    }
 		    if (HitTargetSound != null && !HitTargetSound.IsDisposed)
 		    {
-		        if (HitTargetSound.State != SoundState.Stopped) HitTargetSound.Stop(true);
+		        HitTargetSound.Stop(true);
 		        HitTargetSound.Dispose();
 		    }
         }

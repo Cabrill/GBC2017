@@ -45,6 +45,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>EndGameDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>HorizonBox</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -89,15 +93,23 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>specificbuttons/DestroyButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>specificbuttons/RepairButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/SettingsButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>TechnologyTree</Name>
+    <Name>specificbuttons/SwitchOnOff</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>EndGameDisplay</Name>
+    <Name>TechnologyTree</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

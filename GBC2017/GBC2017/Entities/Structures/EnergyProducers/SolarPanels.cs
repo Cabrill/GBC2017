@@ -31,8 +31,15 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
 		private void CustomActivity()
 		{
-            EffectiveEnergyProducedPerSecond = CalculateEnergyPerSecond();
-        }
+		    if (IsTurnedOn)
+		    {
+		        EffectiveEnergyProducedPerSecond = CalculateEnergyPerSecond();
+		    }
+		    else
+		    {
+		        EffectiveEnergyProducedPerSecond = 0;
+		    }
+		}
 
 	    private float CalculateEnergyPerSecond()
 	    {

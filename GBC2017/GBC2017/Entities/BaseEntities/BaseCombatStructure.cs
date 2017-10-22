@@ -23,7 +23,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private static PositionedObjectList<BaseEnemy> _potentialTargetList;
 	    protected BaseEnemy targetEnemy;
 	    protected SoundEffectInstance attackSound;
-	    private float _aimRotation;
+	    protected float _aimRotation;
 	    protected float _shotAltitude = 1f;
 	    private float? _startingRangeRadius;
 
@@ -51,14 +51,13 @@ namespace GBC2017.Entities.BaseEntities
             base.UpdateScale();
 	        if (_startingRangeRadius.HasValue)
 	        {
-	            //RangedRadius = _startingRangeRadius * _currentScale;
 	            RangeCircleInstance.Radius = _startingRangeRadius.Value * _currentScale;
 	        }
 	    }
 
         private void CustomActivity()
 		{
-            if (IsBeingPlaced == false)
+            if (IsBeingPlaced == false && IsTurnedOn)
             {
 #if DEBUG
                 if (DebugVariables.TurretsAimAtMouse) RotateToAimMouse();
@@ -113,7 +112,7 @@ namespace GBC2017.Entities.BaseEntities
         /// <summary>
         /// Determines where the enemy will be, so it can shoot at it
         /// </summary>
-        private void RotateToAim()
+        protected virtual void RotateToAim()
         {
             var startPosition = GetProjectilePositioning();
 
@@ -194,7 +193,7 @@ namespace GBC2017.Entities.BaseEntities
 	        UpdateAnimation();
         }
 
-	    private Vector3 GetProjectilePositioning(float? angle = null)
+	    protected virtual Vector3 GetProjectilePositioning(float? angle = null)
 	    {
 	        if (!angle.HasValue) angle = _aimRotation;
 
@@ -202,17 +201,24 @@ namespace GBC2017.Entities.BaseEntities
 	            (float)-Math.Cos(angle.Value),
 	            (float)-Math.Sin(angle.Value), 0);
 	        direction.Normalize();
-            return new Vector3(Position.X + 55f * _currentScale * direction.X, Position.Y + 30f * _currentScale + 25f * _currentScale * direction.Y, 0);
-	    }
+	        return new Vector3(Position.X + AxisAlignedRectangleInstance.Width / 2 * direction.X, Position.Y + AxisAlignedRectangleInstance.Height * direction.Y, 0);
+        }
 
 	    private void ChooseTarget()
 	    {
-	        var localPotentialTarget =
-	            _potentialTargetList.FirstOrDefault(pt => !pt.IsDead && pt.CircleInstance.CollideAgainst(RangeCircleInstance));
+	        BaseEnemy newTarget = null;
 
-	        if (localPotentialTarget != null)
+	        foreach (BaseEnemy pt in _potentialTargetList)
 	        {
-	            targetEnemy = localPotentialTarget;
+	            if (pt.IsDead) continue;
+	            if (!pt.CircleInstance.CollideAgainst(RangeCircleInstance)) continue;
+	            newTarget = pt;
+	            break;
+	        }
+
+	        if (newTarget != null)
+	        {
+	            targetEnemy = newTarget;
 	        }
 	    }
 
@@ -249,14 +255,13 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (targetEnemy == null) return 0f;
 
-	        var targetPosition = targetEnemy.CircleInstance.Position;
+	        var targetPosition = targetEnemy.Position;
 	        var targetDistance = Vector3.Distance(projectile.Position, targetPosition);
 
 	        var timeToTravel = targetDistance / ProjectileSpeed;
 
 	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
-	        var altitudeVelocity = (0.5f * (projectile.GravityDrag * (timeToTravel * timeToTravel) - altitudeDifference)) /
-	                               -timeToTravel;
+	        var altitudeVelocity = (altitudeDifference / timeToTravel) - ((projectile.GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
 	    }
@@ -290,7 +295,7 @@ namespace GBC2017.Entities.BaseEntities
 	    {
 	        if (attackSound != null && !attackSound.IsDisposed)
 	        {
-	            if (attackSound.State != SoundState.Stopped) attackSound.Stop(true);
+	            attackSound.Stop(true);
 	            attackSound.Dispose();
 	        }
 	    }
