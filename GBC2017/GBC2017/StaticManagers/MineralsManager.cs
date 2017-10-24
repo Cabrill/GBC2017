@@ -22,7 +22,6 @@ namespace GBC2017.ResourceManagers
         public static double StoredMinerals { get; private set; }
         public static double MaxStorage { get; private set; }
 
-        private static double _lastUpdateTime;
         private static double _mineralsDebt;
 
         private static PositionedObjectList<BaseStructure> _allStructures;
@@ -38,12 +37,11 @@ namespace GBC2017.ResourceManagers
         {
             if (isPregame)
             {
-                MaxStorage = _home?.MaxMineralsStorage ?? 0;
+                MaxStorage = 9999;
                 StoredMinerals = _home?.CurrentMinerals ?? 0;
             }
-            else if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
+            else 
             {
-                MaxStorage = _home?.MaxMineralsStorage ?? 0;
                 MineralsDecrease = _mineralsDebt;
 
                 if (_mineralsDebt > 0)
@@ -54,15 +52,13 @@ namespace GBC2017.ResourceManagers
 
                 var mineralsGenerator = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s.HasSufficientEnergy && s is BaseMineralsProducer).Cast<BaseMineralsProducer>();
                 var mineralsGeneratorArray = mineralsGenerator as BaseMineralsProducer[] ?? mineralsGenerator.ToArray();
-                MineralsIncrease = mineralsGeneratorArray.Sum(eg => eg.MineralsProducedPerSecond);
+                MineralsIncrease = mineralsGeneratorArray.Sum(eg => eg.MineralsProducedPerSecond * TimeManager.SecondDifference);
                 DepositMinerals(MineralsIncrease);
 
                 //var mineralsRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(mineralsGeneratorArray);
                 //var mineralsRequesterArray = mineralsRequesters as BaseStructure[] ?? mineralsRequesters.ToArray();
 
                 StoredMinerals = _home?.CurrentMinerals ?? 0;
-
-                _lastUpdateTime = TimeManager.CurrentTime;
             }
         }
 

@@ -13,6 +13,11 @@ namespace GBC2017.GameClasses.Interfaces
         float Latitude { get; }
         float Longitude { get; }
 
+        float WaterVelocity { get; }
+
         float[] MonthlyInsolation { get; }
+
+        float[] MonthlyAverageWindSpeedInMs { get; }
+        float[] WindProbabilityGreaterThanBeaufort4 { get; }
     }
 }

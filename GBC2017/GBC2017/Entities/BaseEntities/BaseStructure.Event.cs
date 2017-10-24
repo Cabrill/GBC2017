@@ -61,5 +61,21 @@ namespace GBC2017.Entities.BaseEntities
                 CheckmarkInstance.CurrentState = Checkmark.VariableState.Disabled;
             }
         }
+
+        void OnAfterIsTurnedOnSet (object sender, EventArgs e)
+        {
+            if (IsTurnedOn)
+            {
+                LightSpriteInstance.Red = 255;
+                LightSpriteInstance.Green = 50;
+                LightSpriteInstance.Blue = 50;
+            }
+            else
+            {
+                LightSpriteInstance.Red = 255;
+                LightSpriteInstance.Green = 255;
+                LightSpriteInstance.Blue = 255;
+            }
+        }
 	}
 }

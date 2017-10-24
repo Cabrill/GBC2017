@@ -247,7 +247,7 @@ namespace GBC2017.Entities.BaseEntities
 
                 LastFiredTime = TimeManager.CurrentTime;
                 BatteryLevel -= EnergyCostToFire;
-                _energyReceivedThisSecond += EnergyCostToFire;
+                _energyReceivedCurrentUpdate += EnergyCostToFire;
             }
         }
 
@@ -260,7 +260,7 @@ namespace GBC2017.Entities.BaseEntities
 
 	        var timeToTravel = targetDistance / ProjectileSpeed;
 
-	        var altitudeDifference = targetEnemy.Altitude - projectile.Altitude;
+	        var altitudeDifference = targetEnemy.Altitude + (targetEnemy.SpriteInstance.Height/2) - projectile.Altitude;
 	        var altitudeVelocity = (altitudeDifference / timeToTravel) - ((projectile.GravityDrag * timeToTravel) / 2);
 
             return altitudeVelocity;
@@ -307,3 +307,4 @@ namespace GBC2017.Entities.BaseEntities
         }
 	}
 }
+

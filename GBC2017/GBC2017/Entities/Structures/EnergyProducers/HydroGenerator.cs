@@ -9,13 +9,16 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.GameClasses;
 using GBC2017.StaticManagers;
 
 namespace GBC2017.Entities.Structures.EnergyProducers
 {
 	public partial class HydroGenerator
 	{
-	    private bool _hasSetSpriteColors;
+        private const float WaterDensity = 10f;
+
+        private bool _hasSetSpriteColors;
 	    private SpriteList _waterDrops;
 
 	    private float? _startingLargeWheelScale;
@@ -150,9 +153,9 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
 	    private double BaseEnergyPerSecond()
 	    {
-	        return 50f;
-            var energyGeneratedPerSecInRealLife = efficiency * waterDensity * bladeArea * Math.Pow(WaterManager.waterVelocity, 3) / 2;
-            var energyGeneratedPerSecInGame = energyGeneratedPerSecInRealLife * 24 * 3600 / 300;
+	        var area = Math.Pow(BladeRadiusInMeters, 2) * Math.PI;
+            var kiloWattPerSecRealLife = efficiency * WaterDensity * area * Math.Pow(WaterManager.WaterVelocity, 3) / 2;
+	        var energyGeneratedPerSecInGame = kiloWattPerSecRealLife * 1000 / GameFormulas.RealSecondsPerGameHour;
 	        return energyGeneratedPerSecInGame;
 	    }
 

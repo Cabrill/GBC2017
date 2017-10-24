@@ -26,10 +26,10 @@ namespace GBC2017.GumRuntimes
 
         private void UpdateWindDisplay(float windSpeed)
         {
-            if (windSpeed >= 0f && windSpeed < 0.25f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level1;
-            else if (windSpeed >= 0.25f && windSpeed < 0.5f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level2;
-            else if (windSpeed >= 0.50f && windSpeed < 0.75f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level3;
-            else if (windSpeed >= 0.75f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level4;
+            if (windSpeed >= 0f && windSpeed < 5f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level1;
+            else if (windSpeed >= 3.4f && windSpeed < 8f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level2;
+            else if (windSpeed >= 8f && windSpeed < 13.8f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level3;
+            else if (windSpeed >= 13.8f) WindConditionInstance.CurrentWindLevelState = WindConditionRuntime.WindLevel.Level4;
         }
 
     }

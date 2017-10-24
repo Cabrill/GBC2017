@@ -55,7 +55,7 @@ namespace GBC2017.ResourceManagers
                 StoredEnergy = BatteryList.Sum(b => b.BatteryLevel) + _home.BatteryLevel;
                 MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage) + _home.InternalBatteryMaxStorage;
             }
-            else if (TimeManager.SecondsSince(_lastUpdateTime) >= SecondsBetweenUpdates)
+            else
             {
                 if (_energyBuildDebt > 0)
                 {
@@ -68,7 +68,7 @@ namespace GBC2017.ResourceManagers
 
                 var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
-                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EffectiveEnergyProducedPerSecond);
+                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EffectiveEnergyProducedPerSecond * TimeManager.SecondDifference);
 
                 var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && !(s is Home)).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
