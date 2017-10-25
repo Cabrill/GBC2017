@@ -515,10 +515,10 @@
       <Name>Alien_Shoot</Name>
       <Link>content\entities\enemies\basicalien\alien_shoot.xnb</Link>
     </None>
-    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\greenalien.xnb">
+    <None Include="..\builtxnbs\desktopgl\entities\enemies\basicalien\looker.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>greenalien</Name>
-      <Link>content\entities\enemies\basicalien\greenalien.xnb</Link>
+      <Name>looker</Name>
+      <Link>content\entities\enemies\basicalien\looker.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\entities\enemies\flyingenemy\flying_powerup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

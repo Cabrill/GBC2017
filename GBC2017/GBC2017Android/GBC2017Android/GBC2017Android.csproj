@@ -1117,6 +1117,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\looker.xnb">
+      <Name>looker</Name>
+      <Link>Assets\content\entities\enemies\basicalien\looker.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\entities\structures\building_destroyed.xnb">
       <Name>Building_Destroyed</Name>
       <Link>Assets\content\entities\structures\building_destroyed.xnb</Link>
@@ -1218,10 +1222,6 @@
     <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\alien_shoot.xnb">
       <Name>Alien_Shoot</Name>
       <Link>Assets\content\entities\enemies\basicalien\alien_shoot.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\basicalien\greenalien.xnb">
-      <Name>greenalien</Name>
-      <Link>Assets\content\entities\enemies\basicalien\greenalien.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\entities\enemies\flyingenemy\flying_powerup.xnb">
       <Name>Flying_Powerup</Name>
