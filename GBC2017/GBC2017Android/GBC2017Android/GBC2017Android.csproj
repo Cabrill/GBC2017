@@ -779,6 +779,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\CustomNineSliceRuntime.Generated.cs">
+      <Link>GumRuntimes\CustomNineSliceRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\EndGameDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\EndGameDisplayRuntime.Generated.cs</Link>
     </Compile>
@@ -1133,6 +1136,50 @@
       <Name>Font18Arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
+      <Name>Font50Moire_ExtraBold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font50moire_extrabold_o2_0.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\message\message7.xnb">
+      <Name>message7</Name>
+      <Link>Assets\content\gumproject\message\message7.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message1.xnb">
+      <Name>message1</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message1.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message2.xnb">
+      <Name>message2</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message2.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message3.xnb">
+      <Name>message3</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message3.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message4.xnb">
+      <Name>message4</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message4.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message5.xnb">
+      <Name>message5</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message5.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message6.xnb">
+      <Name>message6</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message6.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message7.xnb">
+      <Name>message7</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message7.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message8.xnb">
+      <Name>message8</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message8.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message9.xnb">
+      <Name>message9</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message9.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a">
       <Name>anttisinstrumentals+einszweidreiviolins</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a</Link>
@@ -1180,6 +1227,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\alienship.gucx">
       <Name>alienship</Name>
       <Link>Assets\content\gumproject\components\alienship.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\customnineslice.gucx">
+      <Name>customnineslice</Name>
+      <Link>Assets\content\gumproject\components\customnineslice.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>

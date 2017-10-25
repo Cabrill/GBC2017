@@ -28,6 +28,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>BuildMenuState</Type>
+      <Name>BuildBarInstance.BuildMenuState</Name>
+      <Value xsi:type="xsd:string">BuildEnergy</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>EndGameDisplayInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>

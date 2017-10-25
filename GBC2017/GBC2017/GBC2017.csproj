@@ -337,6 +337,7 @@
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ConditionsDisplayRuntime.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\CustomNineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndGameDisplayRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GameScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
@@ -615,10 +616,65 @@
       <Name>Font18Arial_0</Name>
       <Link>content\gumproject\fontcache\font18arial_0.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font50Moire_ExtraBold_o2_0</Name>
+      <Link>content\gumproject\fontcache\font50moire_extrabold_o2_0.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\justwindmill.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>JustWindmill</Name>
       <Link>content\gumproject\justwindmill.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\message\message7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message7</Name>
+      <Link>content\gumproject\message\message7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message1</Name>
+      <Link>content\gumproject\standards\standardgraphics\message1.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message2</Name>
+      <Link>content\gumproject\standards\standardgraphics\message2.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message3</Name>
+      <Link>content\gumproject\standards\standardgraphics\message3.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message4</Name>
+      <Link>content\gumproject\standards\standardgraphics\message4.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message5</Name>
+      <Link>content\gumproject\standards\standardgraphics\message5.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message6</Name>
+      <Link>content\gumproject\standards\standardgraphics\message6.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message7</Name>
+      <Link>content\gumproject\standards\standardgraphics\message7.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message8.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message8</Name>
+      <Link>content\gumproject\standards\standardgraphics\message8.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\message9.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>message9</Name>
+      <Link>content\gumproject\standards\standardgraphics\message9.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\standards\standardgraphics\red_bottomcenter.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -850,6 +906,10 @@
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
+    </None>
+    <None Include="content\gumproject\components\customnineslice.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CustomNineSlice</Name>
     </None>
     <None Include="content\gumproject\components\endgamedisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
