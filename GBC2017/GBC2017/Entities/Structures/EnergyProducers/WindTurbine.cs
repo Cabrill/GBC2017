@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math;
+using GBC2017.GameClasses;
 using GBC2017.StaticManagers;
 
 namespace GBC2017.Entities.Structures.EnergyProducers
@@ -93,8 +94,10 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private double BaseEnergyPerSecond()
         {
-            double wattRealTime =  Math.Pow(WindManager.windSpeed, 3) *airDensity * diskArea/27;
-            double wattInGame = wattRealTime * 24 * 3600 / 300;
+            var powerCoefficient = 0.25f;
+            var area = Math.Pow(BladeRadiusInMeters,2) * Math.PI;
+            double kiloWattReal = powerCoefficient * 0.5f * AirDensity * Math.Pow(WindManager.windSpeed, 3) * area;
+            double wattInGame = kiloWattReal * 1000 / GameFormulas.RealSecondsPerGameHour;
             return wattInGame;
         }
 

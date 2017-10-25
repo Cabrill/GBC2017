@@ -53,7 +53,14 @@ namespace GBC2017.GumRuntimes
 
         private void OnSwitchOnOffInstanceClick(IWindow window1)
         {
-            structureShown.IsTurnedOn = !(structureShown.IsTurnedOn);
+            if (structureShown.CurrentOnOffState == BaseStructure.OnOff.On)
+            {
+                structureShown.CurrentOnOffState = BaseStructure.OnOff.Off;
+            }
+            else
+            {
+                structureShown.CurrentOnOffState = BaseStructure.OnOff.On;
+            }
         }
 
         public void Show(BaseStructure structure)
@@ -101,7 +108,6 @@ namespace GBC2017.GumRuntimes
             if (structure is Home)
             {
                 var home = structure as Home;
-                StructureMinerals = $"{home.MaxMineralsStorage}";
                 CurrentStoresMineralsState = StoresMinerals.True;
                 DestroyButtonInstance.CurrentEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Disabled;
                 SwitchOnOffInstance.Visible = false;
@@ -159,13 +165,13 @@ namespace GBC2017.GumRuntimes
             {
                 netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
-            netEnergy -= structureShown.EnergyReceivedLastSecond;
+            netEnergy -= structureShown.EnergyReceivedLastUpdate;
 
             if (structureAsMineralsProducer != null)
             {
                 netMinerals += structureAsMineralsProducer.MineralsProducedPerSecond;
             }
-            netMinerals -= structureShown.MineralsReceivedLastSecond;
+            netMinerals -= structureShown.MineralsReceivedLastUpdate;
 
             SetEnergyUsage(netEnergy);
             SetMineralsUsage(netMinerals);

@@ -25,8 +25,6 @@ namespace GBC2017.Entities.BaseEntities
 {
     public partial class BaseStructure
     {
-        public bool IsTurnedOn { get; set; } = true;
-
         private static float _maximumY;
         protected float _currentScale;
         private float _startingScale;
@@ -42,13 +40,13 @@ namespace GBC2017.Entities.BaseEntities
         public bool IsDestroyed => HealthRemaining <= 0;
 
         public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
-        public double EnergyRequestAmount => HasInternalBattery ? EnergyMissing : EnergyRequiredPerSecond;
+        public double EnergyRequestAmount => HasInternalBattery ? Math.Min(MaxReceivableEnergyPerSecond * TimeManager.SecondDifference, EnergyMissing) : EnergyRequiredPerSecond * TimeManager.SecondDifference;
         public float HealthRemaining { get; private set; }
-        public double EnergyReceivedLastSecond { get; private set; }
-        public double MineralsReceivedLastSecond { get; private set; }
+        public double EnergyReceivedLastUpdate { get; private set; }
+        public double MineralsReceivedLastUpdate { get; private set; }
         private double _lastUsageUpdate;
-        protected double _energyReceivedThisSecond;
-        protected double _mineralsReceivedThisSecond;
+        protected double _energyReceivedCurrentUpdate;
+        protected double _mineralsReceivedCurrentUpdate;
 
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 
@@ -81,6 +79,8 @@ namespace GBC2017.Entities.BaseEntities
             {
                 AxisAlignedRectangleInstance.Visible = false;
             }
+
+            CurrentOnOffState = OnOff.On;
 
             LightSpriteInstance.Width = SpriteInstance.Width;
             LightSpriteInstance.Height = LightSpriteInstance.Width / 4;
@@ -168,14 +168,10 @@ namespace GBC2017.Entities.BaseEntities
             }
             else
             {
-                if (TimeManager.SecondsSince(_lastUsageUpdate) >= 1)
-                {
-                    _lastUsageUpdate = TimeManager.CurrentTime;
-                    EnergyReceivedLastSecond = _energyReceivedThisSecond;
-                    MineralsReceivedLastSecond = _mineralsReceivedThisSecond;
+                EnergyReceivedLastUpdate = _energyReceivedCurrentUpdate;
+                MineralsReceivedLastUpdate = _mineralsReceivedCurrentUpdate;
 
-                    _energyReceivedThisSecond = _mineralsReceivedThisSecond = 0;
-                }
+                _energyReceivedCurrentUpdate = _mineralsReceivedCurrentUpdate = 0;
 
                 if (HasInternalBattery)
                 {
@@ -306,9 +302,9 @@ namespace GBC2017.Entities.BaseEntities
             }
             else
             {
-                HasSufficientEnergy = energyAmount >= EnergyRequestAmount;
+                HasSufficientEnergy = energyAmount >= EnergyRequestAmount*TimeManager.SecondDifference;
             }
-            _energyReceivedThisSecond += energyAmount;
+            _energyReceivedCurrentUpdate += energyAmount;
         }
 
         public void DrainEnergy(double energyAmount)

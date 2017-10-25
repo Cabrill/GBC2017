@@ -137,7 +137,7 @@ namespace GBC2017.Entities.Structures.Utility
 	            }
 	            else
 	            {
-	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / Math.Max(1,_energyReceivedThisSecond));
+	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / Math.Max(1,_energyReceivedCurrentUpdate));
 	            }
 
 	            ShieldIsUp = (ShieldIsUp && CurrentShieldHealth > 0) || 

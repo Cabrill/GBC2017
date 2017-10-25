@@ -15,7 +15,6 @@ namespace GBC2017.Entities.Structures
 	public partial class Home
 	{
 	    public double CurrentMinerals { get; private set; }
-        public double MaxMineralsStorage { get; private set; }
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -23,10 +22,8 @@ namespace GBC2017.Entities.Structures
         /// </summary>
 		private void CustomInitialize()
         {
-            CurrentMinerals = 0;
-            MaxMineralsStorage = BaseMineralsStorage;
-            CurrentMinerals = MaxMineralsStorage;
-            BatteryLevel = InternalBatteryMaxStorage;
+            CurrentMinerals = StartingMinerals;
+            BatteryLevel = 0;
         }
 
 		private void CustomActivity()
@@ -48,7 +45,7 @@ namespace GBC2017.Entities.Structures
 
 	    public void AddMinerals(double amount)
 	    {
-	        CurrentMinerals = Math.Min(CurrentMinerals + amount, MaxMineralsStorage);
+	        CurrentMinerals = CurrentMinerals + amount;
 	    }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

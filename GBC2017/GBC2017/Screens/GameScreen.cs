@@ -101,6 +101,8 @@ namespace GBC2017.Screens
 
             GameHasStarted = false;
             HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+            WindManager.Initialize(CurrentLevel.City, currentLevelDateTime);
+            WaterManager.Initialize(CurrentLevel.City);
 
             CreateNotificationPool();
         }
@@ -317,7 +319,7 @@ namespace GBC2017.Screens
 
                 HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
 
-                WindManager.Update();
+                WindManager.Update(currentLevelDateTime);
                 SunlightManager.UpdateConditions();
 
                 EnemyStatusActivity();
@@ -480,6 +482,7 @@ namespace GBC2017.Screens
 	            if (!PlayAreaPolygon.CollideAgainst(enemy.CircleInstance))
 	            {
 	                enemy.Destroy();
+	                enemy = null;
 	            }
 	            else
 	            {
