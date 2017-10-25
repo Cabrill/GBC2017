@@ -8,6 +8,7 @@ using GBC2017.Entities.BaseEntities;
 using GBC2017.GameClasses.BaseClasses;
 using GBC2017.GameClasses.Cities;
 using GBC2017.GameClasses.Interfaces;
+using GBC2017.GumRuntimes;
 
 namespace GBC2017.GameClasses.Levels
 {
@@ -19,7 +20,7 @@ namespace GBC2017.GameClasses.Levels
         public override float AvgDailyEnergyUsage => 3.45f;
         public override float WaterFlowRate => 5f;
 
-        public HelsinkiLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies) : base(enemyList, layerForEnemies)
+        public HelsinkiLevel(FlatRedBall.Math.PositionedObjectList<BaseEnemy> enemyList, Layer layerForEnemies, List<AlienShipRuntime> alienShips) : base(enemyList, layerForEnemies, alienShips)
         {
             
         }

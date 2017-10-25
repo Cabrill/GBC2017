@@ -4,6 +4,30 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>FlyLeftState</Type>
+      <Name>AlienShipInstance1.FlyLeftState</Name>
+      <Value xsi:type="xsd:string">FlyLeft5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>AlienShipInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>FlyRight</Type>
+      <Name>AlienShipInstance2.FlyRightState</Name>
+      <Value xsi:type="xsd:string">FlyRight5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>AlienShipInstance2.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>EndGameDisplayInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -67,6 +91,14 @@
   <Instance>
     <Name>HorizonBoxInstance</Name>
     <BaseType>HorizonBox</BaseType>
+  </Instance>
+  <Instance>
+    <Name>AlienShipInstance1</Name>
+    <BaseType>AlienShip</BaseType>
+  </Instance>
+  <Instance>
+    <Name>AlienShipInstance2</Name>
+    <BaseType>AlienShip</BaseType>
   </Instance>
   <Instance>
     <Name>InfoBarInstance</Name>

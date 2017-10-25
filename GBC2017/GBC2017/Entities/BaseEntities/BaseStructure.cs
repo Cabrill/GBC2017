@@ -205,8 +205,8 @@ namespace GBC2017.Entities.BaseEntities
         {
             SpriteInstance.TextureScale = _startingScale * _currentScale;
 
-            AxisAlignedRectangleInstance.ScaleX = _startingRectangleScaleX * _currentScale;
-            AxisAlignedRectangleInstance.ScaleY = _startingRectangleScaleY * _currentScale;
+            AxisAlignedRectangleInstance.ScaleX = Math.Max(0, _startingRectangleScaleX * _currentScale);
+            AxisAlignedRectangleInstance.ScaleY = Math.Max(0, _startingRectangleScaleY * _currentScale);
 
             AxisAlignedRectangleInstance.RelativeY = AxisAlignedRectangleInstance.Height / 2;
 

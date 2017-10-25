@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
+using GBC2017.GameClasses.Interfaces;
+using GBC2017.Performance;
 
 namespace GBC2017.GumRuntimes
 {
-    public partial class BuildButtonRuntime
+    public partial class BuildButtonRuntime : IBuildButton
     {
-        public void UpdateFromStructure(BaseStructure structure)
+        public IEntityFactory BuildingFactory { get; private set; }
+        public Type BuildingType { get; private set; }
+        public bool IsEnabled => Enabled;
+
+        public void UpdateFromStructure(BaseStructure structure, IEntityFactory factory)
         {
+            BuildingFactory = factory;
+            BuildingType = structure.GetType();
+
             EnergyCost = structure.EnergyBuildCost.ToString();
             MineralsCost = structure.MineralsBuildCost.ToString();
             StructureSprite.SourceFile = structure.SpriteInstance.Texture;

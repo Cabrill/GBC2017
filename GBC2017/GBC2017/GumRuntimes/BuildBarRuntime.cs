@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FlatRedBall.Graphics.Texture;
+using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures.Combat;
 using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
+using GBC2017.Performance;
 
 namespace GBC2017.GumRuntimes
 {
     public partial class BuildBarRuntime
     {
-        public void UpdateButton(BaseStructure structure)
+        public void UpdateButton(BaseStructure structure, IEntityFactory factory)
         {
             BuildButtonRuntime button = null;
             switch (structure)
@@ -46,8 +48,7 @@ namespace GBC2017.GumRuntimes
                     button = ShieldGeneratorButton;
                     break;
             }
-
-            button?.UpdateFromStructure(structure);
+            button?.UpdateFromStructure(structure, factory);
         }
 
 

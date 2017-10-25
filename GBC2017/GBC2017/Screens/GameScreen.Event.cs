@@ -17,6 +17,8 @@ using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.Screens;
+using Microsoft.Xna.Framework.Media;
+
 namespace GBC2017.Screens
 {
     public partial class GameScreen
@@ -25,7 +27,31 @@ namespace GBC2017.Screens
         {
             StartButtonInstance.Visible = false;
             GameHasStarted = true;
-            AudioManager.PlaySong(anttisinstrumentals_hjappiermjusic, true, true);
+            UpdateMusic();
+        }
+
+        void UpdateMusic()
+        {
+            if (!GameHasStarted || AudioManager.CurrentlyPlayingSong != null) return;
+
+            Song songToPlay = null;
+
+            var randomChoice = FlatRedBallServices.Random.NextDouble();
+
+            if (randomChoice < 0.33)
+            {
+                songToPlay = anttisinstrumentals_einszweidreiviolins;
+            }
+            else if (randomChoice < 0.66)
+            {
+                songToPlay = anttisinstrumentals_harmorsongakaintheyear2000instrumental;
+            }
+            else
+            {
+                songToPlay = anttisinstrumentals_hjappiermjusic;
+            }
+
+            AudioManager.PlaySong(songToPlay, true, true);
         }
     }
 }

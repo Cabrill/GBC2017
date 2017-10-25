@@ -220,6 +220,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameClasses\Cities\Brisbane.cs" />
     <Compile Include="GameClasses\Cities\Helsinki.cs" />
+    <Compile Include="GameClasses\Interfaces\IBuildButton.cs" />
     <Compile Include="GameClasses\Interfaces\ICity.cs" />
     <Compile Include="GameClasses\Levels\HelsinkiLevel.cs" />
     <Compile Include="GameClasses\SunTimes.cs" />
@@ -314,6 +315,10 @@
     <Compile Include="GumCore\VariableListSave.cs" />
     <Compile Include="GumCore\VariableSave.cs" />
     <Compile Include="GumCore\VariableSaveExtensionMethods.cs" />
+    <Compile Include="GumRuntimes\AlienShipRuntime.cs" />
+    <Compile Include="GumRuntimes\AlienShipRuntime.Generated.cs">
+      <DependentUpon>AlienShipRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\BuildBarRuntime.cs" />
     <Compile Include="GumRuntimes\BuildBarRuntime.Generated.cs">
       <DependentUpon>BuildBarRuntime.cs</DependentUpon>
@@ -600,6 +605,11 @@
       <Name>Structure_Placed</Name>
       <Link>content\entities\structures\structure_placed.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\incoming_ship.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Incoming_Ship</Name>
+      <Link>content\globalcontent\incoming_ship.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font18arial_0.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
@@ -684,6 +694,36 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>helsinki_water</Name>
       <Link>content\screens\gamescreen\levels\helsinki_water.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals+einszweidreiviolins</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals+einszweidreiviolins</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_einszweidreiviolins</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_einszweidreiviolins</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_harmorsongakaintheyear2000instrumental</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.ogg</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>anttisinstrumentals_harmorsongakaintheyear2000instrumental</Name>
+      <Link>content\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -786,6 +826,10 @@
     <None Include="content\globalcontent\font50moireextrabold.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50MoireExtraBold</Name>
+    </None>
+    <None Include="content\gumproject\components\alienship.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AlienShip</Name>
     </None>
     <None Include="content\gumproject\components\buildbar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

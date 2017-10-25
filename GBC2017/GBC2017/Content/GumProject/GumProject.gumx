@@ -25,6 +25,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
+    <Name>AlienShip</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>BuildBar</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

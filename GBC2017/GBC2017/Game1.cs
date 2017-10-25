@@ -8,7 +8,7 @@ using FlatRedBall.Screens;
 using Microsoft.Xna.Framework;
 
 using System.Linq;
-
+using FlatRedBall.Debugging;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -59,6 +59,7 @@ namespace GBC2017
 			GlobalContent.Initialize();
 			FlatRedBall.Screens.ScreenManager.Start(typeof(GBC2017.Screens.LoadingScreen));
             global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug = true;
+            Debugger.AutomaticDebuggingBehavior.PrintCursorWindowPushed = true;
             base.Initialize();
         }
 

@@ -472,6 +472,9 @@
     <Compile Include="..\..\GBC2017\GameClasses\InsolationFormulas.cs">
       <Link>GameClasses\InsolationFormulas.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GameClasses\Interfaces\IBuildButton.cs">
+      <Link>GameClasses\Interfaces\IBuildButton.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GameClasses\Interfaces\ICity.cs">
       <Link>GameClasses\Interfaces\ICity.cs</Link>
     </Compile>
@@ -729,6 +732,13 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumCore\VariableSaveExtensionMethods.cs">
       <Link>GumCore\VariableSaveExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\AlienShipRuntime.cs">
+      <Link>GumRuntimes\AlienShipRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\AlienShipRuntime.Generated.cs">
+      <Link>GumRuntimes\AlienShipRuntime.Generated.cs</Link>
+      <DependentUpon>AlienShipRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\BuildBarRuntime.cs">
       <Link>GumRuntimes\BuildBarRuntime.cs</Link>
@@ -1111,9 +1121,45 @@
       <Name>Building_Destroyed</Name>
       <Link>Assets\content\entities\structures\building_destroyed.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\globalcontent\incoming_ship.xnb">
+      <Name>Incoming_Ship</Name>
+      <Link>Assets\content\globalcontent\incoming_ship.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font18arial_0.xnb">
       <Name>Font18Arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a">
+      <Name>anttisinstrumentals+einszweidreiviolins</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb">
+      <Name>anttisinstrumentals+einszweidreiviolins</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a">
+      <Name>anttisinstrumentals_einszweidreiviolins</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.xnb">
+      <Name>anttisinstrumentals_einszweidreiviolins</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.m4a">
+      <Name>anttisinstrumentals_harmorsongakaintheyear2000instrumental</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.xnb">
+      <Name>anttisinstrumentals_harmorsongakaintheyear2000instrumental</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_harmorsongakaintheyear2000instrumental.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
+      <Name>anttisinstrumentals_hjappiermjusic</Name>
+      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\defeat_sound.xnb">
       <Name>defeat_sound</Name>
@@ -1126,6 +1172,10 @@
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\winlose.xnb">
       <Name>WinLose</Name>
       <Link>Assets\content\screens\gamescreen\winlose.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\alienship.gucx">
+      <Name>alienship</Name>
+      <Link>Assets\content\gumproject\components\alienship.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>
@@ -1300,14 +1350,6 @@
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\levels\helsinki_water.xnb">
       <Name>helsinki_water</Name>
       <Link>Assets\content\screens\gamescreen\levels\helsinki_water.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a">
-      <Name>anttisinstrumentals_hjappiermjusic</Name>
-      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.m4a</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
-      <Name>anttisinstrumentals_hjappiermjusic</Name>
-      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\starry_sky.xnb">
       <Name>starry_sky</Name>

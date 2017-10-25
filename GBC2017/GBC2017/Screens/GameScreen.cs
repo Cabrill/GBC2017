@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Reflection;
 using FlatRedBall;
 using FlatRedBall.Input;
 using FlatRedBall.Instructions;
@@ -26,8 +27,10 @@ using GBC2017.GameClasses.BaseClasses;
 using GBC2017.GameClasses.Cities;
 using GBC2017.GameClasses.Levels;
 using GBC2017.GumRuntimes;
+using GBC2017.Performance;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
+using GBC2017.SunMoonCalculations;
 using Gum.Converters;
 using Gum.DataTypes;
 using Microsoft.Xna.Framework;
@@ -76,7 +79,7 @@ namespace GBC2017.Screens
             resourceIncreaseNotificationList = new List<ResourceIncreaseNotificationRuntime>();
 
             //TODO:  Set these values by loading a level
-            CurrentLevel = new HelsinkiLevel(AllEnemiesList, WorldLayer);
+            CurrentLevel = new HelsinkiLevel(AllEnemiesList, WorldLayer, new List<AlienShipRuntime>() {AlienShipInstance1, AlienShipInstance2});
             currentLevelDateTime = CurrentLevel.StartTime;
             InsolationFormulas.Instance.SetCityAndDate(CurrentLevel.City, currentLevelDateTime);
 
@@ -106,9 +109,7 @@ namespace GBC2017.Screens
 
             CreateNotificationPool();
         }
-
-
-
+        
         private void InitializeShaders()
         {
             WorldLayer.RenderTarget = WorldRenderTarget;
@@ -300,14 +301,14 @@ namespace GBC2017.Screens
             HandleDebugInput();
             ShowDebugInfo();
 #endif
-
+            UpdateMusic();
             UpdateGameModeActivity();
 
             HandleTouchActivity();
             SelectedItemActivity();
             BuildingStatusActivity();
 
-
+            
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
@@ -598,10 +599,10 @@ namespace GBC2017.Screens
             }
 	        else
 	        {
-	            var newLocationIsValid = AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
+	            var newLocationIsValid = PlayAreaPolygon.IsPointInside(ref newStructure.Position) && AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
 	                                                                             !otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance));
 
-	            if (newLocationIsValid)
+                if (newLocationIsValid)
 	            {
 	                if (AllEnemiesList.Any(enemy => enemy.CircleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance)))
 	                {
@@ -692,6 +693,13 @@ namespace GBC2017.Screens
                 }
             }
 
+	        //User clicked a building button
+	        if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.WindowPushed != null)
+	        {
+	            HandleBuildingButton();
+	        }
+
+
             //User just clicked/touched somewhere, and nothing is currently selected
             if ((GuiManager.Cursor.PrimaryClick || GuiManager.Cursor.PrimaryDown) &&
 	            GuiManager.Cursor.ObjectGrabbed == null && GuiManager.Cursor.WindowOver == null)
@@ -710,7 +718,6 @@ namespace GBC2017.Screens
                     //Remove the current selection if the user clicks off of it
 	                if (selectedObject != null && !(selectedObject as IClickable).HasCursorOver(GuiManager.Cursor))
 	                {
-                        
                         selectedObject = null;
 	                }
 
@@ -745,14 +752,14 @@ namespace GBC2017.Screens
 	        }
 	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
-	            var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-	            var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced && PlayAreaPolygon.IsMouseOver(GuiManager.Cursor, WorldLayer);
+                var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
+                var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
 
-	            if (shouldAllowDrag)
-	            {
-	                GuiManager.Cursor.UpdateObjectGrabbedPosition();
-	            }
-	        }
+                if (shouldAllowDrag)
+                {
+                    GuiManager.Cursor.UpdateObjectGrabbedPosition();
+                }
+            }
 	        else if (!GuiManager.Cursor.PrimaryDown)
 	        {
 	            GuiManager.Cursor.ObjectGrabbed = null;
@@ -811,5 +818,6 @@ namespace GBC2017.Screens
 
         }
 
-	}
+        
+    }
 }
