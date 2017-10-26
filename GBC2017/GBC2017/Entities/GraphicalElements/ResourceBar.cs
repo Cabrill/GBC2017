@@ -41,9 +41,9 @@ namespace GBC2017.Entities.GraphicalElements
 
 	    public void SetRelativeY(float relativeY)
 	    {
-	        BackgroundSprite.RelativeY = relativeY;
-	        FrameSprite.RelativeY = relativeY;
-	        BarSprite.RelativeY = relativeY;
+	        BackgroundSprite.RelativeY = relativeY + Height;
+	        FrameSprite.RelativeY = relativeY + Height;
+	        BarSprite.RelativeY = relativeY + Height;
         }
 
 	    public void Update(float newPct)

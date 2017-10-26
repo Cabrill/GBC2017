@@ -45,7 +45,15 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>coloredbars/NewResourceBar</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>coloredbars/ResourceBar</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>CustomNineSlice</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -61,7 +69,7 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>infodisplays/ConditionsDisplay</Name>
+    <Name>infodisplays/ConditionsForecast</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -70,6 +78,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>infodisplays/EnergyDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>infodisplays/HourlyForecast</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
@@ -85,18 +97,6 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>infodisplays/SunlightCondition</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>infodisplays/WaterCondition</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
-    <Name>infodisplays/WindCondition</Name>
-    <ElementType>Component</ElementType>
-  </ComponentReference>
-  <ComponentReference>
     <Name>specificbuttons/DestroyButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -109,11 +109,19 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>specificbuttons/StartGameButton</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/SwitchOnOff</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
     <Name>TechnologyTree</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>WhiteFrameNineSlice</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

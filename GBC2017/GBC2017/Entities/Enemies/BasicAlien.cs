@@ -37,8 +37,7 @@ namespace GBC2017.Entities.Enemies
 	    protected override BaseEnemyProjectile CreateProjectile()
 	    {
 	        var newProjectile = RangedEnemyProjectileFactory.CreateNew(LayerProvidedByContainer);
-	        newProjectile.Altitude = 30f;
-	        newProjectile.AltitudeVelocity = 1f;
+	        newProjectile.Altitude = 85f;
 	        newProjectile.GravityDrag = -25f;
 	        return newProjectile;
 	    }

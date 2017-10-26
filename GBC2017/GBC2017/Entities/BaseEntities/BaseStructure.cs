@@ -101,7 +101,7 @@ namespace GBC2017.Entities.BaseEntities
 
             if (HasInternalBattery)
             {
-                EnergyBar.SetRelativeY(SpriteInstance.Height);
+                EnergyBar.SetRelativeY(SpriteInstance.Height/2);
                 EnergyBar.SetWidth(SpriteInstance.Width);
                 EnergyBar.Hide();
             }
@@ -110,7 +110,7 @@ namespace GBC2017.Entities.BaseEntities
                 EnergyBar.Hide();
             }
 
-            HealthBar.SetRelativeY(SpriteInstance.Height);
+            HealthBar.SetRelativeY(SpriteInstance.Height/2);
             HealthBar.SetWidth(SpriteInstance.Width);
             HealthBar.Hide();
 
@@ -219,8 +219,8 @@ namespace GBC2017.Entities.BaseEntities
             HealthBar.SetWidth(SpriteInstance.Width);
             EnergyBar.SetWidth(SpriteInstance.Width);
 
-            HealthBar.SetRelativeY(SpriteInstance.Height*0.75f);
-            EnergyBar.SetRelativeY(SpriteInstance.Height * 0.75f + HealthBar.Height*2);
+            HealthBar.SetRelativeY(SpriteInstance.Height/2);
+            EnergyBar.SetRelativeY(SpriteInstance.Height/2 + HealthBar.Height);
         }
 
         protected void UpdateAnimation()

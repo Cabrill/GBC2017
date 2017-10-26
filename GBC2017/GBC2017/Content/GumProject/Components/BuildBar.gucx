@@ -25,7 +25,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BatteryButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -90,13 +90,13 @@
     <Variable>
       <Type>float</Type>
       <Name>CarbonTreeButton.Width</Name>
-      <Value xsi:type="xsd:float">7.43906</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>CarbonTreeButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -107,56 +107,8 @@
     </Variable>
     <Variable>
       <Type>ChildrenLayout</Type>
-      <Name>CategoryButtons.Children Layout</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>CategoryButtons.Height</Name>
-      <Value xsi:type="xsd:float">25</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>CategoryButtons.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>CategoryButtons.Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>CategoryButtons.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>CategoryButtons.Wraps Children</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>CategoryButtons.Y</Name>
-      <Value xsi:type="xsd:float">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>CategoryButtons.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>ChildrenLayout</Type>
       <Name>Children Layout</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -180,7 +132,7 @@
     <Variable>
       <Type>float</Type>
       <Name>CombatButtons.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">30</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -192,13 +144,13 @@
     <Variable>
       <Type>bool</Type>
       <Name>CombatButtons.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>CombatButtons.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -214,9 +166,15 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>CombatStructureButton.ButtonText</Name>
-      <Value xsi:type="xsd:string">Combat</Value>
+      <Type>float</Type>
+      <Name>CombatButtons.X</Name>
+      <Value xsi:type="xsd:float">1690</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CombatButtons.Y</Name>
+      <Value xsi:type="xsd:float">303</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -226,39 +184,45 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>CombatStructureButton.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>CombatStructureButton.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HighlightedState</Type>
-      <Name>CombatStructureButton.HighlightedState</Name>
-      <Value xsi:type="xsd:string">False</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>CombatStructureButton.Parent</Name>
-      <Value xsi:type="xsd:string">CategoryButtons</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>CombatStructureButton.Width</Name>
-      <Value xsi:type="xsd:float">31.8333</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>CombatStructureButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">87.83141</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>CombatStructureButton.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>CombatStructureButton.Y</Name>
+      <Value xsi:type="xsd:float">53.0440331</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>CombatStructureButton.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -276,7 +240,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyButtons.Height</Name>
-      <Value xsi:type="xsd:float">69</Value>
+      <Value xsi:type="xsd:float">30</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -288,7 +252,7 @@
     <Variable>
       <Type>float</Type>
       <Name>EnergyButtons.Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -304,9 +268,27 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>EnergyStructureButton.ButtonText</Name>
-      <Value xsi:type="xsd:string">Energy</Value>
+      <Type>float</Type>
+      <Name>EnergyButtons.X</Name>
+      <Value xsi:type="xsd:float">13.163353</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyButtons.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyButtons.Y</Name>
+      <Value xsi:type="xsd:float">51.3888969</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyButtons.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -316,39 +298,45 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>EnergyStructureButton.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>EnergyStructureButton.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HighlightedState</Type>
-      <Name>EnergyStructureButton.HighlightedState</Name>
-      <Value xsi:type="xsd:string">True</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>EnergyStructureButton.Parent</Name>
-      <Value xsi:type="xsd:string">CategoryButtons</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyStructureButton.Width</Name>
-      <Value xsi:type="xsd:float">31.8333</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyStructureButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">2.84327579</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>EnergyStructureButton.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>EnergyStructureButton.Y</Name>
+      <Value xsi:type="xsd:float">50.63406</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>EnergyStructureButton.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -374,7 +362,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">23</Value>
+      <Value xsi:type="xsd:float">40</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -412,7 +400,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HydroButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -471,7 +459,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ShieldGeneratorButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -507,7 +495,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SolarButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -566,7 +554,7 @@
     <Variable>
       <Type>float</Type>
       <Name>UtilityButtons.Height</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">30</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -578,13 +566,13 @@
     <Variable>
       <Type>bool</Type>
       <Name>UtilityButtons.Visible</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>UtilityButtons.Width</Name>
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -600,9 +588,27 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>UtilityStructureButton.ButtonText</Name>
-      <Value xsi:type="xsd:string">Utility</Value>
+      <Type>float</Type>
+      <Name>UtilityButtons.X</Name>
+      <Value xsi:type="xsd:float">8.923834</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>UtilityButtons.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>UtilityButtons.Y</Name>
+      <Value xsi:type="xsd:float">10.2600355</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>UtilityButtons.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -612,39 +618,45 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>UtilityStructureButton.ExposeChildrenEvents</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>UtilityStructureButton.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HighlightedState</Type>
-      <Name>UtilityStructureButton.HighlightedState</Name>
-      <Value xsi:type="xsd:string">False</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>UtilityStructureButton.Parent</Name>
-      <Value xsi:type="xsd:string">CategoryButtons</Value>
+      <Value xsi:type="xsd:float">35</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>UtilityStructureButton.Width</Name>
-      <Value xsi:type="xsd:float">31.8333</Value>
+      <Value xsi:type="xsd:float">8.607957</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>UtilityStructureButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.2367424</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>UtilityStructureButton.X Units</Name>
       <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>UtilityStructureButton.Y</Name>
+      <Value xsi:type="xsd:float">10.5218906</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>UtilityStructureButton.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -700,7 +712,7 @@
     <Variable>
       <Type>float</Type>
       <Name>WindButton.X</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -761,33 +773,15 @@
     <State>
       <Name>BuildEnergy</Name>
       <Variable>
-        <Type>float</Type>
-        <Name>CategoryButtons.Height</Name>
-        <Value xsi:type="xsd:float">25</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CombatButtons.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Height</Name>
-        <Value xsi:type="xsd:float">69</Value>
+        <Type>HighlightedState</Type>
+        <Name>CombatStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -797,15 +791,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Width</Name>
-        <Value xsi:type="xsd:float">100</Value>
+        <Type>HighlightedState</Type>
+        <Name>EnergyStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">True</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>bool</Type>
+        <Name>EnergyStructureButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -815,42 +809,24 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>UtilityStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>BuildCombat</Name>
       <Variable>
-        <Type>float</Type>
-        <Name>CategoryButtons.Height</Name>
-        <Value xsi:type="xsd:float">25</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Height</Name>
-        <Value xsi:type="xsd:float">69</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CombatButtons.Visible</Name>
         <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Width</Name>
-        <Value xsi:type="xsd:float">100</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>CombatStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">True</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -860,15 +836,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>EnergyStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>bool</Type>
+        <Name>EnergyStructureButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -878,42 +854,24 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>UtilityStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>BuildUtility</Name>
       <Variable>
-        <Type>float</Type>
-        <Name>CategoryButtons.Height</Name>
-        <Value xsi:type="xsd:float">25</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
         <Type>bool</Type>
         <Name>CombatButtons.Visible</Name>
         <Value xsi:type="xsd:boolean">false</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>CombatStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -923,15 +881,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>EnergyStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Height</Name>
-        <Value xsi:type="xsd:float">69</Value>
+        <Type>bool</Type>
+        <Name>EnergyStructureButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -941,26 +899,14 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Width</Name>
-        <Value xsi:type="xsd:float">100</Value>
+        <Type>HighlightedState</Type>
+        <Name>UtilityStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">True</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
     <State>
       <Name>None</Name>
-      <Variable>
-        <Type>float</Type>
-        <Name>CategoryButtons.Height</Name>
-        <Value xsi:type="xsd:float">25</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
       <Variable>
         <Type>bool</Type>
         <Name>CombatButtons.Visible</Name>
@@ -968,15 +914,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>CombatButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
-        <SetsValue>true</SetsValue>
-      </Variable>
-      <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Height</Name>
-        <Value xsi:type="xsd:float">69</Value>
+        <Type>HighlightedState</Type>
+        <Name>CombatStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -986,15 +926,15 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>EnergyButtons.Width</Name>
-        <Value xsi:type="xsd:float">100</Value>
+        <Type>HighlightedState</Type>
+        <Name>EnergyStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Height</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>bool</Type>
+        <Name>EnergyStructureButton.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
@@ -1004,9 +944,9 @@
         <SetsValue>true</SetsValue>
       </Variable>
       <Variable>
-        <Type>float</Type>
-        <Name>UtilityButtons.Width</Name>
-        <Value xsi:type="xsd:float">0</Value>
+        <Type>HighlightedState</Type>
+        <Name>UtilityStructureButton.HighlightedState</Name>
+        <Value xsi:type="xsd:string">False</Value>
         <SetsValue>true</SetsValue>
       </Variable>
     </State>
@@ -1021,22 +961,6 @@
   </Instance>
   <Instance>
     <Name>UtilityButtons</Name>
-    <BaseType>Container</BaseType>
-  </Instance>
-  <Instance>
-    <Name>EnergyStructureButton</Name>
-    <BaseType>CategoryButton</BaseType>
-  </Instance>
-  <Instance>
-    <Name>CombatStructureButton</Name>
-    <BaseType>CategoryButton</BaseType>
-  </Instance>
-  <Instance>
-    <Name>UtilityStructureButton</Name>
-    <BaseType>CategoryButton</BaseType>
-  </Instance>
-  <Instance>
-    <Name>CategoryButtons</Name>
     <BaseType>Container</BaseType>
   </Instance>
   <Instance>
@@ -1074,6 +998,18 @@
   <Instance>
     <Name>TallLaserButton</Name>
     <BaseType>BuildButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>UtilityStructureButton</Name>
+    <BaseType>CategoryButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>CombatStructureButton</Name>
+    <BaseType>CategoryButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>EnergyStructureButton</Name>
+    <BaseType>CategoryButton</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

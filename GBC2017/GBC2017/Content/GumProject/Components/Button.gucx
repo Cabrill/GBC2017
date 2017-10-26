@@ -63,6 +63,13 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>NineSliceInstance.SourceFile</Name>
+      <Value xsi:type="xsd:string">Standards/StandardGraphics/Red_BottomCenter.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>NineSliceInstance.Width</Name>
       <Value xsi:type="xsd:float">100</Value>
@@ -160,7 +167,7 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance.Text</Name>
-      <Value xsi:type="xsd:string">Menu</Value>
+      <Value xsi:type="xsd:string" />
       <ExposedAsName>ButtonText</ExposedAsName>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -266,6 +273,13 @@
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
     <Name>NineSliceInstance</Name>

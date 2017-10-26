@@ -17,51 +17,27 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>bool</Type>
-      <Name>ConditionsDisplayInstance.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ConditionsDisplayInstance.Parent</Name>
-      <Value xsi:type="xsd:string">HUDContainer</Value>
+      <Type>float</Type>
+      <Name>ConditionsForecastInstance.Height</Name>
+      <Value xsi:type="xsd:float">165</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ConditionsDisplayInstance.Width</Name>
-      <Value xsi:type="xsd:float">18</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>ConditionsDisplayInstance.X</Name>
-      <Value xsi:type="xsd:float">3</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>EnergyDisplayInstance.ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>EnergyDisplayInstance.Parent</Name>
-      <Value xsi:type="xsd:string">HUDContainer</Value>
+      <Name>ConditionsForecastInstance.Width</Name>
+      <Value xsi:type="xsd:float">40</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyDisplayInstance.Width</Name>
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">33</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>EnergyDisplayInstance.X</Name>
-      <Value xsi:type="xsd:float">21</Value>
+      <Value xsi:type="xsd:float">2.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -93,7 +69,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">9</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -105,69 +81,27 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>ChildrenLayout</Type>
-      <Name>HUDContainer.Children Layout</Name>
-      <Value xsi:type="xsd:int">2</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>HUDContainer.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>HUDContainer.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>HUDContainer.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>HUDContainer.Width</Name>
-      <Value xsi:type="xsd:float">94</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>HUDContainer.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>MineralsDisplayInstance.ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>MineralsDisplayInstance.HasEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>MineralsDisplayInstance.Parent</Name>
-      <Value xsi:type="xsd:string">HUDContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
       <Name>MineralsDisplayInstance.Width</Name>
-      <Value xsi:type="xsd:float">35</Value>
+      <Value xsi:type="xsd:float">12.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>MineralsDisplayInstance.X</Name>
-      <Value xsi:type="xsd:float">-5</Value>
+      <Value xsi:type="xsd:float">-1.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MineralsDisplayInstance.Y</Name>
+      <Value xsi:type="xsd:float">10</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>MineralsDisplayInstance.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -196,7 +130,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SettingsButtonInstance.X</Name>
-      <Value xsi:type="xsd:float">-2</Value>
+      <Value xsi:type="xsd:float">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -329,20 +263,16 @@
     </State>
   </Category>
   <Instance>
-    <Name>ConditionsDisplayInstance</Name>
-    <BaseType>infodisplays/ConditionsDisplay</BaseType>
-  </Instance>
-  <Instance>
-    <Name>EnergyDisplayInstance</Name>
-    <BaseType>infodisplays/EnergyDisplay</BaseType>
+    <Name>ConditionsForecastInstance</Name>
+    <BaseType>infodisplays/ConditionsForecast</BaseType>
   </Instance>
   <Instance>
     <Name>MineralsDisplayInstance</Name>
     <BaseType>infodisplays/MineralsDisplay</BaseType>
   </Instance>
   <Instance>
-    <Name>HUDContainer</Name>
-    <BaseType>Container</BaseType>
+    <Name>EnergyDisplayInstance</Name>
+    <BaseType>infodisplays/EnergyDisplay</BaseType>
   </Instance>
   <Instance>
     <Name>SettingsButtonInstance</Name>

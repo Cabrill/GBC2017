@@ -763,6 +763,13 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\CircleRuntime.Generated.cs">
       <Link>GumRuntimes\CircleRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\coloredbars\NewResourceBarRuntime.cs">
+      <Link>GumRuntimes\coloredbars\NewResourceBarRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\coloredbars\NewResourceBarRuntime.Generated.cs">
+      <Link>GumRuntimes\coloredbars\NewResourceBarRuntime.Generated.cs</Link>
+      <DependentUpon>NewResourceBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\coloredbars\ResourceBarRuntime.cs">
       <Link>GumRuntimes\coloredbars\ResourceBarRuntime.cs</Link>
     </Compile>
@@ -778,6 +785,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\CustomNineSliceRuntime.Generated.cs">
+      <Link>GumRuntimes\CustomNineSliceRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\EndGameDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\EndGameDisplayRuntime.Generated.cs</Link>
@@ -808,6 +818,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnemyInfoRuntime.cs">
       <Link>GumRuntimes\infodisplays\EnemyInfoRuntime.cs</Link>
     </Compile>
@@ -821,6 +834,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs</Link>
       <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsDisplayRuntime.cs">
       <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.cs</Link>
@@ -888,6 +904,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs">
       <Link>GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs">
+      <Link>GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs">
       <Link>GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs</Link>
     </Compile>
@@ -902,6 +921,9 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\VictoryDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\VictoryDisplayRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs">
+      <Link>GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Performance\IEntityFactory.Generated.cs">
       <Link>Performance\IEntityFactory.Generated.cs</Link>
@@ -1133,6 +1155,50 @@
       <Name>Font18Arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
+      <Name>Font50Moire_ExtraBold_o2_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font50moire_extrabold_o2_0.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\message\message7.xnb">
+      <Name>message7</Name>
+      <Link>Assets\content\gumproject\message\message7.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message1.xnb">
+      <Name>message1</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message1.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message2.xnb">
+      <Name>message2</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message2.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message3.xnb">
+      <Name>message3</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message3.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message4.xnb">
+      <Name>message4</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message4.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message5.xnb">
+      <Name>message5</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message5.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message6.xnb">
+      <Name>message6</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message6.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message7.xnb">
+      <Name>message7</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message7.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message8.xnb">
+      <Name>message8</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message8.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\standards\standardgraphics\message9.xnb">
+      <Name>message9</Name>
+      <Link>Assets\content\gumproject\standards\standardgraphics\message9.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a">
       <Name>anttisinstrumentals+einszweidreiviolins</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a</Link>
@@ -1165,6 +1231,10 @@
       <Name>anttisinstrumentals_hjappiermjusic</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\new ui-13.xnb">
+      <Name>New UI-13</Name>
+      <Link>Assets\content\screens\gamescreen\new ui-13.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\defeat_sound.xnb">
       <Name>defeat_sound</Name>
       <Link>Assets\content\screens\gamescreen\sounds\defeat_sound.xnb</Link>
@@ -1172,6 +1242,10 @@
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\victory_sound.xnb">
       <Name>victory_sound</Name>
       <Link>Assets\content\screens\gamescreen\sounds\victory_sound.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\start_button.xnb">
+      <Name>start_button</Name>
+      <Link>Assets\content\screens\gamescreen\start_button.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\winlose.xnb">
       <Name>WinLose</Name>
@@ -1181,9 +1255,25 @@
       <Name>alienship</Name>
       <Link>Assets\content\gumproject\components\alienship.gucx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\coloredbars\newresourcebar.gucx">
+      <Name>newresourcebar</Name>
+      <Link>Assets\content\gumproject\components\coloredbars\newresourcebar.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\customnineslice.gucx">
+      <Name>customnineslice</Name>
+      <Link>Assets\content\gumproject\components\customnineslice.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>
       <Link>Assets\content\gumproject\components\endgamedisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\conditionsforecast.gucx">
+      <Name>conditionsforecast</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\conditionsforecast.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\hourlyforecast.gucx">
+      <Name>hourlyforecast</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\hourlyforecast.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\destroybutton.gucx">
       <Name>destroybutton</Name>
@@ -1193,9 +1283,17 @@
       <Name>repairbutton</Name>
       <Link>Assets\content\gumproject\components\specificbuttons\repairbutton.gucx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\startgamebutton.gucx">
+      <Name>startgamebutton</Name>
+      <Link>Assets\content\gumproject\components\specificbuttons\startgamebutton.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\switchonoff.gucx">
       <Name>switchonoff</Name>
       <Link>Assets\content\gumproject\components\specificbuttons\switchonoff.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\whiteframenineslice.gucx">
+      <Name>whiteframenineslice</Name>
+      <Link>Assets\content\gumproject\components\whiteframenineslice.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">
@@ -1451,10 +1549,6 @@
       <Name>infobar</Name>
       <Link>Assets\content\gumproject\components\infobar.gucx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\conditionsdisplay.gucx">
-      <Name>conditionsdisplay</Name>
-      <Link>Assets\content\gumproject\components\infodisplays\conditionsdisplay.gucx</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\enemyinfo.gucx">
       <Name>enemyinfo</Name>
       <Link>Assets\content\gumproject\components\infodisplays\enemyinfo.gucx</Link>
@@ -1474,18 +1568,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\structureinfo.gucx">
       <Name>structureinfo</Name>
       <Link>Assets\content\gumproject\components\infodisplays\structureinfo.gucx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\sunlightcondition.gucx">
-      <Name>sunlightcondition</Name>
-      <Link>Assets\content\gumproject\components\infodisplays\sunlightcondition.gucx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\watercondition.gucx">
-      <Name>watercondition</Name>
-      <Link>Assets\content\gumproject\components\infodisplays\watercondition.gucx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\windcondition.gucx">
-      <Name>windcondition</Name>
-      <Link>Assets\content\gumproject\components\infodisplays\windcondition.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\settingsbutton.gucx">
       <Name>settingsbutton</Name>

@@ -28,6 +28,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>BuildMenuState</Type>
+      <Name>BuildBarInstance.BuildMenuState</Name>
+      <Value xsi:type="xsd:string">BuildEnergy</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>bool</Type>
       <Name>EndGameDisplayInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
@@ -40,45 +46,21 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>StartButtonInstance.ButtonText</Name>
-      <Value xsi:type="xsd:string">Start Game</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>bool</Type>
-      <Name>StartButtonInstance.ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">false</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
-      <Name>StartButtonInstance.Height</Name>
-      <Value xsi:type="xsd:float">5</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>StartButtonInstance.X Origin</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>StartButtonInstance.X Units</Name>
-      <Value xsi:type="xsd:int">6</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>StartButtonInstance.Y</Name>
+      <Name>StartGameButtonInstance.Height</Name>
       <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>PositionUnitType</Type>
-      <Name>StartButtonInstance.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
+      <Type>float</Type>
+      <Name>StartGameButtonInstance.X</Name>
+      <Value xsi:type="xsd:float">962</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>StartGameButtonInstance.Y</Name>
+      <Value xsi:type="xsd:float">198</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -117,11 +99,11 @@
     <BaseType>infodisplays/EnemyInfo</BaseType>
   </Instance>
   <Instance>
-    <Name>StartButtonInstance</Name>
-    <BaseType>Button</BaseType>
-  </Instance>
-  <Instance>
     <Name>EndGameDisplayInstance</Name>
     <BaseType>EndGameDisplay</BaseType>
+  </Instance>
+  <Instance>
+    <Name>StartGameButtonInstance</Name>
+    <BaseType>specificbuttons/StartGameButton</BaseType>
   </Instance>
 </ScreenSave>
