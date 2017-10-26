@@ -10,6 +10,7 @@ using GBC2017.Entities.Structures.EnergyProducers;
 using GBC2017.Entities.Structures.Utility;
 using GBC2017.GameClasses.Interfaces;
 using GBC2017.Performance;
+using Gum.DataTypes;
 
 namespace GBC2017.GumRuntimes
 {
@@ -34,7 +35,21 @@ namespace GBC2017.GumRuntimes
             StructureSprite.TextureWidth = (int)textureWidth;
             StructureSprite.TextureLeft = (int)structure.SpriteInstance.LeftTexturePixel;
             StructureSprite.TextureTop = (int)structure.SpriteInstance.TopTexturePixel;
-            StructureSprite.Width = textureWidth / textureHeight * 100;
+
+            if (textureWidth > textureHeight)
+            {
+                StructureSprite.WidthUnits = DimensionUnitType.Percentage;
+                StructureSprite.HeightUnits = DimensionUnitType.PercentageOfOtherDimension;
+                StructureSprite.Width = 80;
+                StructureSprite.Height = textureHeight / textureWidth * 100;
+            }
+            else
+            {
+                StructureSprite.HeightUnits = DimensionUnitType.Percentage;
+                StructureSprite.WidthUnits = DimensionUnitType.PercentageOfOtherDimension;
+                StructureSprite.Height = 80;
+                StructureSprite.Width = textureWidth / textureHeight * 100;
+            }
         }
     }
 }

@@ -53,7 +53,7 @@
     <Variable>
       <Type>float</Type>
       <Name>NineSliceInstance.Height</Name>
-      <Value xsi:type="xsd:float">46.5677032</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -66,13 +66,13 @@
       <IsFile>true</IsFile>
       <Type>string</Type>
       <Name>NineSliceInstance.SourceFile</Name>
-      <Value xsi:type="xsd:string">Message/Message_Center.png</Value>
+      <Value xsi:type="xsd:string">Standards/StandardGraphics/Red_BottomCenter.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>NineSliceInstance.Width</Name>
-      <Value xsi:type="xsd:float">380.028625</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

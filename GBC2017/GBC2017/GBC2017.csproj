@@ -330,6 +330,10 @@
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CategoryButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\coloredbars\NewResourceBarRuntime.cs" />
+    <Compile Include="GumRuntimes\coloredbars\NewResourceBarRuntime.Generated.cs">
+      <DependentUpon>NewResourceBarRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.cs" />
     <Compile Include="GumRuntimes\coloredbars\ResourceBarRuntime.Generated.cs">
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
@@ -350,6 +354,7 @@
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
       <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
@@ -358,6 +363,7 @@
     <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
       <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs">
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
@@ -381,10 +387,12 @@
     <Compile Include="GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SettingsButtonRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\specificbuttons\StartGameButtonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\SwitchOnOffRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
@@ -806,6 +814,11 @@
       <Name>starry_sky</Name>
       <Link>content\screens\gamescreen\starry_sky.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\screens\gamescreen\start_button.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>start_button</Name>
+      <Link>content\screens\gamescreen\start_button.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\winlose.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WinLose</Name>
@@ -903,6 +916,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CategoryButton</Name>
     </None>
+    <None Include="content\gumproject\components\coloredbars\newresourcebar.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>NewResourceBar</Name>
+    </None>
     <None Include="content\gumproject\components\coloredbars\resourcebar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ResourceBar</Name>
@@ -923,9 +940,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>InfoBar</Name>
     </None>
-    <None Include="content\gumproject\components\infodisplays\conditionsdisplay.gucx">
+    <None Include="content\gumproject\components\infodisplays\conditionsforecast.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>ConditionsDisplay</Name>
+      <Name>ConditionsForecast</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\enemyinfo.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -934,6 +951,10 @@
     <None Include="content\gumproject\components\infodisplays\energydisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EnergyDisplay</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\hourlyforecast.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>HourlyForecast</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\mineralsdisplay.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -947,18 +968,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StructureInfo</Name>
     </None>
-    <None Include="content\gumproject\components\infodisplays\sunlightcondition.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>SunlightCondition</Name>
-    </None>
-    <None Include="content\gumproject\components\infodisplays\watercondition.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>WaterCondition</Name>
-    </None>
-    <None Include="content\gumproject\components\infodisplays\windcondition.gucx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>WindCondition</Name>
-    </None>
     <None Include="content\gumproject\components\specificbuttons\destroybutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>DestroyButton</Name>
@@ -971,6 +980,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SettingsButton</Name>
     </None>
+    <None Include="content\gumproject\components\specificbuttons\startgamebutton.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>StartGameButton</Name>
+    </None>
     <None Include="content\gumproject\components\specificbuttons\switchonoff.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SwitchOnOff</Name>
@@ -978,6 +991,10 @@
     <None Include="content\gumproject\components\technologytree.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TechnologyTree</Name>
+    </None>
+    <None Include="content\gumproject\components\whiteframenineslice.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WhiteFrameNineSlice</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

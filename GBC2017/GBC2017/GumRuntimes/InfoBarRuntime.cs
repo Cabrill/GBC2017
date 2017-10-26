@@ -14,10 +14,9 @@ namespace GBC2017.GumRuntimes
             UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease,
                 EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
 
-            UpdateMineralsDisplay(MineralsManager.MineralsIncrease, MineralsManager.MineralsDecrease,
-                MineralsManager.StoredMinerals, MineralsManager.MaxStorage);
+            UpdateMineralsDisplay(MineralsManager.StoredMinerals);
 
-            ConditionsDisplayInstance.Update();
+            //ConditionsDisplayInstance.Update();
         }
 
         private void UpdateEnergyDisplay(double energyIncrease, double energyDecrease, double currentStorage, double maxStorage)
@@ -25,9 +24,9 @@ namespace GBC2017.GumRuntimes
             EnergyDisplayInstance.UpdateDisplay(energyIncrease, energyDecrease, currentStorage, maxStorage);
         }
 
-        private void UpdateMineralsDisplay(double mineralsIncrease, double mineralsDecrease, double storedMinerals, double maxStorage)
+        private void UpdateMineralsDisplay(double storedMinerals)
         {
-            MineralsDisplayInstance.UpdateDisplay(mineralsIncrease, mineralsDecrease, storedMinerals, maxStorage);
+            MineralsDisplayInstance.UpdateDisplay(storedMinerals);
         }
 
         public void Reset()

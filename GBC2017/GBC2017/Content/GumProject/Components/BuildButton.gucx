@@ -199,6 +199,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>CostCircleSprite.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>DimensionUnitType</Type>
       <Name>CostCircleSprite.Width Units</Name>
       <Value xsi:type="xsd:int">5</Value>
@@ -246,7 +252,7 @@
     <Variable>
       <Type>bool</Type>
       <Name>ExposeChildrenEvents</Name>
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
       <Category>Behavior</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -296,7 +302,7 @@
     <Variable>
       <Type>float</Type>
       <Name>MineralCostContainer.Height</Name>
-      <Value xsi:type="xsd:float">45</Value>
+      <Value xsi:type="xsd:float">55</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -306,15 +312,9 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>MineralCostContainer.Parent</Name>
-      <Value xsi:type="xsd:string">BuildCostContainer</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>float</Type>
       <Name>MineralCostContainer.Width</Name>
-      <Value xsi:type="xsd:float">45</Value>
+      <Value xsi:type="xsd:float">55</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -512,31 +512,31 @@
     <Variable>
       <Type>HorizontalAlignment</Type>
       <Name>StructureSprite.X Origin</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>StructureSprite.X Units</Name>
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>StructureSprite.Y</Name>
-      <Value xsi:type="xsd:float">-5</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>VerticalAlignment</Type>
       <Name>StructureSprite.Y Origin</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>StructureSprite.Y Units</Name>
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">7</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

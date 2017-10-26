@@ -102,6 +102,8 @@ namespace GBC2017.Screens
 
             InitializeManagers();
 
+
+            StartButtonInstance.Click += OnStartButtonInstanceClick;
             GameHasStarted = false;
             HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
             WindManager.Initialize(CurrentLevel.City, currentLevelDateTime);
@@ -789,7 +791,7 @@ namespace GBC2017.Screens
             {
                 var notification = new ResourceIncreaseNotificationRuntime();
                 notification.AddToManagers();
-                notification.MoveToLayer(HUDLayerGum);
+                notification.MoveToFrbLayer(HUDLayer,GameScreenGum);
                 notification.Visible = false;
                 resourceIncreaseNotificationList.Add(notification);
             }

@@ -225,7 +225,8 @@ namespace GBC2017.Entities.BaseEntities
 	        else 
 	        {
                 HealthBar.Update(HealthRemaining/MaximumHealth);
-	        }
+	            HealthBar.SetRelativeY(SpriteInstance.Height/2 + Altitude);
+            }
         }
 
         public void GetHitBy(BasePlayerProjectile projectile)
