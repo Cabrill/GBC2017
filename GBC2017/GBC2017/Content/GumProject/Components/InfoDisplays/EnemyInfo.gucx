@@ -5,54 +5,6 @@
   <State>
     <Name>Default</Name>
     <Variable>
-      <Type>int</Type>
-      <Name>BackgroundRectangle.Alpha</Name>
-      <Value xsi:type="xsd:int">175</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BackgroundRectangle.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BackgroundRectangle.Green</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BackgroundRectangle.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BackgroundRectangle.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>int</Type>
-      <Name>BackgroundRectangle.Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>float</Type>
-      <Name>BackgroundRectangle.Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>DimensionUnitType</Type>
-      <Name>BackgroundRectangle.Width Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>string</Type>
       <Name>BuildBarInstance.Parent</Name>
       <Value xsi:type="xsd:string">BackgroundRectangle</Value>
@@ -530,6 +482,18 @@
     </Variable>
     <Variable>
       <Type>float</Type>
+      <Name>MessageBoxInstance.Height</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>MessageBoxInstance.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
       <Name>NameContainer.Height</Name>
       <Value xsi:type="xsd:float">20</Value>
       <SetsValue>true</SetsValue>
@@ -906,7 +870,7 @@
     <Variable>
       <Type>string</Type>
       <Name>StatsContainer.Parent</Name>
-      <Value xsi:type="xsd:string">BackgroundRectangle</Value>
+      <Value xsi:type="xsd:string">MessageBoxInstance</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -1068,10 +1032,6 @@
     </State>
   </Category>
   <Instance>
-    <Name>BackgroundRectangle</Name>
-    <BaseType>ColoredRectangle</BaseType>
-  </Instance>
-  <Instance>
     <Name>StatsContainer</Name>
     <BaseType>Container</BaseType>
   </Instance>
@@ -1118,6 +1078,10 @@
   <Instance>
     <Name>RangedText</Name>
     <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
+    <Name>MessageBoxInstance</Name>
+    <BaseType>MessageBox</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

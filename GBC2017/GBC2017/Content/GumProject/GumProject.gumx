@@ -97,6 +97,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>MessageBox</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>specificbuttons/DestroyButton</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
@@ -121,7 +125,7 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
-    <Name>WhiteFrameNineSlice</Name>
+    <Name>WhiteFrame</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

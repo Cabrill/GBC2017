@@ -786,6 +786,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\CustomNineSlice1Runtime.Generated.cs">
+      <Link>GumRuntimes\CustomNineSlice1Runtime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\gbc2017\GumRuntimes\CustomNineSliceRuntime.Generated.cs">
       <Link>GumRuntimes\CustomNineSliceRuntime.Generated.cs</Link>
     </Compile>
@@ -886,6 +889,9 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\MainMenuGumRuntime.Generated.cs">
       <Link>GumRuntimes\MainMenuGumRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\MessageBoxRuntime.Generated.cs">
+      <Link>GumRuntimes\MessageBoxRuntime.Generated.cs</Link>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\NineSliceRuntime.Generated.cs">
       <Link>GumRuntimes\NineSliceRuntime.Generated.cs</Link>
     </Compile>
@@ -924,6 +930,9 @@
     </Compile>
     <Compile Include="..\..\gbc2017\GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs">
       <Link>GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\WhiteFrameRuntime.Generated.cs">
+      <Link>GumRuntimes\WhiteFrameRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\Performance\IEntityFactory.Generated.cs">
       <Link>Performance\IEntityFactory.Generated.cs</Link>
@@ -1275,6 +1284,14 @@
       <Name>hourlyforecast</Name>
       <Link>Assets\content\gumproject\components\infodisplays\hourlyforecast.gucx</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\structureinfo.gucx">
+      <Name>structureinfo</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\structureinfo.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\messagebox.gucx">
+      <Name>messagebox</Name>
+      <Link>Assets\content\gumproject\components\messagebox.gucx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\destroybutton.gucx">
       <Name>destroybutton</Name>
       <Link>Assets\content\gumproject\components\specificbuttons\destroybutton.gucx</Link>
@@ -1291,9 +1308,9 @@
       <Name>switchonoff</Name>
       <Link>Assets\content\gumproject\components\specificbuttons\switchonoff.gucx</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\whiteframenineslice.gucx">
-      <Name>whiteframenineslice</Name>
-      <Link>Assets\content\gumproject\components\whiteframenineslice.gucx</Link>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\whiteframe.gucx">
+      <Name>whiteframe</Name>
+      <Link>Assets\content\gumproject\components\whiteframe.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">
@@ -1564,10 +1581,6 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\resourceincreasenotification.gucx">
       <Name>resourceincreasenotification</Name>
       <Link>Assets\content\gumproject\components\infodisplays\resourceincreasenotification.gucx</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\structureinfo.gucx">
-      <Name>structureinfo</Name>
-      <Link>Assets\content\gumproject\components\infodisplays\structureinfo.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\specificbuttons\settingsbutton.gucx">
       <Name>settingsbutton</Name>

@@ -14,7 +14,7 @@ namespace GBC2017.GumRuntimes
             {
                 if (total > 0)
                 {
-                    TextInstance.Text = $"{current.ToString("#.0")}/{total.ToString("#")}";
+                    TextInstance.Text = $"{current.ToString("0.#")}/{total.ToString("0")}";
                 }
                 else
                 {
@@ -27,7 +27,7 @@ namespace GBC2017.GumRuntimes
             {
                 barPct = current / total;
             }
-            FillRectangle.Width = (float)(barPct * 100);
+            //FillRectangle.Width = (float)(barPct * 100);
         }
     }
 }
