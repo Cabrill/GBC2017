@@ -26,13 +26,11 @@ namespace GBC2017.GumRuntimes
 
             if ((gameTime - _lastForecastUpdate).Hours >= 1)
             {
-                ConditionsForecastInstance.Update(gameTime, hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
+                ConditionsForecastInstance.UpdateFirstItem(hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
                 _lastForecastUpdate = gameTime;
             }
-            else
-            {
-                ConditionsForecastInstance.Update(gameTime);
-            }
+
+            ConditionsForecastInstance.Update(gameTime);
         }
 
         private void UpdateEnergyDisplay(double energyIncrease, double energyDecrease, double currentStorage, double maxStorage)

@@ -114,13 +114,28 @@ namespace GBC2017.GameClasses.BaseClasses
             if (!sentShip && currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves - 1)
             {
                 sentShip = true;
-                if (currentAlienSides == AlienSides.Right || currentAlienSides == AlienSides.Both)
+
+                var wavesModifier = 1f;
+                if (_wavesSent < _wavesToEaseIntoDifficulty)
                 {
-                    SendShipToTheRight();
+                    wavesModifier = (float)_wavesSent+1 / _wavesToEaseIntoDifficulty;
                 }
-                if (currentAlienSides == AlienSides.Left || currentAlienSides == AlienSides.Both)
+
+                var energyToSpend = wavesModifier *
+                                GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour+1,
+                                    AvgDailyEnergyUsage);
+
+                if (EnergyToSpend + energyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)
                 {
-                    SendShipToTheLeft();
+
+                    if (currentAlienSides == AlienSides.Right || currentAlienSides == AlienSides.Both)
+                    {
+                        SendShipToTheRight();
+                    }
+                    if (currentAlienSides == AlienSides.Left || currentAlienSides == AlienSides.Both)
+                    {
+                        SendShipToTheLeft();
+                    }
                 }
             }
 

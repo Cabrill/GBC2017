@@ -12,8 +12,13 @@ namespace GBC2017.GumRuntimes
     {
         public int HourlyForecastCount => HourlyForecastContainer.Children.Count;
 
+        private float mostRecentSun;
+        private float mostRecentWind;
+        private float mostRecentWater;
+
         private const int SecondsInAnHour = 60 * 60;
         private const float HalfHourlyForecastWidth = 12.5f;
+        private int lastHour;
 
         public void Initialize(List<float> hourlySun, List<float> hourlyWind, List<float> hourlyWater)
         {
@@ -28,31 +33,58 @@ namespace GBC2017.GumRuntimes
                     forecast.XUnits = GeneralUnitType.Percentage;
                 }
             }
+            lastHour = int.MinValue;
         }
 
-        public void Update(DateTime gameTime, List<float> hourlySun = null, List<float> hourlyWind = null, List<float> hourlyWater = null)
+        public void UpdateFirstItem(List<float> hourlySun = null, List<float> hourlyWind = null,
+            List<float> hourlyWater = null)
         {
-            if (hourlySun != null)
-            {
-                var firstItem = HourlyForecastContainer.Children[0] as HourlyForecastRuntime;
-                firstItem.SetValues(hourlySun[hourlySun.Count-1], hourlyWind[hourlyWind.Count-1], hourlyWater[hourlyWater.Count-1]);
-                firstItem.X = 0;
-                HourlyForecastContainer.Children.Remove(firstItem);
-                HourlyForecastContainer.Children.Insert(HourlyForecastCount, firstItem);
-                UpdateLayout();
-                UpdateLayout();
-                UpdateLayout();
-            }
+            mostRecentSun = hourlySun[hourlySun.Count - 1];
+            mostRecentWind = hourlyWind[hourlyWind.Count - 1];
+            mostRecentWater = hourlyWater[hourlyWater.Count - 1];
+        }
+
+        public void Update(DateTime gameTime)
+        {
+            if (lastHour == int.MinValue) lastHour = gameTime.Hour;
 
             var firstHour = HourlyForecastContainer.Children[0] as HourlyForecastRuntime;
 
-            var secondsPastTheHour = (SecondsInAnHour- (gameTime.Minute * 60) - gameTime.Second)/2;
+            var secondsPastTheHour = (SecondsInAnHour - (gameTime.Minute * 60) - gameTime.Second) / 2;
             var percentOfHour = (float)decimal.Divide(secondsPastTheHour, SecondsInAnHour);
 
-            var newOffset = HalfHourlyForecastWidth * ((percentOfHour * 2) - 1)-7.1f;
+            if (lastHour != gameTime.Hour)
+            {
+                firstHour.SetValues(mostRecentSun, mostRecentWind, mostRecentWater);
+                firstHour.X = 0;
+                HourlyForecastContainer.Children.Remove(firstHour);
+                HourlyForecastContainer.Children.Insert(HourlyForecastCount, firstHour);
+
+                firstHour = HourlyForecastContainer.Children[0] as HourlyForecastRuntime;
+            }
+
+            lastHour = gameTime.Hour;
+
+            var newOffset = HalfHourlyForecastWidth * ((percentOfHour * 2) - 1) - 7.1f;
 
             firstHour.X = newOffset;
-            
+
+            TimeText.Text = DateTimeToString(gameTime);
+        }
+
+        private string DateTimeToString(DateTime time)
+        {
+            var month = time.ToString("MMMM");
+            var day = time.ToString("dd");
+            var hour = time.Hour.ToString();
+            var minute = "";
+
+            if (time.Minute < 15) minute = "00";
+            else if (time.Minute < 30) minute = "15";
+            else if (time.Minute < 45) minute = "30";
+            else minute = "45";
+
+            return $"{month} | {day} | {hour}:{minute}";
         }
     }
 }
