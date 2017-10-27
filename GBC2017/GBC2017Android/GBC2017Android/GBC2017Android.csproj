@@ -821,8 +821,12 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\ConditionsForecastRuntime.cs">
+      <Link>GumRuntimes\infodisplays\ConditionsForecastRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs</Link>
+      <DependentUpon>ConditionsForecastRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\EnemyInfoRuntime.cs">
       <Link>GumRuntimes\infodisplays\EnemyInfoRuntime.cs</Link>
@@ -838,8 +842,12 @@
       <Link>GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs</Link>
       <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\HourlyForecastRuntime.cs">
+      <Link>GumRuntimes\infodisplays\HourlyForecastRuntime.cs</Link>
+    </Compile>
     <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs</Link>
+      <DependentUpon>HourlyForecastRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\MineralsDisplayRuntime.cs">
       <Link>GumRuntimes\infodisplays\MineralsDisplayRuntime.cs</Link>

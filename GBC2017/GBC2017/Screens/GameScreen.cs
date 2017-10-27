@@ -63,7 +63,6 @@ namespace GBC2017.Screens
 
         private List<ResourceIncreaseNotificationRuntime> resourceIncreaseNotificationList;
 
-
         #endregion
 
         #region Initialization
@@ -100,14 +99,15 @@ namespace GBC2017.Screens
 
             GetHomeLocationFromTileMap(createAHome);
 
-            InitializeManagers();
 
+            HorizonBoxInstance.Initialize(currentLevelDateTime, CurrentLevel.City);
+
+            InitializeManagers();
 
             StartButtonInstance.Click += OnStartButtonInstanceClick;
             GameHasStarted = false;
-            HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
-            WindManager.Initialize(CurrentLevel.City, currentLevelDateTime);
-            WaterManager.Initialize(CurrentLevel.City);
+            
+            InfoBarInstance.Initialize(currentLevelDateTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
 
             CreateNotificationPool();
         }
@@ -146,7 +146,9 @@ namespace GBC2017.Screens
         {
             EnergyManager.Initialize(AllStructuresList);
             MineralsManager.Initialize(AllStructuresList);
-            SunlightManager.Initialize(HorizonBoxInstance);
+            SunlightManager.Initialize(HorizonBoxInstance, currentLevelDateTime);
+            WindManager.Initialize(CurrentLevel.City, currentLevelDateTime);
+            WaterManager.Initialize(CurrentLevel.City);
         }
 
         private void InitializeBaseEntities()
@@ -320,10 +322,10 @@ namespace GBC2017.Screens
 
                 InsolationFormulas.Instance.UpdateDateTime(currentLevelDateTime);
 
-                HorizonBoxInstance.Update(currentLevelDateTime, CurrentLevel.City);
+                HorizonBoxInstance.Update(currentLevelDateTime);
 
                 WindManager.Update(currentLevelDateTime);
-                SunlightManager.UpdateConditions();
+                SunlightManager.UpdateConditions(currentLevelDateTime);
 
                 EnemyStatusActivity();
                 PlayerProjectileActivity();
@@ -332,7 +334,7 @@ namespace GBC2017.Screens
 
             EnergyManager.Update(!GameHasStarted);
             MineralsManager.Update(!GameHasStarted);
-            InfoBarInstance.Update();
+            InfoBarInstance.Update(currentLevelDateTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
         }
 
         private void ShowDebugInfo()

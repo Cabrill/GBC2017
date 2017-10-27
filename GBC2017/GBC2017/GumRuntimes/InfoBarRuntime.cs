@@ -9,14 +9,30 @@ namespace GBC2017.GumRuntimes
 {
     public partial class InfoBarRuntime
     {
-        public void Update()
+        private DateTime _lastForecastUpdate;
+
+        public void Initialize(DateTime gameTime, List<float> hourlySunForecast, List<float> hourlyWindForecast, List<float> hourlyWaterForecast)
+        {
+            ConditionsForecastInstance.Initialize(hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
+            _lastForecastUpdate = gameTime;
+        }
+
+        public void Update(DateTime gameTime, List<float> hourlySunForecast, List<float> hourlyWindForecast, List<float> hourlyWaterForecast)
         {
             UpdateEnergyDisplay(EnergyManager.EnergyIncrease, EnergyManager.EnergyDecrease,
                 EnergyManager.StoredEnergy, EnergyManager.MaxStorage);
 
             UpdateMineralsDisplay(MineralsManager.StoredMinerals);
 
-            //ConditionsDisplayInstance.Update();
+            if ((gameTime - _lastForecastUpdate).Hours >= 1)
+            {
+                ConditionsForecastInstance.Update(gameTime, hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
+                _lastForecastUpdate = gameTime;
+            }
+            else
+            {
+                ConditionsForecastInstance.Update(gameTime);
+            }
         }
 
         private void UpdateEnergyDisplay(double energyIncrease, double energyDecrease, double currentStorage, double maxStorage)

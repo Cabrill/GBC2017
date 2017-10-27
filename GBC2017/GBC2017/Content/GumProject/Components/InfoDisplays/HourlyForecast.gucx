@@ -170,7 +170,7 @@
     <Variable>
       <Type>float</Type>
       <Name>SunContainer.Y</Name>
-      <Value xsi:type="xsd:float">5.5</Value>
+      <Value xsi:type="xsd:float">6</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -322,7 +322,7 @@
     <Variable>
       <Type>float</Type>
       <Name>WaterContainer.Y</Name>
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">0.5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -486,13 +486,19 @@
     <Variable>
       <Type>float</Type>
       <Name>WindContainer.Y</Name>
-      <Value xsi:type="xsd:float">3.5</Value>
+      <Value xsi:type="xsd:float">3.4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
       <Name>WindContainer.Y Units</Name>
       <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
   </State>

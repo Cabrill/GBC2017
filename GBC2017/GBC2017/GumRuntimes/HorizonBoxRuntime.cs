@@ -32,6 +32,13 @@ namespace GBC2017.GumRuntimes
         private float SunPercentageBelowHorizon =>
             MathHelper.Clamp(SunSprite.Y / -SunSprite.GetAbsoluteHeight(), 0f, 1f);
 
+        private ICity _city;
+
+        public void Initialize(DateTime timeOfDay, ICity city)
+        {
+            _city = city;
+            Update(timeOfDay);
+        }
 
         partial void CustomInitialize()
         {
@@ -39,7 +46,7 @@ namespace GBC2017.GumRuntimes
             var yOffset = Math.Sign(xOffset) == -1
                 ? FlatRedBallServices.Random.Between(0, 3)
                 : FlatRedBallServices.Random.Between(-3, 0);
-
+            
             StarrySkySprite.X = 50 + xOffset;
             StarrySkySprite.Y = 50 + yOffset;
             DayTimeColor = new Color(SkyRectangle.Red, SkyRectangle.Green, SkyRectangle.Blue);
@@ -54,9 +61,9 @@ namespace GBC2017.GumRuntimes
             Y = -Camera.Main.Y * CameraZoomManager.GumCoordOffset;
         }
 
-        public void Update(DateTime timeOfDay, ICity city)
+        public void Update(DateTime timeOfDay)
         {
-            UpdateSunAndMoon(timeOfDay, city);
+            UpdateSunAndMoon(timeOfDay);
             UpdateStarrySky(timeOfDay);
         }
 
@@ -81,23 +88,22 @@ namespace GBC2017.GumRuntimes
             StarrySkySprite.Visible = SkyRectangle.Alpha < 255;
         }
 
-        private void UpdateSunAndMoon(DateTime timeOfDay, ICity city)
+        private void UpdateSunAndMoon(DateTime timeOfDay)
         {
-            var radius = SunMoonContainer.GetAbsoluteHeight() / 2;// * CameraZoomManager.GumCoordOffset;
-
+            var _radius = SunMoonContainer.GetAbsoluteHeight() / 2;
             var aspectAdjustment = SunMoonContainer.GetAbsoluteHeight() / SunMoonContainer.GetAbsoluteWidth();
 
             var sunPosition =
-                SunAndMoonCalculation.GetSunPosition(timeOfDay, city.Latitude, city.Longitude);
+                SunAndMoonCalculation.GetSunPosition(timeOfDay, _city.Latitude, _city.Longitude);
 
-            SphericalToCartesian(radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
+            SphericalToCartesian(_radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
             SunSprite.X = newSunPosition.X / aspectAdjustment;
             SunSprite.Y = newSunPosition.Y;
 
             var moonPosition =
-                SunAndMoonCalculation.GetMoonPosition(timeOfDay, city.Latitude, city.Longitude);
+                SunAndMoonCalculation.GetMoonPosition(timeOfDay, _city.Latitude, _city.Longitude);
 
-            SphericalToCartesian(radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
+            SphericalToCartesian(_radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
 
             MoonSprite.X = newMoonPosition.X /aspectAdjustment;
             MoonSprite.Y = newMoonPosition.Y;
@@ -114,6 +120,30 @@ namespace GBC2017.GumRuntimes
             outCart.X = -a * (float)Math.Sin(azimuth); 
             outCart.Y = radius * (float)Math.Sin(altitude);
             outCart.Z = a * (float)Math.Cos(azimuth);
+        }
+
+        public float ForecastFor(DateTime timeOfDay)
+        {
+            var _radius = SunMoonContainer.GetAbsoluteHeight() / 2;
+
+            var sunPosition =
+                SunAndMoonCalculation.GetSunPosition(timeOfDay, _city.Latitude, _city.Longitude);
+
+            SphericalToCartesian(_radius, sunPosition.Azimuth, sunPosition.Altitude, out Vector3 newSunPosition);
+
+            var sunEffectiveness = MathHelper.Clamp(newSunPosition.Y / SunSprite.GetAbsoluteHeight(), 0f, 1f);
+
+            if (sunEffectiveness > 0) return sunEffectiveness;
+                
+            //Sun's not up, so we calculate using the moon
+            var moonPosition =
+                SunAndMoonCalculation.GetMoonPosition(timeOfDay, _city.Latitude, _city.Longitude);
+
+            SphericalToCartesian(_radius, moonPosition.Azimuth, moonPosition.Altitude, out Vector3 newMoonPosition);
+
+            var moonEffectiveness = MathHelper.Clamp(newMoonPosition.Y / MoonSprite.GetAbsoluteHeight(), 0f, 1f);
+
+            return moonEffectiveness / 345;
         }
     }
 }
