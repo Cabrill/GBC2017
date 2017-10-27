@@ -7,7 +7,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Bottom.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -19,7 +19,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Bottom.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -62,7 +61,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Bottom.Width</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -110,7 +109,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BottomLeft.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -122,7 +121,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BottomLeft.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -165,7 +163,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BottomLeft.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -213,7 +211,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BottomRight.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -225,7 +223,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BottomRight.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -268,7 +265,7 @@
     <Variable>
       <Type>float</Type>
       <Name>BottomRight.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -367,7 +364,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Left.Height</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -379,7 +376,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Left.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -422,7 +418,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Left.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -470,7 +466,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Middle.Height</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -482,7 +478,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Middle.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -530,7 +525,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Middle.Width</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -583,7 +578,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Right.Height</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -595,7 +590,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Right.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -638,7 +632,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Right.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -691,7 +685,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Top.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -703,7 +697,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Top.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -746,7 +739,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Top.Width</Name>
-      <Value xsi:type="xsd:float">-330</Value>
+      <Value xsi:type="xsd:float">-160</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -794,7 +787,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TopLeft.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -806,7 +799,6 @@
     <Variable>
       <Type>string</Type>
       <Name>TopLeft.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -849,7 +841,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TopLeft.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -897,7 +889,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TopRight.Height</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -909,7 +901,6 @@
     <Variable>
       <Type>string</Type>
       <Name>TopRight.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -952,7 +943,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TopRight.Width</Name>
-      <Value xsi:type="xsd:float">165</Value>
+      <Value xsi:type="xsd:float">80</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

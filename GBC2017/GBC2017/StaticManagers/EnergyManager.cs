@@ -17,14 +17,11 @@ namespace GBC2017.ResourceManagers
 {
     public static class EnergyManager
     {
-        private const double SecondsBetweenUpdates = 1;
-
         public static double EnergyIncrease { get; private set; }
         public static double EnergyDecrease { get; private set; }
         public static double StoredEnergy { get; private set; }
         public static double MaxStorage { get; private set; }
 
-        private static double _lastUpdateTime;
         private static double _energyBuildDebt;
 
         private static PositionedObjectList<BaseStructure> _allStructures;
@@ -146,8 +143,6 @@ namespace GBC2017.ResourceManagers
 
                 StoredEnergy = BatteryList.Sum(b => b.BatteryLevel) + _home.BatteryLevel;
                 MaxStorage = BatteryList.Sum(b => b.InternalBatteryMaxStorage) + _home.InternalBatteryMaxStorage;
-
-                _lastUpdateTime = TimeManager.CurrentTime;
             }
         }
 
@@ -235,6 +230,42 @@ namespace GBC2017.ResourceManagers
                 return true;
             }
             return false;
+        }
+
+        public static string FormatEnergyAmount(double energyAmount)
+        {
+            if (energyAmount == 0) return "0";
+
+            if (energyAmount < 0)
+            {
+                if (energyAmount > -1000)
+                {
+                    return energyAmount.ToString("#");
+                }
+                if (energyAmount <= -1000 && energyAmount > -10000)
+                {
+                    return (energyAmount / 1000).ToString("#.#") + "k";
+                }
+                else
+                {
+                    return (energyAmount / 10000).ToString("#.#") + "m";
+                }
+            }
+            else
+            {
+                if (energyAmount < 1000)
+                {
+                    return energyAmount.ToString("#");
+                }
+                if (energyAmount >= 1000 && energyAmount < 10000)
+                {
+                    return (energyAmount / 1000).ToString("#.#") + "k";
+                }
+                else
+                {
+                    return (energyAmount / 10000).ToString("#.#") + "m";
+                }
+            }
         }
     }
 }

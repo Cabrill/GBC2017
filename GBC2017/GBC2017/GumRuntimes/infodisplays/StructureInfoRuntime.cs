@@ -8,6 +8,7 @@ using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.EnergyProducers;
+using GBC2017.Entities.Structures.Utility;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
 using Microsoft.Xna.Framework;
@@ -111,11 +112,11 @@ namespace GBC2017.GumRuntimes
             else
             {
                 DestroyButtonInstance.CurrentEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Enabled;
-                SwitchOnOffInstance.Visible = true;
+                SwitchOnOffInstance.Visible = (!(structure is Battery));
             }
         }
 
-        public void Update()
+        private void Update()
         {
 
             StructureHealth = $" {structureShown.HealthRemaining.ToString("0")}";
@@ -123,7 +124,12 @@ namespace GBC2017.GumRuntimes
 
             if (CurrentHasBatteryState == HasBattery.True)
             {
-                EnergyBar.BarFillPercent = (float)(structureShown.BatteryLevel / structureShown.InternalBatteryMaxStorage) * 100f;
+                EnergyBar.BarFillPercent =
+                    (float) (structureShown.BatteryLevel / structureShown.InternalBatteryMaxStorage) * 100f;
+            }
+            else
+            {
+                EnergyBar.BarFillPercent = 0;
             }
 
             if (!(structureShown is Home))
@@ -155,7 +161,7 @@ namespace GBC2017.GumRuntimes
             {
                 netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
-            netEnergy -= structureShown.EnergyReceivedLastUpdate;
+            netEnergy += structureShown.EnergyReceivedLastSecond;
             
             SetEnergyUsage(netEnergy);
         }
@@ -167,17 +173,16 @@ namespace GBC2017.GumRuntimes
 
         private void SetEnergyUsage(double energyUsage)
         {
-            var energyChange = "0";
-            
+            var energyChange = EnergyManager.FormatEnergyAmount(energyUsage);
+
             if (energyUsage > 0)
             {
                 CurrentEnergyUsageState = EnergyUsage.Positive;
-                energyChange = "+" + energyUsage.ToString("#");
+                
             }
             else if (energyUsage < 0)
             {
                 CurrentEnergyUsageState = EnergyUsage.Negative;
-                energyChange = "-" + energyUsage.ToString("#");
             }
             else
             {
