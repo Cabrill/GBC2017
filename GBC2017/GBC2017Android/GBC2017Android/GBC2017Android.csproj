@@ -780,9 +780,6 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\ColoredRectangleRuntime.Generated.cs">
       <Link>GumRuntimes\ColoredRectangleRuntime.Generated.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\GumRuntimes\ConditionsDisplayRuntime.cs">
-      <Link>GumRuntimes\ConditionsDisplayRuntime.cs</Link>
-    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\ContainerRuntime.Generated.cs">
       <Link>GumRuntimes\ContainerRuntime.Generated.cs</Link>
     </Compile>
@@ -814,9 +811,6 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\InfoBarRuntime.Generated.cs">
       <Link>GumRuntimes\InfoBarRuntime.Generated.cs</Link>
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs">
-      <Link>GumRuntimes\infodisplays\CarbonDisplayRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
@@ -876,17 +870,11 @@
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\SunlightConditionRuntime.Generated.cs</Link>
     </Compile>
-    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs">
-      <Link>GumRuntimes\infodisplays\SunlightDisplayRuntime.Generated.cs</Link>
-    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\WaterConditionRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\WindConditionRuntime.Generated.cs</Link>
-    </Compile>
-    <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs">
-      <Link>GumRuntimes\infodisplays\WindDisplayRuntime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs">
       <Link>GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs</Link>
@@ -908,9 +896,6 @@
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs">
       <Link>GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs</Link>
-    </Compile>
-    <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs">
-      <Link>GumRuntimes\specificbuttons\RepairButton1Runtime.Generated.cs</Link>
     </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs">
       <Link>GumRuntimes\specificbuttons\RepairButtonRuntime.Generated.cs</Link>
@@ -1216,14 +1201,6 @@
       <Name>message9</Name>
       <Link>Assets\content\gumproject\standards\standardgraphics\message9.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a">
-      <Name>anttisinstrumentals+einszweidreiviolins</Name>
-      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.m4a</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb">
-      <Name>anttisinstrumentals+einszweidreiviolins</Name>
-      <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals+einszweidreiviolins.xnb</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a">
       <Name>anttisinstrumentals_einszweidreiviolins</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a</Link>
@@ -1247,10 +1224,6 @@
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb">
       <Name>anttisinstrumentals_hjappiermjusic</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_hjappiermjusic.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\new ui-13.xnb">
-      <Name>New UI-13</Name>
-      <Link>Assets\content\screens\gamescreen\new ui-13.xnb</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\sounds\defeat_sound.xnb">
       <Name>defeat_sound</Name>
