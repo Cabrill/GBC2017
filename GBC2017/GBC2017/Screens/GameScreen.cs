@@ -334,7 +334,7 @@ namespace GBC2017.Screens
 
             EnergyManager.Update(!GameHasStarted);
             MineralsManager.Update(!GameHasStarted);
-            InfoBarInstance.Update(currentLevelDateTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
+            InfoBarInstance.Update(currentLevelDateTime.AddHours(CurrentLevel.City.UTCOffset), SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
         }
 
         private void ShowDebugInfo()

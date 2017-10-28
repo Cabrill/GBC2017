@@ -28,8 +28,6 @@ namespace GBC2017.GameClasses.BaseClasses
 
         protected float EnergyToSpend;
 
-        public abstract float WaterFlowRate { get; }
-
         private bool sentShip = false;
         private DateTime _lastEnemyWave;
         private DateTime _lastEnergyUpdate;

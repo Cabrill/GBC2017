@@ -59,7 +59,6 @@ namespace GBC2017
 			GlobalContent.Initialize();
 			FlatRedBall.Screens.ScreenManager.Start(typeof(GBC2017.Screens.LoadingScreen));
             global::RenderingLibrary.Graphics.Renderer.SubtractViewportYForMonoGameGlBug = true;
-            Debugger.AutomaticDebuggingBehavior.PrintCursorWindowPushed = true;
             base.Initialize();
         }
 

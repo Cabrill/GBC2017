@@ -125,7 +125,7 @@
     <property name="AttackDamage" type="float" default="40" />
     <property name="SecondsBetweenFiring" type="float" default="2" />
     <property name="EnergyCostToFire" type="float" default="150" />
-    <property name="RangedRadius" type="float" default="300" />
+    <property name="RangedRadius" type="float" default="350" />
     <property name="ProjectileSpeed" type="float" default="200" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
@@ -135,7 +135,7 @@
     <property name="EnergyBuildCost" type="int" default="0" />
     <property name="SecondsBetweenFiring" type="float" default="0.4" />
     <property name="EnergyCostToFire" type="float" default="33" />
-    <property name="RangedRadius" type="float" default="300" />
+    <property name="RangedRadius" type="float" default="400" />
     <property name="ProjectileSpeed" type="float" default="500" />
     <property name="MaximumHealth" type="float" default="25" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
@@ -155,7 +155,7 @@
     <property name="AttackDamage" type="float" default="85" />
     <property name="SecondsBetweenFiring" type="float" default="3" />
     <property name="EnergyCostToFire" type="float" default="300" />
-    <property name="RangedRadius" type="float" default="850" />
+    <property name="RangedRadius" type="float" default="950" />
     <property name="ProjectileSpeed" type="float" default="1000" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />

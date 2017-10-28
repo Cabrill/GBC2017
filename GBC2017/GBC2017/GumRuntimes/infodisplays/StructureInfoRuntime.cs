@@ -86,7 +86,7 @@ namespace GBC2017.GumRuntimes
             var minMaxY = (CameraZoomManager.OriginalOrthogonalHeight - GetAbsoluteHeight()) / 2;
 
             var newX = (structureShown.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-            var newY = (structureShown.Y - Camera.Main.Y + structureShown.SpriteInstance.Height / 2) *
+            var newY = (structureShown.Y - Camera.Main.Y) *
                        CameraZoomManager.GumCoordOffset + GetAbsoluteHeight() / 2;
 
             X = MathHelper.Clamp(newX, -minMaxX, minMaxX);
