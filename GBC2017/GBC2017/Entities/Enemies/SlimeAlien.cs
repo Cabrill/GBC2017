@@ -41,6 +41,27 @@ namespace GBC2017.Entities.Enemies
 
             _jumpStart = Slime_Jump.CreateInstance();
             _jumpLand = Slime_Land.CreateInstance();
+
+            var randomChoice = FlatRedBallServices.Random.Next(0, 3);
+            if (randomChoice == 0)
+            {
+                SpriteInstance.Red = LightSprite.Red = 1;
+                SpriteInstance.Green = LightSprite.Green = 0;
+                SpriteInstance.Blue = LightSprite.Blue = 0;
+            }
+            else if (randomChoice == 1)
+            {
+                SpriteInstance.Red = LightSprite.Red = 0;
+                SpriteInstance.Green = LightSprite.Green = 1;
+                SpriteInstance.Blue = LightSprite.Blue = 0;
+            }
+            else
+            {
+                SpriteInstance.Red = LightSprite.Red = 0;
+                SpriteInstance.Green = LightSprite.Green = 0;
+                SpriteInstance.Blue = LightSprite.Blue = 1;
+            }
+
         }
 
 	    public void AddSpritesToLayers(FlatRedBall.Graphics.Layer darknessLayer, Layer hudLayer)
