@@ -69,7 +69,7 @@
     <property name="MineralsRewardedWhenKilled" type="float" default="35" />
     <property name="DisplayName" type="string" default="Slime" />
     <property name="IsMeleeAttacker" type="bool" default="true" />
-    <property name="MeleeAttackRadius" type="float" default="64" />
+    <property name="MeleeAttackRadius" type="float" default="96" />
     <property name="RangedAttackRadius" type="float" default="0" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="true" />
@@ -88,7 +88,7 @@
     <property name="MineralsRewardedWhenKilled" type="float" default="10" />
     <property name="DisplayName" type="string" default="Small Slime" />
     <property name="IsMeleeAttacker" type="bool" default="true" />
-    <property name="MeleeAttackRadius" type="float" default="40" />
+    <property name="MeleeAttackRadius" type="float" default="72" />
     <property name="RangedAttackRadius" type="float" default="0" />
     <property name="IsFlying" type="bool" default="false" />
     <property name="HasLightSource" type="bool" default="true" />
@@ -162,14 +162,14 @@
   </objecttype>
   <objecttype name="HydroGenerator">
     <property name="EnergyBuildCost" type="float" default="0" />
-    <property name="MineralsBuildCost" type="float" default="500" />
+    <property name="MineralsBuildCost" type="float" default="350" />
     <property name="MaximumHealth" type="float" default="50" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Hydro" />
     <property name="HasLightSource" type="bool" default="true" />
-    <property name="BladeRadiusInMeters" type="float" default="1" />
-    <property name="efficiency" type="float" default="0.3" />
+    <property name="BladeRadiusInMeters" type="float" default="0.75" />
+    <property name="efficiency" type="float" default="0.2" />
     <property name="IsTurnedOn" type="bool" default="true" />
   </objecttype>
   <objecttype name="SolarPanels">
@@ -186,12 +186,12 @@
   </objecttype>
   <objecttype name="WindTurbine">
     <property name="EnergyBuildCost" type="float" default="0" />
-    <property name="MineralsBuildCost" type="float" default="250" />
+    <property name="MineralsBuildCost" type="float" default="200" />
     <property name="MaximumHealth" type="float" default="25" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Wind Turbine" />
-    <property name="BladeRadiusInMeters" type="float" default="1" />
+    <property name="BladeRadiusInMeters" type="float" default="0.25" />
     <property name="AirDensity" type="float" default="1.225" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
@@ -210,7 +210,7 @@
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" default="0" />
     <property name="MaximumHealth" type="float" default="50" />
-    <property name="InternalBatteryMaxStorage" type="int" default="500" />
+    <property name="InternalBatteryMaxStorage" type="int" default="800" />
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="MineralsBuildCost" type="float" default="30" />
     <property name="DisplayName" type="string" default="Battery" />

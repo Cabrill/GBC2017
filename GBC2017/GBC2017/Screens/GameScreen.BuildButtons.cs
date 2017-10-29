@@ -48,8 +48,19 @@ namespace GBC2017.Screens
                 }
 
                 var newBuilding = buildButton.BuildingFactory.CreateNew(WorldLayer) as BaseStructure;
-                newBuilding.Position = new Vector3(GuiManager.Cursor.WorldXAt(newBuilding.Z), GuiManager.Cursor.WorldYAt(newBuilding.Z), newBuilding.Z);
-                GuiManager.Cursor.ObjectGrabbed = newBuilding;
+                if (newBuilding is HydroGenerator hg)
+                {
+                    GetHydroGeneratorLocationFromTileMap(hg);
+                    GuiManager.Cursor.ObjectGrabbed = null;
+                    selectedObject = null;
+                }
+                else
+                {
+                    newBuilding.Position = new Vector3(GuiManager.Cursor.WorldXAt(newBuilding.Z), GuiManager.Cursor.WorldYAt(newBuilding.Z), newBuilding.Z);
+                    GuiManager.Cursor.ObjectGrabbed = newBuilding;
+                }
+                GuiManager.Cursor.WindowPushed = null;
+                CurrentGameMode = GameMode.Building;
             }
         }
 

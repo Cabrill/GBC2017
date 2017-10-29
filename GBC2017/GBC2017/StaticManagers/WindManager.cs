@@ -36,8 +36,9 @@ namespace GBC2017.StaticManagers
             _nineHourForecast = new List<float>(8);
 
             var prevWindSpeed = windSpeed;
+            _nineHourForecast.Add(windSpeed);
 
-            for (var i = 0; i < 9; i++)
+            for (var i = 1; i < 9; i++)
             {
                 prevWindSpeed = GenerateWindConditions(prevWindSpeed, gameDateTime.AddHours(i));
                 _nineHourForecast.Add(prevWindSpeed);
@@ -51,10 +52,12 @@ namespace GBC2017.StaticManagers
             {
                 _lastUpdate = gameDateTime;
 
-                var oldWindSpeed = _nineHourForecast[8];
+                var speedToPredictFrom = _nineHourForecast[_nineHourForecast.Count-1];
+                var oldWindSpeed = _nineHourForecast[0];
+
                 _nineHourForecast.RemoveAt(0);
 
-                _nineHourForecast.Add(GenerateWindConditions(oldWindSpeed, gameDateTime.AddHours(8)));
+                _nineHourForecast.Add(GenerateWindConditions(speedToPredictFrom, gameDateTime.AddHours(8)));
 
                 var newWindSpeed = _nineHourForecast[0];
 

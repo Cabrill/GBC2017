@@ -107,7 +107,7 @@ namespace GBC2017.Screens
             StartButtonInstance.Click += OnStartButtonInstanceClick;
             GameHasStarted = false;
             
-            InfoBarInstance.Initialize(currentLevelDateTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
+            InfoBarInstance.Initialize(currentLevelDateTime, CurrentLevel.EndTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
 
             CreateNotificationPool();
         }
@@ -327,6 +327,8 @@ namespace GBC2017.Screens
                 WindManager.Update(currentLevelDateTime);
                 SunlightManager.UpdateConditions(currentLevelDateTime);
 
+                UpdateMineralTrees();
+
                 EnemyStatusActivity();
                 PlayerProjectileActivity();
                 EnemyProjectileActivity();
@@ -335,6 +337,20 @@ namespace GBC2017.Screens
             EnergyManager.Update(!GameHasStarted);
             MineralsManager.Update(!GameHasStarted);
             InfoBarInstance.Update(currentLevelDateTime.AddHours(CurrentLevel.City.UTCOffset), SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
+        }
+
+        private void UpdateMineralTrees()
+        {
+            var allMineralGenerators = AllStructuresList.OfType<CarbonTree>();
+
+            foreach (var tree in allMineralGenerators)
+            {
+                if (tree.ShouldGenerateMinerals)
+                {
+                    tree.ShouldGenerateMinerals = false;
+                    CreateResourceNotification(tree);
+                }
+            }
         }
 
         private void ShowDebugInfo()
@@ -601,7 +617,7 @@ namespace GBC2017.Screens
 	        {
 	            CurrentGameMode = GameMode.Normal;
             }
-	        else
+	        else if (!(newStructure is HydroGenerator))
 	        {
 	            var newLocationIsValid = PlayAreaPolygon.IsPointInside(ref newStructure.Position) && AllStructuresList.All(otherStructure => otherStructure.IsBeingPlaced || 
 	                                                                             !otherStructure.AxisAlignedRectangleInstance.CollideAgainst(newStructure.AxisAlignedRectangleInstance));
@@ -711,10 +727,14 @@ namespace GBC2017.Screens
 	            if (CurrentGameMode == GameMode.Building)
 	            {
 	                var structureBeingBuilt = AllStructuresList.FirstOrDefault(s => s.IsBeingPlaced);
-
-	                if (structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
+	                if (structureBeingBuilt is HydroGenerator)
 	                {
-                        if (!(structureBeingBuilt is HydroGenerator)) GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
+	                    GuiManager.Cursor.ObjectGrabbed = null;
+	                    selectedObject = null;
+	                }
+	                else if(structureBeingBuilt != null && GuiManager.Cursor.IsOn3D(structureBeingBuilt.SpriteInstance))
+	                {
+	                    GuiManager.Cursor.ObjectGrabbed = structureBeingBuilt;
 	                }
 	            }
 	            else //Not building, user is possibly selecting an object
@@ -757,7 +777,7 @@ namespace GBC2017.Screens
 	        else if (GuiManager.Cursor.PrimaryDown && GuiManager.Cursor.ObjectGrabbed != null)
 	        {
                 var objectAsStructure = GuiManager.Cursor.ObjectGrabbed as BaseStructure;
-                var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced;
+                var shouldAllowDrag = objectAsStructure != null && objectAsStructure.IsBeingPlaced && !(objectAsStructure is HydroGenerator);
 
                 if (shouldAllowDrag)
                 {
@@ -785,6 +805,21 @@ namespace GBC2017.Screens
 	            notification.AmountOfIncrease = $"+{enemy.MineralsRewardedWhenKilled}";
                 notification.Play();
 	        }
+        }
+
+        private void CreateResourceNotification(CarbonTree tree)
+        {
+            MineralsManager.DepositMinerals(tree.MineralsProducedPerSecond);
+
+            var notification = resourceIncreaseNotificationList.FirstOrDefault(n => n.Visible == false);
+
+            if (notification != null)
+            {
+                notification.X = (tree.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
+                notification.Y = (tree.SpriteInstance.Height + tree.Y - Camera.Main.Y) * CameraZoomManager.GumCoordOffset;
+                notification.AmountOfIncrease = $"+{tree.MineralsProducedPerSecond}";
+                notification.Play();
+            }
         }
 
         private void CreateNotificationPool()

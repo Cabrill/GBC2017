@@ -14,7 +14,7 @@ namespace GBC2017.GameClasses.Cities
 
         public float Longitude => 24.9384f;
 
-        public float WaterVelocity { get; } = 2.5f;
+        public float WaterVelocity { get; } = 1.5f;
 
         public float[] MonthlyInsolation { get; }= {
             0.28f,

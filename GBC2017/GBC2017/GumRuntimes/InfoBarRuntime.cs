@@ -11,9 +11,9 @@ namespace GBC2017.GumRuntimes
     {
         private DateTime _lastForecastUpdate;
 
-        public void Initialize(DateTime gameTime, List<float> hourlySunForecast, List<float> hourlyWindForecast, List<float> hourlyWaterForecast)
+        public void Initialize(DateTime gameTime, DateTime endTime, List<float> hourlySunForecast, List<float> hourlyWindForecast, List<float> hourlyWaterForecast)
         {
-            ConditionsForecastInstance.Initialize(hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
+            ConditionsForecastInstance.Initialize(endTime, hourlySunForecast, hourlyWindForecast, hourlyWaterForecast);
             _lastForecastUpdate = gameTime;
         }
 

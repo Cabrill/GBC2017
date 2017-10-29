@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Gui;
 using FlatRedBall.Gum;
+using FlatRedBall.ManagedSpriteGroups;
 using FlatRedBall.Math.Geometry;
 using GBC2017.Entities.GraphicalElements;
 using GBC2017.GumRuntimes;
@@ -225,6 +226,24 @@ namespace GBC2017.Entities.BaseEntities
 
             HealthBar.SetRelativeY(SpriteInstance.Height/2);
             EnergyBar.SetRelativeY(SpriteInstance.Height/2 + HealthBar.Height);
+
+            if (IsBeingPlaced)
+            {
+                float buttonDistance = SpriteInstance.Width;
+                float buttonHeight = SpriteInstance.Height;
+                if (SpriteInstance.Animate&& SpriteInstance.CurrentChain != null)
+                {
+                    var baseFrame = SpriteInstance.CurrentChain[0];
+                    buttonDistance = (baseFrame.RightCoordinate - baseFrame.LeftCoordinate) * baseFrame.Texture.Width * _currentScale;
+                    buttonHeight = (baseFrame.BottomCoordinate - baseFrame.TopCoordinate) * baseFrame.Texture.Height *
+                                   _currentScale;
+                }
+                XCancelInstance.RelativeX = XCancelInstance.Width + buttonDistance / 1.5f;
+                CheckmarkInstance.RelativeX = -CheckmarkInstance.Width - buttonDistance / 1.5f;
+
+                XCancelInstance.RelativeY = buttonHeight + XCancelInstance.Height;
+                CheckmarkInstance.RelativeY = XCancelInstance.RelativeY;
+            }
         }
 
         protected void UpdateAnimation()
