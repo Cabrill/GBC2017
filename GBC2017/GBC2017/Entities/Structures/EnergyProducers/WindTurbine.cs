@@ -68,8 +68,8 @@ namespace GBC2017.Entities.Structures.EnergyProducers
                 else if (_lastWindEffectiveness != WindManager.windSpeed)
                 {
                     _lastWindEffectiveness = WindManager.windSpeed;
-                    TurbineSprite.RelativeRotationZVelocity = -WindManager.windSpeed;
                 }
+                TurbineSprite.RelativeRotationZVelocity = -WindManager.windSpeed;
             }
             else
             {

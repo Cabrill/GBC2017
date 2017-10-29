@@ -127,7 +127,7 @@ namespace GBC2017.Entities.Structures.Utility
 
 	    private void CustomActivity()
 	    {
-	        if (IsTurnedOn && TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
+	        if (!IsBeingPlaced && IsTurnedOn && TimeManager.SecondsSince(_lastRegenerationTime) >= 1)
 	        {
 	            _shieldWasUp = ShieldIsUp;
 
@@ -137,7 +137,7 @@ namespace GBC2017.Entities.Structures.Utility
 	            }
 	            else
 	            {
-	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / Math.Max(1,_energyReceivedCurrentUpdate));
+	                CurrentShieldHealth = (float)Math.Max(0,CurrentShieldHealth - EnergyRequiredPerSecond / Math.Max(1,_energyReceivedPastSecond));
 	            }
 
 	            ShieldIsUp = (ShieldIsUp && CurrentShieldHealth > 0) || 
@@ -157,7 +157,7 @@ namespace GBC2017.Entities.Structures.Utility
                 }
 	            _lastRegenerationTime = TimeManager.CurrentTime;
             }
-            else if (!IsTurnedOn)
+            else if (!IsBeingPlaced  && !IsTurnedOn)
 	        {
 	            if (ShieldIsUp)
 	            {

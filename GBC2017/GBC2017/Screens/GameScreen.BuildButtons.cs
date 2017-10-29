@@ -24,10 +24,12 @@ namespace GBC2017.Screens
     {
         private void HandleBuildingButton()
         {
-            var buildButton = GuiManager.Cursor.WindowPushed as IBuildButton;
+            
 
-            if (buildButton != null && buildButton.IsEnabled && GuiManager.Cursor.WindowOver != GuiManager.Cursor.WindowPushed)
+            if (GuiManager.Cursor.WindowPushed is IBuildButton buildButton && buildButton.IsEnabled && GuiManager.Cursor.WindowOver != GuiManager.Cursor.WindowPushed)
             {
+                selectedObject = null;
+
                 BuildBarInstance.CurrentBuildMenuState = BuildBarRuntime.BuildMenu.None;
                 BuildBarInstance.UpdateSelection();
 
@@ -104,18 +106,24 @@ namespace GBC2017.Screens
 
         private void BuildBarInstanceOnEnergyStructureButtonClick(IWindow window)
         {
+            selectedObject = null;
+
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildEnergy ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildEnergy;
             BuildBarInstance.UpdateSelection();
         }
 
         private void BuildBarInstanceOnCombatStructureButtonClick(IWindow window)
         {
+            selectedObject = null;
+
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildCombat ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildCombat;
             BuildBarInstance.UpdateSelection();
         }
 
         private void BuildBarInstanceOnUtilityStructureButtonClick(IWindow window)
         {
+            selectedObject = null;
+
             BuildBarInstance.CurrentBuildMenuState = BuildBarInstance.CurrentBuildMenuState == BuildBarRuntime.BuildMenu.BuildUtility ? BuildBarRuntime.BuildMenu.None : BuildBarRuntime.BuildMenu.BuildUtility;
             BuildBarInstance.UpdateSelection();
         }

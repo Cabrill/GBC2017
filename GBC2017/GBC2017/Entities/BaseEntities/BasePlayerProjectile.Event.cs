@@ -22,13 +22,6 @@ namespace GBC2017.Entities.BaseEntities
 {
     public partial class BasePlayerProjectile
     {
-        void OnAfterSpeedSet (object sender, EventArgs e)
-        {
-            if (CurrentState ==  VariableState.Impact)
-            {
-                Velocity = Vector3.Zero;
-                HandleImpact();
-            }
-        }
+
     }
 }

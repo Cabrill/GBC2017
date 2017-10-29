@@ -27,9 +27,10 @@ namespace GBC2017.Entities.Structures.Utility
 
 		private void CustomActivity()
 		{
+		    if (IsTurnedOn && !SpriteInstance.Animate) SpriteInstance.Animate = true;
+		    else if (!IsTurnedOn && SpriteInstance.Animate) SpriteInstance.Animate = false;
 
-
-		}
+        }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {

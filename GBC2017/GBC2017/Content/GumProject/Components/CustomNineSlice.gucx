@@ -19,7 +19,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Bottom.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -122,7 +121,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BottomLeft.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -225,7 +223,6 @@
     <Variable>
       <Type>string</Type>
       <Name>BottomRight.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -379,7 +376,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Left.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -482,7 +478,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Middle.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -595,7 +590,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Right.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -703,7 +697,6 @@
     <Variable>
       <Type>string</Type>
       <Name>Top.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -806,7 +799,6 @@
     <Variable>
       <Type>string</Type>
       <Name>TopLeft.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -909,7 +901,6 @@
     <Variable>
       <Type>string</Type>
       <Name>TopRight.Parent</Name>
-      <Value xsi:type="xsd:string">&lt;SCREEN BOUNDS&gt;</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

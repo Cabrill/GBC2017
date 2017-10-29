@@ -9,6 +9,7 @@ using FlatRedBall.Graphics;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
+using GBC2017.Entities.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
@@ -82,7 +83,7 @@ namespace GBC2017.Entities.BaseEntities
 
         protected virtual void UpdateScale()
 	    {
-	        SpriteInstance.TextureScale = _startingSpriteScale.Value * _currentScale;
+	        SpriteInstance.UpdateToCurrentAnimationFrame();
 	        LightOrShadowSprite.TextureScale = _startingLightScale * _currentScale;
 	        CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	    }
@@ -138,28 +139,31 @@ namespace GBC2017.Entities.BaseEntities
 	            AltitudeVelocity += GravityDrag * TimeManager.SecondDifference;
 	            Altitude += AltitudeVelocity * TimeManager.SecondDifference;
 	        }
+	        float _spriteRelativeY = 0;
 
-            if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
+            if (!(this is CannonProjectile) || CurrentState == VariableState.Flying)
 	        {
-	            SpriteInstance.RelativeY = Altitude * _currentScale + SpriteInstance.CurrentChain[0].RelativeY;
-	        }
-	        else
-	        {
-	            SpriteInstance.UpdateToCurrentAnimationFrame();
+	            SpriteInstance.TextureScale = _startingSpriteScale.Value * _currentScale;
+	            _spriteRelativeY = SpriteInstance.Height / 2;
+            }
 
-	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	            {
-	                SpriteInstance.RelativeX *= SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	                SpriteInstance.RelativeY *= SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale;
-	            }
-	            SpriteInstance.RelativeY += Altitude * _currentScale;
+	        SpriteInstance.RelativeX = SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeX;
+	        SpriteInstance.RelativeY = SpriteInstance.CurrentChain[SpriteInstance.CurrentFrameIndex].RelativeY;
+
+	        if (SpriteInstance.RelativePosition != Vector3.Zero)
+	        {
+	            SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	            SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	        }
+	        SpriteInstance.RelativeY += Altitude * _currentScale + _spriteRelativeY;
         }
 
 	    public void HandleImpact()
 	    {
 	        CurrentState = VariableState.Impact;
-	        Velocity = Vector3.Zero;
+	        UpdateScale();
+            UpdateAnimation();
+            Velocity = Vector3.Zero;
 	        CustomHandleImpact();
 	    }
 

@@ -14,13 +14,17 @@ namespace GBC2017.StaticManagers
 {
     public static class WindManager
     {
+        private static List<float> _nineHourForecast;
+
+        public static List<float> NineHourForecast => _nineHourForecast;
+
         private static Random random;
         private static ICity city;
 
         public static float windSpeed{ get; private set; } = 1f; //in m/s
 
         private const int _secondsBetweenUpdates = 8;
-        private static double _timeOfLastUpdate;
+        private static DateTime _lastUpdate;
 
         public static void Initialize(ICity gameCity, DateTime gameDateTime)
         {
@@ -28,51 +32,31 @@ namespace GBC2017.StaticManagers
             city = gameCity;
 
             windSpeed = DailyWindSpeedForCityAndDate(city, gameDateTime);
-            _timeOfLastUpdate = TimeManager.CurrentTime;
+
+            _nineHourForecast = new List<float>(8);
+
+            var prevWindSpeed = windSpeed;
+
+            for (var i = 0; i < 9; i++)
+            {
+                prevWindSpeed = GenerateWindConditions(prevWindSpeed, gameDateTime.AddHours(i));
+                _nineHourForecast.Add(prevWindSpeed);
+            }
+            _lastUpdate = gameDateTime;
         }
 
         public static void Update(DateTime gameDateTime)
         {
-            if (TimeManager.SecondsSince(_timeOfLastUpdate) >= _secondsBetweenUpdates)
+            if ((gameDateTime - _lastUpdate).Hours >= 1)
             {
-                _timeOfLastUpdate = TimeManager.CurrentTime;
+                _lastUpdate = gameDateTime;
 
-                var oldWindSpeed = windSpeed;
+                var oldWindSpeed = _nineHourForecast[8];
+                _nineHourForecast.RemoveAt(0);
 
-                var averageWindSpeedForCityAndDate = DailyWindSpeedForCityAndDate(city, gameDateTime);
+                _nineHourForecast.Add(GenerateWindConditions(oldWindSpeed, gameDateTime.AddHours(8)));
 
-                var probOfIncrease = ProbOfHighWindSpeedForCityAndDate(city, gameDateTime);
-                var probOfDecrease = probOfIncrease * 1.1f;
-
-                if (oldWindSpeed > averageWindSpeedForCityAndDate)
-                {
-                    probOfIncrease /= 2;
-                    probOfDecrease = (1 - probOfIncrease) / 2;
-                }
-                else if (oldWindSpeed < averageWindSpeedForCityAndDate)
-                {
-                    probOfIncrease *= 2;
-                    probOfDecrease = (1 - probOfIncrease) / 2;
-                }
-
-                var randomChanceOfWindChange = random.NextDouble();
-
-                var incOrDecMod = 0;
-
-                if (probOfIncrease >= randomChanceOfWindChange)
-                {
-                    incOrDecMod = 1;
-                } else if (probOfDecrease >= randomChanceOfWindChange)
-                {
-                    incOrDecMod = -1;
-                }
-                else
-                {
-                    return;
-                }
-
-                var msPerScale = 3.5f * random.NextDouble();
-                float newWindSpeed = (float)Math.Max(0f,oldWindSpeed + (msPerScale * incOrDecMod));
+                var newWindSpeed = _nineHourForecast[0];
 
                 var shiftTime = FlatRedBallServices.Random.Between(1, _secondsBetweenUpdates);
 
@@ -85,6 +69,47 @@ namespace GBC2017.StaticManagers
                 windSpeedTweener.Start();
                 TweenerManager.Self.Add(windSpeedTweener);
             }
+        }
+
+        private static float GenerateWindConditions(float oldWindSpeed, DateTime gameDateTime)
+        {
+            var averageWindSpeedForCityAndDate = DailyWindSpeedForCityAndDate(city, gameDateTime);
+
+            var probOfIncrease = ProbOfHighWindSpeedForCityAndDate(city, gameDateTime);
+            var probOfDecrease = probOfIncrease * 1.1f;
+
+            if (oldWindSpeed > averageWindSpeedForCityAndDate)
+            {
+                probOfIncrease /= 2;
+                probOfDecrease = (1 - probOfIncrease) / 2;
+            }
+            else if (oldWindSpeed < averageWindSpeedForCityAndDate)
+            {
+                probOfIncrease *= 2;
+                probOfDecrease = (1 - probOfIncrease) / 2;
+            }
+
+            var randomChanceOfWindChange = random.NextDouble();
+
+            var incOrDecMod = 0;
+
+            if (probOfIncrease >= randomChanceOfWindChange)
+            {
+                incOrDecMod = 1;
+            }
+            else if (probOfDecrease >= randomChanceOfWindChange)
+            {
+                incOrDecMod = -1;
+            }
+            else
+            {
+                return oldWindSpeed;
+            }
+
+            var msPerScale = 3.5f * random.NextDouble();
+            float newWindSpeed = (float)Math.Max(0f, oldWindSpeed + (msPerScale * incOrDecMod));
+
+            return newWindSpeed;
         }
 
 

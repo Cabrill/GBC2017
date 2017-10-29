@@ -339,7 +339,7 @@
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\ConditionsDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CustomNineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\EndGameDisplayRuntime.Generated.cs" />
@@ -354,7 +354,9 @@
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.Generated.cs">
+      <DependentUpon>ConditionsForecastRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\EnemyInfoRuntime.Generated.cs">
       <DependentUpon>EnemyInfoRuntime.cs</DependentUpon>
@@ -363,7 +365,10 @@
     <Compile Include="GumRuntimes\infodisplays\EnergyDisplayRuntime.Generated.cs">
       <DependentUpon>EnergyDisplayRuntime.cs</DependentUpon>
     </Compile>
-    <Compile Include="GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\HourlyForecastRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\HourlyForecastRuntime.Generated.cs">
+      <DependentUpon>HourlyForecastRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.cs" />
     <Compile Include="GumRuntimes\infodisplays\MineralsDisplayRuntime.Generated.cs">
       <DependentUpon>MineralsDisplayRuntime.cs</DependentUpon>
@@ -382,6 +387,7 @@
     <Compile Include="GumRuntimes\LevelSelectScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\LoadingScreenGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\MessageBoxRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\specificbuttons\DestroyButtonRuntime.Generated.cs" />
@@ -392,7 +398,7 @@
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TechnologyTreeRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
-    <Compile Include="GumRuntimes\WhiteFrameNineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\WhiteFrameRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
@@ -968,6 +974,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>StructureInfo</Name>
     </None>
+    <None Include="content\gumproject\components\messagebox.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MessageBox</Name>
+    </None>
     <None Include="content\gumproject\components\specificbuttons\destroybutton.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>DestroyButton</Name>
@@ -992,9 +1002,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TechnologyTree</Name>
     </None>
-    <None Include="content\gumproject\components\whiteframenineslice.gucx">
+    <None Include="content\gumproject\components\whiteframe.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>WhiteFrameNineSlice</Name>
+      <Name>WhiteFrame</Name>
     </None>
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

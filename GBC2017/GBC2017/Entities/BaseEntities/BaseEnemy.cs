@@ -164,8 +164,7 @@ namespace GBC2017.Entities.BaseEntities
 
         protected virtual void UpdateScale()
 	    {
-	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
-	        _spriteRelativeY = SpriteInstance.Height / 2;
+	        SpriteInstance.UpdateToCurrentAnimationFrame();
             CircleInstance.Radius = _startingCircleRadius * _currentScale;
 	        HealthBar.SetWidth(SpriteInstance.Width);
 
@@ -186,22 +185,15 @@ namespace GBC2017.Entities.BaseEntities
 	        }
 	        Altitude = Math.Max(0, Altitude + AltitudeVelocity * TimeManager.SecondDifference);
 
-	        if (!SpriteInstance.Animate || SpriteInstance.CurrentChain.Count == 1)
+	        SpriteInstance.TextureScale = _startingSpriteScale * _currentScale;
+            _spriteRelativeY = SpriteInstance.Height / 2;
+
+            if (SpriteInstance.RelativePosition != Vector3.Zero)
 	        {
-	            SpriteInstance.RelativeX = SpriteInstance.CurrentChain[0].RelativeX * (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-                SpriteInstance.RelativeY = Altitude * _currentScale + _spriteRelativeY + SpriteInstance.CurrentChain[0].RelativeY * SpriteInstance.TextureScale;
+	            SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
+	            SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
 	        }
-	        else
-	        {
-                SpriteInstance.UpdateToCurrentAnimationFrame();
-                
-	            if (SpriteInstance.UseAnimationRelativePosition && SpriteInstance.RelativePosition != Vector3.Zero)
-	            {
-	                SpriteInstance.RelativeX *= (SpriteInstance.FlipHorizontal ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	                SpriteInstance.RelativeY *= (SpriteInstance.FlipVertical ? -SpriteInstance.TextureScale : SpriteInstance.TextureScale);
-	            }
-	            SpriteInstance.RelativeY += Altitude  * _currentScale + _spriteRelativeY;
-	        }
+	        SpriteInstance.RelativeY += Altitude * _currentScale + _spriteRelativeY;
 
 	        var pctLightShadow = MathHelper.Clamp(1 - (SpriteInstance.RelativeY / (800*_currentScale)), 0, 1);
 
@@ -248,6 +240,8 @@ namespace GBC2017.Entities.BaseEntities
 
 	            Velocity = Vector3.Zero;
                 CurrentActionState = Action.Hurt;
+                SpriteInstance.UpdateToCurrentAnimationFrame();
+	            UpdateAnimation();
 	        }
 	    }
 

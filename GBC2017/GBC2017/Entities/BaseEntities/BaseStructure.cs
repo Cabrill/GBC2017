@@ -42,11 +42,10 @@ namespace GBC2017.Entities.BaseEntities
         public bool HasInternalBattery => InternalBatteryMaxStorage > 0;
         public double EnergyRequestAmount => HasInternalBattery ? Math.Min(MaxReceivableEnergyPerSecond * TimeManager.SecondDifference, EnergyMissing) : EnergyRequiredPerSecond * TimeManager.SecondDifference;
         public float HealthRemaining { get; private set; }
-        public double EnergyReceivedLastUpdate { get; private set; }
-        public double MineralsReceivedLastUpdate { get; private set; }
+        public double EnergyReceivedLastSecond { get; private set; }
         private double _lastUsageUpdate;
         protected double _energyReceivedCurrentUpdate;
-        protected double _mineralsReceivedCurrentUpdate;
+        protected double _energyReceivedPastSecond;
 
         private double EnergyMissing => InternalBatteryMaxStorage - BatteryLevel;
 
@@ -168,11 +167,16 @@ namespace GBC2017.Entities.BaseEntities
             }
             else
             {
-                EnergyReceivedLastUpdate = _energyReceivedCurrentUpdate;
-                MineralsReceivedLastUpdate = _mineralsReceivedCurrentUpdate;
+                _energyReceivedPastSecond += _energyReceivedCurrentUpdate;
+                _energyReceivedCurrentUpdate = 0;
 
-                _energyReceivedCurrentUpdate = _mineralsReceivedCurrentUpdate = 0;
-
+                if (TimeManager.SecondsSince(_lastUsageUpdate) >= 1)
+                {
+                    EnergyReceivedLastSecond = _energyReceivedPastSecond;
+                    _energyReceivedPastSecond = 0;
+                    _lastUsageUpdate = TimeManager.CurrentTime;
+                }
+                
                 if (HasInternalBattery)
                 {
                     if (BatteryLevel < InternalBatteryMaxStorage)
@@ -302,7 +306,7 @@ namespace GBC2017.Entities.BaseEntities
             }
             else
             {
-                HasSufficientEnergy = energyAmount >= EnergyRequestAmount*TimeManager.SecondDifference;
+                HasSufficientEnergy = Math.Abs(energyAmount - EnergyRequestAmount) < .000001f;
             }
             _energyReceivedCurrentUpdate += energyAmount;
         }

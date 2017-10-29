@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GBC2017.ResourceManagers;
 
 namespace GBC2017.GumRuntimes
 {
@@ -14,20 +15,22 @@ namespace GBC2017.GumRuntimes
             {
                 if (total > 0)
                 {
-                    TextInstance.Text = $"{current.ToString("#.0")}/{total.ToString("#")}";
+                    TextInstance.Text = $"{EnergyManager.FormatEnergyAmount(current)}/{EnergyManager.FormatEnergyAmount(total)}";
                 }
                 else
                 {
-                    TextInstance.Text = $"{current.ToString("#")}";
+                    TextInstance.Text = $"{EnergyManager.FormatEnergyAmount(current)}";
                 }
             }
 
-            var barPct = 1.0;
             if (total > 0)
             {
-                barPct = current / total;
+                BarFillPercent = (float)(current / total) * 100f;
             }
-            FillRectangle.Width = (float)(barPct * 100);
+            else
+            {
+                BarFillPercent = 100;
+            }
         }
     }
 }

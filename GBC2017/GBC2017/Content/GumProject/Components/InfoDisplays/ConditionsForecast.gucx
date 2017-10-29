@@ -240,6 +240,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>HourlyForecastContainer.Clips Children</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>HourlyForecastContainer.Height</Name>
       <Value xsi:type="xsd:float">64.15345</Value>
@@ -260,7 +266,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastContainer.Width</Name>
-      <Value xsi:type="xsd:float">82.5</Value>
+      <Value xsi:type="xsd:float">82.35</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -272,7 +278,7 @@
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastContainer.X</Name>
-      <Value xsi:type="xsd:float">1.5</Value>
+      <Value xsi:type="xsd:float">1.65</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -315,6 +321,12 @@
       <Type>float</Type>
       <Name>HourlyForecastInstance.WindPercent</Name>
       <Value xsi:type="xsd:float">25</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HourlyForecastInstance.X</Name>
+      <Value xsi:type="xsd:float">-7.1</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -440,19 +452,19 @@
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastInstance6.SunPercent</Name>
-      <Value xsi:type="xsd:float">45</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastInstance6.WaterPercent</Name>
-      <Value xsi:type="xsd:float">45</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastInstance6.WindPercent</Name>
-      <Value xsi:type="xsd:float">45</Value>
+      <Value xsi:type="xsd:float">10</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -470,6 +482,24 @@
     <Variable>
       <Type>float</Type>
       <Name>HourlyForecastInstance7.WindPercent</Name>
+      <Value xsi:type="xsd:float">90</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>HourlyForecastInstance8.Parent</Name>
+      <Value xsi:type="xsd:string">HourlyForecastContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HourlyForecastInstance8.WaterPercent</Name>
+      <Value xsi:type="xsd:float">40</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>HourlyForecastInstance8.WindPercent</Name>
       <Value xsi:type="xsd:float">90</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -910,6 +940,10 @@
   </Instance>
   <Instance>
     <Name>HourlyForecastInstance7</Name>
+    <BaseType>infodisplays/HourlyForecast</BaseType>
+  </Instance>
+  <Instance>
+    <Name>HourlyForecastInstance8</Name>
     <BaseType>infodisplays/HourlyForecast</BaseType>
   </Instance>
   <Behaviors />

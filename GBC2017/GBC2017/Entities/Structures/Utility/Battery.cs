@@ -28,8 +28,7 @@ namespace GBC2017.Entities.Structures.Utility
 		private void CustomActivity()
 		{
 
-
-		}
+        }
 
 	    public new void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)
 	    {

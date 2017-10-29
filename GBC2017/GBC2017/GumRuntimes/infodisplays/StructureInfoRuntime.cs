@@ -8,6 +8,7 @@ using FlatRedBall.Gui;
 using GBC2017.Entities.BaseEntities;
 using GBC2017.Entities.Structures;
 using GBC2017.Entities.Structures.EnergyProducers;
+using GBC2017.Entities.Structures.Utility;
 using GBC2017.ResourceManagers;
 using GBC2017.StaticManagers;
 using Microsoft.Xna.Framework;
@@ -85,7 +86,7 @@ namespace GBC2017.GumRuntimes
             var minMaxY = (CameraZoomManager.OriginalOrthogonalHeight - GetAbsoluteHeight()) / 2;
 
             var newX = (structureShown.X - Camera.Main.X) * CameraZoomManager.GumCoordOffset;
-            var newY = (structureShown.Y - Camera.Main.Y + structureShown.SpriteInstance.Height / 2) *
+            var newY = (structureShown.Y - Camera.Main.Y) *
                        CameraZoomManager.GumCoordOffset + GetAbsoluteHeight() / 2;
 
             X = MathHelper.Clamp(newX, -minMaxX, minMaxX);
@@ -95,8 +96,6 @@ namespace GBC2017.GumRuntimes
 
             if (structure.HasInternalBattery)
             {
-                StructureEnergy =
-                    $"{structure.BatteryLevel.ToString("0")} / {structure.InternalBatteryMaxStorage.ToString("0")}";
                 CurrentHasBatteryState = HasBattery.True;
             }
             else
@@ -107,27 +106,30 @@ namespace GBC2017.GumRuntimes
             CurrentResourceUsageState = ResourceUsage.True;
             if (structure is Home)
             {
-                var home = structure as Home;
-                CurrentStoresMineralsState = StoresMinerals.True;
                 DestroyButtonInstance.CurrentEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Disabled;
                 SwitchOnOffInstance.Visible = false;
             }
             else
             {
-                CurrentStoresMineralsState = StoresMinerals.False;
                 DestroyButtonInstance.CurrentEnabledStatusState = DestroyButtonRuntime.EnabledStatus.Enabled;
-                SwitchOnOffInstance.Visible = true;
+                SwitchOnOffInstance.Visible = (!(structure is Battery));
             }
         }
 
-        public void Update()
+        private void Update()
         {
 
-            StructureHealth = $" {structureShown.HealthRemaining.ToString("0")} / {structureShown.MaximumHealth.ToString("0")}";
+            StructureHealth = $" {structureShown.HealthRemaining.ToString("0")}";
+            HealthBar.BarFillPercent = (structureShown.HealthRemaining / structureShown.MaximumHealth) * 100f;
 
             if (CurrentHasBatteryState == HasBattery.True)
             {
-                StructureEnergy = $"{structureShown.BatteryLevel.ToString("0")} / {structureShown.InternalBatteryMaxStorage.ToString("0")}";
+                EnergyBar.BarFillPercent =
+                    (float) (structureShown.BatteryLevel / structureShown.InternalBatteryMaxStorage) * 100f;
+            }
+            else
+            {
+                EnergyBar.BarFillPercent = 0;
             }
 
             if (!(structureShown is Home))
@@ -137,44 +139,31 @@ namespace GBC2017.GumRuntimes
                     : SwitchOnOffRuntime.OnOffState.Off;
             }
 
-
             if (structureShown.HealthRemaining >= structureShown.MaximumHealth)
             {
                 RepairButtonInstance.CurrentEnabledStatusState = RepairButtonRuntime.EnabledStatus.Disabled;
             }
             else
             {
-                var energyRepairCost = structureShown.GetEnergyRepairCost();
                 var mineralRepairCost = structureShown.GetMineralRepairCost();
+                var canAfford = MineralsManager.CanAfford(mineralRepairCost);
 
-                var canAfford = EnergyManager.CanAfford(energyRepairCost) &&
-                                MineralsManager.CanAfford(mineralRepairCost);
                 RepairButtonInstance.CurrentEnabledStatusState = canAfford
                     ? RepairButtonRuntime.EnabledStatus.Enabled
                     : RepairButtonRuntime.EnabledStatus.Unaffordable;
             }
 
-
             var netEnergy = 0.0;
-            var netMinerals = 0.0;
 
             var structureAsEnergyProducer = structureShown as BaseEnergyProducer;
-            var structureAsMineralsProducer = structureShown as BaseMineralsProducer;
 
             if (structureAsEnergyProducer != null)
             {
                 netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
-            netEnergy -= structureShown.EnergyReceivedLastUpdate;
-
-            if (structureAsMineralsProducer != null)
-            {
-                netMinerals += structureAsMineralsProducer.MineralsProducedPerSecond;
-            }
-            netMinerals -= structureShown.MineralsReceivedLastUpdate;
-
+            netEnergy += structureShown.EnergyReceivedLastSecond;
+            
             SetEnergyUsage(netEnergy);
-            SetMineralsUsage(netMinerals);
         }
 
         public void Hide()
@@ -184,10 +173,12 @@ namespace GBC2017.GumRuntimes
 
         private void SetEnergyUsage(double energyUsage)
         {
-            StructureEnergyChange = energyUsage.ToString("0.0");
+            var energyChange = EnergyManager.FormatEnergyAmount(energyUsage);
+
             if (energyUsage > 0)
             {
                 CurrentEnergyUsageState = EnergyUsage.Positive;
+                
             }
             else if (energyUsage < 0)
             {
@@ -197,23 +188,7 @@ namespace GBC2017.GumRuntimes
             {
                 CurrentEnergyUsageState = EnergyUsage.Balanced;
             }
-        }
-
-        private void SetMineralsUsage(double mineralsUsage)
-        {
-            StructureMineralChange = mineralsUsage.ToString("0.0");
-            if (mineralsUsage > 0)
-            {
-                CurrentMineralsUsageState = MineralsUsage.Positive;
-            }
-            else if (mineralsUsage < 0)
-            {
-                CurrentMineralsUsageState = MineralsUsage.Negative;
-            }
-            else
-            {
-                CurrentMineralsUsageState = MineralsUsage.Balanced;
-            }
+            StructureEnergyChange = energyChange;
         }
     }
 }
