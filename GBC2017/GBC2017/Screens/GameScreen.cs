@@ -298,6 +298,9 @@ namespace GBC2017.Screens
 
         #region Activity
 
+        private bool isDragging = false;
+        private float startX;
+        private float startY;
         void CustomActivity(bool firstTimeCalled)
         {
 
@@ -308,11 +311,53 @@ namespace GBC2017.Screens
             UpdateMusic();
             UpdateGameModeActivity();
 
+            if (InputManager.Mouse.ScrollWheel.Velocity != 0)
+            {
+                CameraZoomManager.PerformZoom(GuiManager.Cursor.WorldXAt(1), GuiManager.Cursor.WorldYAt(1), -InputManager.Mouse.ScrollWheelChange/10);
+                Camera.Main.ForceUpdateDependencies();
+                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+                HorizonBoxInstance.ReactToCameraChange();
+                AdjustLayerOrthoValues();
+            }
+
             HandleTouchActivity();
             SelectedItemActivity();
             BuildingStatusActivity();
 
-            
+            if (GuiManager.Cursor.PrimaryDown && selectedObject == null && GuiManager.Cursor.WindowPushed == null)
+            {
+                if (!isDragging)
+                {
+                    startX = GuiManager.Cursor.ScreenX;
+                    startY = GuiManager.Cursor.ScreenY;
+                    isDragging = true;
+                }
+                const float cameraMoveSpeed = 0.25f;
+
+                var x = GuiManager.Cursor.ScreenX;
+                var y = GuiManager.Cursor.ScreenY;
+
+                var newX = Camera.Main.X - ((x - startX) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
+                var newY = Camera.Main.Y + ((y - startY) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
+
+                var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth - Camera.Main.OrthogonalWidth) /
+                                            2;
+                var effectiveScreenLimitY =
+                    (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
+
+                newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
+                newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
+
+                Camera.Main.X = newX;
+                Camera.Main.Y = newY;
+
+                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+                Camera.Main.ForceUpdateDependencies();
+                HorizonBoxInstance.ReactToCameraChange();
+            }
+            else isDragging = false;
+
+
             var gameplayOccuring = !IsPaused && GameHasStarted;
             if (gameplayOccuring)
             {
