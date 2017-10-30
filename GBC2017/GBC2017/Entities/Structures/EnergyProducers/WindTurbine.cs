@@ -94,7 +94,7 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private double BaseEnergyPerSecond()
         {
-            var powerCoefficient = 0.25f;
+            var powerCoefficient = 0.05f;
             var area = Math.Pow(BladeRadiusInMeters,2) * Math.PI;
             double kiloWattReal = powerCoefficient * 0.5f * AirDensity * Math.Pow(WindManager.windSpeed, 3) * area;
             double wattInGame = kiloWattReal * 1000 / GameFormulas.RealSecondsPerGameHour;

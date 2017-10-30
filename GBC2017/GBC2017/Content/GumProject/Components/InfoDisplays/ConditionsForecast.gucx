@@ -637,6 +637,133 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>TextContainer.Height</Name>
+      <Value xsi:type="xsd:float">25</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TextContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TextContainer.Parent</Name>
+      <Value xsi:type="xsd:string">ForecastContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextContainer.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TextContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextContainer.Y</Name>
+      <Value xsi:type="xsd:float">77</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>TextContainer.Y Units</Name>
+      <Value xsi:type="xsd:int">3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TimeRemaining.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>TimeRemaining.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../globalcontent/Font50MoireExtraBold.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TimeRemaining.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.85</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TimeRemaining.Green</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TimeRemaining.Height</Name>
+      <Value xsi:type="xsd:float">25</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TimeRemaining.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TimeRemaining.Parent</Name>
+      <Value xsi:type="xsd:string">TextContainer</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>TimeRemaining.Red</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TimeRemaining.Text</Name>
+      <Value xsi:type="xsd:string">48H</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TimeRemaining.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>TimeRemaining.VerticalAlignment</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TimeRemaining.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TimeRemaining.X</Name>
+      <Value xsi:type="xsd:float">-3</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>PositionUnitType</Type>
+      <Name>TimeRemaining.X Units</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>TimeText.Blue</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -676,7 +803,7 @@
     <Variable>
       <Type>string</Type>
       <Name>TimeText.Parent</Name>
-      <Value xsi:type="xsd:string">ForecastContainer</Value>
+      <Value xsi:type="xsd:string">TextContainer</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -701,7 +828,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TimeText.Width</Name>
-      <Value xsi:type="xsd:float">85</Value>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -725,7 +852,7 @@
     <Variable>
       <Type>float</Type>
       <Name>TimeText.Y</Name>
-      <Value xsi:type="xsd:float">77</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -907,6 +1034,10 @@
     <BaseType>Container</BaseType>
   </Instance>
   <Instance>
+    <Name>TimeRemaining</Name>
+    <BaseType>Text</BaseType>
+  </Instance>
+  <Instance>
     <Name>TimeText</Name>
     <BaseType>Text</BaseType>
   </Instance>
@@ -945,6 +1076,10 @@
   <Instance>
     <Name>HourlyForecastInstance8</Name>
     <BaseType>infodisplays/HourlyForecast</BaseType>
+  </Instance>
+  <Instance>
+    <Name>TextContainer</Name>
+    <BaseType>Container</BaseType>
   </Instance>
   <Behaviors />
 </ComponentSave>

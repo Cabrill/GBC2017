@@ -79,14 +79,14 @@ namespace GBC2017.GameClasses.BaseClasses
         /// Creates enemies equal to the energy amount
         /// </summary>
         /// <param name="energyAmount">Amount of energy to spend in creating enemies</param>
-        private void CreateEnemiesFromEnergy()
+        private void CreateEnemiesFromEnergy(bool useBossMonster)
         {
             if (EnergyToSpend < GameFormulas.Instance.MinimumEnergyCostForAnEnemy) return;
 
             var leftRightToggle = 1;
             while (EnergyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)
             {
-                var newEnemy = GameFormulas.Instance.StrongestAffordableEnemy(ref EnergyToSpend, _layerForEnemies);
+                var newEnemy = GameFormulas.Instance.StrongestAffordableEnemy(ref EnergyToSpend, useBossMonster, _layerForEnemies);
 
                 if (currentAlienSides == AlienSides.Right || (currentAlienSides == AlienSides.Both && leftRightToggle > 0))
                 { 
@@ -160,7 +160,7 @@ namespace GBC2017.GameClasses.BaseClasses
                 _lastEnemyWave = currentDateTime;
                 sentShip = false;
                 _wavesSent++;
-                CreateEnemiesFromEnergy();
+                CreateEnemiesFromEnergy(currentDateTime.AddHours(HoursBetweenWaves) > EndTime);
                 UpdateAlienSides();
             }
         }

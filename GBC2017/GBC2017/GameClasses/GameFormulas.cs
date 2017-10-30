@@ -190,14 +190,14 @@ namespace GBC2017.GameClasses
             return life;// + dps;
         }
 
-        public BaseEnemy StrongestAffordableEnemy(ref float energyAmount, Layer layerToPutEnemyOn)
+        public BaseEnemy StrongestAffordableEnemy(ref float energyAmount, bool includeBoss, Layer layerToPutEnemyOn)
         {
             var energyToSpend = 0f;
             energyToSpend = energyToSpend < EnergyCostOfBasicAlien && EnergyCostOfBasicAlien < energyAmount ? EnergyCostOfBasicAlien : energyToSpend;
             energyToSpend = energyToSpend < EnergyCostOfFlyingEnemy && EnergyCostOfFlyingEnemy < energyAmount ? EnergyCostOfFlyingEnemy : energyToSpend;
             energyToSpend = energyToSpend < EnergyCostOfMeleeAlien && EnergyCostOfMeleeAlien < energyAmount ? EnergyCostOfMeleeAlien : energyToSpend;
-            energyToSpend = energyToSpend < EnergyCostOfSlimeAlien && EnergyCostOfSlimeAlien < energyAmount ? EnergyCostOfSlimeAlien : energyToSpend;
             energyToSpend = energyToSpend < EnergyCostOfSmallSlime && EnergyCostOfSmallSlime < energyAmount ? EnergyCostOfSmallSlime : energyToSpend;
+            energyToSpend = includeBoss && energyToSpend < EnergyCostOfSlimeAlien && EnergyCostOfSlimeAlien < energyAmount ? EnergyCostOfSlimeAlien : energyToSpend;
 
             if (energyToSpend == 0)
             {

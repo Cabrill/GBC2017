@@ -44,6 +44,26 @@ namespace GBC2017.Entities.Enemies
 	        meleeAttackSound.Pitch = SpriteInstance.TextureScale;
             _jumpStart.Pitch = SpriteInstance.TextureScale;
 	        _jumpLand.Pitch = SpriteInstance.TextureScale;
+
+	        var randomChoice = FlatRedBallServices.Random.Next(0, 3);
+	        if (randomChoice == 0)
+	        {
+	            SpriteInstance.Red = LightSprite.Red = 1;
+	            SpriteInstance.Green = LightSprite.Green = 0;
+	            SpriteInstance.Blue = LightSprite.Blue = 0;
+	        }
+	        else if (randomChoice == 1)
+	        {
+	            SpriteInstance.Red = LightSprite.Red = 0;
+	            SpriteInstance.Green = LightSprite.Green = 1;
+	            SpriteInstance.Blue = LightSprite.Blue = 0;
+	        }
+	        else
+	        {
+	            SpriteInstance.Red = LightSprite.Red = 0;
+	            SpriteInstance.Green = LightSprite.Green = 0;
+	            SpriteInstance.Blue = LightSprite.Blue = 1;
+	        }
         }
 
 	    public void AddSpritesToLayers(Layer darknessLayer, Layer hudLayer)

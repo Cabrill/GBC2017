@@ -20,7 +20,9 @@ namespace GBC2017.GumRuntimes
         private const float HalfHourlyForecastWidth = 12.5f;
         private int lastHour;
 
-        public void Initialize(List<float> hourlySun, List<float> hourlyWind, List<float> hourlyWater)
+        private DateTime _endTime;
+
+        public void Initialize(DateTime endTime, List<float> hourlySun, List<float> hourlyWind, List<float> hourlyWater)
         {
             (HourlyForecastContainer.Children[0] as HourlyForecastRuntime).SetValues(0, 0, 0);
             (HourlyForecastContainer.Children[0] as HourlyForecastRuntime).XUnits = GeneralUnitType.Percentage;
@@ -34,6 +36,7 @@ namespace GBC2017.GumRuntimes
                 }
             }
             lastHour = int.MinValue;
+            _endTime = endTime;
         }
 
         public void UpdateFirstItem(List<float> hourlySun = null, List<float> hourlyWind = null,
@@ -68,7 +71,7 @@ namespace GBC2017.GumRuntimes
             var newOffset = HalfHourlyForecastWidth * ((percentOfHour * 2) - 1) - 7.1f;
 
             firstHour.X = newOffset;
-
+            UpdateTimeRemaining(gameTime);
             TimeText.Text = DateTimeToString(gameTime);
         }
 
@@ -85,6 +88,14 @@ namespace GBC2017.GumRuntimes
             else minute = "45";
 
             return $"{month} | {day} | {hour}:{minute}";
+        }
+
+        private void UpdateTimeRemaining(DateTime currentTime)
+        {
+            var timeRemaining = _endTime - currentTime;
+            var hoursRemaining = Math.Max(0, timeRemaining.Days * 24 + timeRemaining.Hours);
+
+            TimeRemaining.Text = $"{hoursRemaining}H";
         }
     }
 }

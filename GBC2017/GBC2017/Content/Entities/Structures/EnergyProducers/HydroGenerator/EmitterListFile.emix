@@ -6,11 +6,11 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>5</ScaleZ>
+    <ScaleZ>1</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
-    <AreaEmissionType>Cube</AreaEmissionType>
+    <AreaEmissionType>Rectangle</AreaEmissionType>
     <EmissionSettings>
       <VelocityRangeType>Component</VelocityRangeType>
       <RadialVelocity>20</RadialVelocity>
@@ -88,12 +88,12 @@
     <Y>0</Y>
     <Z>0</Z>
     <ScaleX>25</ScaleX>
-    <ScaleY>5</ScaleY>
-    <ScaleZ>10</ScaleZ>
+    <ScaleY>10</ScaleY>
+    <ScaleZ>1</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
-    <AreaEmissionType>Cube</AreaEmissionType>
+    <AreaEmissionType>Rectangle</AreaEmissionType>
     <EmissionSettings>
       <VelocityRangeType>Component</VelocityRangeType>
       <RadialVelocity>20</RadialVelocity>
@@ -172,11 +172,11 @@
     <Z>0</Z>
     <ScaleX>25</ScaleX>
     <ScaleY>10</ScaleY>
-    <ScaleZ>5</ScaleZ>
+    <ScaleZ>1</ScaleZ>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
-    <AreaEmissionType>Cube</AreaEmissionType>
+    <AreaEmissionType>Rectangle</AreaEmissionType>
     <EmissionSettings>
       <VelocityRangeType>Component</VelocityRangeType>
       <RadialVelocity>20</RadialVelocity>

@@ -5207,7 +5207,7 @@
           </Properties>
           <Name>MeleeAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">64</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">96</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5279,7 +5279,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>1.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -5295,6 +5295,31 @@
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Red</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Green</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Blue</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>BlendOperation</Type>
+            <Member>BlendOperation</Member>
+            <ValueAsInt>0</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5326,7 +5351,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>36</ValueAsFloat>
+            <ValueAsFloat>54</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -5391,12 +5416,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>80</ValueAsFloat>
+            <ValueAsFloat>120</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>40</ValueAsFloat>
+            <ValueAsFloat>60</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -5475,7 +5500,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.3</ValueAsFloat>
+            <ValueAsFloat>0.45</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -5798,7 +5823,7 @@
           </Properties>
           <Name>MeleeAttackRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">40</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">72</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -5871,7 +5896,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.5</ValueAsFloat>
+            <ValueAsFloat>0.9</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -5887,6 +5912,11 @@
             <Type>bool</Type>
             <Member>IgnoreAnimationChainTextureFlip</Member>
             <ValueAsBool>true</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>ColorOperation</Type>
+            <Member>ColorOperation</Member>
+            <ValueAsInt>3</ValueAsInt>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -5918,7 +5948,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Radius</Member>
-            <ValueAsFloat>24</ValueAsFloat>
+            <ValueAsFloat>43</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Circle</SourceClassType>
@@ -5983,12 +6013,12 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>Width</Member>
-            <ValueAsFloat>22</ValueAsFloat>
+            <ValueAsFloat>40</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Height</Member>
-            <ValueAsFloat>8</ValueAsFloat>
+            <ValueAsFloat>15</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -6057,7 +6087,7 @@
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.075</ValueAsFloat>
+            <ValueAsFloat>0.135</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>ColorOperation</Type>
@@ -9199,7 +9229,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">350</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9271,7 +9301,7 @@
           </Properties>
           <Name>BladeRadiusInMeters</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.75</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -9282,7 +9312,7 @@
           </Properties>
           <Name>efficiency</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.2</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -9865,7 +9895,7 @@
           </Properties>
           <Name>MineralsBuildCost</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">250</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">200</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9925,7 +9955,7 @@
           </Properties>
           <Name>BladeRadiusInMeters</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -10421,7 +10451,7 @@
           </Properties>
           <Name>InternalBatteryMaxStorage</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">500</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">800</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
