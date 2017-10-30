@@ -110,5 +110,50 @@ namespace GBC2017.StaticManagers
             Camera.Main.X = newX;
             Camera.Main.Y = newY;
         }
+
+        public static void PerformZoom(float x, float y, float zoomIncrement)
+        {
+            zoomTowardsX = x;
+            zoomTowardsY = y;
+            startX = Camera.Main.X;
+            startY = Camera.Main.Y;
+            currentZoom = zoomIncrement;
+            currentZoomInMax = (1 / maxZoom) - ZoomFactor;
+            currentZoomOutMax = 1 - ZoomFactor;
+
+
+            //Calculate the ZoomFactor after adding in the current zoom
+            ZoomFactor = MathHelper.Clamp(ZoomFactor + zoomIncrement, 1f / maxZoom, 1f);
+
+            //Determine effective screen height with the new Zoom
+            var newHeight = MathHelper.Clamp(OriginalOrthogonalHeight * ZoomFactor, minimumHeight, OriginalOrthogonalHeight);
+            //Modify width to match via aspect ratio of 16:9
+            Camera.Main.OrthogonalHeight = newHeight;
+            Camera.Main.FixAspectRatioYConstant();
+
+            //Now update the current pinch operation to adjust camera center
+            currentZoom = MathHelper.Clamp(currentZoom, currentZoomInMax, currentZoomOutMax);
+            var currentZoomRatio = 0f;
+
+            if (currentZoom < 0)
+            {
+                currentZoomRatio = currentZoom / currentZoomInMax;
+            }
+            else if (currentZoom > 0)
+            {
+                currentZoomRatio = currentZoom / currentZoomOutMax;
+            }
+
+            var newX = ((startX * (1 - currentZoomRatio)) + (zoomTowardsX * currentZoomRatio));
+            var newY = ((startY * (1 - currentZoomRatio)) + (zoomTowardsY * currentZoomRatio));
+            var effectiveScreenLimitX = (OriginalOrthogonalWidth - Camera.Main.OrthogonalWidth) / 2;
+            var effectiveScreenLimitY = (OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
+
+            newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
+            newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
+
+            Camera.Main.X = newX;
+            Camera.Main.Y = newY;
+        }
     }
 }
