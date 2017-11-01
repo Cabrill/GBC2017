@@ -154,14 +154,12 @@ namespace GBC2017.GumRuntimes
             }
 
             var netEnergy = 0.0;
-
-            var structureAsEnergyProducer = structureShown as BaseEnergyProducer;
-
-            if (structureAsEnergyProducer != null)
+            
+            if (structureShown is BaseEnergyProducer structureAsEnergyProducer)
             {
                 netEnergy += structureAsEnergyProducer.EffectiveEnergyProducedPerSecond;
             }
-            netEnergy += structureShown.EnergyReceivedLastSecond;
+            netEnergy -= structureShown.EnergyReceivedLastSecond;
             
             SetEnergyUsage(netEnergy);
         }

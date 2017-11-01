@@ -53,7 +53,9 @@ namespace GBC2017.ResourceManagers
                 var mineralsGenerator = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s.HasSufficientEnergy && s is BaseMineralsProducer).Cast<BaseMineralsProducer>();
                 var mineralsGeneratorArray = mineralsGenerator as BaseMineralsProducer[] ?? mineralsGenerator.ToArray();
                 MineralsIncrease = mineralsGeneratorArray.Sum(eg => eg.MineralsProducedPerSecond * TimeManager.SecondDifference);
-                DepositMinerals(MineralsIncrease);
+
+                //This is currently being done by notification in GameScreen
+                //DepositMinerals(MineralsIncrease);
 
                 //var mineralsRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false).Except(mineralsGeneratorArray);
                 //var mineralsRequesterArray = mineralsRequesters as BaseStructure[] ?? mineralsRequesters.ToArray();
