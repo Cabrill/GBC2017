@@ -423,7 +423,7 @@ namespace GBC2017.Screens
                     : 0;
                 FlatRedBall.Debugging.Debugger.Write(renderBreaks);
             }
-            FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
+            //FlatRedBall.Debugging.Debugger.Write(GuiManager.Cursor.WindowOver);
         }
 
         private void UpdateGameTime()
@@ -714,6 +714,25 @@ namespace GBC2017.Screens
 	        {
 	            var newAlien = MeleeAlienFactory.CreateNew(WorldLayer);
 	            newAlien.PlaceOnRightSide();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.Q))
+	        {
+	            AlienShipInstance1.FlyToLeftAnimation.Play();
+	        }
+
+	        if (InputManager.Keyboard.KeyPushed(Keys.W))
+	        {
+	            AlienShipInstance2.FlyToRightAnimation.Play();
+	        }
+
+            if (InputManager.Keyboard.KeyDown(Keys.Y))
+	        {
+	            CameraZoomManager.PerformZoom(0, 0, 0.1f);
+	        }
+	        else if (InputManager.Keyboard.KeyDown(Keys.T))
+	        {
+	            CameraZoomManager.PerformZoom(0, 0, -0.1f);
 	        }
 
         }

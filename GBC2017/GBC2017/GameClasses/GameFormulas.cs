@@ -204,13 +204,22 @@ namespace GBC2017.GameClasses
                 return null;
             }
 
+            if (includeBoss && energyToSpend == EnergyCostOfSlimeAlien)
+            {
+                var boss = SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
+                boss.MaximumHealth = energyAmount / BaseEnergyPerHitPoint;
+                boss.HealthRemaining = boss.MaximumHealth;
+                energyAmount = 0;
+                return boss;
+            }
+
             energyAmount -= energyToSpend;
 
             if (energyToSpend == EnergyCostOfBasicAlien) return BasicAlienFactory.CreateNew(layerToPutEnemyOn);
             if (energyToSpend == EnergyCostOfFlyingEnemy) return FlyingEnemyFactory.CreateNew(layerToPutEnemyOn);
             if (energyToSpend == EnergyCostOfMeleeAlien) return MeleeAlienFactory.CreateNew(layerToPutEnemyOn);
-            if (energyToSpend == EnergyCostOfSlimeAlien) return SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
             if (energyToSpend == EnergyCostOfSmallSlime) return SmallSlimeFactory.CreateNew(layerToPutEnemyOn);
+            //if (energyToSpend == EnergyCostOfSlimeAlien) return SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
 
             return null;
         }

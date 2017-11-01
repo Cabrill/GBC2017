@@ -109,7 +109,7 @@ namespace GBC2017.GameClasses.BaseClasses
                 _lastEnergyUpdate = currentDateTime;
             }
 
-            if (!sentShip && currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves - 1)
+            if (!sentShip && currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves - 1 && currentDateTime < EndTime)
             {
                 sentShip = true;
 

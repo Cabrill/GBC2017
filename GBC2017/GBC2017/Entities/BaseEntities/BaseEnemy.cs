@@ -43,7 +43,7 @@ namespace GBC2017.Entities.BaseEntities
 	    private int _currentNumberOfPotentialTargets;
 	    private int _lastNumberOfPotentialTargets;
 
-        public float HealthRemaining { get; private set; }
+        public float HealthRemaining { get; set; }
         public bool IsDead => HealthRemaining <= 0;
 	    private bool IsHurt => CurrentActionState == Action.Hurt;
 

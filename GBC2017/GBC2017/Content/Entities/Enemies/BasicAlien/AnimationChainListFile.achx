@@ -4,96 +4,64 @@
   <TimeMeasurementUnit>Second</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>looker_attack</Name>
-    <Frame>
-      <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
-      <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
-      <RelativeY>-30</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2</LeftCoordinate>
-      <RightCoordinate>160</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>371</BottomCoordinate>
-      <RelativeY>-35.5</RelativeY>
-    </Frame>
-  </AnimationChain>
-  <AnimationChain>
     <Name>Run</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>450</LeftCoordinate>
-      <RightCoordinate>590</RightCoordinate>
-      <TopCoordinate>378</TopCoordinate>
-      <BottomCoordinate>760</BottomCoordinate>
+      <LeftCoordinate>1046</LeftCoordinate>
+      <RightCoordinate>1186</RightCoordinate>
+      <TopCoordinate>2</TopCoordinate>
+      <BottomCoordinate>384</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-25</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>308</LeftCoordinate>
-      <RightCoordinate>448</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>389</BottomCoordinate>
+      <LeftCoordinate>2</LeftCoordinate>
+      <RightCoordinate>142</RightCoordinate>
+      <TopCoordinate>797</TopCoordinate>
+      <BottomCoordinate>1184</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-27.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>450</LeftCoordinate>
-      <RightCoordinate>594</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>376</BottomCoordinate>
+      <LeftCoordinate>870</LeftCoordinate>
+      <RightCoordinate>1014</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>793</BottomCoordinate>
       <RelativeX>7</RelativeX>
       <RelativeY>-21</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>596</LeftCoordinate>
-      <RightCoordinate>736</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>381</BottomCoordinate>
+      <LeftCoordinate>728</LeftCoordinate>
+      <RightCoordinate>868</RightCoordinate>
+      <TopCoordinate>808</TopCoordinate>
+      <BottomCoordinate>1187</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-23.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>2</LeftCoordinate>
-      <RightCoordinate>142</RightCoordinate>
-      <TopCoordinate>373</TopCoordinate>
-      <BottomCoordinate>760</BottomCoordinate>
+      <LeftCoordinate>728</LeftCoordinate>
+      <RightCoordinate>868</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>806</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-27.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>308</LeftCoordinate>
-      <RightCoordinate>448</RightCoordinate>
-      <TopCoordinate>391</TopCoordinate>
-      <BottomCoordinate>774</BottomCoordinate>
+      <LeftCoordinate>574</LeftCoordinate>
+      <RightCoordinate>714</RightCoordinate>
+      <TopCoordinate>801</TopCoordinate>
+      <BottomCoordinate>1184</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-25.5</RelativeY>
     </Frame>
@@ -102,125 +70,155 @@
     <Name>Hurt</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
       <RelativeX>9</RelativeX>
+      <RelativeY>-27.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>looker.png</TextureName>
+      <FrameLength>0.04</FrameLength>
+      <LeftCoordinate>254</LeftCoordinate>
+      <RightCoordinate>412</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>805</BottomCoordinate>
+      <RelativeX>18</RelativeX>
       <RelativeY>-27</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
+      <LeftCoordinate>574</LeftCoordinate>
+      <RightCoordinate>726</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>799</BottomCoordinate>
+      <RelativeX>-3</RelativeX>
       <RelativeY>-30</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>looker.png</TextureName>
+      <FrameLength>0.08</FrameLength>
+      <LeftCoordinate>1016</LeftCoordinate>
+      <RightCoordinate>1156</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>787</BottomCoordinate>
+      <RelativeX>-19</RelativeX>
+      <RelativeY>-36</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>looker.png</TextureName>
+      <FrameLength>0.06</FrameLength>
+      <LeftCoordinate>904</LeftCoordinate>
+      <RightCoordinate>1044</RightCoordinate>
+      <TopCoordinate>2</TopCoordinate>
+      <BottomCoordinate>387</BottomCoordinate>
+      <RelativeX>14</RelativeX>
+      <RelativeY>-27.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>looker.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
+      <RelativeX>9</RelativeX>
+      <RelativeY>-27.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
     <Name>Dying</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
       <RelativeX>9</RelativeX>
+      <RelativeY>-27.5</RelativeY>
+    </Frame>
+    <Frame>
+      <TextureName>looker.png</TextureName>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>254</LeftCoordinate>
+      <RightCoordinate>412</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>805</BottomCoordinate>
+      <RelativeX>18</RelativeX>
       <RelativeY>-27</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
+      <FrameLength>0.08</FrameLength>
+      <LeftCoordinate>574</LeftCoordinate>
+      <RightCoordinate>726</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>799</BottomCoordinate>
+      <RelativeX>-3</RelativeX>
       <RelativeY>-30</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
-      <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>2</LeftCoordinate>
+      <RightCoordinate>204</RightCoordinate>
+      <TopCoordinate>390</TopCoordinate>
+      <BottomCoordinate>795</BottomCoordinate>
+      <RelativeX>10</RelativeX>
+      <RelativeY>-24.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>254</LeftCoordinate>
+      <RightCoordinate>480</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
-      <RelativeY>-30</RelativeY>
+      <BottomCoordinate>417</BottomCoordinate>
+      <RelativeX>8</RelativeX>
+      <RelativeY>-42.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
-      <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.03</FrameLength>
+      <LeftCoordinate>2</LeftCoordinate>
+      <RightCoordinate>252</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
-      <RelativeY>-30</RelativeY>
+      <BottomCoordinate>388</BottomCoordinate>
+      <RelativeX>6</RelativeX>
+      <RelativeY>-57</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
-      <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
-    </Frame>
-    <Frame>
-      <TextureName>looker.png</TextureName>
-      <FrameLength>0.01</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <LeftCoordinate>482</LeftCoordinate>
+      <RightCoordinate>756</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>382</BottomCoordinate>
-      <RelativeX>7</RelativeX>
-      <RelativeY>-30</RelativeY>
+      <BottomCoordinate>343</BottomCoordinate>
+      <RelativeX>6</RelativeX>
+      <RelativeY>-79.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
     <Name>StartMeleeAttack</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>254</LeftCoordinate>
+      <RightCoordinate>394</RightCoordinate>
+      <TopCoordinate>807</TopCoordinate>
+      <BottomCoordinate>1193</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-27</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>758</LeftCoordinate>
+      <RightCoordinate>902</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>382</BottomCoordinate>
       <RelativeX>7</RelativeX>
@@ -228,18 +226,18 @@
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.25</FrameLength>
-      <LeftCoordinate>2</LeftCoordinate>
-      <RightCoordinate>160</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>371</BottomCoordinate>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>572</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>788</BottomCoordinate>
       <RelativeY>-35.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.02</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.025</FrameLength>
+      <LeftCoordinate>758</LeftCoordinate>
+      <RightCoordinate>902</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>382</BottomCoordinate>
       <RelativeX>7</RelativeX>
@@ -250,19 +248,19 @@
     <Name>StartRangedAttack</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>254</LeftCoordinate>
+      <RightCoordinate>394</RightCoordinate>
+      <TopCoordinate>807</TopCoordinate>
+      <BottomCoordinate>1193</BottomCoordinate>
       <RelativeX>9</RelativeX>
       <RelativeY>-27</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.05</FrameLength>
+      <LeftCoordinate>758</LeftCoordinate>
+      <RightCoordinate>902</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>382</BottomCoordinate>
       <RelativeX>7</RelativeX>
@@ -270,18 +268,18 @@
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.25</FrameLength>
-      <LeftCoordinate>2</LeftCoordinate>
-      <RightCoordinate>160</RightCoordinate>
-      <TopCoordinate>2</TopCoordinate>
-      <BottomCoordinate>371</BottomCoordinate>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>572</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>788</BottomCoordinate>
       <RelativeY>-35.5</RelativeY>
     </Frame>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.02</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>306</RightCoordinate>
+      <FrameLength>0.025</FrameLength>
+      <LeftCoordinate>758</LeftCoordinate>
+      <RightCoordinate>902</RightCoordinate>
       <TopCoordinate>2</TopCoordinate>
       <BottomCoordinate>382</BottomCoordinate>
       <RelativeX>7</RelativeX>
@@ -292,26 +290,26 @@
     <Name>FinishRangedAttack</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.5</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
       <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
+      <RelativeY>-27.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
     <Name>FinishMeleeAttack</Name>
     <Frame>
       <TextureName>looker.png</TextureName>
-      <FrameLength>0.5</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
       <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
+      <RelativeY>-27.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -319,12 +317,12 @@
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <LeftCoordinate>728</LeftCoordinate>
+      <RightCoordinate>868</RightCoordinate>
+      <TopCoordinate>419</TopCoordinate>
+      <BottomCoordinate>806</BottomCoordinate>
       <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
+      <RelativeY>-27.5</RelativeY>
     </Frame>
   </AnimationChain>
   <AnimationChain>
@@ -332,12 +330,12 @@
     <Frame>
       <TextureName>looker.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>162</LeftCoordinate>
-      <RightCoordinate>302</RightCoordinate>
-      <TopCoordinate>384</TopCoordinate>
-      <BottomCoordinate>770</BottomCoordinate>
+      <LeftCoordinate>414</LeftCoordinate>
+      <RightCoordinate>554</RightCoordinate>
+      <TopCoordinate>790</TopCoordinate>
+      <BottomCoordinate>1175</BottomCoordinate>
       <RelativeX>9</RelativeX>
-      <RelativeY>-27</RelativeY>
+      <RelativeY>-27.5</RelativeY>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>
