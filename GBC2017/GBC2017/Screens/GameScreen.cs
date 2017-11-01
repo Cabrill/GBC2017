@@ -298,9 +298,9 @@ namespace GBC2017.Screens
 
         #region Activity
 
-        private bool isDragging = false;
-        private float startX;
-        private float startY;
+        //private bool isDragging = false;
+        //private float startX;
+        //private float startY;
         void CustomActivity(bool firstTimeCalled)
         {
 
@@ -324,38 +324,38 @@ namespace GBC2017.Screens
             SelectedItemActivity();
             BuildingStatusActivity();
 
-            if (GuiManager.Cursor.PrimaryDown && selectedObject == null && GuiManager.Cursor.WindowPushed == null)
-            {
-                if (!isDragging)
-                {
-                    startX = GuiManager.Cursor.ScreenX;
-                    startY = GuiManager.Cursor.ScreenY;
-                    isDragging = true;
-                }
-                const float cameraMoveSpeed = 0.25f;
+            //if (GuiManager.Cursor.PrimaryDown && selectedObject == null && GuiManager.Cursor.WindowPushed == null)
+            //{
+            //    if (!isDragging)
+            //    {
+            //        startX = GuiManager.Cursor.ScreenX;
+            //        startY = GuiManager.Cursor.ScreenY;
+            //        isDragging = true;
+            //    }
+            //    const float cameraMoveSpeed = 0.25f;
 
-                var x = GuiManager.Cursor.ScreenX;
-                var y = GuiManager.Cursor.ScreenY;
+            //    var x = GuiManager.Cursor.ScreenX;
+            //    var y = GuiManager.Cursor.ScreenY;
 
-                var newX = Camera.Main.X - ((x - startX) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
-                var newY = Camera.Main.Y + ((y - startY) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
+            //    var newX = Camera.Main.X - ((x - startX) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
+            //    var newY = Camera.Main.Y + ((y - startY) * cameraMoveSpeed / CameraZoomManager.GumCoordOffset);
 
-                var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth - Camera.Main.OrthogonalWidth) /
-                                            2;
-                var effectiveScreenLimitY =
-                    (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
+            //    var effectiveScreenLimitX = (CameraZoomManager.OriginalOrthogonalWidth - Camera.Main.OrthogonalWidth) /
+            //                                2;
+            //    var effectiveScreenLimitY =
+            //        (CameraZoomManager.OriginalOrthogonalHeight - Camera.Main.OrthogonalHeight) / 2;
 
-                newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
-                newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
+            //    newX = MathHelper.Clamp(newX, -effectiveScreenLimitX, effectiveScreenLimitX);
+            //    newY = MathHelper.Clamp(newY, -effectiveScreenLimitY, effectiveScreenLimitY);
 
-                Camera.Main.X = newX;
-                Camera.Main.Y = newY;
+            //    Camera.Main.X = newX;
+            //    Camera.Main.Y = newY;
 
-                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-                Camera.Main.ForceUpdateDependencies();
-                HorizonBoxInstance.ReactToCameraChange();
-            }
-            else isDragging = false;
+            //    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+            //    Camera.Main.ForceUpdateDependencies();
+            //    HorizonBoxInstance.ReactToCameraChange();
+            //}
+            //else isDragging = false;
 
 
             var gameplayOccuring = !IsPaused && GameHasStarted;
