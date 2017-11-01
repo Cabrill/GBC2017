@@ -547,8 +547,8 @@ namespace GBC2017.Screens
 
 	            if (!PlayAreaPolygon.CollideAgainst(enemy.CircleInstance))
 	            {
-	                enemy.Destroy();
-	                enemy = null;
+	                //enemy.Destroy();
+	                //enemy = null;
 	            }
 	            else
 	            {

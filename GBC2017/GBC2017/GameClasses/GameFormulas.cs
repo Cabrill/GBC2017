@@ -209,6 +209,8 @@ namespace GBC2017.GameClasses
                 var boss = SlimeAlienFactory.CreateNew(layerToPutEnemyOn);
                 boss.MaximumHealth = energyAmount / BaseEnergyPerHitPoint;
                 boss.HealthRemaining = boss.MaximumHealth;
+                boss.Speed *= 2;
+                boss.MeleeAttackDamage *= 4;
                 energyAmount = 0;
                 return boss;
             }

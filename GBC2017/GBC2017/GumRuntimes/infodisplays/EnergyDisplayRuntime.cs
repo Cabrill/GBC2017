@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GBC2017.ResourceManagers;
 
 namespace GBC2017.GumRuntimes
 {
@@ -18,9 +19,9 @@ namespace GBC2017.GumRuntimes
         {
             var netEnergy = energyIncrease - energyDecrease;
 
-            var energyIncreaseText = $"+ {Math.Round(energyIncrease)}";
-            var energyDecreaseText = $"- {Math.Round(energyDecrease)}";
-            var energyNetText = $"{Math.Round(netEnergy)}";
+            var energyIncreaseText = EnergyManager.FormatEnergyAmount(energyIncrease);
+            var energyDecreaseText = EnergyManager.FormatEnergyAmount(energyDecrease);
+            var energyNetText = EnergyManager.FormatEnergyAmount(netEnergy);
 
             EnergyIncreaseText.Text = energyIncreaseText;
             EnergyDecreaseText.Text = energyDecreaseText;

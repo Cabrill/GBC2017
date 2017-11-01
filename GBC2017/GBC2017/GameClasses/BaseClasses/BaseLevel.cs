@@ -33,6 +33,7 @@ namespace GBC2017.GameClasses.BaseClasses
         private DateTime _lastEnergyUpdate;
         private Layer _layerForEnemies;
         private int _wavesSent;
+        protected bool HasSentBoss = false;
         
         protected FlatRedBall.Math.PositionedObjectList<BaseEnemy> _enemyList;
         protected List<AlienShipRuntime> _alienShips;
@@ -59,7 +60,7 @@ namespace GBC2017.GameClasses.BaseClasses
         {
             if (EndTime != DateTime.MaxValue)
             {
-                return currentDateTime >= EndTime && _enemyList.Count == 0;
+                return HasSentBoss && currentDateTime >= EndTime && _enemyList.Count == 0;
             }
             return false;
         }
@@ -96,7 +97,7 @@ namespace GBC2017.GameClasses.BaseClasses
                 {
                     newEnemy?.PlaceOnLeftSide();
                 }
-
+                if (useBossMonster) HasSentBoss = true;
                 leftRightToggle *= -1;
             }
         }
@@ -109,7 +110,7 @@ namespace GBC2017.GameClasses.BaseClasses
                 _lastEnergyUpdate = currentDateTime;
             }
 
-            if (!sentShip && currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves - 1 && currentDateTime < EndTime)
+            if (!sentShip && currentDateTime > _lastEnemyWave && (currentDateTime - _lastEnemyWave).Hours >= HoursBetweenWaves - 1 && currentDateTime < EndTime && !HasSentBoss)
             {
                 sentShip = true;
 
