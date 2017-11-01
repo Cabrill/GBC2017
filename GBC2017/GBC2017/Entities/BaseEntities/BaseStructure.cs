@@ -28,7 +28,7 @@ namespace GBC2017.Entities.BaseEntities
     {
         private static float _maximumY;
         protected float _currentScale;
-        private float _startingScale;
+        protected float _startingScale;
         private float _startingLightSpriteScale;
         private float _startingRectangleScaleX;
         private float _startingRectangleScaleY;
@@ -338,7 +338,7 @@ namespace GBC2017.Entities.BaseEntities
             }
         }
 
-        private float GetSpriteRelativeY()
+        protected float GetSpriteRelativeY()
         {
             if (SpriteInstance.CurrentChain == null || SpriteInstance.CurrentChain.Count == 1)
             {

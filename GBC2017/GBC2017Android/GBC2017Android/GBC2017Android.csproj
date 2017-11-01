@@ -1248,6 +1248,14 @@
       <Name>WinLose</Name>
       <Link>Assets\content\screens\gamescreen\winlose.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\alienship.gucx">
       <Name>alienship</Name>
       <Link>Assets\content\gumproject\components\alienship.gucx</Link>

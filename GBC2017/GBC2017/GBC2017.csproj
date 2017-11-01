@@ -878,6 +878,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TallLaserAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EmitterListFile</Name>
@@ -885,6 +889,10 @@
     <None Include="content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WaterDropAnimationChain</Name>
+    </None>
+    <None Include="content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
