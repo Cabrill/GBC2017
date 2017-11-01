@@ -339,6 +339,10 @@
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\BuildDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs">
+      <DependentUpon>BuildDisplayRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CustomNineSliceRuntime.Generated.cs" />
@@ -945,6 +949,10 @@
     <None Include="content\gumproject\components\infobar.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>InfoBar</Name>
+    </None>
+    <None Include="content\gumproject\components\infodisplays\builddisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildDisplay</Name>
     </None>
     <None Include="content\gumproject\components\infodisplays\conditionsforecast.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

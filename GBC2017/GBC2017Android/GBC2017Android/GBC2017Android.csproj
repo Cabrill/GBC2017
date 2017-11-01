@@ -812,6 +812,13 @@
       <Link>GumRuntimes\InfoBarRuntime.Generated.cs</Link>
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\BuildDisplayRuntime.cs">
+      <Link>GumRuntimes\infodisplays\BuildDisplayRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs</Link>
+      <DependentUpon>BuildDisplayRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
     </Compile>
@@ -1256,6 +1263,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>
       <Link>Assets\content\gumproject\components\endgamedisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\builddisplay.gucx">
+      <Name>builddisplay</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\builddisplay.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\conditionsforecast.gucx">
       <Name>conditionsforecast</Name>

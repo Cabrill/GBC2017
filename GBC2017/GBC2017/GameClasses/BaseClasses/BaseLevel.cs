@@ -119,11 +119,11 @@ namespace GBC2017.GameClasses.BaseClasses
                     wavesModifier = (float)_wavesSent+1 / _wavesToEaseIntoDifficulty;
                 }
 
-                var energyToSpend = wavesModifier *
+                var upcomingEnergy = wavesModifier *
                                 GameFormulas.Instance.HourlyEnergyUsageFromCurveAndAvgValue(currentDateTime.Hour+1,
                                     AvgDailyEnergyUsage);
 
-                if (EnergyToSpend + energyToSpend >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)
+                if (EnergyToSpend + upcomingEnergy >= GameFormulas.Instance.MinimumEnergyCostForAnEnemy)
                 {
 
                     if (currentAlienSides == AlienSides.Right || currentAlienSides == AlienSides.Both)

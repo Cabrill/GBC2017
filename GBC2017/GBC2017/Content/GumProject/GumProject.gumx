@@ -69,6 +69,10 @@
     <ElementType>Component</ElementType>
   </ComponentReference>
   <ComponentReference>
+    <Name>infodisplays/BuildDisplay</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>infodisplays/ConditionsForecast</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

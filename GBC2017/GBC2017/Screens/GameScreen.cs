@@ -107,7 +107,7 @@ namespace GBC2017.Screens
             StartButtonInstance.Click += OnStartButtonInstanceClick;
             GameHasStarted = false;
             
-            InfoBarInstance.Initialize(currentLevelDateTime, CurrentLevel.EndTime, SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
+            InfoBarInstance.Initialize(currentLevelDateTime.AddHours(CurrentLevel.City.UTCOffset), CurrentLevel.EndTime.AddHours(CurrentLevel.City.UTCOffset), SunlightManager.NineHourForecast, WindManager.NineHourForecast, WaterManager.NineHourForecast);
 
             CreateNotificationPool();
         }

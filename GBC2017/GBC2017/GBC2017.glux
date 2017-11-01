@@ -490,6 +490,16 @@
           <IndependentOfCamera>true</IndependentOfCamera>
           <LayerOn>HUDLayer</LayerOn>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameScreenGum.gusx</SourceFile>
+          <SourceName>BuildDisplayInstance (GBC2017.GumRuntimes.BuildDisplayRuntime)</SourceName>
+          <InstanceName>BuildDisplayInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+          <LayerOn>InfoLayer</LayerOn>
+        </NamedObjectSave>
       </NamedObjects>
       <UseGlobalContent>true</UseGlobalContent>
     </ScreenSave>
@@ -766,6 +776,17 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
@@ -1962,6 +1983,17 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -2171,6 +2203,17 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
@@ -2941,6 +2984,17 @@
           <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
           <SourceObject>LightSpriteInstance</SourceObject>
           <SourceObjectProperty>Blue</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <SetByDerived>true</SetByDerived>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -8402,7 +8456,7 @@
           </Properties>
           <Name>AttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">40</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8438,7 +8492,7 @@
           </Properties>
           <Name>RangedRadius</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">350</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">375</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -8478,6 +8532,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">This cannon shoots explosive balls of energy that hit all enemies in the area of impact.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -8488,6 +8554,26 @@
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>600</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>806</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>874</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>1042</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -8780,6 +8866,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">The turret locks on and fires quickly, stunning the enemies it hits.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -8792,6 +8890,26 @@
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>885</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>1047</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>917</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>1103</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -9089,6 +9207,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">This long-ranged tower deals high damage, but shoots infrequently.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseCombatStructure</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -9099,6 +9229,26 @@
             <Type>Texture2D</Type>
             <Member>Texture</Member>
             <ValueAsString>animation_sheet</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>LeftTexturePixel</Member>
+            <ValueAsFloat>753</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>RightTexturePixel</Member>
+            <ValueAsFloat>883</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TopTexturePixel</Member>
+            <ValueAsFloat>2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>BottomTexturePixel</Member>
+            <ValueAsFloat>461</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -9347,6 +9497,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Generates a constant supply of energy so long as the river is flowing.  Limit of one per location.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -9369,27 +9531,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>looker</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>1887</ValueAsFloat>
+            <ValueAsFloat>1214</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>2046</ValueAsFloat>
+            <ValueAsFloat>1726</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>299</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>495</ValueAsFloat>
+            <ValueAsFloat>485</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -9599,6 +9761,12 @@
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <UseGlobalContent>true</UseGlobalContent>
@@ -9764,6 +9932,18 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Solar panels only generate electricity during the day, but they are very affordable.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
@@ -10013,6 +10193,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Captures the kinetic energy of the wind to generate energy for your defenses.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseEnergyProducer</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -10024,27 +10216,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>looker</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>1756</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>59</ValueAsFloat>
+            <ValueAsFloat>2048</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>495</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>1007</ValueAsFloat>
+            <ValueAsFloat>720</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10146,6 +10338,14 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/Enemies/BasicAlien/looker.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
       <CreatedByOtherEntities>true</CreatedByOtherEntities>
       <UseGlobalContent>true</UseGlobalContent>
       <Is2D>true</Is2D>
@@ -10299,6 +10499,18 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">A beautiful home where people live.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
@@ -10535,6 +10747,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Stores energy in reserve for times when the sun is down, the wind isn't blowing or the river is frozen.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -10546,27 +10770,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>animation_sheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>260</ValueAsFloat>
+            <ValueAsFloat>1519</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>317</ValueAsFloat>
+            <ValueAsFloat>1656</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>22</ValueAsFloat>
+            <ValueAsFloat>576</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>93</ValueAsFloat>
+            <ValueAsFloat>751</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10789,6 +11013,18 @@
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Captures carbon from the air, providing minerals at the cost of energy.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseMineralsProducer</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -10798,27 +11034,27 @@
           <CustomProperty>
             <Type>Texture2D</Type>
             <Member>Texture</Member>
-            <ValueAsString>AllAssetsSheet</ValueAsString>
+            <ValueAsString>animation_sheet</ValueAsString>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>LeftTexturePixel</Member>
-            <ValueAsFloat>238</ValueAsFloat>
+            <ValueAsFloat>1104</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>RightTexturePixel</Member>
-            <ValueAsFloat>392</ValueAsFloat>
+            <ValueAsFloat>1233</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TopTexturePixel</Member>
-            <ValueAsFloat>265</ValueAsFloat>
+            <ValueAsFloat>1116</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>BottomTexturePixel</Member>
-            <ValueAsFloat>495</ValueAsFloat>
+            <ValueAsFloat>1311</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
@@ -10967,7 +11203,7 @@
           </Properties>
           <Name>EnergyRequiredPerSecond</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">-10</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -11051,6 +11287,18 @@
           <DefaultValue xsi:type="xsd:boolean">true</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
           <CreatesEvent>true</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>StructureDescription</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Intercepts projectiles to protect itself and surrounding buildings from enemy fire.</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
       <BaseEntity>Entities\BaseEntities\BaseStructure</BaseEntity>
