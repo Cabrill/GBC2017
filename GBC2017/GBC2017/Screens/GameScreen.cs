@@ -311,14 +311,14 @@ namespace GBC2017.Screens
             UpdateMusic();
             UpdateGameModeActivity();
 
-            if (InputManager.Mouse.ScrollWheel.Velocity != 0)
-            {
-                CameraZoomManager.PerformZoom(GuiManager.Cursor.WorldXAt(1), GuiManager.Cursor.WorldYAt(1), -InputManager.Mouse.ScrollWheelChange/10);
-                Camera.Main.ForceUpdateDependencies();
-                //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
-                HorizonBoxInstance.ReactToCameraChange();
-                AdjustLayerOrthoValues();
-            }
+            //if (InputManager.Mouse.ScrollWheel.Velocity != 0)
+            //{
+            //    CameraZoomManager.PerformZoom(GuiManager.Cursor.WorldXAt(1), GuiManager.Cursor.WorldYAt(1), -InputManager.Mouse.ScrollWheelChange/10);
+            //    Camera.Main.ForceUpdateDependencies();
+            //    //Update the HorizonBox since the CameraZoomManager doesn't have a reference to it.
+            //    HorizonBoxInstance.ReactToCameraChange();
+            //    AdjustLayerOrthoValues();
+            //}
 
             HandleTouchActivity();
             SelectedItemActivity();

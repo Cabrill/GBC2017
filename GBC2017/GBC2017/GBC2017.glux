@@ -538,6 +538,12 @@
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>GumProject/teamfutelogo.png</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -4042,7 +4048,7 @@
           </Properties>
           <Name>RangedAttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">20</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -4559,7 +4565,7 @@
           </Properties>
           <Name>MeleeAttackDamage</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">6</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -9506,7 +9512,7 @@
           </Properties>
           <Name>StructureDescription</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Generates a constant supply of energy so long as the river is flowing.  Limit of one per location.</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Creates a constant supply of energy while the river is flowing.  Limit of one.</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -9560,12 +9566,13 @@
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
-            <Member>Visible</Member>
-            <ValueAsBool>true</ValueAsBool>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
-            <Type>string</Type>
-            <Member>CurrentChainName</Member>
+            <Type>bool</Type>
+            <Member>Animate</Member>
+            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <CustomProperty>
             <Type>AnimationChainList</Type>
@@ -9574,13 +9581,8 @@
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
-            <Member>Animate</Member>
-            <ValueAsBool>false</ValueAsBool>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
+            <Member>Visible</Member>
+            <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10021,14 +10023,6 @@
             <Member>Visible</Member>
             <ValueAsBool>true</ValueAsBool>
           </CustomProperty>
-          <CustomProperty>
-            <Type>string</Type>
-            <Member>CurrentChainName</Member>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>AnimationChainList</Type>
-            <Member>AnimationChains</Member>
-          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
           <InstanceName>SpriteInstance</InstanceName>
@@ -10278,6 +10272,11 @@
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
             <Member>Animate</Member>
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
@@ -10285,11 +10284,6 @@
             <Type>AnimationChainList</Type>
             <Member>AnimationChains</Member>
             <ValueAsString>AnimationChainListFile</ValueAsString>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>bool</Type>
-            <Member>UseAnimationRelativePosition</Member>
-            <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>Sprite</SourceClassType>
@@ -10805,7 +10799,7 @@
           </Properties>
           <Name>StructureDescription</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Stores energy in reserve for times when the sun is down, the wind isn't blowing or the river is frozen.</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Stores energy for times when the sun is down, the wind isn't blowing or the river is frozen.</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>
@@ -11346,7 +11340,7 @@
           </Properties>
           <Name>StructureDescription</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Intercepts projectiles to protect itself and surrounding buildings from enemy fire.</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">Intercepts projectiles to protect itself and nearby buildings from enemy fire.</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
       </CustomVariables>

@@ -24,7 +24,7 @@
     <property name="Speed" type="float" default="75" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" />
-    <property name="RangedAttackDamage" type="float" default="20" />
+    <property name="RangedAttackDamage" type="float" default="15" />
     <property name="ProjectileSpeed" type="float" default="200" />
     <property name="SecondsBetweenRangedAttack" type="float" default="4" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
@@ -42,7 +42,7 @@
     <property name="MaximumHealth" type="float" default="160" />
     <property name="Speed" type="float" default="175" />
     <property name="IsRangedAttacker" type="bool" default="false" />
-    <property name="MeleeAttackDamage" type="float" default="8" />
+    <property name="MeleeAttackDamage" type="float" default="6" />
     <property name="RangedAttackDamage" type="float" default="0" />
     <property name="ProjectileSpeed" type="float" default="0" />
     <property name="SecondsBetweenRangedAttack" type="float" default="0" />
@@ -174,7 +174,7 @@
     <property name="BladeRadiusInMeters" type="float" default="0.75" />
     <property name="efficiency" type="float" default="0.2" />
     <property name="IsTurnedOn" type="bool" default="true" />
-    <property name="StructureDescription" type="string" default="Generates a constant supply of energy so long as the river is flowing.  Limit of one per location." />
+    <property name="StructureDescription" type="string" default="Creates a constant supply of energy while the river is flowing.  Limit of one." />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="0" />
@@ -223,7 +223,7 @@
     <property name="DisplayName" type="string" default="Battery" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
-    <property name="StructureDescription" type="string" default="Stores energy in reserve for times when the sun is down, the wind isn't blowing or the river is frozen." />
+    <property name="StructureDescription" type="string" default="Stores energy for times when the sun is down, the wind isn't blowing or the river is frozen." />
   </objecttype>
   <objecttype name="CarbonTree">
     <property name="EnergyBuildCost" type="float" default="0" />
@@ -249,6 +249,6 @@
     <property name="RequiredEnergyPercentToRaiseShields" type="float" default="0.3" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
-    <property name="StructureDescription" type="string" default="Intercepts projectiles to protect itself and surrounding buildings from enemy fire." />
+    <property name="StructureDescription" type="string" default="Intercepts projectiles to protect itself and nearby buildings from enemy fire." />
   </objecttype>
 </objecttypes>

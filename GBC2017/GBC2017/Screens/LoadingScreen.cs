@@ -21,7 +21,7 @@ namespace GBC2017.Screens
 
 		void CustomInitialize()
 		{
-            LoadingScreenGumRuntime.SpinTurbineAnimation.Play();
+            
 		}
 
 		void CustomActivity(bool firstTimeCalled)

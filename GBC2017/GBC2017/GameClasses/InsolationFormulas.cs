@@ -99,7 +99,15 @@ namespace GBC2017.GameClasses
             SunTimes.Instance.CalculateSunRiseSetTimes(city.Latitude, city.Longitude, date, ref riseTime,
                 ref setTime, ref isSunrise, ref isSunset);
 
-            var dayTimeSpan = setTime - riseTime;
+            TimeSpan dayTimeSpan;
+            if (setTime > riseTime)
+            {
+                dayTimeSpan = setTime - riseTime;
+            }
+            else
+            {
+                dayTimeSpan = riseTime - setTime;
+            }
 
             if (dayTimeSpan.TotalHours > 0)
             {

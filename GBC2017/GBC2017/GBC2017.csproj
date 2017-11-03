@@ -634,6 +634,11 @@
       <Name>Font18Arial_0</Name>
       <Link>content\gumproject\fontcache\font18arial_0.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font22arial_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font22Arial_0</Name>
+      <Link>content\gumproject\fontcache\font22arial_0.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50Moire_ExtraBold_o2_0</Name>
@@ -738,6 +743,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Red_topRight</Name>
       <Link>content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\teamfutelogo.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>teamfutelogo</Name>
+      <Link>content\gumproject\teamfutelogo.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\allassetssheet.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1025,6 +1035,10 @@
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font22arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font22Arial</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
