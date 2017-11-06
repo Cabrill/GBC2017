@@ -17,8 +17,8 @@ namespace GBC2017.ResourceManagers
 {
     public static class EnergyManager
     {
-        public static double EnergyIncrease { get; private set; }
-        public static double EnergyDecrease { get; private set; }
+        public static double EnergyIncrease { get; private set; } = 0;
+        public static double EnergyDecrease { get; private set; } = 0;
         public static double StoredEnergy { get; private set; }
         public static double MaxStorage { get; private set; }
 
@@ -30,10 +30,15 @@ namespace GBC2017.ResourceManagers
 
         private static Home _home;
 
+        private static double _lastUpdate;
+        private static double _currentSecondIncrease;
+        private static double _currentSecondDecrease;
+
         public static void Initialize(PositionedObjectList<BaseStructure> allStructures)
         {
             _allStructures =  allStructures;
             _home = _allStructures.OfType<Home>().FirstOrDefault();
+            _lastUpdate = TimeManager.CurrentTime;
         }
 
         public static void Update(bool isPregame)
@@ -54,6 +59,16 @@ namespace GBC2017.ResourceManagers
             }
             else
             {
+                if (TimeManager.SecondsSince(_lastUpdate) >= 1)
+                {
+                    _lastUpdate = TimeManager.CurrentTime;
+                    EnergyIncrease = _currentSecondIncrease;
+                    EnergyDecrease = _currentSecondDecrease;
+
+                    _currentSecondIncrease = 0;
+                    _currentSecondDecrease = 0;
+                }
+
                 if (_energyBuildDebt > 0)
                 {
                     if (_energyBuildDebt <= StoredEnergy)
@@ -65,12 +80,12 @@ namespace GBC2017.ResourceManagers
 
                 var energyGenerators = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && s is BaseEnergyProducer).Cast<BaseEnergyProducer>();
                 var energyGeneratorArray = energyGenerators as BaseEnergyProducer[] ?? energyGenerators.ToArray();
-                EnergyIncrease = energyGeneratorArray.Sum(eg => eg.EffectiveEnergyProducedPerSecond * TimeManager.SecondDifference);
+                _currentSecondIncrease += energyGeneratorArray.Sum(eg => eg.EffectiveEnergyProducedPerSecond * TimeManager.SecondDifference);
 
                 var energyRequesters = _allStructures.Where(s => s.IsBeingPlaced == false && s.IsDestroyed == false && s.IsTurnedOn && !(s is Home)).Except(energyGeneratorArray);
                 var energyRequesterArray = energyRequesters as BaseStructure[] ?? energyRequesters.ToArray();
                 
-                var availableIncrease = EnergyIncrease - _energyBuildDebt;
+                var availableIncrease = _currentSecondIncrease - _energyBuildDebt;
                 _energyBuildDebt = 0;
 
                 var energyRequestSum = energyRequesterArray.Sum(eu => eu.EnergyRequestAmount);
@@ -91,14 +106,14 @@ namespace GBC2017.ResourceManagers
                     {
                         ChargeBatteriesEqually(energySurplus);
                     }
-                    EnergyDecrease = energyRequestSum;
+                    _currentSecondDecrease += energyRequestSum;
                 }
                 else //Insufficient energy for all requests, charge non-batteries first, then evalute remainder
                 {
                     var nonBatteryRequesters = energyRequesterArray.Where(er => !(er is Home)).Except(BatteryList);
                     var nonBatteryRequesterList = nonBatteryRequesters as BaseStructure[] ?? nonBatteryRequesters.ToArray();
                     var nonBatteryRequestSum = nonBatteryRequesterList.Sum(nbr => nbr.EnergyRequestAmount);
-                    EnergyDecrease = nonBatteryRequestSum;
+                    _currentSecondDecrease += nonBatteryRequestSum;
 
                     var thereIsSufficientEnergyForNonBatteries = availableIncrease + energyInStorage >= nonBatteryRequestSum;
 

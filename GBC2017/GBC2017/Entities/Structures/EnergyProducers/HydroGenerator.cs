@@ -63,6 +63,13 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 		{
 		    if (IsBeingPlaced)
 		    {
+		        if (string.IsNullOrEmpty(SpriteInstance.CurrentChainName))
+		        {
+		            SpriteInstance.CurrentChainName = "Idle";
+		            _startingScale = SpriteInstance.TextureScale;
+		            SpriteInstance.RelativeY = SpriteInstance.Height / 3;
+                    _spriteRelativeY = GetSpriteRelativeY();
+                }
 		        LargeWheelSprite.ColorOperation = SpriteInstance.ColorOperation;
 		        LargeWheelSprite.Red = SpriteInstance.Red;
 		        LargeWheelSprite.Green = SpriteInstance.Green;

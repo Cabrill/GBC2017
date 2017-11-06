@@ -52,7 +52,7 @@ namespace GBC2017
 			graphics.PreferredBackBufferWidth = screenWidth;
 			graphics.PreferredBackBufferHeight = screenHeight;
 			#endif
-		
+            //FlatRedBall.TimeManager.TimeFactor = 0.5f;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);

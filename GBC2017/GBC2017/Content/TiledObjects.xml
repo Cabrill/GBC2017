@@ -24,7 +24,7 @@
     <property name="Speed" type="float" default="75" />
     <property name="IsRangedAttacker" type="bool" default="true" />
     <property name="MeleeAttackDamage" type="float" />
-    <property name="RangedAttackDamage" type="float" default="20" />
+    <property name="RangedAttackDamage" type="float" default="15" />
     <property name="ProjectileSpeed" type="float" default="200" />
     <property name="SecondsBetweenRangedAttack" type="float" default="4" />
     <property name="SecondsBetweenMeleeAttack" type="float" />
@@ -42,7 +42,7 @@
     <property name="MaximumHealth" type="float" default="160" />
     <property name="Speed" type="float" default="175" />
     <property name="IsRangedAttacker" type="bool" default="false" />
-    <property name="MeleeAttackDamage" type="float" default="8" />
+    <property name="MeleeAttackDamage" type="float" default="6" />
     <property name="RangedAttackDamage" type="float" default="0" />
     <property name="ProjectileSpeed" type="float" default="0" />
     <property name="SecondsBetweenRangedAttack" type="float" default="0" />
@@ -122,13 +122,14 @@
     <property name="EnergyRequiredPerSecond" type="int" default="0" />
     <property name="InternalBatteryMaxStorage" type="int" default="500" />
     <property name="DisplayName" type="string" default="Cannon" />
-    <property name="AttackDamage" type="float" default="40" />
+    <property name="AttackDamage" type="float" default="30" />
     <property name="SecondsBetweenFiring" type="float" default="2" />
     <property name="EnergyCostToFire" type="float" default="150" />
-    <property name="RangedRadius" type="float" default="350" />
+    <property name="RangedRadius" type="float" default="375" />
     <property name="ProjectileSpeed" type="float" default="200" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="This cannon shoots explosive balls of energy that hit all enemies in the area of impact." />
   </objecttype>
   <objecttype name="LaserTurret">
     <property name="AttackDamage" type="float" default="8" />
@@ -144,6 +145,7 @@
     <property name="DisplayName" type="string" default="Laser Turret" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="The turret locks on and fires quickly, stunning the enemies it hits." />
   </objecttype>
   <objecttype name="TallLaser">
     <property name="EnergyBuildCost" type="float" default="0" />
@@ -159,6 +161,7 @@
     <property name="ProjectileSpeed" type="float" default="1000" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="This long-ranged tower deals high damage, but shoots infrequently." />
   </objecttype>
   <objecttype name="HydroGenerator">
     <property name="EnergyBuildCost" type="float" default="0" />
@@ -171,6 +174,7 @@
     <property name="BladeRadiusInMeters" type="float" default="0.75" />
     <property name="efficiency" type="float" default="0.2" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Creates a constant supply of energy while the river is flowing.  Limit of one." />
   </objecttype>
   <objecttype name="SolarPanels">
     <property name="EnergyBuildCost" type="int" default="0" />
@@ -183,6 +187,7 @@
     <property name="PanelEfficiencyRating" type="float" default="0.22" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Solar panels only generate electricity during the day, but they are very affordable." />
   </objecttype>
   <objecttype name="WindTurbine">
     <property name="EnergyBuildCost" type="float" default="0" />
@@ -195,6 +200,7 @@
     <property name="AirDensity" type="float" default="1.225" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Captures the kinetic energy of the wind to generate energy for your defenses." />
   </objecttype>
   <objecttype name="Home">
     <property name="MaximumHealth" type="float" default="150" />
@@ -206,6 +212,7 @@
     <property name="DisplayName" type="string" default="Home" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="A beautiful home where people live." />
   </objecttype>
   <objecttype name="Battery">
     <property name="EnergyBuildCost" type="int" default="0" />
@@ -216,6 +223,7 @@
     <property name="DisplayName" type="string" default="Battery" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Stores energy for times when the sun is down, the wind isn't blowing or the river is frozen." />
   </objecttype>
   <objecttype name="CarbonTree">
     <property name="EnergyBuildCost" type="float" default="0" />
@@ -227,12 +235,13 @@
     <property name="DisplayName" type="string" default="Carbon Tree" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Captures carbon from the air, providing minerals at the cost of energy." />
   </objecttype>
   <objecttype name="ShieldGenerator">
     <property name="EnergyBuildCost" type="float" default="0" />
     <property name="MineralsBuildCost" type="float" default="100" />
     <property name="MaximumHealth" type="float" default="15" />
-    <property name="EnergyRequiredPerSecond" type="int" default="-10" />
+    <property name="EnergyRequiredPerSecond" type="int" default="10" />
     <property name="InternalBatteryMaxStorage" type="int" default="0" />
     <property name="DisplayName" type="string" default="Shield" />
     <property name="MaximumShieldHealth" type="float" default="50" />
@@ -240,5 +249,6 @@
     <property name="RequiredEnergyPercentToRaiseShields" type="float" default="0.3" />
     <property name="HasLightSource" type="bool" default="true" />
     <property name="IsTurnedOn" type="bool" default="true" />
+    <property name="StructureDescription" type="string" default="Intercepts projectiles to protect itself and nearby buildings from enemy fire." />
   </objecttype>
 </objecttypes>

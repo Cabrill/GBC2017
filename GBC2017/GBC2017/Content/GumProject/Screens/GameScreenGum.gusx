@@ -35,6 +35,12 @@
     </Variable>
     <Variable>
       <Type>bool</Type>
+      <Name>BuildDisplayInstance.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
       <Name>EndGameDisplayInstance.Visible</Name>
       <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
@@ -105,5 +111,9 @@
   <Instance>
     <Name>StartGameButtonInstance</Name>
     <BaseType>specificbuttons/StartGameButton</BaseType>
+  </Instance>
+  <Instance>
+    <Name>BuildDisplayInstance</Name>
+    <BaseType>infodisplays/BuildDisplay</BaseType>
   </Instance>
 </ScreenSave>

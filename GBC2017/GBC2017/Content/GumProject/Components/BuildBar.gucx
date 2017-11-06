@@ -952,6 +952,10 @@
     </State>
   </Category>
   <Instance>
+    <Name>SolarButton</Name>
+    <BaseType>BuildButton</BaseType>
+  </Instance>
+  <Instance>
     <Name>EnergyButtons</Name>
     <BaseType>Container</BaseType>
   </Instance>
@@ -968,10 +972,6 @@
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Instance>
-    <Name>SolarButton</Name>
-    <BaseType>BuildButton</BaseType>
-  </Instance>
-  <Instance>
     <Name>HydroButton</Name>
     <BaseType>BuildButton</BaseType>
   </Instance>
@@ -984,11 +984,11 @@
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Instance>
-    <Name>CarbonTreeButton</Name>
+    <Name>ShieldGeneratorButton</Name>
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Instance>
-    <Name>ShieldGeneratorButton</Name>
+    <Name>CarbonTreeButton</Name>
     <BaseType>BuildButton</BaseType>
   </Instance>
   <Instance>

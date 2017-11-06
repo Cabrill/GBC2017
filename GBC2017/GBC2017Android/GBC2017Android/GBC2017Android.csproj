@@ -812,6 +812,13 @@
       <Link>GumRuntimes\InfoBarRuntime.Generated.cs</Link>
       <DependentUpon>InfoBarRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\BuildDisplayRuntime.cs">
+      <Link>GumRuntimes\infodisplays\BuildDisplayRuntime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\gbc2017\GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs">
+      <Link>GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs</Link>
+      <DependentUpon>BuildDisplayRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\GBC2017\GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs">
       <Link>GumRuntimes\infodisplays\ConditionsDisplayRuntime.Generated.cs</Link>
     </Compile>
@@ -1157,6 +1164,10 @@
       <Name>Font18Arial_0</Name>
       <Link>Assets\content\gumproject\fontcache\font18arial_0.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font22arial_0.xnb">
+      <Name>Font22Arial_0</Name>
+      <Link>Assets\content\gumproject\fontcache\font22arial_0.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
       <Name>Font50Moire_ExtraBold_o2_0</Name>
       <Link>Assets\content\gumproject\fontcache\font50moire_extrabold_o2_0.xnb</Link>
@@ -1201,6 +1212,10 @@
       <Name>message9</Name>
       <Link>Assets\content\gumproject\standards\standardgraphics\message9.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\builtxnbs\android\gumproject\teamfutelogo.xnb">
+      <Name>teamfutelogo</Name>
+      <Link>Assets\content\gumproject\teamfutelogo.xnb</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\builtxnbs\android\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a">
       <Name>anttisinstrumentals_einszweidreiviolins</Name>
       <Link>Assets\content\screens\gamescreen\music\anttisinstrumentals_einszweidreiviolins.m4a</Link>
@@ -1241,6 +1256,18 @@
       <Name>WinLose</Name>
       <Link>Assets\content\screens\gamescreen\winlose.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx">
+      <Name>animationchainlistfile</Name>
+      <Link>Assets\content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\entities\structures\windturbine\wind_turbine.png">
+      <Name>wind_turbine</Name>
+      <Link>Assets\content\entities\structures\windturbine\wind_turbine.png</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\alienship.gucx">
       <Name>alienship</Name>
       <Link>Assets\content\gumproject\components\alienship.gucx</Link>
@@ -1256,6 +1283,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\endgamedisplay.gucx">
       <Name>endgamedisplay</Name>
       <Link>Assets\content\gumproject\components\endgamedisplay.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\builddisplay.gucx">
+      <Name>builddisplay</Name>
+      <Link>Assets\content\gumproject\components\infodisplays\builddisplay.gucx</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\infodisplays\conditionsforecast.gucx">
       <Name>conditionsforecast</Name>
@@ -1292,6 +1323,10 @@
     <AndroidAsset Include="..\..\gbc2017\content\gumproject\components\whiteframe.gucx">
       <Name>whiteframe</Name>
       <Link>Assets\content\gumproject\components\whiteframe.gucx</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\gbc2017\content\gumproject\fontcache\font22arial.fnt">
+      <Name>font22arial</Name>
+      <Link>Assets\content\gumproject\fontcache\font22arial.fnt</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\content\gumproject\fontcache\font18arial_0.xnb" />
     <None Include="packages.config">

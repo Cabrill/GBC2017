@@ -339,6 +339,10 @@
       <DependentUpon>ResourceBarRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\infodisplays\BuildDisplayRuntime.cs" />
+    <Compile Include="GumRuntimes\infodisplays\BuildDisplayRuntime.Generated.cs">
+      <DependentUpon>BuildDisplayRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\infodisplays\ConditionsForecastRuntime.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\CustomNineSliceRuntime.Generated.cs" />
@@ -630,6 +634,11 @@
       <Name>Font18Arial_0</Name>
       <Link>content\gumproject\fontcache\font18arial_0.xnb</Link>
     </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font22arial_0.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font22Arial_0</Name>
+      <Link>content\gumproject\fontcache\font22arial_0.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\gumproject\fontcache\font50moire_extrabold_o2_0.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font50Moire_ExtraBold_o2_0</Name>
@@ -734,6 +743,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Red_topRight</Name>
       <Link>content\gumproject\standards\standardgraphics\red_topright.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\gumproject\teamfutelogo.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>teamfutelogo</Name>
+      <Link>content\gumproject\teamfutelogo.xnb</Link>
     </None>
     <None Include="..\builtxnbs\desktopgl\screens\gamescreen\allassetssheet.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -874,6 +888,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TallLaserAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\structures\energyproducers\hydrogenerator\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\structures\energyproducers\hydrogenerator\emitterlistfile.emix">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>EmitterListFile</Name>
@@ -881,6 +899,10 @@
     <None Include="content\entities\structures\energyproducers\hydrogenerator\waterdropanimationchain.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WaterDropAnimationChain</Name>
+    </None>
+    <None Include="content\entities\structures\energyproducers\solarpanels\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\structures\utility\battery\batteryanimationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -946,6 +968,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>InfoBar</Name>
     </None>
+    <None Include="content\gumproject\components\infodisplays\builddisplay.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BuildDisplay</Name>
+    </None>
     <None Include="content\gumproject\components\infodisplays\conditionsforecast.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ConditionsForecast</Name>
@@ -1009,6 +1035,10 @@
     <None Include="content\gumproject\fontcache\font18arial.fnt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial</Name>
+    </None>
+    <None Include="content\gumproject\fontcache\font22arial.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Font22Arial</Name>
     </None>
     <None Include="content\gumproject\gumproject.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

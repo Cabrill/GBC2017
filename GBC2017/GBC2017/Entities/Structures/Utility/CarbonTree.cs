@@ -34,7 +34,7 @@ namespace GBC2017.Entities.Structures.Utility
 		    if (IsTurnedOn && !SpriteInstance.Animate) SpriteInstance.Animate = true;
 		    else if (!IsTurnedOn && SpriteInstance.Animate) SpriteInstance.Animate = false;
 
-		    if (TimeManager.SecondsSince(_lastMineralGenerationTime) >= 1)
+		    if (HasSufficientEnergy && TimeManager.SecondsSince(_lastMineralGenerationTime) >= 1)
 		    {
 		        _lastMineralGenerationTime = TimeManager.CurrentTime;
 		        ShouldGenerateMinerals = true;

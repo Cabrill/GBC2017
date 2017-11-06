@@ -45,6 +45,15 @@ namespace GBC2017.Entities.Structures.EnergyProducers
 
         private void CustomActivity()
         {
+            if (IsBeingPlaced)
+            {
+                if (string.IsNullOrEmpty(SpriteInstance.CurrentChainName))
+                {
+                    SpriteInstance.CurrentChainName = "Idle";
+                    _startingScale = SpriteInstance.TextureScale;
+                    _spriteRelativeY = GetSpriteRelativeY();
+                }
+            }
             if (IsTurnedOn)
             {
                 EffectiveEnergyProducedPerSecond = BaseEnergyPerSecond();
